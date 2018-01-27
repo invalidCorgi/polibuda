@@ -1,0 +1,263 @@
+library IEEE;                  -- dolaczenie standardowej biblioteki IEEE
+use IEEE.STD_LOGIC_1164.all;
+
+entity zad6 is                 -- glowny element projektu
+   port ( 
+      clock_27: in std_logic;
+      key: in std_logic_vector(1 to 1);
+		sw: in std_logic_vector(0 to 3);
+      hex0: out std_logic_vector(0 to 6);
+      hex1: out std_logic_vector(0 to 6);
+      hex2: out std_logic_vector(0 to 6);
+      hex3: out std_logic_vector(0 to 6);
+      hex4: out std_logic_vector(0 to 6);
+      hex5: out std_logic_vector(0 to 6);
+      hex6: out std_logic_vector(0 to 6);
+      hex7: out std_logic_vector(0 to 6);
+		ledr: out std_logic_vector(0 to 9)
+   );
+end zad6;
+
+architecture ar_zad_6 of zad6 is
+
+	signal muxj: std_logic_vector(0 to 3);--wyjscia funkcji j na muxach 
+	signal muxk: std_logic_vector(0 to 3);--wyjscia funkcji k na muxach 
+	signal muxd: std_logic_vector(0 to 3);--wyjscia funkcji d na muxach 
+   signal jkOut: std_logic_vector(0 to 3);--wyjścia jk - 1 licznik
+	signal dOut: std_logic_vector(0 to 3);--wyjście d - 2 licznik
+   signal clk: std_logic := '0';
+   signal i: integer := 0;
+	signal wyk: std_logic := '1';--warunkowanie wykonania zadań
+	signal wprowadzonaLiczba : std_logic_vector(0 to 3);
+
+   component clock
+      port(
+			wyk: in std_logic;
+         we: in std_logic;
+         i: inout integer;
+         wy: out std_logic
+      );
+   end component;
+
+   component digit
+      port( 
+         we: in std_logic_vector(0 to 3);
+         wy1: out std_logic_vector(0 to 6);
+			wy2: out std_logic_vector(0 to 6)
+      );
+   end component;
+
+   component jk
+      port( 
+         wej: in std_logic;
+			wek: in std_logic;
+         clk: in std_logic;
+         res: in std_logic;
+         wy: out std_logic
+      );
+   end component;
+	
+	component d
+      port( 
+         we: in std_logic;
+         clk: in std_logic;
+         res: in std_logic;
+         wy: out std_logic
+      );
+   end component;
+	
+   component mux
+      port( 
+         weI: in std_logic_vector(0 to 7);
+			weA: in std_logic_vector(0 to 2);
+         wy: out std_logic
+      );
+   end component;
+	
+
+begin
+   /*hex1 <= "1111111";
+   hex2 <= "1111111";
+   hex3 <= "1111111";*/
+   hex4 <= "1111111";
+   hex5 <= "1111111";
+   hex6 <= "1111111";
+   hex7 <= "1111111";
+		
+	/*process(key, wykonuj)
+	begin
+		if key(1) = '0' then
+			wykonuj <= '1';
+		end if;
+	end process;*/
+	
+		i0: clock port map (wyk,clock_27, i, clk);
+		/*i1: jk port map ((not s(3) or not s(1)),(s(3) or not s(2)), clk, '0', s(0)); --początek jk
+		i2: jk port map (s(0),not s(2), clk, '0', s(1));
+		i3: jk port map (mjk(0),(s(3) or s(1)), clk, '0', s(2));
+		i4: jk port map (mjk(2),mjk(1), clk, '0', s(3));
+		i5: mux port map (not s(3)&"1000000",s(0)&s(1)&s(2),mjk(0));
+		i6: mux port map ("11000010",s(0)&s(1)&s(2),mjk(1));
+		i7: mux port map ("01010000",s(0)&s(1)&s(2),mjk(2));
+		i8: digit port map (s, hex0); --koniec jk
+		i9: d port map (); */
+	
+end ar_zad_6;
+
+library IEEE;                  
+use IEEE.STD_LOGIC_1164.all; 
+entity clock is                -- zmniejszenie czestotliwosci zegara systemowego
+   port ( 
+		wyk: in std_logic;
+      we: in std_logic;
+      i: inout integer;
+      wy: out std_logic
+   );
+end clock;
+
+architecture ar_zad_5 of clock is
+begin
+   process (we)
+   begin
+	if(wyk = '1') then
+		wy <= we;
+	else
+		wy <= '0'
+	end if;
+   /*   if rising_edge(we) then 
+         i <= i+1;
+         if i = 14000000 then
+            wy <= '1';
+         end if; 
+         if i = 28000000 then
+            i <= 0;
+            wy <= '0';
+         end if;
+      end if;*/
+   end process;
+end ar_zad_5;
+
+library IEEE;                  
+use IEEE.STD_LOGIC_1164.all; 
+entity digit is                -- translacja wektora binarnego na cyfre w kodzie szesnastkowym
+   port ( 
+      we: in std_logic_vector(0 to 3);
+      wy1: out std_logic_vector(0 to 6);
+		wy2: out std_logic_vector(0 to 6)
+   );
+end digit;
+
+architecture ar_di of digit is
+begin
+   wy1(0) <= ((not we(3) and not we(2) and not we(1) and we(0)) or (not we(3) and we(2) and not we(1) and not we(0)));
+   wy1(1) <= ((we(2) and not we(1) and we(0)) or (we(2) and we(1) and not we(0)));
+   wy1(2) <= (not we(3) and not we(2) and we(1) and not we(0));
+   wy1(3) <= ((not we(3) and not we(2) and not we(1) and we(0)) or (not we(3) and we(2) and not we(1) and not we(0)) or (we(2) and we(1) and we(0)) or (we(3) and we(1)));
+   wy1(4) <= ((we(2) and not we(1)) or we(0));
+   wy1(5) <= ((we(1) and we(0)) or (not we(3) and not we(2) and we(0)) or (not we(3) and not we(2) and we(1)));
+   wy1(6) <= ((not we(3) and not we(2) and not we(1)) or (we(2) and we(1) and we(0)));
+	wy2(0) <= ((not we(3) and not we(2) and not we(1) and we(0)) or (not we(3) and we(2) and not we(1) and not we(0)));
+   wy2(1) <= ((we(2) and not we(1) and we(0)) or (we(2) and we(1) and not we(0)));
+   wy2(2) <= (not we(3) and not we(2) and we(1) and not we(0));
+   wy2(3) <= ((not we(3) and not we(2) and not we(1) and we(0)) or (not we(3) and we(2) and not we(1) and not we(0)) or (we(2) and we(1) and we(0)) or (we(3) and we(1)));
+   wy2(4) <= ((we(2) and not we(1)) or we(0));
+   wy2(5) <= ((we(1) and we(0)) or (not we(3) and not we(2) and we(0)) or (not we(3) and not we(2) and we(1)));
+   wy2(6) <= ((not we(3) and not we(2) and not we(1)) or (we(2) and we(1) and we(0)));
+end ar_di;
+
+library IEEE;                  
+use IEEE.STD_LOGIC_1164.all; 
+entity mux is                    -- multiplekser
+   port ( 
+         weI: in std_logic_vector(0 to 7);
+			weA: in std_logic_vector(0 to 2);
+         wy: out std_logic
+   );
+end mux;
+
+architecture ar_mux of mux is
+begin
+process(weI, weA)
+		begin
+		case weA is
+			when "000" => wy <= weI(0);
+			when "100" => wy <= weI(1);
+			when "010" => wy <= weI(2);
+			when "110" => wy <= weI(3);
+			when "001" => wy <= weI(4);
+			when "101" => wy <= weI(5);
+			when "011" => wy <= weI(6);
+			when "111" => wy <= weI(7);
+		end case;
+end process;
+
+
+
+end ar_mux;
+
+library IEEE;                  
+use IEEE.STD_LOGIC_1164.all; 
+entity jk is                    -- przerzutnik JK
+   port ( 
+      wej: in std_logic;
+		wek: in std_logic;
+      clk: in std_logic;
+      res: in std_logic;
+      wy: out std_logic
+   );
+end jk;
+
+architecture ar_jk of jk is
+
+signal temp: std_logic;
+
+begin
+   process (clk,res)
+   begin
+      if res='1' then 
+         temp <= '0';
+      else
+         if rising_edge(clk) then
+            if wej = '1' and wek = '1' then
+					temp <= not temp;
+				end if;
+            if wej = '0' and wek = '1' then
+					temp <= '0';
+				end if;
+            if wej = '1' and wek = '0' then
+					temp <= '1';
+				end if;
+            if wej = '0' and wek = '0' then
+					temp <= temp;
+				end if;
+         end if;
+      end if;
+		wy <= temp;
+   end process;
+	
+end ar_jk;
+
+library IEEE;                  
+use IEEE.STD_LOGIC_1164.all; 
+entity d is                    -- przerzutnik D
+   port ( 
+      we: in std_logic;
+      clk: in std_logic;
+      res: in std_logic;
+      wy: out std_logic
+   );
+end d;
+
+architecture ar_d of d is
+begin
+   process (clk,res)
+   begin
+      if res='0' then 
+         wy <= '0';
+      else
+         if rising_edge(clk) then
+            wy <= we;
+         end if;
+      end if;
+   end process;
+end ar_d;

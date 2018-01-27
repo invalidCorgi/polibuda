@@ -1,0 +1,427 @@
+Simulator report for VHDL_reklama
+Sat Jan 27 10:48:14 2018
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Simulator Summary
+  3. Simulator Settings
+  4. Simulation Waveforms
+  5. Coverage Summary
+  6. Complete 1/0-Value Coverage
+  7. Missing 1-Value Coverage
+  8. Missing 0-Value Coverage
+  9. Simulator INI Usage
+ 10. Simulator Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------+
+; Simulator Summary                          ;
++-----------------------------+--------------+
+; Type                        ; Value        ;
++-----------------------------+--------------+
+; Simulation Start Time       ; 0 ps         ;
+; Simulation End Time         ; 1.0 us       ;
+; Simulation Netlist Size     ; 200 nodes    ;
+; Simulation Coverage         ;      68.00 % ;
+; Total Number of Transitions ; 400          ;
+; Simulation Breakpoints      ; 0            ;
+; Family                      ; Cyclone II   ;
+; Device                      ; EP2C35F672C6 ;
++-----------------------------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Simulator Settings                                                                                                                                                                                           ;
++--------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+---------------+
+; Option                                                                                     ; Setting                                                                                         ; Default Value ;
++--------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+---------------+
+; Simulation mode                                                                            ; Timing                                                                                          ; Timing        ;
+; Start time                                                                                 ; 0 ns                                                                                            ; 0 ns          ;
+; Simulation results format                                                                  ; VWF                                                                                             ;               ;
+; Vector input source                                                                        ; /home/wojtekreg/MEGAsync/polibuda/podstawy_techniki_cyfrowej/projekty/VHDL_reklama/Waveform.vwf ;               ;
+; Add pins automatically to simulation output waveforms                                      ; On                                                                                              ; On            ;
+; Check outputs                                                                              ; Off                                                                                             ; Off           ;
+; Report simulation coverage                                                                 ; On                                                                                              ; On            ;
+; Display complete 1/0 value coverage report                                                 ; On                                                                                              ; On            ;
+; Display missing 1-value coverage report                                                    ; On                                                                                              ; On            ;
+; Display missing 0-value coverage report                                                    ; On                                                                                              ; On            ;
+; Detect setup and hold time violations                                                      ; Off                                                                                             ; Off           ;
+; Detect glitches                                                                            ; Off                                                                                             ; Off           ;
+; Disable timing delays in Timing Simulation                                                 ; Off                                                                                             ; Off           ;
+; Generate Signal Activity File                                                              ; Off                                                                                             ; Off           ;
+; Generate VCD File for PowerPlay Power Analyzer                                             ; Off                                                                                             ; Off           ;
+; Group bus channels in simulation results                                                   ; Off                                                                                             ; Off           ;
+; Preserve fewer signal transitions to reduce memory requirements                            ; On                                                                                              ; On            ;
+; Trigger vector comparison with the specified mode                                          ; INPUT_EDGE                                                                                      ; INPUT_EDGE    ;
+; Disable setup and hold time violations detection in input registers of bi-directional pins ; Off                                                                                             ; Off           ;
+; Overwrite Waveform Inputs With Simulation Outputs                                          ; Off                                                                                             ;               ;
+; Perform Glitch Filtering in Timing Simulation                                              ; Auto                                                                                            ; Auto          ;
++--------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+---------------+
+
+
++----------------------+
+; Simulation Waveforms ;
++----------------------+
+Waveform report data cannot be output to ASCII.
+Please use Quartus II 64-Bit to view the waveform report data.
+
+
++--------------------------------------------------------------------+
+; Coverage Summary                                                   ;
++-----------------------------------------------------+--------------+
+; Type                                                ; Value        ;
++-----------------------------------------------------+--------------+
+; Total coverage as a percentage                      ;      68.00 % ;
+; Total nodes checked                                 ; 200          ;
+; Total output ports checked                          ; 200          ;
+; Total output ports with complete 1/0-value coverage ; 136          ;
+; Total output ports with no 1/0-value coverage       ; 64           ;
+; Total output ports with no 1-value coverage         ; 64           ;
+; Total output ports with no 0-value coverage         ; 64           ;
++-----------------------------------------------------+--------------+
+
+
+The following table displays output ports that toggle between 1 and 0 during simulation.
++----------------------------------------------------------------------------------------------------+
+; Complete 1/0-Value Coverage                                                                        ;
++----------------------------------------+----------------------------------------+------------------+
+; Node Name                              ; Output Port Name                       ; Output Port Type ;
++----------------------------------------+----------------------------------------+------------------+
+; |VHDL_reklama|mux3bit_8to1:MUX3|Mux0~0 ; |VHDL_reklama|mux3bit_8to1:MUX3|Mux0~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX0|Mux2~0 ; |VHDL_reklama|mux3bit_8to1:MUX0|Mux2~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX4|Mux2~0 ; |VHDL_reklama|mux3bit_8to1:MUX4|Mux2~0 ; combout          ;
+; |VHDL_reklama|char7seg:H0|Display[5]   ; |VHDL_reklama|char7seg:H0|Display[5]   ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX0|Mux2~2 ; |VHDL_reklama|mux3bit_8to1:MUX0|Mux2~2 ; combout          ;
+; |VHDL_reklama|char7seg:H0|Display[4]   ; |VHDL_reklama|char7seg:H0|Display[4]   ; combout          ;
+; |VHDL_reklama|char7seg:H0|Display[2]~4 ; |VHDL_reklama|char7seg:H0|Display[2]~4 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX1|Mux0~1 ; |VHDL_reklama|mux3bit_8to1:MUX1|Mux0~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX1|Mux1~1 ; |VHDL_reklama|mux3bit_8to1:MUX1|Mux1~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX1|Mux1~2 ; |VHDL_reklama|mux3bit_8to1:MUX1|Mux1~2 ; combout          ;
+; |VHDL_reklama|char7seg:H1|Display[5]~0 ; |VHDL_reklama|char7seg:H1|Display[5]~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX1|Mux2~1 ; |VHDL_reklama|mux3bit_8to1:MUX1|Mux2~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX1|Mux2~2 ; |VHDL_reklama|mux3bit_8to1:MUX1|Mux2~2 ; combout          ;
+; |VHDL_reklama|char7seg:H1|Display[5]   ; |VHDL_reklama|char7seg:H1|Display[5]   ; combout          ;
+; |VHDL_reklama|char7seg:H1|Display[4]   ; |VHDL_reklama|char7seg:H1|Display[4]   ; combout          ;
+; |VHDL_reklama|char7seg:H1|Display[2]~1 ; |VHDL_reklama|char7seg:H1|Display[2]~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX2|Mux0~0 ; |VHDL_reklama|mux3bit_8to1:MUX2|Mux0~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX2|Mux0~3 ; |VHDL_reklama|mux3bit_8to1:MUX2|Mux0~3 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX2|Mux1~0 ; |VHDL_reklama|mux3bit_8to1:MUX2|Mux1~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX2|Mux1~1 ; |VHDL_reklama|mux3bit_8to1:MUX2|Mux1~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX2|Mux1~2 ; |VHDL_reklama|mux3bit_8to1:MUX2|Mux1~2 ; combout          ;
+; |VHDL_reklama|char7seg:H2|Display[5]~0 ; |VHDL_reklama|char7seg:H2|Display[5]~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX2|Mux2~1 ; |VHDL_reklama|mux3bit_8to1:MUX2|Mux2~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX2|Mux2~2 ; |VHDL_reklama|mux3bit_8to1:MUX2|Mux2~2 ; combout          ;
+; |VHDL_reklama|char7seg:H2|Display[5]   ; |VHDL_reklama|char7seg:H2|Display[5]   ; combout          ;
+; |VHDL_reklama|char7seg:H2|Display[4]   ; |VHDL_reklama|char7seg:H2|Display[4]   ; combout          ;
+; |VHDL_reklama|char7seg:H2|Display[2]~1 ; |VHDL_reklama|char7seg:H2|Display[2]~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX3|Mux0~2 ; |VHDL_reklama|mux3bit_8to1:MUX3|Mux0~2 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX3|Mux0~3 ; |VHDL_reklama|mux3bit_8to1:MUX3|Mux0~3 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX2|Mux0~5 ; |VHDL_reklama|mux3bit_8to1:MUX2|Mux0~5 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX3|Mux0~5 ; |VHDL_reklama|mux3bit_8to1:MUX3|Mux0~5 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX3|Mux1~1 ; |VHDL_reklama|mux3bit_8to1:MUX3|Mux1~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX3|Mux1~2 ; |VHDL_reklama|mux3bit_8to1:MUX3|Mux1~2 ; combout          ;
+; |VHDL_reklama|char7seg:H3|Display[5]~0 ; |VHDL_reklama|char7seg:H3|Display[5]~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX3|Mux2~0 ; |VHDL_reklama|mux3bit_8to1:MUX3|Mux2~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX3|Mux2~1 ; |VHDL_reklama|mux3bit_8to1:MUX3|Mux2~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX3|Mux2~2 ; |VHDL_reklama|mux3bit_8to1:MUX3|Mux2~2 ; combout          ;
+; |VHDL_reklama|char7seg:H3|Display[5]   ; |VHDL_reklama|char7seg:H3|Display[5]   ; combout          ;
+; |VHDL_reklama|char7seg:H3|Display[4]   ; |VHDL_reklama|char7seg:H3|Display[4]   ; combout          ;
+; |VHDL_reklama|char7seg:H3|Display[2]~1 ; |VHDL_reklama|char7seg:H3|Display[2]~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX7|Mux0~0 ; |VHDL_reklama|mux3bit_8to1:MUX7|Mux0~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX4|Mux0~3 ; |VHDL_reklama|mux3bit_8to1:MUX4|Mux0~3 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX4|Mux1~1 ; |VHDL_reklama|mux3bit_8to1:MUX4|Mux1~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX4|Mux1~2 ; |VHDL_reklama|mux3bit_8to1:MUX4|Mux1~2 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX4|Mux1~3 ; |VHDL_reklama|mux3bit_8to1:MUX4|Mux1~3 ; combout          ;
+; |VHDL_reklama|char7seg:H4|Display[5]~0 ; |VHDL_reklama|char7seg:H4|Display[5]~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX4|Mux2~1 ; |VHDL_reklama|mux3bit_8to1:MUX4|Mux2~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX4|Mux2~3 ; |VHDL_reklama|mux3bit_8to1:MUX4|Mux2~3 ; combout          ;
+; |VHDL_reklama|char7seg:H4|Display[5]   ; |VHDL_reklama|char7seg:H4|Display[5]   ; combout          ;
+; |VHDL_reklama|char7seg:H4|Display[4]   ; |VHDL_reklama|char7seg:H4|Display[4]   ; combout          ;
+; |VHDL_reklama|char7seg:H4|Display[2]~1 ; |VHDL_reklama|char7seg:H4|Display[2]~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX5|Mux0~0 ; |VHDL_reklama|mux3bit_8to1:MUX5|Mux0~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX7|Mux0~1 ; |VHDL_reklama|mux3bit_8to1:MUX7|Mux0~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX5|Mux0~2 ; |VHDL_reklama|mux3bit_8to1:MUX5|Mux0~2 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX5|Mux1~2 ; |VHDL_reklama|mux3bit_8to1:MUX5|Mux1~2 ; combout          ;
+; |VHDL_reklama|char7seg:H5|Display[5]~0 ; |VHDL_reklama|char7seg:H5|Display[5]~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX5|Mux2~0 ; |VHDL_reklama|mux3bit_8to1:MUX5|Mux2~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX5|Mux2~2 ; |VHDL_reklama|mux3bit_8to1:MUX5|Mux2~2 ; combout          ;
+; |VHDL_reklama|char7seg:H5|Display[5]   ; |VHDL_reklama|char7seg:H5|Display[5]   ; combout          ;
+; |VHDL_reklama|char7seg:H5|Display[4]   ; |VHDL_reklama|char7seg:H5|Display[4]   ; combout          ;
+; |VHDL_reklama|char7seg:H5|Display[2]~1 ; |VHDL_reklama|char7seg:H5|Display[2]~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX6|Mux0~1 ; |VHDL_reklama|mux3bit_8to1:MUX6|Mux0~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX6|Mux0~2 ; |VHDL_reklama|mux3bit_8to1:MUX6|Mux0~2 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX6|Mux0~3 ; |VHDL_reklama|mux3bit_8to1:MUX6|Mux0~3 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX6|Mux0~5 ; |VHDL_reklama|mux3bit_8to1:MUX6|Mux0~5 ; combout          ;
+; |VHDL_reklama|char7seg:H6|Display[5]~0 ; |VHDL_reklama|char7seg:H6|Display[5]~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX6|Mux2~0 ; |VHDL_reklama|mux3bit_8to1:MUX6|Mux2~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX6|Mux2~2 ; |VHDL_reklama|mux3bit_8to1:MUX6|Mux2~2 ; combout          ;
+; |VHDL_reklama|char7seg:H6|Display[5]   ; |VHDL_reklama|char7seg:H6|Display[5]   ; combout          ;
+; |VHDL_reklama|char7seg:H6|Display[4]   ; |VHDL_reklama|char7seg:H6|Display[4]   ; combout          ;
+; |VHDL_reklama|char7seg:H6|Display[2]~1 ; |VHDL_reklama|char7seg:H6|Display[2]~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX7|Mux0~5 ; |VHDL_reklama|mux3bit_8to1:MUX7|Mux0~5 ; combout          ;
+; |VHDL_reklama|char7seg:H7|Display[5]~0 ; |VHDL_reklama|char7seg:H7|Display[5]~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX7|Mux2~0 ; |VHDL_reklama|mux3bit_8to1:MUX7|Mux2~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX7|Mux2~2 ; |VHDL_reklama|mux3bit_8to1:MUX7|Mux2~2 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX7|Mux2~3 ; |VHDL_reklama|mux3bit_8to1:MUX7|Mux2~3 ; combout          ;
+; |VHDL_reklama|char7seg:H7|Display[5]   ; |VHDL_reklama|char7seg:H7|Display[5]   ; combout          ;
+; |VHDL_reklama|char7seg:H7|Display[4]   ; |VHDL_reklama|char7seg:H7|Display[4]   ; combout          ;
+; |VHDL_reklama|char7seg:H7|Display[2]~1 ; |VHDL_reklama|char7seg:H7|Display[2]~1 ; combout          ;
+; |VHDL_reklama|HEX0[5]                  ; |VHDL_reklama|HEX0[5]                  ; padio            ;
+; |VHDL_reklama|HEX0[4]                  ; |VHDL_reklama|HEX0[4]                  ; padio            ;
+; |VHDL_reklama|HEX0[3]                  ; |VHDL_reklama|HEX0[3]                  ; padio            ;
+; |VHDL_reklama|HEX0[2]                  ; |VHDL_reklama|HEX0[2]                  ; padio            ;
+; |VHDL_reklama|HEX0[1]                  ; |VHDL_reklama|HEX0[1]                  ; padio            ;
+; |VHDL_reklama|HEX0[0]                  ; |VHDL_reklama|HEX0[0]                  ; padio            ;
+; |VHDL_reklama|HEX1[6]                  ; |VHDL_reklama|HEX1[6]                  ; padio            ;
+; |VHDL_reklama|HEX1[5]                  ; |VHDL_reklama|HEX1[5]                  ; padio            ;
+; |VHDL_reklama|HEX1[4]                  ; |VHDL_reklama|HEX1[4]                  ; padio            ;
+; |VHDL_reklama|HEX1[3]                  ; |VHDL_reklama|HEX1[3]                  ; padio            ;
+; |VHDL_reklama|HEX1[2]                  ; |VHDL_reklama|HEX1[2]                  ; padio            ;
+; |VHDL_reklama|HEX1[1]                  ; |VHDL_reklama|HEX1[1]                  ; padio            ;
+; |VHDL_reklama|HEX1[0]                  ; |VHDL_reklama|HEX1[0]                  ; padio            ;
+; |VHDL_reklama|HEX2[6]                  ; |VHDL_reklama|HEX2[6]                  ; padio            ;
+; |VHDL_reklama|HEX2[5]                  ; |VHDL_reklama|HEX2[5]                  ; padio            ;
+; |VHDL_reklama|HEX2[4]                  ; |VHDL_reklama|HEX2[4]                  ; padio            ;
+; |VHDL_reklama|HEX2[3]                  ; |VHDL_reklama|HEX2[3]                  ; padio            ;
+; |VHDL_reklama|HEX2[2]                  ; |VHDL_reklama|HEX2[2]                  ; padio            ;
+; |VHDL_reklama|HEX2[1]                  ; |VHDL_reklama|HEX2[1]                  ; padio            ;
+; |VHDL_reklama|HEX2[0]                  ; |VHDL_reklama|HEX2[0]                  ; padio            ;
+; |VHDL_reklama|HEX3[6]                  ; |VHDL_reklama|HEX3[6]                  ; padio            ;
+; |VHDL_reklama|HEX3[5]                  ; |VHDL_reklama|HEX3[5]                  ; padio            ;
+; |VHDL_reklama|HEX3[4]                  ; |VHDL_reklama|HEX3[4]                  ; padio            ;
+; |VHDL_reklama|HEX3[3]                  ; |VHDL_reklama|HEX3[3]                  ; padio            ;
+; |VHDL_reklama|HEX3[2]                  ; |VHDL_reklama|HEX3[2]                  ; padio            ;
+; |VHDL_reklama|HEX3[1]                  ; |VHDL_reklama|HEX3[1]                  ; padio            ;
+; |VHDL_reklama|HEX3[0]                  ; |VHDL_reklama|HEX3[0]                  ; padio            ;
+; |VHDL_reklama|HEX4[6]                  ; |VHDL_reklama|HEX4[6]                  ; padio            ;
+; |VHDL_reklama|HEX4[5]                  ; |VHDL_reklama|HEX4[5]                  ; padio            ;
+; |VHDL_reklama|HEX4[4]                  ; |VHDL_reklama|HEX4[4]                  ; padio            ;
+; |VHDL_reklama|HEX4[3]                  ; |VHDL_reklama|HEX4[3]                  ; padio            ;
+; |VHDL_reklama|HEX4[2]                  ; |VHDL_reklama|HEX4[2]                  ; padio            ;
+; |VHDL_reklama|HEX4[1]                  ; |VHDL_reklama|HEX4[1]                  ; padio            ;
+; |VHDL_reklama|HEX4[0]                  ; |VHDL_reklama|HEX4[0]                  ; padio            ;
+; |VHDL_reklama|HEX5[6]                  ; |VHDL_reklama|HEX5[6]                  ; padio            ;
+; |VHDL_reklama|HEX5[5]                  ; |VHDL_reklama|HEX5[5]                  ; padio            ;
+; |VHDL_reklama|HEX5[4]                  ; |VHDL_reklama|HEX5[4]                  ; padio            ;
+; |VHDL_reklama|HEX5[3]                  ; |VHDL_reklama|HEX5[3]                  ; padio            ;
+; |VHDL_reklama|HEX5[2]                  ; |VHDL_reklama|HEX5[2]                  ; padio            ;
+; |VHDL_reklama|HEX5[1]                  ; |VHDL_reklama|HEX5[1]                  ; padio            ;
+; |VHDL_reklama|HEX5[0]                  ; |VHDL_reklama|HEX5[0]                  ; padio            ;
+; |VHDL_reklama|HEX6[6]                  ; |VHDL_reklama|HEX6[6]                  ; padio            ;
+; |VHDL_reklama|HEX6[5]                  ; |VHDL_reklama|HEX6[5]                  ; padio            ;
+; |VHDL_reklama|HEX6[4]                  ; |VHDL_reklama|HEX6[4]                  ; padio            ;
+; |VHDL_reklama|HEX6[3]                  ; |VHDL_reklama|HEX6[3]                  ; padio            ;
+; |VHDL_reklama|HEX6[2]                  ; |VHDL_reklama|HEX6[2]                  ; padio            ;
+; |VHDL_reklama|HEX6[1]                  ; |VHDL_reklama|HEX6[1]                  ; padio            ;
+; |VHDL_reklama|HEX6[0]                  ; |VHDL_reklama|HEX6[0]                  ; padio            ;
+; |VHDL_reklama|HEX7[6]                  ; |VHDL_reklama|HEX7[6]                  ; padio            ;
+; |VHDL_reklama|HEX7[5]                  ; |VHDL_reklama|HEX7[5]                  ; padio            ;
+; |VHDL_reklama|HEX7[4]                  ; |VHDL_reklama|HEX7[4]                  ; padio            ;
+; |VHDL_reklama|HEX7[3]                  ; |VHDL_reklama|HEX7[3]                  ; padio            ;
+; |VHDL_reklama|HEX7[2]                  ; |VHDL_reklama|HEX7[2]                  ; padio            ;
+; |VHDL_reklama|HEX7[1]                  ; |VHDL_reklama|HEX7[1]                  ; padio            ;
+; |VHDL_reklama|HEX7[0]                  ; |VHDL_reklama|HEX7[0]                  ; padio            ;
+; |VHDL_reklama|SW[16]                   ; |VHDL_reklama|SW[16]~corein            ; combout          ;
+; |VHDL_reklama|SW[15]                   ; |VHDL_reklama|SW[15]~corein            ; combout          ;
++----------------------------------------+----------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 1 during simulation.
++----------------------------------------------------------------------------------------------------+
+; Missing 1-Value Coverage                                                                           ;
++----------------------------------------+----------------------------------------+------------------+
+; Node Name                              ; Output Port Name                       ; Output Port Type ;
++----------------------------------------+----------------------------------------+------------------+
+; |VHDL_reklama|mux3bit_8to1:MUX0|Mux0~0 ; |VHDL_reklama|mux3bit_8to1:MUX0|Mux0~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX0|Mux0~1 ; |VHDL_reklama|mux3bit_8to1:MUX0|Mux0~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX0|Mux1~0 ; |VHDL_reklama|mux3bit_8to1:MUX0|Mux1~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX4|Mux0~0 ; |VHDL_reklama|mux3bit_8to1:MUX4|Mux0~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX0|Mux0~2 ; |VHDL_reklama|mux3bit_8to1:MUX0|Mux0~2 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX0|Mux1~1 ; |VHDL_reklama|mux3bit_8to1:MUX0|Mux1~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX4|Mux1~0 ; |VHDL_reklama|mux3bit_8to1:MUX4|Mux1~0 ; combout          ;
+; |VHDL_reklama|char7seg:H0|Display[5]~0 ; |VHDL_reklama|char7seg:H0|Display[5]~0 ; combout          ;
+; |VHDL_reklama|char7seg:H0|Display[5]~1 ; |VHDL_reklama|char7seg:H0|Display[5]~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX0|Mux2~1 ; |VHDL_reklama|mux3bit_8to1:MUX0|Mux2~1 ; combout          ;
+; |VHDL_reklama|char7seg:H0|Display[5]~2 ; |VHDL_reklama|char7seg:H0|Display[5]~2 ; combout          ;
+; |VHDL_reklama|char7seg:H0|Display[5]~3 ; |VHDL_reklama|char7seg:H0|Display[5]~3 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX0|Mux1~2 ; |VHDL_reklama|mux3bit_8to1:MUX0|Mux1~2 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX0|Mux0~3 ; |VHDL_reklama|mux3bit_8to1:MUX0|Mux0~3 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX6|Mux0~0 ; |VHDL_reklama|mux3bit_8to1:MUX6|Mux0~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX1|Mux0~0 ; |VHDL_reklama|mux3bit_8to1:MUX1|Mux0~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX1|Mux0~2 ; |VHDL_reklama|mux3bit_8to1:MUX1|Mux0~2 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX3|Mux0~1 ; |VHDL_reklama|mux3bit_8to1:MUX3|Mux0~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX1|Mux0~3 ; |VHDL_reklama|mux3bit_8to1:MUX1|Mux0~3 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX1|Mux1~0 ; |VHDL_reklama|mux3bit_8to1:MUX1|Mux1~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX1|Mux2~0 ; |VHDL_reklama|mux3bit_8to1:MUX1|Mux2~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX2|Mux0~1 ; |VHDL_reklama|mux3bit_8to1:MUX2|Mux0~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX2|Mux0~2 ; |VHDL_reklama|mux3bit_8to1:MUX2|Mux0~2 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX2|Mux0~4 ; |VHDL_reklama|mux3bit_8to1:MUX2|Mux0~4 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX2|Mux2~0 ; |VHDL_reklama|mux3bit_8to1:MUX2|Mux2~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX3|Mux0~4 ; |VHDL_reklama|mux3bit_8to1:MUX3|Mux0~4 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX3|Mux1~0 ; |VHDL_reklama|mux3bit_8to1:MUX3|Mux1~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX4|Mux0~1 ; |VHDL_reklama|mux3bit_8to1:MUX4|Mux0~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX4|Mux0~2 ; |VHDL_reklama|mux3bit_8to1:MUX4|Mux0~2 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX4|Mux2~2 ; |VHDL_reklama|mux3bit_8to1:MUX4|Mux2~2 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX5|Mux0~1 ; |VHDL_reklama|mux3bit_8to1:MUX5|Mux0~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX5|Mux1~0 ; |VHDL_reklama|mux3bit_8to1:MUX5|Mux1~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX5|Mux1~1 ; |VHDL_reklama|mux3bit_8to1:MUX5|Mux1~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX5|Mux2~1 ; |VHDL_reklama|mux3bit_8to1:MUX5|Mux2~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX6|Mux0~4 ; |VHDL_reklama|mux3bit_8to1:MUX6|Mux0~4 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX6|Mux1~0 ; |VHDL_reklama|mux3bit_8to1:MUX6|Mux1~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX6|Mux1~1 ; |VHDL_reklama|mux3bit_8to1:MUX6|Mux1~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX6|Mux1~2 ; |VHDL_reklama|mux3bit_8to1:MUX6|Mux1~2 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX6|Mux2~1 ; |VHDL_reklama|mux3bit_8to1:MUX6|Mux2~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX7|Mux0~2 ; |VHDL_reklama|mux3bit_8to1:MUX7|Mux0~2 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX7|Mux0~3 ; |VHDL_reklama|mux3bit_8to1:MUX7|Mux0~3 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX7|Mux0~4 ; |VHDL_reklama|mux3bit_8to1:MUX7|Mux0~4 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX7|Mux1~0 ; |VHDL_reklama|mux3bit_8to1:MUX7|Mux1~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX7|Mux1~1 ; |VHDL_reklama|mux3bit_8to1:MUX7|Mux1~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX7|Mux1~2 ; |VHDL_reklama|mux3bit_8to1:MUX7|Mux1~2 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX7|Mux1~3 ; |VHDL_reklama|mux3bit_8to1:MUX7|Mux1~3 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX7|Mux2~1 ; |VHDL_reklama|mux3bit_8to1:MUX7|Mux2~1 ; combout          ;
+; |VHDL_reklama|HEX0[6]                  ; |VHDL_reklama|HEX0[6]                  ; padio            ;
+; |VHDL_reklama|SW[8]                    ; |VHDL_reklama|SW[8]~corein             ; combout          ;
+; |VHDL_reklama|SW[17]                   ; |VHDL_reklama|SW[17]~corein            ; combout          ;
+; |VHDL_reklama|SW[5]                    ; |VHDL_reklama|SW[5]~corein             ; combout          ;
+; |VHDL_reklama|SW[2]                    ; |VHDL_reklama|SW[2]~corein             ; combout          ;
+; |VHDL_reklama|SW[4]                    ; |VHDL_reklama|SW[4]~corein             ; combout          ;
+; |VHDL_reklama|SW[1]                    ; |VHDL_reklama|SW[1]~corein             ; combout          ;
+; |VHDL_reklama|SW[11]                   ; |VHDL_reklama|SW[11]~corein            ; combout          ;
+; |VHDL_reklama|SW[14]                   ; |VHDL_reklama|SW[14]~corein            ; combout          ;
+; |VHDL_reklama|SW[7]                    ; |VHDL_reklama|SW[7]~corein             ; combout          ;
+; |VHDL_reklama|SW[10]                   ; |VHDL_reklama|SW[10]~corein            ; combout          ;
+; |VHDL_reklama|SW[13]                   ; |VHDL_reklama|SW[13]~corein            ; combout          ;
+; |VHDL_reklama|SW[3]                    ; |VHDL_reklama|SW[3]~corein             ; combout          ;
+; |VHDL_reklama|SW[0]                    ; |VHDL_reklama|SW[0]~corein             ; combout          ;
+; |VHDL_reklama|SW[6]                    ; |VHDL_reklama|SW[6]~corein             ; combout          ;
+; |VHDL_reklama|SW[9]                    ; |VHDL_reklama|SW[9]~corein             ; combout          ;
+; |VHDL_reklama|SW[12]                   ; |VHDL_reklama|SW[12]~corein            ; combout          ;
++----------------------------------------+----------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 0 during simulation.
++----------------------------------------------------------------------------------------------------+
+; Missing 0-Value Coverage                                                                           ;
++----------------------------------------+----------------------------------------+------------------+
+; Node Name                              ; Output Port Name                       ; Output Port Type ;
++----------------------------------------+----------------------------------------+------------------+
+; |VHDL_reklama|mux3bit_8to1:MUX0|Mux0~0 ; |VHDL_reklama|mux3bit_8to1:MUX0|Mux0~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX0|Mux0~1 ; |VHDL_reklama|mux3bit_8to1:MUX0|Mux0~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX0|Mux1~0 ; |VHDL_reklama|mux3bit_8to1:MUX0|Mux1~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX4|Mux0~0 ; |VHDL_reklama|mux3bit_8to1:MUX4|Mux0~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX0|Mux0~2 ; |VHDL_reklama|mux3bit_8to1:MUX0|Mux0~2 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX0|Mux1~1 ; |VHDL_reklama|mux3bit_8to1:MUX0|Mux1~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX4|Mux1~0 ; |VHDL_reklama|mux3bit_8to1:MUX4|Mux1~0 ; combout          ;
+; |VHDL_reklama|char7seg:H0|Display[5]~0 ; |VHDL_reklama|char7seg:H0|Display[5]~0 ; combout          ;
+; |VHDL_reklama|char7seg:H0|Display[5]~1 ; |VHDL_reklama|char7seg:H0|Display[5]~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX0|Mux2~1 ; |VHDL_reklama|mux3bit_8to1:MUX0|Mux2~1 ; combout          ;
+; |VHDL_reklama|char7seg:H0|Display[5]~2 ; |VHDL_reklama|char7seg:H0|Display[5]~2 ; combout          ;
+; |VHDL_reklama|char7seg:H0|Display[5]~3 ; |VHDL_reklama|char7seg:H0|Display[5]~3 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX0|Mux1~2 ; |VHDL_reklama|mux3bit_8to1:MUX0|Mux1~2 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX0|Mux0~3 ; |VHDL_reklama|mux3bit_8to1:MUX0|Mux0~3 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX6|Mux0~0 ; |VHDL_reklama|mux3bit_8to1:MUX6|Mux0~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX1|Mux0~0 ; |VHDL_reklama|mux3bit_8to1:MUX1|Mux0~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX1|Mux0~2 ; |VHDL_reklama|mux3bit_8to1:MUX1|Mux0~2 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX3|Mux0~1 ; |VHDL_reklama|mux3bit_8to1:MUX3|Mux0~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX1|Mux0~3 ; |VHDL_reklama|mux3bit_8to1:MUX1|Mux0~3 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX1|Mux1~0 ; |VHDL_reklama|mux3bit_8to1:MUX1|Mux1~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX1|Mux2~0 ; |VHDL_reklama|mux3bit_8to1:MUX1|Mux2~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX2|Mux0~1 ; |VHDL_reklama|mux3bit_8to1:MUX2|Mux0~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX2|Mux0~2 ; |VHDL_reklama|mux3bit_8to1:MUX2|Mux0~2 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX2|Mux0~4 ; |VHDL_reklama|mux3bit_8to1:MUX2|Mux0~4 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX2|Mux2~0 ; |VHDL_reklama|mux3bit_8to1:MUX2|Mux2~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX3|Mux0~4 ; |VHDL_reklama|mux3bit_8to1:MUX3|Mux0~4 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX3|Mux1~0 ; |VHDL_reklama|mux3bit_8to1:MUX3|Mux1~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX4|Mux0~1 ; |VHDL_reklama|mux3bit_8to1:MUX4|Mux0~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX4|Mux0~2 ; |VHDL_reklama|mux3bit_8to1:MUX4|Mux0~2 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX4|Mux2~2 ; |VHDL_reklama|mux3bit_8to1:MUX4|Mux2~2 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX5|Mux0~1 ; |VHDL_reklama|mux3bit_8to1:MUX5|Mux0~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX5|Mux1~0 ; |VHDL_reklama|mux3bit_8to1:MUX5|Mux1~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX5|Mux1~1 ; |VHDL_reklama|mux3bit_8to1:MUX5|Mux1~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX5|Mux2~1 ; |VHDL_reklama|mux3bit_8to1:MUX5|Mux2~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX6|Mux0~4 ; |VHDL_reklama|mux3bit_8to1:MUX6|Mux0~4 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX6|Mux1~0 ; |VHDL_reklama|mux3bit_8to1:MUX6|Mux1~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX6|Mux1~1 ; |VHDL_reklama|mux3bit_8to1:MUX6|Mux1~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX6|Mux1~2 ; |VHDL_reklama|mux3bit_8to1:MUX6|Mux1~2 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX6|Mux2~1 ; |VHDL_reklama|mux3bit_8to1:MUX6|Mux2~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX7|Mux0~2 ; |VHDL_reklama|mux3bit_8to1:MUX7|Mux0~2 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX7|Mux0~3 ; |VHDL_reklama|mux3bit_8to1:MUX7|Mux0~3 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX7|Mux0~4 ; |VHDL_reklama|mux3bit_8to1:MUX7|Mux0~4 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX7|Mux1~0 ; |VHDL_reklama|mux3bit_8to1:MUX7|Mux1~0 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX7|Mux1~1 ; |VHDL_reklama|mux3bit_8to1:MUX7|Mux1~1 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX7|Mux1~2 ; |VHDL_reklama|mux3bit_8to1:MUX7|Mux1~2 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX7|Mux1~3 ; |VHDL_reklama|mux3bit_8to1:MUX7|Mux1~3 ; combout          ;
+; |VHDL_reklama|mux3bit_8to1:MUX7|Mux2~1 ; |VHDL_reklama|mux3bit_8to1:MUX7|Mux2~1 ; combout          ;
+; |VHDL_reklama|HEX0[6]                  ; |VHDL_reklama|HEX0[6]                  ; padio            ;
+; |VHDL_reklama|SW[8]                    ; |VHDL_reklama|SW[8]~corein             ; combout          ;
+; |VHDL_reklama|SW[17]                   ; |VHDL_reklama|SW[17]~corein            ; combout          ;
+; |VHDL_reklama|SW[5]                    ; |VHDL_reklama|SW[5]~corein             ; combout          ;
+; |VHDL_reklama|SW[2]                    ; |VHDL_reklama|SW[2]~corein             ; combout          ;
+; |VHDL_reklama|SW[4]                    ; |VHDL_reklama|SW[4]~corein             ; combout          ;
+; |VHDL_reklama|SW[1]                    ; |VHDL_reklama|SW[1]~corein             ; combout          ;
+; |VHDL_reklama|SW[11]                   ; |VHDL_reklama|SW[11]~corein            ; combout          ;
+; |VHDL_reklama|SW[14]                   ; |VHDL_reklama|SW[14]~corein            ; combout          ;
+; |VHDL_reklama|SW[7]                    ; |VHDL_reklama|SW[7]~corein             ; combout          ;
+; |VHDL_reklama|SW[10]                   ; |VHDL_reklama|SW[10]~corein            ; combout          ;
+; |VHDL_reklama|SW[13]                   ; |VHDL_reklama|SW[13]~corein            ; combout          ;
+; |VHDL_reklama|SW[3]                    ; |VHDL_reklama|SW[3]~corein             ; combout          ;
+; |VHDL_reklama|SW[0]                    ; |VHDL_reklama|SW[0]~corein             ; combout          ;
+; |VHDL_reklama|SW[6]                    ; |VHDL_reklama|SW[6]~corein             ; combout          ;
+; |VHDL_reklama|SW[9]                    ; |VHDL_reklama|SW[9]~corein             ; combout          ;
+; |VHDL_reklama|SW[12]                   ; |VHDL_reklama|SW[12]~corein            ; combout          ;
++----------------------------------------+----------------------------------------+------------------+
+
+
++---------------------+
+; Simulator INI Usage ;
++--------+------------+
+; Option ; Usage      ;
++--------+------------+
+
+
++--------------------+
+; Simulator Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Simulator
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Sat Jan 27 10:48:13 2018
+Info: Command: quartus_sim --simulation_results_format=VWF VHDL_reklama -c VHDL_reklama
+Info (324025): Using vector source file "/home/wojtekreg/MEGAsync/polibuda/podstawy_techniki_cyfrowej/projekty/VHDL_reklama/Waveform.vwf"
+Info (310003): Option to preserve fewer signal transitions to reduce memory requirements is enabled
+    Info (310004): Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
+Info (310002): Simulation partitioned into 1 sub-simulations
+Info (328053): Simulation coverage is      68.00 %
+Info (328052): Number of transitions in simulation is 400
+Info (324045): Vector file VHDL_reklama.sim.vwf is saved in VWF text format. You can compress it into CVWF format in order to reduce file size. For more details please refer to the Quartus II Help.
+Info: Quartus II 64-Bit Simulator was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 687 megabytes
+    Info: Processing ended: Sat Jan 27 10:48:14 2018
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
+
+

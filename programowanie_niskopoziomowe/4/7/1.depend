@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1494708587 source:c:\users\wojtas\dropbox\niskopoziomowe\15.05.17\1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

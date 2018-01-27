@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>510</x>
+      <y>10</y>
+      <w>290</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>Portfel Inwestycyjny&lt;T&gt;
+--
+-lista_aktywow
+--
++(operator +=)dodaj_aktywa(Aktywa*)
++(operator -=)usun_aktywa(int indeks)
++edytuj_aktywa(int indeks)
++wyswietl_aktywa()
++wyswietl_stan_oszczednosci()
++symuluj(int miesiac)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>870</x>
+      <y>10</y>
+      <w>250</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>Aktywa
+--
+#opis
+#wartosc
+--
++get_opis()
++get_wartosc()
+#set_opis(string)
+#set_wartosc(double)
+&lt;abstrakcyjne&gt;
++wyswietl_informacje()
++wartosc_w_miesiacu(int miesiac)
++edytuj()
+&lt;/abstrakcyjne&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>270</y>
+      <w>210</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Lokata
+--
+-oprocentowanie
+-czas_trwania
+--
++get_oprocentowanie()
++get_czas_trwania()
+-set_oprocentowanie()
+-set_czas_trwania()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>110</x>
+      <y>210</y>
+      <w>780</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>760.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>240</x>
+      <y>270</y>
+      <w>370</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Jednostki_uczestnictwa_w_funduszu_inwestycyjnym
+--
+-ilosc
+-dywidenda
+--
++get_ilosc()
++get_dywidenda()
+-set_ilosc()
+-set_dywidenda()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>210</y>
+      <w>540</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>520.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>620</x>
+      <y>270</y>
+      <w>200</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Nieruchomosc
+--
+-wzrost_wartosci
+-miesieczny_czynsz
+--
++get_wzrost_wartosci()
++get_miesieczny_czynsz()
+-set_wzrost_wartosci()
+-set_miesieczny_czynsz()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>710</x>
+      <y>210</y>
+      <w>310</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>290.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>830</x>
+      <y>270</y>
+      <w>160</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Kontrakt
+--
+-czas_trwania
+--
++get_czas_trwania()
+-set_czas_trwania()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1000</x>
+      <y>270</y>
+      <w>210</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Produkt_struktyryzowany
+--
+-czas_trwania
+-udzial_w_zyskach
+-maksymalny_zysk
+--
++get_czas_trwania()
++get_udzial_w_zyskach()
++get_maksymalny_zysk()
+-set_czas_trwania()
+-set_udzial_w_zyskach()
+-set_maksymalny_zysk()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1220</x>
+      <y>270</y>
+      <w>340</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>IKE
+--
+-miesieczna_wplata
+-oprocentowanie
+-czas_trwania
+-podatek_za_zbyt_wczesne_zakonczenie
+-
++get_miesieczna_wplata()
++get_oprocentowanie()
++get_podatek_za_zbyt_wczesne_zakonczenie()
+-set_miesieczna_wplata()
+-set_oprocentowanie()
+-set_podatek_za_zbyt_wczesne_zakonczenie()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>920</x>
+      <y>210</y>
+      <w>140</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1090</x>
+      <y>210</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1110</x>
+      <y>210</y>
+      <w>230</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;210.0;60.0</additional_attributes>
+  </element>
+</diagram>

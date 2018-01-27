@@ -1,0 +1,573 @@
+TimeQuest Timing Analyzer report for jk
+Sat Nov 04 19:37:48 2017
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow Model Fmax Summary
+  6. Slow Model Setup Summary
+  7. Slow Model Hold Summary
+  8. Slow Model Recovery Summary
+  9. Slow Model Removal Summary
+ 10. Slow Model Minimum Pulse Width Summary
+ 11. Slow Model Setup: 'KEY[3]'
+ 12. Slow Model Hold: 'KEY[3]'
+ 13. Slow Model Minimum Pulse Width: 'KEY[3]'
+ 14. Clock to Output Times
+ 15. Minimum Clock to Output Times
+ 16. Fast Model Setup Summary
+ 17. Fast Model Hold Summary
+ 18. Fast Model Recovery Summary
+ 19. Fast Model Removal Summary
+ 20. Fast Model Minimum Pulse Width Summary
+ 21. Fast Model Setup: 'KEY[3]'
+ 22. Fast Model Hold: 'KEY[3]'
+ 23. Fast Model Minimum Pulse Width: 'KEY[3]'
+ 24. Clock to Output Times
+ 25. Minimum Clock to Output Times
+ 26. Multicorner Timing Analysis Summary
+ 27. Clock to Output Times
+ 28. Minimum Clock to Output Times
+ 29. Setup Transfers
+ 30. Hold Transfers
+ 31. Report TCCS
+ 32. Report RSKM
+ 33. Unconstrained Paths
+ 34. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                      ;
++--------------------+-------------------------------------------------------------------+
+; Quartus II Version ; Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition ;
+; Revision Name      ; jk                                                                ;
+; Device Family      ; Cyclone II                                                        ;
+; Device Name        ; EP2C70F896C6                                                      ;
+; Timing Models      ; Final                                                             ;
+; Delay Model        ; Combined                                                          ;
+; Rise/Fall Delays   ; Unavailable                                                       ;
++--------------------+-------------------------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                             ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets    ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------+
+; KEY[3]     ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { KEY[3] } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Slow Model Fmax Summary                                                                                   ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; 925.93 MHz ; 450.05 MHz      ; KEY[3]     ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++---------------------------------+
+; Slow Model Setup Summary        ;
++--------+--------+---------------+
+; Clock  ; Slack  ; End Point TNS ;
++--------+--------+---------------+
+; KEY[3] ; -0.080 ; -0.316        ;
++--------+--------+---------------+
+
+
++--------------------------------+
+; Slow Model Hold Summary        ;
++--------+-------+---------------+
+; Clock  ; Slack ; End Point TNS ;
++--------+-------+---------------+
+; KEY[3] ; 0.391 ; 0.000         ;
++--------+-------+---------------+
+
+
+-------------------------------
+; Slow Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Slow Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Slow Model Minimum Pulse Width Summary ;
++--------+--------+----------------------+
+; Clock  ; Slack  ; End Point TNS        ;
++--------+--------+----------------------+
+; KEY[3] ; -1.222 ; -5.222               ;
++--------+--------+----------------------+
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'KEY[3]'                                                                                   ;
++--------+---------------+---------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node     ; To Node       ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------+---------------+--------------+-------------+--------------+------------+------------+
+; -0.080 ; jkff2:inst6|2 ; jkff2:inst8|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 1.116      ;
+; -0.080 ; jkff2:inst6|2 ; jkff2:inst7|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 1.116      ;
+; -0.078 ; jkff2:inst6|2 ; jkff2:inst9|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 1.114      ;
+; -0.078 ; jkff2:inst7|2 ; jkff2:inst6|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 1.114      ;
+; -0.055 ; jkff2:inst8|2 ; jkff2:inst6|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 1.091      ;
+; -0.053 ; jkff2:inst9|2 ; jkff2:inst7|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 1.089      ;
+; -0.053 ; jkff2:inst8|2 ; jkff2:inst9|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 1.089      ;
+; -0.026 ; jkff2:inst9|2 ; jkff2:inst8|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 1.062      ;
+; 0.014  ; jkff2:inst8|2 ; jkff2:inst7|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 1.022      ;
+; 0.055  ; jkff2:inst9|2 ; jkff2:inst6|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 0.981      ;
+; 0.232  ; jkff2:inst7|2 ; jkff2:inst9|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 0.804      ;
+; 0.234  ; jkff2:inst7|2 ; jkff2:inst8|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 0.802      ;
+; 0.379  ; jkff2:inst8|2 ; jkff2:inst8|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 0.657      ;
+; 0.379  ; jkff2:inst7|2 ; jkff2:inst7|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 0.657      ;
+; 0.379  ; jkff2:inst9|2 ; jkff2:inst9|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 0.657      ;
+; 0.379  ; jkff2:inst6|2 ; jkff2:inst6|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 0.657      ;
++--------+---------------+---------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'KEY[3]'                                                                                   ;
++-------+---------------+---------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node     ; To Node       ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------+---------------+--------------+-------------+--------------+------------+------------+
+; 0.391 ; jkff2:inst8|2 ; jkff2:inst8|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; jkff2:inst7|2 ; jkff2:inst7|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; jkff2:inst9|2 ; jkff2:inst9|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; jkff2:inst6|2 ; jkff2:inst6|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 0.657      ;
+; 0.536 ; jkff2:inst7|2 ; jkff2:inst8|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 0.802      ;
+; 0.538 ; jkff2:inst7|2 ; jkff2:inst9|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 0.804      ;
+; 0.715 ; jkff2:inst9|2 ; jkff2:inst6|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 0.981      ;
+; 0.756 ; jkff2:inst8|2 ; jkff2:inst7|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 1.022      ;
+; 0.796 ; jkff2:inst9|2 ; jkff2:inst8|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 1.062      ;
+; 0.823 ; jkff2:inst9|2 ; jkff2:inst7|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 1.089      ;
+; 0.823 ; jkff2:inst8|2 ; jkff2:inst9|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 1.089      ;
+; 0.825 ; jkff2:inst8|2 ; jkff2:inst6|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 1.091      ;
+; 0.848 ; jkff2:inst6|2 ; jkff2:inst9|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 1.114      ;
+; 0.848 ; jkff2:inst7|2 ; jkff2:inst6|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 1.114      ;
+; 0.850 ; jkff2:inst6|2 ; jkff2:inst8|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 1.116      ;
+; 0.850 ; jkff2:inst6|2 ; jkff2:inst7|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 1.116      ;
++-------+---------------+---------------+--------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'KEY[3]'                                                         ;
++--------+--------------+----------------+------------------+--------+------------+----------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock  ; Clock Edge ; Target         ;
++--------+--------------+----------------+------------------+--------+------------+----------------+
+; -1.222 ; 1.000        ; 2.222          ; Port Rate        ; KEY[3] ; Rise       ; KEY[3]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; KEY[3] ; Fall       ; jkff2:inst6|2  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; KEY[3] ; Fall       ; jkff2:inst6|2  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; KEY[3] ; Fall       ; jkff2:inst7|2  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; KEY[3] ; Fall       ; jkff2:inst7|2  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; KEY[3] ; Fall       ; jkff2:inst8|2  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; KEY[3] ; Fall       ; jkff2:inst8|2  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; KEY[3] ; Fall       ; jkff2:inst9|2  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; KEY[3] ; Fall       ; jkff2:inst9|2  ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; KEY[3] ; Rise       ; KEY[3]|combout ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; KEY[3] ; Rise       ; KEY[3]|combout ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; KEY[3] ; Rise       ; inst6|2|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; KEY[3] ; Rise       ; inst6|2|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; KEY[3] ; Rise       ; inst7|2|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; KEY[3] ; Rise       ; inst7|2|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; KEY[3] ; Rise       ; inst8|2|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; KEY[3] ; Rise       ; inst8|2|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; KEY[3] ; Rise       ; inst9|2|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; KEY[3] ; Rise       ; inst9|2|clk    ;
++--------+--------------+----------------+------------------+--------+------------+----------------+
+
+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; 1         ; KEY[3]     ; 8.050  ; 8.050  ; Fall       ; KEY[3]          ;
+; 2         ; KEY[3]     ; 8.294  ; 8.294  ; Fall       ; KEY[3]          ;
+; 4         ; KEY[3]     ; 8.056  ; 8.056  ; Fall       ; KEY[3]          ;
+; 8         ; KEY[3]     ; 8.070  ; 8.070  ; Fall       ; KEY[3]          ;
+; HEX0[*]   ; KEY[3]     ; 10.478 ; 10.478 ; Fall       ; KEY[3]          ;
+;  HEX0[0]  ; KEY[3]     ; 10.478 ; 10.478 ; Fall       ; KEY[3]          ;
+;  HEX0[1]  ; KEY[3]     ; 10.292 ; 10.292 ; Fall       ; KEY[3]          ;
+;  HEX0[2]  ; KEY[3]     ; 9.591  ; 9.591  ; Fall       ; KEY[3]          ;
+;  HEX0[3]  ; KEY[3]     ; 10.065 ; 10.065 ; Fall       ; KEY[3]          ;
+;  HEX0[4]  ; KEY[3]     ; 10.053 ; 10.053 ; Fall       ; KEY[3]          ;
+;  HEX0[5]  ; KEY[3]     ; 9.814  ; 9.814  ; Fall       ; KEY[3]          ;
+;  HEX0[6]  ; KEY[3]     ; 9.581  ; 9.581  ; Fall       ; KEY[3]          ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; 1         ; KEY[3]     ; 8.050 ; 8.050 ; Fall       ; KEY[3]          ;
+; 2         ; KEY[3]     ; 8.294 ; 8.294 ; Fall       ; KEY[3]          ;
+; 4         ; KEY[3]     ; 8.056 ; 8.056 ; Fall       ; KEY[3]          ;
+; 8         ; KEY[3]     ; 8.070 ; 8.070 ; Fall       ; KEY[3]          ;
+; HEX0[*]   ; KEY[3]     ; 8.898 ; 8.898 ; Fall       ; KEY[3]          ;
+;  HEX0[0]  ; KEY[3]     ; 9.854 ; 9.854 ; Fall       ; KEY[3]          ;
+;  HEX0[1]  ; KEY[3]     ; 9.669 ; 9.669 ; Fall       ; KEY[3]          ;
+;  HEX0[2]  ; KEY[3]     ; 8.966 ; 8.966 ; Fall       ; KEY[3]          ;
+;  HEX0[3]  ; KEY[3]     ; 9.410 ; 9.410 ; Fall       ; KEY[3]          ;
+;  HEX0[4]  ; KEY[3]     ; 9.427 ; 9.427 ; Fall       ; KEY[3]          ;
+;  HEX0[5]  ; KEY[3]     ; 9.190 ; 9.190 ; Fall       ; KEY[3]          ;
+;  HEX0[6]  ; KEY[3]     ; 8.898 ; 8.898 ; Fall       ; KEY[3]          ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++--------------------------------+
+; Fast Model Setup Summary       ;
++--------+-------+---------------+
+; Clock  ; Slack ; End Point TNS ;
++--------+-------+---------------+
+; KEY[3] ; 0.493 ; 0.000         ;
++--------+-------+---------------+
+
+
++--------------------------------+
+; Fast Model Hold Summary        ;
++--------+-------+---------------+
+; Clock  ; Slack ; End Point TNS ;
++--------+-------+---------------+
+; KEY[3] ; 0.215 ; 0.000         ;
++--------+-------+---------------+
+
+
+-------------------------------
+; Fast Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Fast Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Fast Model Minimum Pulse Width Summary ;
++--------+--------+----------------------+
+; Clock  ; Slack  ; End Point TNS        ;
++--------+--------+----------------------+
+; KEY[3] ; -1.222 ; -5.222               ;
++--------+--------+----------------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'KEY[3]'                                                                                  ;
++-------+---------------+---------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node     ; To Node       ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------+---------------+--------------+-------------+--------------+------------+------------+
+; 0.493 ; jkff2:inst6|2 ; jkff2:inst7|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 0.539      ;
+; 0.500 ; jkff2:inst6|2 ; jkff2:inst8|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 0.532      ;
+; 0.501 ; jkff2:inst6|2 ; jkff2:inst9|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 0.531      ;
+; 0.501 ; jkff2:inst7|2 ; jkff2:inst6|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 0.531      ;
+; 0.508 ; jkff2:inst9|2 ; jkff2:inst7|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 0.524      ;
+; 0.508 ; jkff2:inst8|2 ; jkff2:inst6|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 0.524      ;
+; 0.511 ; jkff2:inst9|2 ; jkff2:inst8|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 0.521      ;
+; 0.511 ; jkff2:inst8|2 ; jkff2:inst9|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 0.521      ;
+; 0.522 ; jkff2:inst9|2 ; jkff2:inst6|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 0.510      ;
+; 0.533 ; jkff2:inst8|2 ; jkff2:inst7|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 0.499      ;
+; 0.632 ; jkff2:inst7|2 ; jkff2:inst9|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 0.400      ;
+; 0.634 ; jkff2:inst7|2 ; jkff2:inst8|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 0.398      ;
+; 0.665 ; jkff2:inst7|2 ; jkff2:inst7|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 0.367      ;
+; 0.665 ; jkff2:inst8|2 ; jkff2:inst8|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 0.367      ;
+; 0.665 ; jkff2:inst9|2 ; jkff2:inst9|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 0.367      ;
+; 0.665 ; jkff2:inst6|2 ; jkff2:inst6|2 ; KEY[3]       ; KEY[3]      ; 1.000        ; 0.000      ; 0.367      ;
++-------+---------------+---------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'KEY[3]'                                                                                   ;
++-------+---------------+---------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node     ; To Node       ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------+---------------+--------------+-------------+--------------+------------+------------+
+; 0.215 ; jkff2:inst8|2 ; jkff2:inst8|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; jkff2:inst7|2 ; jkff2:inst7|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; jkff2:inst9|2 ; jkff2:inst9|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; jkff2:inst6|2 ; jkff2:inst6|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 0.367      ;
+; 0.246 ; jkff2:inst7|2 ; jkff2:inst8|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 0.398      ;
+; 0.248 ; jkff2:inst7|2 ; jkff2:inst9|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 0.400      ;
+; 0.347 ; jkff2:inst8|2 ; jkff2:inst7|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 0.499      ;
+; 0.358 ; jkff2:inst9|2 ; jkff2:inst6|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 0.510      ;
+; 0.369 ; jkff2:inst9|2 ; jkff2:inst8|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 0.521      ;
+; 0.369 ; jkff2:inst8|2 ; jkff2:inst9|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 0.521      ;
+; 0.372 ; jkff2:inst9|2 ; jkff2:inst7|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 0.524      ;
+; 0.372 ; jkff2:inst8|2 ; jkff2:inst6|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 0.524      ;
+; 0.379 ; jkff2:inst6|2 ; jkff2:inst9|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 0.531      ;
+; 0.379 ; jkff2:inst7|2 ; jkff2:inst6|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 0.531      ;
+; 0.380 ; jkff2:inst6|2 ; jkff2:inst8|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 0.532      ;
+; 0.387 ; jkff2:inst6|2 ; jkff2:inst7|2 ; KEY[3]       ; KEY[3]      ; 0.000        ; 0.000      ; 0.539      ;
++-------+---------------+---------------+--------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'KEY[3]'                                                         ;
++--------+--------------+----------------+------------------+--------+------------+----------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock  ; Clock Edge ; Target         ;
++--------+--------------+----------------+------------------+--------+------------+----------------+
+; -1.222 ; 1.000        ; 2.222          ; Port Rate        ; KEY[3] ; Rise       ; KEY[3]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; KEY[3] ; Fall       ; jkff2:inst6|2  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; KEY[3] ; Fall       ; jkff2:inst6|2  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; KEY[3] ; Fall       ; jkff2:inst7|2  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; KEY[3] ; Fall       ; jkff2:inst7|2  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; KEY[3] ; Fall       ; jkff2:inst8|2  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; KEY[3] ; Fall       ; jkff2:inst8|2  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; KEY[3] ; Fall       ; jkff2:inst9|2  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; KEY[3] ; Fall       ; jkff2:inst9|2  ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; KEY[3] ; Rise       ; KEY[3]|combout ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; KEY[3] ; Rise       ; KEY[3]|combout ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; KEY[3] ; Rise       ; inst6|2|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; KEY[3] ; Rise       ; inst6|2|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; KEY[3] ; Rise       ; inst7|2|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; KEY[3] ; Rise       ; inst7|2|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; KEY[3] ; Rise       ; inst8|2|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; KEY[3] ; Rise       ; inst8|2|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; KEY[3] ; Rise       ; inst9|2|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; KEY[3] ; Rise       ; inst9|2|clk    ;
++--------+--------------+----------------+------------------+--------+------------+----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; 1         ; KEY[3]     ; 4.368 ; 4.368 ; Fall       ; KEY[3]          ;
+; 2         ; KEY[3]     ; 4.491 ; 4.491 ; Fall       ; KEY[3]          ;
+; 4         ; KEY[3]     ; 4.388 ; 4.388 ; Fall       ; KEY[3]          ;
+; 8         ; KEY[3]     ; 4.399 ; 4.399 ; Fall       ; KEY[3]          ;
+; HEX0[*]   ; KEY[3]     ; 5.473 ; 5.473 ; Fall       ; KEY[3]          ;
+;  HEX0[0]  ; KEY[3]     ; 5.473 ; 5.473 ; Fall       ; KEY[3]          ;
+;  HEX0[1]  ; KEY[3]     ; 5.370 ; 5.370 ; Fall       ; KEY[3]          ;
+;  HEX0[2]  ; KEY[3]     ; 5.053 ; 5.053 ; Fall       ; KEY[3]          ;
+;  HEX0[3]  ; KEY[3]     ; 5.261 ; 5.261 ; Fall       ; KEY[3]          ;
+;  HEX0[4]  ; KEY[3]     ; 5.257 ; 5.257 ; Fall       ; KEY[3]          ;
+;  HEX0[5]  ; KEY[3]     ; 5.140 ; 5.140 ; Fall       ; KEY[3]          ;
+;  HEX0[6]  ; KEY[3]     ; 5.040 ; 5.040 ; Fall       ; KEY[3]          ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; 1         ; KEY[3]     ; 4.368 ; 4.368 ; Fall       ; KEY[3]          ;
+; 2         ; KEY[3]     ; 4.491 ; 4.491 ; Fall       ; KEY[3]          ;
+; 4         ; KEY[3]     ; 4.388 ; 4.388 ; Fall       ; KEY[3]          ;
+; 8         ; KEY[3]     ; 4.399 ; 4.399 ; Fall       ; KEY[3]          ;
+; HEX0[*]   ; KEY[3]     ; 4.742 ; 4.742 ; Fall       ; KEY[3]          ;
+;  HEX0[0]  ; KEY[3]     ; 5.201 ; 5.201 ; Fall       ; KEY[3]          ;
+;  HEX0[1]  ; KEY[3]     ; 5.094 ; 5.094 ; Fall       ; KEY[3]          ;
+;  HEX0[2]  ; KEY[3]     ; 4.780 ; 4.780 ; Fall       ; KEY[3]          ;
+;  HEX0[3]  ; KEY[3]     ; 4.988 ; 4.988 ; Fall       ; KEY[3]          ;
+;  HEX0[4]  ; KEY[3]     ; 4.984 ; 4.984 ; Fall       ; KEY[3]          ;
+;  HEX0[5]  ; KEY[3]     ; 4.868 ; 4.868 ; Fall       ; KEY[3]          ;
+;  HEX0[6]  ; KEY[3]     ; 4.742 ; 4.742 ; Fall       ; KEY[3]          ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                          ;
++------------------+--------+-------+----------+---------+---------------------+
+; Clock            ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+--------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -0.080 ; 0.215 ; N/A      ; N/A     ; -1.222              ;
+;  KEY[3]          ; -0.080 ; 0.215 ; N/A      ; N/A     ; -1.222              ;
+; Design-wide TNS  ; -0.316 ; 0.0   ; 0.0      ; 0.0     ; -5.222              ;
+;  KEY[3]          ; -0.316 ; 0.000 ; N/A      ; N/A     ; -5.222              ;
++------------------+--------+-------+----------+---------+---------------------+
+
+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; 1         ; KEY[3]     ; 8.050  ; 8.050  ; Fall       ; KEY[3]          ;
+; 2         ; KEY[3]     ; 8.294  ; 8.294  ; Fall       ; KEY[3]          ;
+; 4         ; KEY[3]     ; 8.056  ; 8.056  ; Fall       ; KEY[3]          ;
+; 8         ; KEY[3]     ; 8.070  ; 8.070  ; Fall       ; KEY[3]          ;
+; HEX0[*]   ; KEY[3]     ; 10.478 ; 10.478 ; Fall       ; KEY[3]          ;
+;  HEX0[0]  ; KEY[3]     ; 10.478 ; 10.478 ; Fall       ; KEY[3]          ;
+;  HEX0[1]  ; KEY[3]     ; 10.292 ; 10.292 ; Fall       ; KEY[3]          ;
+;  HEX0[2]  ; KEY[3]     ; 9.591  ; 9.591  ; Fall       ; KEY[3]          ;
+;  HEX0[3]  ; KEY[3]     ; 10.065 ; 10.065 ; Fall       ; KEY[3]          ;
+;  HEX0[4]  ; KEY[3]     ; 10.053 ; 10.053 ; Fall       ; KEY[3]          ;
+;  HEX0[5]  ; KEY[3]     ; 9.814  ; 9.814  ; Fall       ; KEY[3]          ;
+;  HEX0[6]  ; KEY[3]     ; 9.581  ; 9.581  ; Fall       ; KEY[3]          ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; 1         ; KEY[3]     ; 4.368 ; 4.368 ; Fall       ; KEY[3]          ;
+; 2         ; KEY[3]     ; 4.491 ; 4.491 ; Fall       ; KEY[3]          ;
+; 4         ; KEY[3]     ; 4.388 ; 4.388 ; Fall       ; KEY[3]          ;
+; 8         ; KEY[3]     ; 4.399 ; 4.399 ; Fall       ; KEY[3]          ;
+; HEX0[*]   ; KEY[3]     ; 4.742 ; 4.742 ; Fall       ; KEY[3]          ;
+;  HEX0[0]  ; KEY[3]     ; 5.201 ; 5.201 ; Fall       ; KEY[3]          ;
+;  HEX0[1]  ; KEY[3]     ; 5.094 ; 5.094 ; Fall       ; KEY[3]          ;
+;  HEX0[2]  ; KEY[3]     ; 4.780 ; 4.780 ; Fall       ; KEY[3]          ;
+;  HEX0[3]  ; KEY[3]     ; 4.988 ; 4.988 ; Fall       ; KEY[3]          ;
+;  HEX0[4]  ; KEY[3]     ; 4.984 ; 4.984 ; Fall       ; KEY[3]          ;
+;  HEX0[5]  ; KEY[3]     ; 4.868 ; 4.868 ; Fall       ; KEY[3]          ;
+;  HEX0[6]  ; KEY[3]     ; 4.742 ; 4.742 ; Fall       ; KEY[3]          ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; KEY[3]     ; KEY[3]   ; 0        ; 0        ; 0        ; 16       ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; KEY[3]     ; KEY[3]   ; 0        ; 0        ; 0        ; 16       ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 1     ; 1    ;
+; Unconstrained Input Port Paths  ; 4     ; 4    ;
+; Unconstrained Output Ports      ; 11    ; 11   ;
+; Unconstrained Output Port Paths ; 31    ; 31   ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Sat Nov 04 19:37:47 2017
+Info: Command: quartus_sta jk -c jk
+Info: qsta_default_script.tcl version: #1
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'jk.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name KEY[3] KEY[3]
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -0.080
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -0.080        -0.316 KEY[3] 
+Info (332146): Worst-case hold slack is 0.391
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.391         0.000 KEY[3] 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.222
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.222        -5.222 KEY[3] 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info: Analyzing Fast Model
+Info (332146): Worst-case setup slack is 0.493
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.493         0.000 KEY[3] 
+Info (332146): Worst-case hold slack is 0.215
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.215         0.000 KEY[3] 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case minimum pulse width slack is -1.222
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.222        -5.222 KEY[3] 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 433 megabytes
+    Info: Processing ended: Sat Nov 04 19:37:48 2017
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

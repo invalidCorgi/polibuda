@@ -1,0 +1,790 @@
+%% Wzóra sprawozdania w LateXu
+
+
+\documentclass[polish,polish,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[cp1250]{inputenc}
+\usepackage{babel}
+\usepackage{pslatex}
+\usepackage{pgfplots}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage[OT4]{fontenc}
+\usepackage{circuitikz} 
+
+\begin{document}
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages, scale=1, transform shape]
+	  \draw (0,0)
+	  circle[radius = 10pt]--(2,0)
+	  circle[radius = 3pt]
+	  node[anchor=west]{2};
+	  \draw (0,0.5)
+	  node[anchor=south]{IN};
+	  \draw (0,-0.35)
+	  node[rground]{};
+	  \draw (2,0.5)
+	  circle[radius = 3pt]
+	  node[anchor=west]{1}
+	  --(1,0.5)--(1,1.5)--(1.5,1.5)
+	  node[anchor=west]{IN 1};
+	  \draw (2,-0.5)
+	  circle[radius = 3pt]
+	  node[anchor=west]{3}
+	  --(1,-0.5)--(1,-1.5)--(1.5,-1.5)
+	  node[anchor=west]{IN 2};
+	  \draw (1.5,1)--(2.5,1)--(2.5,0)
+	  node[anchor=west]{JP IN}
+	  --(2.5,-1)--(1.5,-1)--(1.5,1);
+	  
+	  
+	  \draw (10,0)
+	  circle[radius = 10pt]--(8,0)
+	  circle[radius = 3pt]
+	  node[anchor=east]{2};
+	  \draw (10,0.5)
+	  node[anchor=south]{OUT};
+	  \draw (10,-0.35)
+	  node[rground]{};
+	  \draw (8,0.5)
+	  circle[radius = 3pt]
+	  node[anchor=east]{1}
+	  --(9,0.5)--(9,1.5)--(8.5,1.5)
+	  node[anchor=east]{OUT 1};
+	  \draw (8,-0.5)
+	  circle[radius = 3pt]
+	  node[anchor=east]{3}
+	  --(9,-0.5)--(9,-1.5)--(8.5,-1.5)
+	  node[anchor=east]{OUT 2};
+	  \draw (8.5,1)--(7.5,1)--(7.5,0)
+	  node[anchor=east]{JP OUT}
+	  --(7.5,-1)--(8.5,-1)--(8.5,1);
+   \end{circuitikz}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages, scale=1, transform shape]
+	  \draw (-4,-0.5)
+	  node[anchor=east]{IN 1}--(0,-0.5);
+	  \draw (0,1)
+	  --(0,0.5)node[anchor=west]{--}
+	  --(0,-0.5)node[anchor=west]{+}
+	  --(0,-1)--(2,0)--(0,1);
+	  \draw (1,-0.5)--(1,-1)
+	  node[anchor=west]{--15V};
+	  \draw (1,0.5)--(1,1)
+	  node[anchor=west]{+15V};
+	  \draw (2,0)--(6,0)
+	  node[anchor=west]{OUT 1};
+	  \draw (0,0.5)
+	  to[short,-*](-1,0.5)
+	  to[R,l_=1k](-3,0.5)
+	  node[rground,rotate=270]{};
+	  \draw (-1,0.5)--(-1,2)
+	  to[R,l=1k](3,2)
+	  to[short,-*](3,0);
+   \end{circuitikz}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages, scale=0.85, transform shape]
+	  \draw (-2.5,0)--(-2,0)
+	  to[switch,l=1](0,0)
+	  to[R,l=1k](2,0);
+	  
+	  \draw (-2.5,-1.5)--(-2,-1.5)
+	  to[switch,l=2](0,-1.5)
+	  to[C,l=100nF](2,-1.5);
+	  
+	  \draw (-2.5,-3)--(-2,-3)
+	  to[switch,l=3](0,-3)
+	  to[R,l=2k](2,-3);
+	  
+	  \draw (-2.5,-4)--(-2,-4)
+	  to[switch,l=4](0,-4)
+	  to[R,l=1k](2,-4);
+	  
+	  \draw (0,1)--(0,-4.5)--(-2,-4.5)--(-2,1)--(-1,1)
+	  node[anchor=south]{INPUT}--(0,1);
+	  
+	  \draw (-3,0)
+	  node[anchor=east]{IN 2}--(-2.5,0)
+	  to[short,*-*](-2.5,-1.5)--(-2.5,-3)
+	  to[short,*-*](-2.5,-4);
+	  
+	  \draw (2,-4)--(2,-3)
+	  to[short,*-*](2,-1.5)
+	  to[short,-*](2,0);
+	  
+	  \draw (2,0)--(4,0);
+	  
+	  \draw (4,1.5)
+	  --(4,1)node[anchor=west]{+}
+	  --(4,0)node[anchor=west]{--}
+	  --(4,-0.5)--(6,0.5)--(4,1.5);
+	  
+	  \draw (5,0)--(5,-0.5)
+	  node[anchor=west]{--15V};
+	  
+	  \draw (5,1)--(5,1.5)
+	  node[anchor=west]{+15V};
+	  
+	  \draw (4,1)--(3.5,1)
+	  node[rground,rotate=270]{};
+	  
+	  \draw (3,0)--(3,-2.5)
+	  to[short,*-*](3,-4)--(3,-5)
+	  to[short,*-*](3,-6);
+	  
+	  \draw (7.5,-2.5)--(7,-2.5)
+	  to[switch,l_=1](5,-2.5)
+	  to[C,l_=10nF](3,-2.5);
+	  
+	  \draw (7.5,-4)--(7,-4)
+	  to[switch,l_=2](5,-4)
+	  to[R,l_=5k1](3,-4);
+	  
+	  \draw (7.5,-5)--(7,-5)
+	  to[switch,l_=3](5,-5)
+	  to[R,l_=1k](3,-5);
+	  
+	  \draw (7.5,-6)--(7,-6)
+	  to[switch,l_=4](5,-6)
+	  to[R,l_=2k](3,-6);
+	  
+	  \draw (7,-1.5)--(7,-6.5)--(5,-6.5)--(5,-1.5)--(6,-1.5)
+	  node[anchor=south]{LOOPBACK}--(7,-1.5);
+	  
+	  \draw (6,0.5)--(9,0.5)
+	  node[anchor=west]{OUT 2};
+	  
+	  \draw (7.5,-6)--(7.5,-5)
+	  to[short,*-*](7.5,-4)--(7.5,-2.5)
+	  to[short,*-*](7.5,0.5);
+	  
+   \end{circuitikz}
+   \caption{Schemat ideowy p³yty æwiczeniowej}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages, scale=0.8, transform shape]
+	  \draw (1,0.5)
+	  to[short,*-](2,0.5);
+	  \draw (0,0.5)
+	  node[anchor=south]{a)};
+	  \draw (2,1)
+	  --(2,0.5)node[anchor=west]{+}
+	  --(2,-0.5)node[anchor=west]{--}
+	  --(2,-1)--(4,0)--(2,1);
+	  \draw (-0.5,-0.5)
+	  node[rground,rotate=270]{}
+	  to[R,l_=$Z_{in}$](1.5,-0.5)
+	  --(2,-0.5)--(1.5,-0.5)--(1.5,-1.5);
+	  \draw (1.5,-1.5)
+	  to[R,l_=$Z_f$](4.5,-1.5)
+	  --(4.5,0)--(4,0)
+	  to[short,-*](6,0);
+	  
+	  \draw (9,0.5)
+	  node[rground,rotate=270]{}
+	  to[short](10,0.5);
+	  \draw (8,0.5)
+	  node[anchor=south]{b)};
+	  \draw (10,1)
+	  --(10,0.5)node[anchor=west]{+}
+	  --(10,-0.5)node[anchor=west]{--}
+	  --(10,-1)--(12,0)--(10,1);
+	  \draw (7.5,-0.5)
+	  to[R,l_=$Z_{in}$,*-](9.5,-0.5)
+	  --(10,-0.5)--(9.5,-0.5)--(9.5,-1.5);
+	  \draw (9.5,-1.5)
+	  to[R,l_=$Z_f$](12.5,-1.5)
+	  --(12.5,0)--(12,0)
+	  to[short,-*](14,0);
+   \end{circuitikz}
+   \caption{Konfiguracje stopni wzmacniaj¹cych: \newline
+   a) nieodwracaj¹ca, b) odwracaj¹ca}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages, scale=1, transform shape]
+	  \draw (0,0)
+	  to[V,l=5V] (0,6);
+	  \draw (0,0)
+	  to[short,-*] (2,0)
+	  node[rground]{}
+	  --(2,-0.3)
+	  node[anchor=north] {GND}
+	  --(2,0)
+	  to[V,l=0...5V] (2,3);
+	  \draw (2,0)
+	  --(3.5,0)to[voltmeter,l_=$U_{GS}$,*-*](3.5,3)--(2,3);
+	  \draw(8,3)
+	  node[nmos]{BS170};
+	  \draw(3.5,3)--(7.1,3);
+	  \draw(3.5,0)--(8,0)--(8,2.5);
+	  \draw(0,6)
+	  to[ammeter,l_=$I_d$](4,6)
+	  to[R,l_=R1 1k](8,6)--(8,3.5);
+   \end{circuitikz}
+   \caption{Uk³ad do badania charakterystyki bramkowej tranzystora nMOS}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages]
+	  \draw (0,0)
+	  to[V,l=5V] (0,6);
+	  \draw (0,0)
+	  to[short,-*] (2,0)
+	  node[rground]{}
+	  --(2,-0.3)
+	  node[anchor=north] {GND}
+	  --(2,0)
+	  to[V,l=0...5V] (2,3);
+	  \draw (2,0)
+	  --(3.5,0)to[voltmeter,l_=$U_1$,*-*](3.5,3)--(2,3);
+	  \draw(8,3)
+	  node[pmos]{BS250};
+	  \draw(3.5,3)--(7.1,3);
+	  \draw(3.5,0)
+	  to[ammeter,l_=$I_d$](8,0)
+	  to[R,l_=R7 1k](8,2.5);	  
+	  \draw(0,6)--(8,6)--(8,3.5);
+   \end{circuitikz}
+   \caption{Uk³ad do badania charakterystyki bramkowej tranzystora pMOS}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages]
+	  \draw (0,0)
+	  to[V,l=0...10V] (0,6);
+	  \draw (0,0)
+	  to[short,-*] (2,0)
+	  to[V,l=5V] (2,3);
+	  \draw(5,3)
+	  node[nmos]{BS170};
+	  \draw(2,3)--(4.1,3);
+	  \draw(2,0)to[short,-*](5,0)--(5,2.5);
+	  \draw(0,6)
+	  to[ammeter,l_=$I_d$](2.5,6)
+	  to[R,l_=R2 1k,-*](5,6)--(5,3.5);
+	  \draw(5,0)--(7,0)
+	  to[voltmeter,l_=$U_{DS}$](7,6)--(5,6);
+   \end{circuitikz}
+   \caption{Uk³ad do badania charakterystyki drenowej tranzystora nMOS}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages]
+	  \draw (0,0)
+	  to[V,l=0...10V] (0,6);
+	  \draw (0,0)
+	  to[short,-*] (1.2,0)
+	  to[V,l=5V] (1.2,3);
+	  \draw(5,3)
+	  node[nmos]{BS170};
+	  \draw(1.2,3)
+	  to[R,l_=R4 1k](3.5,3)  
+	  --(4.1,3);
+	  \draw(3.5,3)
+	  to[R,l_=R5 1k,*-*](3.5,0);
+	  \draw(1.2,0)to[short,-*](5,0)--(5,2.5);
+	  \draw(0,6)
+	  to[ammeter,l_=$I_d$](2.5,6)
+	  to[R,l_=R3 1k,-*](5,6)--(5,3.5);
+	  \draw(5,0)--(7,0)
+	  to[voltmeter,l_=$U_{DS}$](7,6)--(5,6);
+   \end{circuitikz}
+   \caption{Uk³ad do badania charakterystyki drenowej dla obnizonego napiecia bramki}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages]
+	  \draw (0,0)
+	  to[V,l=0...10V] (0,6);
+	  \draw (0,0)
+	  to[short,-*] (2,0)
+	  node[rground]{}
+	  --(2,-0.3)
+	  node[anchor=north] {GND}
+	  --(2,0)
+	  to[V,l=5V] (2,3);
+	  \draw(5,3)
+	  node[pmos]{BS250};
+	  \draw(2,3)--(4.1,3);
+	  \draw(2,0)
+	  to[ammeter,l_=$I_d$](5,0)
+	  to[R,l_=R6 1k](5,2.5);	  
+	  \draw(0,6)--(5,6)--(5,3.5);
+	  \draw(5,0)
+	  to[short,*-](7,0)
+	  to[voltmeter,l_=$U_{DS}$](7,6)
+	  to[short,-*](5,6);
+   \end{circuitikz}
+   \caption{Uk³ad do badania charakterystyki drenowej tranzystora pMOS}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages]
+	  \draw (0,0)
+	  to[V,l=0...10V] (0,6);
+	  \draw (0,0)
+	  to[short,-*] (1.2,0)
+	  node[rground]{}
+	  --(1.2,-0.3)
+	  node[anchor=north] {GND}
+	  --(1.2,0)
+	  to[V,l=5V] (1.2,3);
+	  \draw(6,3)
+	  node[pmos]{BS250};
+	  \draw(3.5,3)--(5.1,3);
+	  \draw(1.2,3)
+	  to[R,l=R9 1k,-*](3.5,3)
+	  to[R,l_=R10 1k,-*](3.5,0);
+	  \draw(1.2,0)--(3.5,0)
+	  to[ammeter,l_=$I_d$](6,0)
+	  to[R,l_=R8 1k](6,2.5);	  
+	  \draw(0,6)--(6,6)--(6,3.5);
+	  \draw(6,0)
+	  to[short,*-](8,0)
+	  to[voltmeter,l_=$U_{DS}$](8,6)
+	  to[short,-*](6,6);
+   \end{circuitikz}
+   \caption{Uk³ad do badania charakterystyki drenowej dla obnizonego napiecia bramki pMOS}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages]
+	  \draw (4,1)
+	  to[short,-*](4,0)--(8,0)
+	  to[V,l_=10V,-*] (8,3)
+	  to[R,l_=R11 1k](6,3)
+	  to[Do,l_=LED1](4,3)--(4,2);
+	  \draw(4,1.5)
+	  node[nmos]{BS170};
+	  \draw(2.5,1.5)
+	  to[R,l_=R12 1M](2.5,0)--(4,0);
+	  \draw(0,1.5)
+	  to[short,*-*](2.5,1.5)--(3.1,1.5);
+	  \draw(0,3)
+	  to[short,*-](0,4)--(8,4)--(8,3);
+	  \draw(0.4,2.25)
+	  node[anchor=east]{A-A};
+   \end{circuitikz}
+   \caption{Schemat uk³adu do badania tranzystora nMOS w roli prze³acznika}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages]
+	  \draw (4,1)
+	  to[short,-*](4,0)--(8,0)
+	  to[V,l_=10V,-*] (8,3)
+	  to[R,l_=R13 1k](6,3)
+	  to[Do,l_=LED2](4,3)--(4,2);
+	  \draw(4,1.5)
+	  node[nmos]{BS170};
+	  \draw(2.5,1.5)
+	  to[R,l_=R14 47k,-*](2.5,0)--(4,0);
+	  \draw(-2,1.5)
+	  to[short,*-](0.3,1.5)
+	  to[short,*-*](2.5,1.5)--(3.1,1.5);
+	  \draw(-2,3)
+	  to[short,*-](-2,4)--(8,4)--(8,3);
+	  \draw(-1.6,2.25)
+	  node[anchor=east]{A-A};
+	  \draw(2.5,0)
+	  to[short,-*](0.3,0)
+	  to[C,l=C1 100uF](0.3,1.5);
+   \end{circuitikz}
+   \caption{Model uk³adu z opóŸnieniem wy³¹czenia}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages]
+	  \draw (0,0)
+	  node[rground]{}
+	  -- (0,-0.35)
+	  node[anchor=north] {GND}
+	  -- (0,0)
+	  to[sqV,*-*](0,2)--(2.1,2)--(1,2)
+	  to[R,l=R16 1M,*-*](1,0)--(0,0);
+	  \draw(3,2)
+	  node[nmos]{BS170};
+	  \draw(1,0)--(3,0)
+	  to[short,*-](3,1.5);
+	  \draw(3,0)--(8,0)
+	  to[V,l_=10V,-*] (8,3.5)
+	  to[R,l_=R15 1k](6,3.5)
+	  to[Do,l_=LED3,-*](4,3.5)--(3,3.5)--(3,2.5);
+	  \draw (0,2)
+      -- (0,6)
+      -- (1,6)
+      -- (1,6.5)
+      -- (3,6.5)
+      -- (3,5)
+      -- (1,5)
+      -- (1,6)
+      -- (1,5.5)
+      -- (0.5,5.5)
+      -- (0.5,5.5)
+      node[rground]{}
+	  -- (0.5,5.15)
+	  node[anchor=north] {GND};
+	  \draw (4,3.5)
+      -- (4,6)
+      -- (6,6)
+      -- (6,6.5)
+      -- (8,6.5)
+      -- (8,5)
+      -- (6,5)
+      -- (6,6)
+      -- (6,5.5)
+      -- (5,5.5)
+      -- (5,5.5)
+      node[rground]{}
+	  -- (5,5.15)
+	  node[anchor=north] {GND};
+   \end{circuitikz}
+   \caption{Obwód do pomiaru czasu prze³¹czenia}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages]
+	  \draw (0,0)
+	  --(8,0)--(8,12)--(0,12)--(0,0);
+	  \draw (0,12)
+	  to[Do,l_=g](0,13)--(0,14);
+	  \draw (2,12)
+	  to[Do,l_=f](2,13)--(2,14);
+	  \draw (6,12)
+	  to[Do,l_=a](6,13);
+	  \draw (8,12)
+	  to[Do,l_=b](8,13)--(8,14);
+	  \draw (0,0)
+	  to[Do,l=e](0,-1);
+	  \draw (2,0)
+	  to[Do,l=d](2,-1);
+	  \draw (6,0)
+	  to[Do,l=c](6,-1)--(6,-2);
+	  \draw (8,0)
+	  to[Do,l=dp](8,-1);
+	  \draw (0,14)
+	  --(10,14)--(10,-2)--(6,-2)--(6,-4)--(4,-4)
+	  to[V] (4,-2)
+	  to[R] (4,0);
+	  \draw [densely dashed] (6,2)
+	  --(4,2)
+	  node[anchor=north] {d}
+	  --(2,2)--(2,4)
+	  node[anchor=east] {e}
+	  --(2,6);
+	  \draw [densely dashed] (2,10)
+	  --(4,10)
+	  node[anchor=south] {a}
+	  --(6,10);
+	  \draw (6,2)[thick,brown]
+	  --(6,4)
+	  node[anchor=west] {c}
+	  --(6,8)
+	  node[anchor=west] {b}
+	  --(6,10)--(6,6)--(4,6)
+	  node[anchor=north] {g}
+	  --(2,6)--(2,8)
+	  node[anchor=east] {f}
+	  --(2,10);
+	  \draw (7,1)
+	  circle[radius = 4pt]
+	  node[anchor=east] {dp};
+   \end{circuitikz}
+   \caption{Schemat po³¹czeñ wyœwietlacza generuj¹cego cyfrê 4}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages]
+	  \draw (0,0)
+	  to[sI,-*] (0,3)
+	  to[Do,l_=D,-*] (3,3)
+	  to[R,l=R 10k,-*] (3,0)
+	  node[rground]{}
+	  -- (3,-0.35)
+	  node[anchor=north] {GND}
+	  -- (3,0) -- (0,0);
+	  \draw (3,3)
+      -- (5,3)
+      -- (5,1.75)
+      -- (6,1.75)
+      -- (6,2.25)
+      -- (7,2.25)
+      node[anchor=south] {Channel B}
+      -- (8,2.25)
+      -- (8,0.75)
+      -- (6,0.75)
+      -- (6,1.75)
+      -- (6,1.25)
+      -- (5,1.25)
+      -- (5,0)
+      -- (3,0);
+      \draw (0,3)
+      -- (0,5.5)
+      -- (2,5.5)
+      -- (2,6)
+      -- (3,6)
+      node[anchor=south] {Channel A}
+      -- (4,6)
+      -- (4,4.5)
+      -- (2,4.5)
+      -- (2,5.5)
+      -- (2,5)
+      -- (1,5)
+      -- (1,5)
+      node[rground]{}
+	  -- (1,4.65)
+	  node[anchor=north] {GND};
+   \end{circuitikz}
+   \caption{Uk³ad pomiarowy dla badania w³asnoœci prostownika jednopo³ówkowego}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages]
+	  \draw (0,0)
+	  to[sI,-*] (0,3)
+	  to[Do,l_=D,-*] (2.5,3)
+	  to[R,l=R,-*] (2.5,0)
+	  node[rground]{}
+	  -- (2.5,-0.35)
+	  node[anchor=north] {GND}
+	  -- (2.5,0) -- (0,0);
+	  \draw (2.5,3)
+	  to[short,-*] (4.5,3)
+	  to[C,l=CF,-*] (4.5,0)
+	  -- (2.5,0);
+	  \draw (4.5,3)
+	  to[short,-*] (6.5,3)
+	  to[voltmeter,l=$V_{AC}$,-*] (6.5,0)
+	  -- (4.5,0);
+	  \draw (6.5,3)
+	  to[short,-*] (8.5,3)
+	  to[voltmeter,l=$V_{DC}$,-*] (8.5,0)
+	  -- (6.5,0);
+	  \draw (8.5,3)
+      -- (10,3)
+      -- (10,1.75)
+      -- (11,1.75)
+      -- (11,2.25)
+      -- (12,2.25)
+      node[anchor=south] {Channel B}
+      -- (13,2.25)
+      -- (13,0.75)
+      -- (11,0.75)
+      -- (11,1.75)
+      -- (11,1.25)
+      -- (10,1.25)
+      -- (10,0)
+      -- (8.5,0);
+      \draw (0,3)
+      -- (0,5.5)
+      -- (2,5.5)
+      -- (2,6)
+      -- (3,6)
+      node[anchor=south] {Channel A}
+      -- (4,6)
+      -- (4,4.5)
+      -- (2,4.5)
+      -- (2,5.5)
+      -- (2,5)
+      -- (1,5)
+      -- (1,5)
+      node[rground]{}
+	  -- (1,4.65)
+	  node[anchor=north] {GND};
+   \end{circuitikz}
+   \caption{Uk³ad prostownika jednopo³ówkowego z filtracj¹}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages]
+	  \draw (0,-1)
+	  to[V=$max 15V$,-*] (0,2)
+	  to[Do,l_=LED1 green,-*] (4,2)
+	  to[short,-*] (5,2)
+	  to[Do,l_=LED1 green,-*] (9,2)
+	  -- (10,2)
+	  to[R=R1 1k] (10,-1)
+	  -- (5,-1)
+	  node[rground]{}
+	  -- (5,-1.35)
+	  node[anchor=north] {GND}
+	  -- (5,-1) -- (0,-1);
+	  \draw (0,2)
+	  --(0,4)
+	  to[voltmeter] (4,4)
+	  --(4,2)--(5,2)--(5,4)
+	  to[voltmeter] (9,4)
+	  --(9,2);
+   \end{circuitikz}
+   \caption{Schemat uk³adu pomiarowego do badania diod œwiec¹cych}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages]
+	  \draw (-0.3,0.3)
+	  node[anchor=east] {1-15kHz};
+      \draw (0,0)
+      to[sI=$V_{pp}3V$] (0,2)
+      -- (0.5,2)
+      node[anchor=south] {czerw.}
+      -- (1,2)
+      -- (1,0)
+      -- (0.5,0)
+      node[anchor=north] {bia³y}
+      -- (0,0);
+      \draw (1,2)[thick,brown]
+      --(1,0)
+      --(1.5,0)
+      node[anchor=south] {BNC}
+      --(1.5,-2.5)
+      --(1.5,0)
+      --(2,0)
+      --(2,2);
+      \draw (1.5,-2)
+      -- (2.1,-2)
+      node[anchor=south] {czerw.}
+      -- (3,-2)
+      -- (3,-1.5)
+      -- (4,-1.5)
+      node[anchor=south] {kana³ X}
+      -- (5,-1.5)
+      -- (5,-3)
+      -- (3,-3)
+      -- (3,-2)
+      -- (3,-2.5)
+      -- (2.1,-2.5)
+      node[anchor=north] {bia³y}
+      -- (1.5,-2.5);
+      \draw (2,2)
+      to[short,-*] (2.5,2)
+      to[C,l_=$CX$,-*] (4.5,2)
+      to[L,l_=$L_1 66mH$,-*] (6.5,2)
+      to[short,-*] (7,2)
+      -- (8.5,2)
+      node[anchor=south] {czerw.}
+      -- (9,2)
+      -- (9,0)
+      -- (8.5,0)
+      node[anchor=south] {bia³y}
+      to[short,-*](7,0)
+      -- (2,0)
+      -- (7,0)
+      to[R,l_=$R_1 1k$] (7,2);
+      \draw (9,2)[thick,brown]
+      --(9,-0.7)
+      --(8,-0.7)
+      node[anchor=south] {BNC}
+      --(5.5,-0.7)
+      --(5.5,-2.5);
+      \draw (5.5,-2)
+      -- (6.1,-2)
+      node[anchor=south] {czerw.}
+      -- (7,-2)
+      -- (7,-1.5)
+      -- (8,-1.5)
+      node[anchor=south] {kana³ Y}
+      -- (9,-1.5)
+      -- (9,-3)
+      -- (7,-3)
+      -- (7,-2)
+      -- (7,-2.5)
+      -- (6.1,-2.5)
+      node[anchor=north] {bia³y}
+      -- (5.5,-2.5);
+      \draw (2.5,2)
+      --(2.5,3.5)
+      to[voltmeter,-*](4.5,3.5)
+      --(4.5,2)
+      --(4.5,3.5)
+      to[voltmeter](6.5,3.5)
+      to[short,-*](6.5,2);
+   \end{circuitikz}
+   \caption{tym razem nie tag}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages]
+      \draw (0,0)
+      to[short] (0,4)
+      to[short] (0.5,4)
+      to[R=$R_4 100$,-*] (2.5,4)
+      to[short,-*] (3,4)
+      to[R=$R_2 510$] (6,4)
+      to[V,v=$5V$] (6,0)
+      to[R,l_=$R_3 100$,-*] (3,0)
+      to[short,-*] (0.5,0)
+      to[short] (0,0);
+      \draw (0.5,0)
+      to[short] (0.5, 2)
+      to[R=$R_5 510$] (2.5,2)
+      to[short] (2.5,4);
+      \draw (3,0)
+      to[R,l_=$R_1 220$] (3,4);
+   \end{circuitikz}
+   \caption{tag}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages]
+      \draw (0,0)
+      to[V,v_=$5V$] (0,-2)
+      to[short] (4,-2)
+      to[R,l_=$R_x$] (4,0)
+      to[R,l_=$R_{th}$] (0,0);
+   \end{circuitikz}
+   \caption{dobrze mu jednak daæ co mamy na myœli z rth i rx}
+\end{center}
+\end{figure}
+
+
+\bibliography{IEEEabrv,refs}
+
+\end{document}
+

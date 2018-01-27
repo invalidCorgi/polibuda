@@ -1,0 +1,200 @@
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages, scale=1, transform shape]
+	  \draw (0,0)
+	  circle[radius = 10pt]--(2,0)
+	  circle[radius = 3pt]
+	  node[anchor=west]{2};
+	  \draw (0,0.5)
+	  node[anchor=south]{IN};
+	  \draw (0,-0.35)
+	  node[rground]{};
+	  \draw (2,0.5)
+	  circle[radius = 3pt]
+	  node[anchor=west]{1}
+	  --(1,0.5)--(1,1.5)--(1.5,1.5)
+	  node[anchor=west]{IN 1};
+	  \draw (2,-0.5)
+	  circle[radius = 3pt]
+	  node[anchor=west]{3}
+	  --(1,-0.5)--(1,-1.5)--(1.5,-1.5)
+	  node[anchor=west]{IN 2};
+	  \draw (1.5,1)--(2.5,1)--(2.5,0)
+	  node[anchor=west]{JP IN}
+	  --(2.5,-1)--(1.5,-1)--(1.5,1);
+	  
+	  
+	  \draw (10,0)
+	  circle[radius = 10pt]--(8,0)
+	  circle[radius = 3pt]
+	  node[anchor=east]{2};
+	  \draw (10,0.5)
+	  node[anchor=south]{OUT};
+	  \draw (10,-0.35)
+	  node[rground]{};
+	  \draw (8,0.5)
+	  circle[radius = 3pt]
+	  node[anchor=east]{1}
+	  --(9,0.5)--(9,1.5)--(8.5,1.5)
+	  node[anchor=east]{OUT 1};
+	  \draw (8,-0.5)
+	  circle[radius = 3pt]
+	  node[anchor=east]{3}
+	  --(9,-0.5)--(9,-1.5)--(8.5,-1.5)
+	  node[anchor=east]{OUT 2};
+	  \draw (8.5,1)--(7.5,1)--(7.5,0)
+	  node[anchor=east]{JP OUT}
+	  --(7.5,-1)--(8.5,-1)--(8.5,1);
+   \end{circuitikz}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages, scale=1, transform shape]
+	  \draw (-4,-0.5)
+	  node[anchor=east]{IN 1}--(0,-0.5);
+	  \draw (0,1)
+	  --(0,0.5)node[anchor=west]{--}
+	  --(0,-0.5)node[anchor=west]{+}
+	  --(0,-1)--(2,0)--(0,1);
+	  \draw (1,-0.5)--(1,-1)
+	  node[anchor=west]{--15V};
+	  \draw (1,0.5)--(1,1)
+	  node[anchor=west]{+15V};
+	  \draw (2,0)--(6,0)
+	  node[anchor=west]{OUT 1};
+	  \draw (0,0.5)
+	  to[short,-*](-1,0.5)
+	  to[R,l_=1k](-3,0.5)
+	  node[rground,rotate=270]{};
+	  \draw (-1,0.5)--(-1,2)
+	  to[R,l=1k](3,2)
+	  to[short,-*](3,0);
+   \end{circuitikz}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages, scale=0.85, transform shape]
+	  \draw (-2.5,0)--(-2,0)
+	  to[switch,l=1](0,0)
+	  to[R,l=1k](2,0);
+	  
+	  \draw (-2.5,-1.5)--(-2,-1.5)
+	  to[switch,l=2](0,-1.5)
+	  to[C,l=100nF](2,-1.5);
+	  
+	  \draw (-2.5,-3)--(-2,-3)
+	  to[switch,l=3](0,-3)
+	  to[R,l=2k](2,-3);
+	  
+	  \draw (-2.5,-4)--(-2,-4)
+	  to[switch,l=4](0,-4)
+	  to[R,l=1k](2,-4);
+	  
+	  \draw (0,1)--(0,-4.5)--(-2,-4.5)--(-2,1)--(-1,1)
+	  node[anchor=south]{INPUT}--(0,1);
+	  
+	  \draw (-3,0)
+	  node[anchor=east]{IN 2}--(-2.5,0)
+	  to[short,*-*](-2.5,-1.5)--(-2.5,-3)
+	  to[short,*-*](-2.5,-4);
+	  
+	  \draw (2,-4)--(2,-3)
+	  to[short,*-*](2,-1.5)
+	  to[short,-*](2,0);
+	  
+	  \draw (2,0)--(4,0);
+	  
+	  \draw (4,1.5)
+	  --(4,1)node[anchor=west]{+}
+	  --(4,0)node[anchor=west]{--}
+	  --(4,-0.5)--(6,0.5)--(4,1.5);
+	  
+	  \draw (5,0)--(5,-0.5)
+	  node[anchor=west]{--15V};
+	  
+	  \draw (5,1)--(5,1.5)
+	  node[anchor=west]{+15V};
+	  
+	  \draw (4,1)--(3.5,1)
+	  node[rground,rotate=270]{};
+	  
+	  \draw (3,0)--(3,-2.5)
+	  to[short,*-*](3,-4)--(3,-5)
+	  to[short,*-*](3,-6);
+	  
+	  \draw (7.5,-2.5)--(7,-2.5)
+	  to[switch,l_=1](5,-2.5)
+	  to[C,l_=10nF](3,-2.5);
+	  
+	  \draw (7.5,-4)--(7,-4)
+	  to[switch,l_=2](5,-4)
+	  to[R,l_=5k1](3,-4);
+	  
+	  \draw (7.5,-5)--(7,-5)
+	  to[switch,l_=3](5,-5)
+	  to[R,l_=1k](3,-5);
+	  
+	  \draw (7.5,-6)--(7,-6)
+	  to[switch,l_=4](5,-6)
+	  to[R,l_=2k](3,-6);
+	  
+	  \draw (7,-1.5)--(7,-6.5)--(5,-6.5)--(5,-1.5)--(6,-1.5)
+	  node[anchor=south]{LOOPBACK}--(7,-1.5);
+	  
+	  \draw (6,0.5)--(9,0.5)
+	  node[anchor=west]{OUT 2};
+	  
+	  \draw (7.5,-6)--(7.5,-5)
+	  to[short,*-*](7.5,-4)--(7.5,-2.5)
+	  to[short,*-*](7.5,0.5);
+	  
+   \end{circuitikz}
+   \caption{Schemat ideowy p³yty æwiczeniowej}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages, scale=0.8, transform shape]
+	  \draw (1,0.5)
+	  to[short,*-](2,0.5);
+	  \draw (0,0.5)
+	  node[anchor=south]{a)};
+	  \draw (2,1)
+	  --(2,0.5)node[anchor=west]{+}
+	  --(2,-0.5)node[anchor=west]{--}
+	  --(2,-1)--(4,0)--(2,1);
+	  \draw (-0.5,-0.5)
+	  node[rground,rotate=270]{}
+	  to[R,l_=$Z_{in}$](1.5,-0.5)
+	  --(2,-0.5)--(1.5,-0.5)--(1.5,-1.5);
+	  \draw (1.5,-1.5)
+	  to[R,l_=$Z_f$](4.5,-1.5)
+	  --(4.5,0)--(4,0)
+	  to[short,-*](6,0);
+	  
+	  \draw (9,0.5)
+	  node[rground,rotate=270]{}
+	  to[short](10,0.5);
+	  \draw (8,0.5)
+	  node[anchor=south]{b)};
+	  \draw (10,1)
+	  --(10,0.5)node[anchor=west]{+}
+	  --(10,-0.5)node[anchor=west]{--}
+	  --(10,-1)--(12,0)--(10,1);
+	  \draw (7.5,-0.5)
+	  to[R,l_=$Z_{in}$,*-](9.5,-0.5)
+	  --(10,-0.5)--(9.5,-0.5)--(9.5,-1.5);
+	  \draw (9.5,-1.5)
+	  to[R,l_=$Z_f$](12.5,-1.5)
+	  --(12.5,0)--(12,0)
+	  to[short,-*](14,0);
+   \end{circuitikz}
+   \caption{Konfiguracje stopni wzmacniaj¹cych: \newline
+   a) nieodwracaj¹ca, b) odwracaj¹ca}
+\end{center}
+\end{figure}

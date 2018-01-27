@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/wojtekreg/MEGAsync/polibuda/programowanie_wspolbiezne/Komunikator/Klient/inf132312_k.c
+inf132312_struktury.h
+/home/wojtekreg/MEGAsync/polibuda/programowanie_wspolbiezne/Komunikator/Klient/inf132312_struktury.h
+
+/home/wojtekreg/MEGAsync/polibuda/programowanie_wspolbiezne/Komunikator/Klient/inf132312_struktury.h
+stdio.h
+-
+stdlib.h
+-
+fcntl.h
+-
+unistd.h
+-
+sys/types.h
+-
+sys/ipc.h
+-
+sys/msg.h
+-
+string.h
+-
+signal.h
+-
+

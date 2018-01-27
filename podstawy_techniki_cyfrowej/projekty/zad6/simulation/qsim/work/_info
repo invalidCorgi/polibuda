@@ -1,0 +1,81 @@
+m255
+K3
+13
+cModel Technology
+Z0 dD:\Mega\polibuda\podstawy_techniki_cyfrowej\projekty\zad6\simulation\qsim
+vzad6
+Z1 !s100 d6?e[NikEK:Ngf6_DUXl^1
+Z2 I700oIiTbm1AAY<``9Gg^k2
+Z3 Vo5>>KMo]L32=X2A8[d<SH2
+Z4 dD:\Mega\polibuda\podstawy_techniki_cyfrowej\projekty\zad6\simulation\qsim
+Z5 w1511715960
+Z6 8zad6.vo
+Z7 Fzad6.vo
+L0 31
+Z8 OV;L;10.1d;51
+r1
+31
+Z9 !s90 -work|work|zad6.vo|
+Z10 o-work work -O0
+!i10b 1
+!s85 0
+Z11 !s108 1511715961.139000
+Z12 !s107 zad6.vo|
+!s101 -O0
+vzad6_vlg_check_tst
+!i10b 1
+Z13 !s100 biRX65KiFMXB3Cn]2c>Pk3
+Z14 IJ^13P[`Inm?hzD?5zONGn0
+Z15 V?AGFk9G87@_AbldlBMzz[3
+R4
+Z16 w1511715959
+Z17 8zad6.vt
+Z18 Fzad6.vt
+L0 61
+R8
+r1
+!s85 0
+31
+Z19 !s108 1511715961.451000
+Z20 !s107 zad6.vt|
+Z21 !s90 -work|work|zad6.vt|
+!s101 -O0
+R10
+vzad6_vlg_sample_tst
+!i10b 1
+Z22 !s100 DfT=d_fM?YQX[_^e2]DVj0
+Z23 IF_KXCZ>6jiXA;=noJ1C`o3
+Z24 VU7PLU8UZ45C?8<EZBf<H=2
+R4
+R16
+R17
+R18
+L0 29
+R8
+r1
+!s85 0
+31
+R19
+R20
+R21
+!s101 -O0
+R10
+vzad6_vlg_vec_tst
+!i10b 1
+!s100 9]GVVO1aXJ>WCJZNg7Q230
+I9L?V5<Az53_Y4TL;YzeWK3
+Z25 VPcL;E4QnfY`8:noK8nYkh0
+R4
+R16
+R17
+R18
+Z26 L0 917
+R8
+r1
+!s85 0
+31
+R19
+R20
+R21
+!s101 -O0
+R10

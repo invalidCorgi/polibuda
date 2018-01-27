@@ -1,0 +1,816 @@
+\documentclass[polish,polish,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[cp1250]{inputenc}
+\usepackage{babel}
+\usepackage{pslatex}
+\usepackage{pgfplots}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage[OT4]{fontenc}
+\usepackage{circuitikz} 
+
+
+\usepackage{anysize}
+\marginsize{2.5cm}{2.5cm}{3cm}{3cm}
+
+\newcommand{\PRzFieldDsc}[1]{\sffamily\bfseries\scriptsize #1}
+\newcommand{\PRzFieldCnt}[1]{\textit{#1}}
+\newcommand{\PRzHeading}[8]{
+%% #1 - nazwa laboratorium
+%% #2 - kierunek 
+%% #3 - specjalnoúÊ 
+%% #4 - rok studiÛw 
+%% #5 - symbol grupy lab.
+%% #6 - temat 
+%% #7 - numer lab.
+%% #8 - sk≥ad grupy Êwiczeniowej
+
+\begin{center}
+\begin{tabular}{ p{0.32\textwidth} p{0.15\textwidth} p{0.15\textwidth} p{0.12\textwidth} p{0.12\textwidth} }
+
+  &   &   &   &   \\
+\hline
+\multicolumn{5}{|c|}{}\\[-1ex]
+\multicolumn{5}{|c|}{{\LARGE #1}}\\
+\multicolumn{5}{|c|}{}\\[-1ex]
+
+\hline
+\multicolumn{1}{|l|}{\PRzFieldDsc{Kierunek}}	& \multicolumn{1}{|l|}{\PRzFieldDsc{SpecjalnoúÊ}}	& \multicolumn{1}{|l|}{\PRzFieldDsc{Rok studiÛw}}	& \multicolumn{2}{|l|}{\PRzFieldDsc{Symbol grupy lab.}} \\
+\multicolumn{1}{|c|}{\PRzFieldCnt{#2}}		& \multicolumn{1}{|c|}{\PRzFieldCnt{#3}}		& \multicolumn{1}{|c|}{\PRzFieldCnt{#4}}		& \multicolumn{2}{|c|}{\PRzFieldCnt{#5}} \\
+
+\hline
+\multicolumn{4}{|l|}{\PRzFieldDsc{Temat Laboratorium}}		& \multicolumn{1}{|l|}{\PRzFieldDsc{Numer lab.}} \\
+\multicolumn{4}{|c|}{\PRzFieldCnt{#6}}				& \multicolumn{1}{|c|}{\PRzFieldCnt{#7}} \\
+
+\hline
+\multicolumn{5}{|l|}{\PRzFieldDsc{Sk≥ad grupy Êwiczeniowej oraz numery indeksÛw}}\\
+\multicolumn{5}{|c|}{\PRzFieldCnt{#8}}\\
+
+\hline
+\multicolumn{3}{|l|}{\PRzFieldDsc{Uwagi}}	& \multicolumn{2}{|l|}{\PRzFieldDsc{Ocena}} \\
+\multicolumn{3}{|c|}{\PRzFieldCnt{\ }}		& \multicolumn{2}{|c|}{\PRzFieldCnt{\ }} \\
+
+\hline
+\end{tabular}
+\end{center}
+}
+
+\begin{document}
+
+\PRzHeading{Laboratoria Podstawy Elektroniki}{Informatyka}{--}{I}{I1}{Tranzystor MOS}{4}{Stanis≥aw Jasiewicz(116753), Krzysztof Michalak(132281), Wojciech Regulski(132312), Ewa Rudol(132314)}{}
+
+\section{Cel}
+***TO DO
+
+
+\section{Pomiary}
+
+\begin{enumerate}[1.]
+
+\item %1 ****************************************
+Charakterystyka bramkowa nMOS (1.6)
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages]
+	  \draw (0,0)
+	  to[V,l=5V] (0,6);
+	  \draw (0,0)
+	  to[short,-*] (2,0)
+	  node[rground]{}
+	  --(2,-0.3)
+	  node[anchor=north] {GND}
+	  --(2,0)
+	  to[V,l=0...5V] (2,3);
+	  \draw (2,0)
+	  --(3.5,0)to[voltmeter,l_=$U_{GS}$,*-*](3.5,3)--(2,3);
+	  \draw(8,3)
+	  node[nmos]{BS170};
+	  \draw(3.5,3)--(7.1,3);
+	  \draw(3.5,0)--(8,0)--(8,2.5);
+	  \draw(0,6)
+	  to[ammeter,l_=$I_d$](4,6)
+	  to[R,l_=R1 1k](8,6)--(8,3.5);
+   \end{circuitikz}
+   \caption{Uk≥ad do badania charakterystyki bramkowej tranzystora nMOS}
+\end{center}
+\end{figure}
+
+\newpage
+
+\begin{itemize}
+
+\item %punktor
+Tabela - wartoúci prπdu drenu $I_d$ w zaleønoúci od napiÍcia Bramka -
+èrÛd≥o $U_{GS}$ zmienianego w zakresie [0..5] V .
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+Lp. & $U_{GS}$ [V]& $I_{d}$ [mA]   \\ \hline
+1 & 0,5 & 0,54 \\
+2 & 1,0 & 0,58 \\
+3 & 1,5 & 1,00 \\
+pom.dod. & 1,6 & 1,02 \\
+pom.dod. & 1,7 & 1,15 \\
+pom.dod. & 1,8 & 2,15 \\
+pom.dod. & 1,9 & 3,85 \\
+4 & 2,0 & 5,07 \\
+5 & 2,5 & 5,08 \\
+6 & 3,0 & 5,085 \\
+7 & 3,5 & 5,087 \\
+8 & 4,0 & 5,089 \\
+9 & 4,5 & 5,09 \\
+10 & 5,0 & 5,091 \\
+\hline
+\end{tabular}
+\end{table}
+
+\hspace{4 cm}
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\begin{axis}[
+title={Wartoúci prπdu drenu $I_d$ w zaleønoúci od napiÍcia Bramka -
+èrÛd≥o $U_{GS}$},
+title style={text width=200},
+xlabel={NapiÍcie $U_{GS}$ [V]},
+ylabel={NatÍøenie $I_d$ [mA]},
+xmin=0,xmax=5,
+ymin=0,ymax=6,
+legend pos=north west,
+ymajorgrids=true,grid style=dashed
+]
+
+\addplot[color=red]
+coordinates {
+(0.5, 0.54)
+(1.0, 0.58)
+(1.5, 1.0)
+(1.6, 1.02)
+(1.7 ,1.15)
+(1.8, 2.15)
+(1.9, 3.85)
+(2.0, 5.07)
+(2.5, 5.08)
+(3.0, 5.085)
+(3.5, 5.087)
+(4.0, 5.089)
+(4.5, 5.09)
+(5.0, 5.091)
+};
+
+\addplot[color=green]
+coordinates {
+(2.1, 0)
+(2.1, 10)
+};
+
+\legend{$I_d$, $U_{th}$}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\item %punktor
+Odczyt z noty katalogowej producenta:
+$$U_{th} = 2,1 [V] $$
+
+\item %punktor
+Aby tranzystor nMOS przewodzi≥ prπd, do elektrody bramki musi zostaÊ doprowadzone napiÍcie o potencjale dodatnim. Gdy tak siÍ stanie, powstanie w obszarze pÛ≥przewodnika leøπcego pod bramkπ tzw. kana≥, utworzony za sprawπ oddzia≥ywania pola elektrycznego.
+
+\end{itemize}
+%\************************************************
+
+
+\newpage
+
+\item %2 ****************************************
+Charakterystyka bramkowa pMOS (1.7)
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages]
+	  \draw (0,0)
+	  to[V,l=5V] (0,6);
+	  \draw (0,0)
+	  to[short,-*] (2,0)
+	  node[rground]{}
+	  --(2,-0.3)
+	  node[anchor=north] {GND}
+	  --(2,0)
+	  to[V,l=0...5V] (2,3);
+	  \draw (2,0)
+	  --(3.5,0)to[voltmeter,l_=$U_1$,*-*](3.5,3)--(2,3);
+	  \draw(8,3)
+	  node[pmos]{BS250};
+	  \draw(3.5,3)--(7.1,3);
+	  \draw(3.5,0)
+	  to[ammeter,l_=$I_d$](8,0)
+	  to[R,l_=R7 1k](8,2.5);	  
+	  \draw(0,6)--(8,6)--(8,3.5);
+   \end{circuitikz}
+   \caption{Uk≥ad do badania charakterystyki bramkowej tranzystora pMOS}
+\end{center}
+\end{figure}
+
+\begin{itemize}
+
+\item %punktor
+Tabela - wartoúci prπdu drenu $I_D$ w zaleønoúci od napiÍcia $V_1$ wytwarzanego przez zasilacz, przy≥oøony miedzy bramkÍ, a dren.\\
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+Lp. & $V_1$ [V]& $I_{d}$ [mA]   \\ \hline
+1 & 0,5 & 5,07 \\
+2 & 1,0 & 5,05 \\
+3 & 1,5 & 4,7 \\
+pom.dod. & 1,6 & 3,9 \\
+pom.dod. & 1,7 & 2,18 \\
+pom.dod. & 1,8 & 0,7 \\
+pom.dod. & 1,9 & 0,41 \\
+4 & 2,0 & 0,10 \\
+5 & 2,5 & 0,00 \\
+6 & 3,0 & 0,00 \\
+7 & 3,5 & 0,00 \\
+8 & 4,0 & 0,00 \\
+9 & 4,5 & 0,00 \\
+10 & 5,0 & 0,00 \\
+\hline
+\end{tabular}
+\end{table}
+
+\newpage
+
+\item %punktor
+Wartoúci napiÍÊ bramka-ürÛd≥o $U_{GS}$ dla tranzystora pMOS (napiÍciowe prawo Kirchhoffa)
+$$ U_{GS} = -(U_{SS} - U_1) $$
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+Lp. & $U_{GS}$ [V]   \\ \hline
+1 & -4,5 \\
+2 & -4,0\\
+3 & -3,5 \\
+pom.dod. & -3,4 \\
+pom.dod. & -3,3 \\
+pom.dod. & -3,2 \\
+pom.dod. & -3,1 \\
+4 & -3,0 \\
+5 & -2,5 \\
+6 & -2,0 \\
+7 & -1,5\\
+8 & -1,0 \\
+9 & -0,5 \\
+10 & 0,0 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\begin{axis}[
+title={Wartoúci prπdu drenu $I_d$ w zaleønoúci od napiÍcia Bramka -
+èrÛd≥o $U_{GS}$},
+title style={text width=200},
+xlabel={NapiÍcie $U_{GS}$ [V]},
+ylabel={NatÍøenie $I_d$ [mA]},
+xmin=-5,xmax=0,
+ymin=0,ymax=6,
+legend pos=north west,
+ymajorgrids=true,grid style=dashed
+]
+
+\addplot[color=red]
+coordinates {
+(-4.5, 5.07)
+(-4.0, 5.05)
+(-3.5 ,4.70)
+(-3.4, 3.90)
+(-3.3, 2.18)
+(-3.2, 0.70)
+(-3.1, 0.41)
+(-3.0, 0.10)
+(-2.5, 0.00)
+(-2.0, 0.00)
+(-1.5, 0.00)
+(-1.0, 0.00)
+(-0.5, 0.00)
+(0.0, 0.00)
+
+};
+
+\addplot[color=green]
+coordinates {
+(-3.5, 0)
+(-3.5, 10)
+};
+
+\legend{$I_d$, $U_{th}$}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\item %punktor
+Odczyt z noty katalogowej producenta:
+$$U_{th} = -3,5 [V] $$
+
+\end{itemize}
+%\************************************************
+
+\newpage
+
+\item %3 ****************************************
+Charakterystyka drenowa nMOS (1.8 i 1.9)
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages]
+	  \draw (0,0)
+	  to[V,l=0...10V] (0,6);
+	  \draw (0,0)
+	  to[short,-*] (2,0)
+	  to[V,l=5V] (2,3);
+	  \draw(5,3)
+	  node[nmos]{BS170};
+	  \draw(2,3)--(4.1,3);
+	  \draw(2,0)to[short,-*](5,0)--(5,2.5);
+	  \draw(0,6)
+	  to[ammeter,l_=$I_d$](2.5,6)
+	  to[R,l_=R2 1k,-*](5,6)--(5,3.5);
+	  \draw(5,0)--(7,0)
+	  to[voltmeter,l_=$U_{DS}$](7,6)--(5,6);
+   \end{circuitikz}
+   \caption{Uk≥ad do badania charakterystyki drenowej tranzystora nMOS}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages]
+	  \draw (0,0)
+	  to[V,l=0...10V] (0,6);
+	  \draw (0,0)
+	  to[short,-*] (1.2,0)
+	  to[V,l=5V] (1.2,3);
+	  \draw(5,3)
+	  node[nmos]{BS170};
+	  \draw(1.2,3)
+	  to[R,l_=R4 1k](3.5,3)  
+	  --(4.1,3);
+	  \draw(3.5,3)
+	  to[R,l_=R5 1k,*-*](3.5,0);
+	  \draw(1.2,0)to[short,-*](5,0)--(5,2.5);
+	  \draw(0,6)
+	  to[ammeter,l_=$I_d$](2.5,6)
+	  to[R,l_=R3 1k,-*](5,6)--(5,3.5);
+	  \draw(5,0)--(7,0)
+	  to[voltmeter,l_=$U_{DS}$](7,6)--(5,6);
+   \end{circuitikz}
+   \caption{Uk≥ad do badania charakterystyki drenowej dla obnizonego napiecia bramki}
+\end{center}
+\end{figure}
+
+\newpage
+
+\begin{itemize}
+
+\item %punktor
+Tabela - 1.8 $U_{gs}=6,64V$
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+Lp. & $V$ [V]& $U_{DS}$ [mV] & $I_d$ [mA]   \\ \hline
+1 & 1,0 & 2,23 & 1,18 \\
+2 & 2,0 & 4,58 & 2,08 \\
+3 & 3,0 & 6,49 & 3,12 \\
+4 & 4,0 & 8,67 & 4,06 \\
+5 & 5,0 & 10,82 & 5,17 \\
+6 & 6,0 & 12,76 & 6,20 \\
+7 & 7,0 & 14,94 & 7,19 \\
+8 & 8,0 & 17,95 & 8,21 \\
+9 & 9,0 & 19,37 & 9,23 \\
+10 & 10,0 & 21,33 & 10,27 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\item %punktor
+Tabela - 1.9 $U_{gs}=3,41V$
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+Lp. & $V$ [V]& $U_{DS}$ [mV] & $I_d$ [mA]   \\ \hline
+1 & 1,0 & 12, & 1,09 \\
+2 & 2,0 & 0,04 & 2,16 \\
+3 & 3,0 & 0,07 & 3,05 \\
+4 & 4,0 & 0,10 & 4,13 \\
+5 & 5,0 & 0,15 & 5,14 \\
+6 & 6,0 & 0,23 & 6,12 \\
+7 & 7,0 & 0,47 & 7,15 \\
+8 & 8,0 & 1,32 & 8,16 \\
+9 & 9,0 & 2,72 & 9,14 \\
+10 & 10,0 & 3,80 & 10,19 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\begin{axis}[
+title={Wartoúci prπdu drenu $I_d$ w zaleønoúci od napiÍcia Dren - èrÛd≥o $U_{DS}$},
+title style={text width=200},
+xlabel={NapiÍcie $U_{DS}$ [mV]},
+ylabel={NatÍøenie $I_d$ [mA]},
+xmin=0,xmax=10,
+ymin=0,ymax=10,
+legend pos=north west,
+ymajorgrids=true,grid style=dashed
+]
+
+%ids 1.8
+\addplot[color=red]
+coordinates {
+(2.23, 1.18)
+(4.58, 2.08)
+(6.49, 3.12)
+(8.67, 4.06)
+(10.82, 5.17)
+(12.76, 6.20)
+(14.94, 7.19)
+(17.95, 8.21)
+(19.37, 9.23)
+(21.33, 10.27)
+};
+
+
+%ids 1.9
+\addplot[color=blue]
+coordinates {
+(0.01, 1.09)
+(0.04, 2.16)
+(0.07, 3.05)
+(0.10, 4.13)
+(0.15, 4.86)
+(0.23, 5.93)
+(0.47, 6.82)
+(1.32, 7.34)
+(2.72, 7.29)
+(3.80, 7.43)
+};
+
+\legend{Ids 1.8 (Ugs=6.64), ids1.9}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+
+\item %punktor
+***Jak wartosc napiecia Bramki wp≥ywa na kszta≥t zarejestrowanych charakterystyk drenowych?
+\end{itemize}
+%\************************************************
+
+
+\newpage
+
+\item %4 ****************************************
+
+Charakterystyka drenowa pMOS (1.10, 1.11)
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages]
+	  \draw (0,0)
+	  to[V,l=0...10V] (0,6);
+	  \draw (0,0)
+	  to[short,-*] (2,0)
+	  node[rground]{}
+	  --(2,-0.3)
+	  node[anchor=north] {GND}
+	  --(2,0)
+	  to[V,l=5V] (2,3);
+	  \draw(5,3)
+	  node[pmos]{BS250};
+	  \draw(2,3)--(4.1,3);
+	  \draw(2,0)
+	  to[ammeter,l_=$I_d$](5,0)
+	  to[R,l_=R6 1k](5,2.5);	  
+	  \draw(0,6)--(5,6)--(5,3.5);
+	  \draw(5,0)
+	  to[short,*-](7,0)
+	  to[voltmeter,l_=$U_{DS}$](7,6)
+	  to[short,-*](5,6);
+   \end{circuitikz}
+   \caption{Uk≥ad do badania charakterystyki drenowej tranzystora pMOS}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages]
+	  \draw (0,0)
+	  to[V,l=0...10V] (0,6);
+	  \draw (0,0)
+	  to[short,-*] (1.2,0)
+	  node[rground]{}
+	  --(1.2,-0.3)
+	  node[anchor=north] {GND}
+	  --(1.2,0)
+	  to[V,l=5V] (1.2,3);
+	  \draw(6,3)
+	  node[pmos]{BS250};
+	  \draw(3.5,3)--(5.1,3);
+	  \draw(1.2,3)
+	  to[R,l=R9 1k,-*](3.5,3)
+	  to[R,l_=R10 1k,-*](3.5,0);
+	  \draw(1.2,0)--(3.5,0)
+	  to[ammeter,l_=$I_d$](6,0)
+	  to[R,l_=R8 1k](6,2.5);	  
+	  \draw(0,6)--(6,6)--(6,3.5);
+	  \draw(6,0)
+	  to[short,*-](8,0)
+	  to[voltmeter,l_=$U_{DS}$](8,6)
+	  to[short,-*](6,6);
+   \end{circuitikz}
+   \caption{Uk≥ad do badania charakterystyki drenowej dla obnizonego napiecia bramki pMOS}
+\end{center}
+\end{figure}
+
+
+\newpage
+
+\begin{itemize}
+\item %punktor
+Tabela - 1.10
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+Lp. & $V$ [V]& $U_{DS}$ [mV] & $I_d$ [mA]   \\ \hline
+1 & 1,0 & 1,62 & 0,609 \\
+2 & 2,0 & 3,07 & 1,665 \\
+3 & 3,0 & 4,38 & 2,637 \\
+4 & 4,0 & 5,70 & 3,616\\
+5 & 5,0 & 6,95 & 4,543 \\
+6 & 6,0 & 8,21 & 5,482 \\
+7 & 7,0 & 9,62 & 6,614  \\
+8 & 8,0 & 11,00 & 7,99 \\
+9 & 9,0 & 12,34 & 9,815\\
+10 & 10,0 & 13,65 & 10,213  \\
+\hline
+\end{tabular}
+\end{table}
+
+\item %punktor
+Tabela - 1.11
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+Lp. & $V$ [V]& $U_{DS}$ [mV] & $I_d$ [mA]   \\ \hline
+1 & 1,0 & 1,51 & 0,53 \\
+2 & 2,0 & 2,81 & 1,48 \\
+3 & 3,0 & 4,28 & 2,56 \\
+4 & 4,0 & 5,62 & 3,59 \\
+5 & 5,0 & 6,95 & 4,53 \\
+6 & 6,0 & 8,18 & 6,03 \\
+7 & 7,0 & 9,55 & 7,11 \\
+8 & 8,0 & 11,89 & 8,22 \\
+9 & 9,0 & 12,17 & 9,19 \\
+10 & 10,0 & 13,65 & 10,25 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\begin{axis}[
+title={Wartoúci prπdu drenu $I_d$ w zaleønoúci od napiÍcia Dren -
+èrÛd≥o $U_{DS}$},
+title style={text width=200},
+xlabel={NapiÍcie $U_{DS}$[V]},
+ylabel={NatÍøenie $I_d$ [mA]},
+xmin=0,xmax=10,
+ymin=0,ymax=10,
+legend pos=north west,
+ymajorgrids=true,grid style=dashed
+]
+
+%ids 1.10
+\addplot[color=red]
+coordinates {
+(1.62, 0.609)
+(3.07, 1.665)
+(4.38, 2.637)
+(5.70, 3.616)
+(6.95, 4.543)
+(8.21, 5.482)
+(9.62, 6.614)
+(11.00, 7.99)
+(12.34, 9.815)
+(13.65, 10.213 )
+};
+
+%ids 1.11
+\addplot[color=blue]
+coordinates {
+(1.51, 0.53)
+(2.81, 1.48)
+(4.28, 2.56)
+(5.62, 3.59)
+(6.95, 4.53)
+(8.18, 6.03)
+(9.55, 7.11)
+(11.89, 8.22 )
+(12.17, 9.19)
+(13.65, 10.25)
+};
+
+\legend{$I_{d_{1.10}}$, $I_{d_{1.11}}$}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\item %punktor
+***Jak wartosc napiecia Bramki wp≥ywa na kszta≥t zarejestrowanych charakterystyk drenowych?
+\end{itemize}
+%\************************************************
+
+
+\newpage
+
+
+\item %5 ****************************************
+
+Tranzystor nMOS jako prze≥acznik (1.14, 1.15)
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages]
+	  \draw (4,1)
+	  to[short,-*](4,0)--(8,0)
+	  to[V,l_=10V,-*] (8,3)
+	  to[R,l_=R11 1k](6,3)
+	  to[Do,l_=LED1](4,3)--(4,2);
+	  \draw(4,1.5)
+	  node[nmos]{BS170};
+	  \draw(2.5,1.5)
+	  to[R,l_=R12 1M](2.5,0)--(4,0);
+	  \draw(0,1.5)
+	  to[short,*-*](2.5,1.5)--(3.1,1.5);
+	  \draw(0,3)
+	  to[short,*-](0,4)--(8,4)--(8,3);
+	  \draw(0.4,2.25)
+	  node[anchor=east]{A-A};
+   \end{circuitikz}
+   \caption{Schemat uk≥adu do badania tranzystora nMOS w roli prze≥acznika}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages]
+	  \draw (4,1)
+	  to[short,-*](4,0)--(8,0)
+	  to[V,l_=10V,-*] (8,3)
+	  to[R,l_=R13 1k](6,3)
+	  to[Do,l_=LED2](4,3)--(4,2);
+	  \draw(4,1.5)
+	  node[nmos]{BS170};
+	  \draw(2.5,1.5)
+	  to[R,l_=R14 47k,-*](2.5,0)--(4,0);
+	  \draw(-2,1.5)
+	  to[short,*-](0.3,1.5)
+	  to[short,*-*](2.5,1.5)--(3.1,1.5);
+	  \draw(-2,3)
+	  to[short,*-](-2,4)--(8,4)--(8,3);
+	  \draw(-1.6,2.25)
+	  node[anchor=east]{A-A};
+	  \draw(2.5,0)
+	  to[short,-*](0.3,0)
+	  to[C,l=C1 100uF](0.3,1.5);
+   \end{circuitikz}
+   \caption{Model uk≥adu z opÛünieniem wy≥πczenia}
+\end{center}
+\end{figure}
+
+\begin{itemize}
+\item %punktor
+Praca nMOS w roli prze≥πcznika moøe znaleüÊ zastosowanie w uk≥adach cyfrowych opartych o logikÍ dwustanowπ, gdzie moøe on sterowaÊ przep≥ywem prπdu przez za≥πczanie lub wy≥πczanie. NapiÍcie moøe byÊ wykorzystane do sterowania przep≥ywem prπdu, poniewaø wymuszenia napiÍcia miÍdzy bramkπ a ürÛd≥em wyøszego niø napiÍcie progowe jest warunkiem za≥πczenia tranzystora nMOS.
+\end{itemize}
+%\************************************************
+
+\newpage
+
+\item %6 ****************************************
+\begin{itemize}
+Czas za≥aczania tranzystora (1.17)
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages]
+	  \draw (0,0)
+	  node[rground]{}
+	  -- (0,-0.35)
+	  node[anchor=north] {GND}
+	  -- (0,0)
+	  to[sqV,*-*](0,2)--(2.1,2)--(1,2)
+	  to[R,l=R16 1M,*-*](1,0)--(0,0);
+	  \draw(3,2)
+	  node[nmos]{BS170};
+	  \draw(1,0)--(3,0)
+	  to[short,*-](3,1.5);
+	  \draw(3,0)--(8,0)
+	  to[V,l_=10V,-*] (8,3.5)
+	  to[R,l_=R15 1k](6,3.5)
+	  to[Do,l_=LED3,-*](4,3.5)--(3,3.5)--(3,2.5);
+	  \draw (0,2)
+      -- (0,6)
+      -- (1,6)
+      -- (1,6.5)
+      -- (3,6.5)
+      -- (3,5)
+      -- (1,5)
+      -- (1,6)
+      -- (1,5.5)
+      -- (0.5,5.5)
+      -- (0.5,5.5)
+      node[rground]{}
+	  -- (0.5,5.15)
+	  node[anchor=north] {GND};
+	  \draw (4,3.5)
+      -- (4,6)
+      -- (6,6)
+      -- (6,6.5)
+      -- (8,6.5)
+      -- (8,5)
+      -- (6,5)
+      -- (6,6)
+      -- (6,5.5)
+      -- (5,5.5)
+      -- (5,5.5)
+      node[rground]{}
+	  -- (5,5.15)
+	  node[anchor=north] {GND};
+   \end{circuitikz}
+   \caption{ObwÛd do pomiaru czasu prze≥πczenia}
+\end{center}
+\end{figure}
+
+\item %punktor
+***Zapisz oscylogramy dla ma≥ego i duzego wype≥nienia sygna≥u sterujacego
+
+\item %punktor
+***Podnies czestotliwosc pobudzenia ponad 1MHz. Dokonaj odpowiedniego powiekszenia sygna≥Ûw widocznych
+na oscyloskopie. Przy pomocy oscyloskopu odczytaj wartosci opÛznienia w prze≥aczeniach tranzystora.
+Zapisz oscylogramy w sprawozdaniu.
+
+\item %punktor
+***Okresl, dla jakiej czestotliwosci zosta≥y utworzone i zapisz
+szacowany czas prze≥aczenia. td.
+
+\item %punktor
+***Oszacuj maksymalna stabilna czestotliwosc pracy uk≥adu tranzystora i diody LED rozumiana jako:  fmax =1/td
+$$\displaystyle
+to tylko przyk≥ad zapisu matematycznego R_{5,1}=\frac{510*220}{730}\approx 153,7 \Omega
+$$
+\end{itemize}
+%\************************************************
+
+\section{Wnioski}
+***TODO
+
+-SpÛüniony refleks w wyczuwaniu lawinowych wzrostÛw
+
+
+
+\section{Bibliografia}
+[1] Encyclopaedia Britannica http://www.britannica.com/
+[2] BS170/MMBF170 N-Channel Enhancement Mode Field Effect Transistor, National Semiconductor, 1992r.
+[3] TP0610L/T, VP0610L/T, BS250 P-Channel 60-V (D-S) MOSFET, Vishay Siliconix, 2001r.
+[4] ADI Reliability Handbook, Analog Devices, 2000r.
+[5] Horowitz P. Hill W., Sztuka elektroniki, tomy 1. i 2., WKi£, Warszawa 2003r.
+[6] Resnick R., Halliday D., Walker J., Podstawy fizyki, tom 3., PWN, Warszawa 2003r.
+[7] Watson J. Elektronika, WKi£, Warszawa 1999r.
+[8] Nosal Z., Baranowski J. Uk≥ady elektroniczne, WNT, Warszawa 2003r.
+
+
+\newpage
+\end{enumerate}
+\end{document}

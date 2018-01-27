@@ -1,0 +1,81 @@
+m255
+K3
+13
+cModel Technology
+Z0 dD:\Mega\polibuda\podstawy_techniki_cyfrowej\projekty\zad4\simulation\qsim
+vtranskoder
+Z1 IRgiSZ21CzW4DU<BVTU`n?0
+Z2 VDC9S;EbMbMKcSmKT::kzK0
+Z3 dD:\Mega\polibuda\podstawy_techniki_cyfrowej\projekty\zad4\simulation\qsim
+Z4 w1510428763
+Z5 8transkoder.vo
+Z6 Ftranskoder.vo
+L0 31
+Z7 OV;L;10.1d;51
+r1
+31
+Z8 !s90 -work|work|transkoder.vo|
+Z9 o-work work -O0
+!i10b 1
+Z10 !s100 JKVU34ld?a<WfancV4O=V3
+!s85 0
+Z11 !s108 1510428764.620000
+Z12 !s107 transkoder.vo|
+!s101 -O0
+vtranskoder_vlg_check_tst
+!i10b 1
+Z13 !s100 QhnAGFb0NFaRIUD?FTIk:2
+Z14 IN8lKim_`CnR@?jnk9Oboh0
+Z15 Vn;H@5zY3b8gQXGCm@7h[f3
+R3
+R4
+Z16 8transkoder.vt
+Z17 Ftranskoder.vt
+L0 57
+R7
+r1
+!s85 0
+31
+Z18 !s108 1510428764.912000
+Z19 !s107 transkoder.vt|
+Z20 !s90 -work|work|transkoder.vt|
+!s101 -O0
+R9
+vtranskoder_vlg_sample_tst
+!i10b 1
+Z21 !s100 K0lLz?FmUcVY9QdF=4Bd12
+Z22 IJM_k7gVL_6<8gaanPHoWL2
+Z23 VBnkGb85Z>2Ta67@eoBFaY0
+R3
+R4
+R16
+R17
+L0 29
+R7
+r1
+!s85 0
+31
+R18
+R19
+R20
+!s101 -O0
+R9
+vtranskoder_vlg_vec_tst
+!i10b 1
+Z24 !s100 fQ5oAQBj;_]?h^<HG=7nU1
+Z25 IQm`h]8gh1^UU?ZD7Mb@fm3
+Z26 VeXHdTBID0zzbHJ5KnI;b00
+R3
+R4
+R16
+R17
+Z27 L0 223
+R7
+r1
+!s85 0
+31
+R18
+R19
+R20
+!s101 -O0
+R9

@@ -1,0 +1,81 @@
+m255
+K3
+13
+cModel Technology
+Z0 dX:\podstawy_techniki_cyfrowej\projekty\zad2\simulation\qsim
+vskracanie_licznikow
+Z1 !s100 =F6ZWOJ000YFJoNQ1SadP1
+Z2 I81lDme]Vc1Un15bOfRiTf1
+Z3 V<b6d`Qb80;C6Ea:`3;NzJ3
+Z4 dX:\podstawy_techniki_cyfrowej\projekty\zad2\simulation\qsim
+Z5 w1509355406
+Z6 8skracanie_licznikow.vo
+Z7 Fskracanie_licznikow.vo
+L0 31
+Z8 OV;L;10.1d;51
+r1
+31
+Z9 !s90 -work|work|skracanie_licznikow.vo|
+Z10 o-work work -O0
+!i10b 1
+!s85 0
+Z11 !s108 1509351808.107000
+Z12 !s107 skracanie_licznikow.vo|
+!s101 -O0
+vskracanie_licznikow_vlg_check_tst
+!i10b 1
+Z13 !s100 >hjUi[i:J8O9nT[_nEi<U3
+Z14 I<WV8:S_[fPDJPozQ_QYfh3
+Z15 Ve^E201;zUTb0PR52l6a9E0
+R4
+Z16 w1509355405
+Z17 8skracanie_licznikow.vt
+Z18 Fskracanie_licznikow.vt
+L0 57
+R8
+r1
+!s85 0
+31
+Z19 !s108 1509351808.638000
+Z20 !s107 skracanie_licznikow.vt|
+Z21 !s90 -work|work|skracanie_licznikow.vt|
+!s101 -O0
+R10
+vskracanie_licznikow_vlg_sample_tst
+!i10b 1
+Z22 !s100 gN<aRBI61XO5ZiRN2nCJG3
+Z23 Ii^Wc_YV<m_POW3cS2[k5X1
+Z24 VzlVR<f4ibXDU?@B`G`;nm3
+R4
+R16
+R17
+R18
+L0 29
+R8
+r1
+!s85 0
+31
+R19
+R20
+R21
+!s101 -O0
+R10
+vskracanie_licznikow_vlg_vec_tst
+!i10b 1
+Z25 !s100 lgg8FAgeY78mdIHLHXc=10
+Z26 IPcSFQ4VAW5`]e2<[WkCh30
+Z27 VkX`ezO;V>?M259IH8K=]?3
+R4
+R16
+R17
+R18
+Z28 L0 228
+R8
+r1
+!s85 0
+31
+R19
+R20
+R21
+!s101 -O0
+R10

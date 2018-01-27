@@ -1,0 +1,659 @@
+TimeQuest Timing Analyzer report for zad5dudi
+Sun Nov 19 13:31:09 2017
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow Model Fmax Summary
+  6. Slow Model Setup Summary
+  7. Slow Model Hold Summary
+  8. Slow Model Recovery Summary
+  9. Slow Model Removal Summary
+ 10. Slow Model Minimum Pulse Width Summary
+ 11. Slow Model Setup: 'clock_27'
+ 12. Slow Model Hold: 'clock_27'
+ 13. Slow Model Minimum Pulse Width: 'clock_27'
+ 14. Clock to Output Times
+ 15. Minimum Clock to Output Times
+ 16. Propagation Delay
+ 17. Minimum Propagation Delay
+ 18. Fast Model Setup Summary
+ 19. Fast Model Hold Summary
+ 20. Fast Model Recovery Summary
+ 21. Fast Model Removal Summary
+ 22. Fast Model Minimum Pulse Width Summary
+ 23. Fast Model Setup: 'clock_27'
+ 24. Fast Model Hold: 'clock_27'
+ 25. Fast Model Minimum Pulse Width: 'clock_27'
+ 26. Clock to Output Times
+ 27. Minimum Clock to Output Times
+ 28. Propagation Delay
+ 29. Minimum Propagation Delay
+ 30. Multicorner Timing Analysis Summary
+ 31. Clock to Output Times
+ 32. Minimum Clock to Output Times
+ 33. Progagation Delay
+ 34. Minimum Progagation Delay
+ 35. Setup Transfers
+ 36. Hold Transfers
+ 37. Report TCCS
+ 38. Report RSKM
+ 39. Unconstrained Paths
+ 40. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                      ;
++--------------------+-------------------------------------------------------------------+
+; Quartus II Version ; Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition ;
+; Revision Name      ; zad5dudi                                                          ;
+; Device Family      ; Cyclone II                                                        ;
+; Device Name        ; EP2C35F672C6                                                      ;
+; Timing Models      ; Final                                                             ;
+; Delay Model        ; Combined                                                          ;
+; Rise/Fall Delays   ; Unavailable                                                       ;
++--------------------+-------------------------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                               ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets      ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; clock_27   ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clock_27 } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Slow Model Fmax Summary                                                                                   ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; 926.78 MHz ; 420.17 MHz      ; clock_27   ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++-----------------------------------+
+; Slow Model Setup Summary          ;
++----------+--------+---------------+
+; Clock    ; Slack  ; End Point TNS ;
++----------+--------+---------------+
+; clock_27 ; -0.079 ; -0.227        ;
++----------+--------+---------------+
+
+
++----------------------------------+
+; Slow Model Hold Summary          ;
++----------+-------+---------------+
+; Clock    ; Slack ; End Point TNS ;
++----------+-------+---------------+
+; clock_27 ; 0.391 ; 0.000         ;
++----------+-------+---------------+
+
+
+-------------------------------
+; Slow Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Slow Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Slow Model Minimum Pulse Width Summary ;
++----------+--------+--------------------+
+; Clock    ; Slack  ; End Point TNS      ;
++----------+--------+--------------------+
+; clock_27 ; -1.380 ; -5.380             ;
++----------+--------+--------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'clock_27'                                                                           ;
++--------+------------+------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node  ; To Node    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------+------------+--------------+-------------+--------------+------------+------------+
+; -0.079 ; jk:i1|temp ; jk:i3|temp ; clock_27     ; clock_27    ; 1.000        ; 0.000      ; 1.115      ;
+; -0.078 ; jk:i1|temp ; jk:i4|temp ; clock_27     ; clock_27    ; 1.000        ; 0.000      ; 1.114      ;
+; -0.070 ; jk:i3|temp ; jk:i2|temp ; clock_27     ; clock_27    ; 1.000        ; 0.000      ; 1.106      ;
+; -0.043 ; jk:i2|temp ; jk:i4|temp ; clock_27     ; clock_27    ; 1.000        ; 0.000      ; 1.079      ;
+; -0.043 ; jk:i4|temp ; jk:i2|temp ; clock_27     ; clock_27    ; 1.000        ; 0.000      ; 1.079      ;
+; -0.040 ; jk:i4|temp ; jk:i3|temp ; clock_27     ; clock_27    ; 1.000        ; 0.000      ; 1.076      ;
+; 0.057  ; jk:i1|temp ; jk:i2|temp ; clock_27     ; clock_27    ; 1.000        ; 0.000      ; 0.979      ;
+; 0.229  ; jk:i2|temp ; jk:i3|temp ; clock_27     ; clock_27    ; 1.000        ; 0.000      ; 0.807      ;
+; 0.238  ; jk:i3|temp ; jk:i4|temp ; clock_27     ; clock_27    ; 1.000        ; 0.000      ; 0.798      ;
+; 0.379  ; jk:i1|temp ; jk:i1|temp ; clock_27     ; clock_27    ; 1.000        ; 0.000      ; 0.657      ;
+; 0.379  ; jk:i3|temp ; jk:i3|temp ; clock_27     ; clock_27    ; 1.000        ; 0.000      ; 0.657      ;
+; 0.379  ; jk:i4|temp ; jk:i4|temp ; clock_27     ; clock_27    ; 1.000        ; 0.000      ; 0.657      ;
+; 0.379  ; jk:i2|temp ; jk:i2|temp ; clock_27     ; clock_27    ; 1.000        ; 0.000      ; 0.657      ;
++--------+------------+------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'clock_27'                                                                           ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node  ; To Node    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+; 0.391 ; jk:i1|temp ; jk:i1|temp ; clock_27     ; clock_27    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; jk:i4|temp ; jk:i4|temp ; clock_27     ; clock_27    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; jk:i2|temp ; jk:i2|temp ; clock_27     ; clock_27    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; jk:i3|temp ; jk:i3|temp ; clock_27     ; clock_27    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.532 ; jk:i3|temp ; jk:i4|temp ; clock_27     ; clock_27    ; 0.000        ; 0.000      ; 0.798      ;
+; 0.541 ; jk:i2|temp ; jk:i3|temp ; clock_27     ; clock_27    ; 0.000        ; 0.000      ; 0.807      ;
+; 0.713 ; jk:i1|temp ; jk:i2|temp ; clock_27     ; clock_27    ; 0.000        ; 0.000      ; 0.979      ;
+; 0.810 ; jk:i4|temp ; jk:i3|temp ; clock_27     ; clock_27    ; 0.000        ; 0.000      ; 1.076      ;
+; 0.813 ; jk:i2|temp ; jk:i4|temp ; clock_27     ; clock_27    ; 0.000        ; 0.000      ; 1.079      ;
+; 0.813 ; jk:i4|temp ; jk:i2|temp ; clock_27     ; clock_27    ; 0.000        ; 0.000      ; 1.079      ;
+; 0.840 ; jk:i3|temp ; jk:i2|temp ; clock_27     ; clock_27    ; 0.000        ; 0.000      ; 1.106      ;
+; 0.848 ; jk:i1|temp ; jk:i4|temp ; clock_27     ; clock_27    ; 0.000        ; 0.000      ; 1.114      ;
+; 0.849 ; jk:i1|temp ; jk:i3|temp ; clock_27     ; clock_27    ; 0.000        ; 0.000      ; 1.115      ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'clock_27'                                                                    ;
++--------+--------------+----------------+------------------+----------+------------+---------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock    ; Clock Edge ; Target                    ;
++--------+--------------+----------------+------------------+----------+------------+---------------------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; clock_27 ; Rise       ; clock_27                  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock_27 ; Rise       ; jk:i1|temp                ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock_27 ; Rise       ; jk:i1|temp                ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock_27 ; Rise       ; jk:i2|temp                ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock_27 ; Rise       ; jk:i2|temp                ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock_27 ; Rise       ; jk:i3|temp                ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock_27 ; Rise       ; jk:i3|temp                ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock_27 ; Rise       ; jk:i4|temp                ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock_27 ; Rise       ; jk:i4|temp                ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_27 ; Rise       ; clock_27|combout          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_27 ; Rise       ; clock_27|combout          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_27 ; Rise       ; clock_27~clkctrl|inclk[0] ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_27 ; Rise       ; clock_27~clkctrl|inclk[0] ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_27 ; Rise       ; clock_27~clkctrl|outclk   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_27 ; Rise       ; clock_27~clkctrl|outclk   ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_27 ; Rise       ; i1|temp|clk               ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_27 ; Rise       ; i1|temp|clk               ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_27 ; Rise       ; i2|temp|clk               ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_27 ; Rise       ; i2|temp|clk               ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_27 ; Rise       ; i3|temp|clk               ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_27 ; Rise       ; i3|temp|clk               ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_27 ; Rise       ; i4|temp|clk               ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_27 ; Rise       ; i4|temp|clk               ;
++--------+--------------+----------------+------------------+----------+------------+---------------------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; hex0[*]   ; clock_27   ; 7.797 ; 7.797 ; Rise       ; clock_27        ;
+;  hex0[0]  ; clock_27   ; 7.797 ; 7.797 ; Rise       ; clock_27        ;
+;  hex0[1]  ; clock_27   ; 7.774 ; 7.774 ; Rise       ; clock_27        ;
+;  hex0[2]  ; clock_27   ; 7.755 ; 7.755 ; Rise       ; clock_27        ;
+;  hex0[3]  ; clock_27   ; 7.555 ; 7.555 ; Rise       ; clock_27        ;
+;  hex0[4]  ; clock_27   ; 7.546 ; 7.546 ; Rise       ; clock_27        ;
+;  hex0[5]  ; clock_27   ; 7.531 ; 7.531 ; Rise       ; clock_27        ;
+;  hex0[6]  ; clock_27   ; 7.540 ; 7.540 ; Rise       ; clock_27        ;
+; ledg[*]   ; clock_27   ; 6.231 ; 6.231 ; Rise       ; clock_27        ;
+;  ledg[0]  ; clock_27   ; 6.231 ; 6.231 ; Rise       ; clock_27        ;
+; ledr[*]   ; clock_27   ; 9.066 ; 9.066 ; Rise       ; clock_27        ;
+;  ledr[0]  ; clock_27   ; 8.182 ; 8.182 ; Rise       ; clock_27        ;
+;  ledr[1]  ; clock_27   ; 9.066 ; 9.066 ; Rise       ; clock_27        ;
+;  ledr[2]  ; clock_27   ; 7.739 ; 7.739 ; Rise       ; clock_27        ;
+;  ledr[3]  ; clock_27   ; 8.952 ; 8.952 ; Rise       ; clock_27        ;
+; ledg[*]   ; clock_27   ; 6.231 ; 6.231 ; Fall       ; clock_27        ;
+;  ledg[0]  ; clock_27   ; 6.231 ; 6.231 ; Fall       ; clock_27        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; hex0[*]   ; clock_27   ; 7.233 ; 7.233 ; Rise       ; clock_27        ;
+;  hex0[0]  ; clock_27   ; 7.497 ; 7.497 ; Rise       ; clock_27        ;
+;  hex0[1]  ; clock_27   ; 7.471 ; 7.471 ; Rise       ; clock_27        ;
+;  hex0[2]  ; clock_27   ; 7.480 ; 7.480 ; Rise       ; clock_27        ;
+;  hex0[3]  ; clock_27   ; 7.253 ; 7.253 ; Rise       ; clock_27        ;
+;  hex0[4]  ; clock_27   ; 7.244 ; 7.244 ; Rise       ; clock_27        ;
+;  hex0[5]  ; clock_27   ; 7.233 ; 7.233 ; Rise       ; clock_27        ;
+;  hex0[6]  ; clock_27   ; 7.238 ; 7.238 ; Rise       ; clock_27        ;
+; ledg[*]   ; clock_27   ; 6.231 ; 6.231 ; Rise       ; clock_27        ;
+;  ledg[0]  ; clock_27   ; 6.231 ; 6.231 ; Rise       ; clock_27        ;
+; ledr[*]   ; clock_27   ; 7.739 ; 7.739 ; Rise       ; clock_27        ;
+;  ledr[0]  ; clock_27   ; 8.182 ; 8.182 ; Rise       ; clock_27        ;
+;  ledr[1]  ; clock_27   ; 9.066 ; 9.066 ; Rise       ; clock_27        ;
+;  ledr[2]  ; clock_27   ; 7.739 ; 7.739 ; Rise       ; clock_27        ;
+;  ledr[3]  ; clock_27   ; 8.952 ; 8.952 ; Rise       ; clock_27        ;
+; ledg[*]   ; clock_27   ; 6.231 ; 6.231 ; Fall       ; clock_27        ;
+;  ledg[0]  ; clock_27   ; 6.231 ; 6.231 ; Fall       ; clock_27        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------+
+; Propagation Delay                                  ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; key[1]     ; ledg[1]     ; 9.216 ;    ;    ; 9.216 ;
++------------+-------------+-------+----+----+-------+
+
+
++----------------------------------------------------+
+; Minimum Propagation Delay                          ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; key[1]     ; ledg[1]     ; 9.216 ;    ;    ; 9.216 ;
++------------+-------------+-------+----+----+-------+
+
+
++----------------------------------+
+; Fast Model Setup Summary         ;
++----------+-------+---------------+
+; Clock    ; Slack ; End Point TNS ;
++----------+-------+---------------+
+; clock_27 ; 0.503 ; 0.000         ;
++----------+-------+---------------+
+
+
++----------------------------------+
+; Fast Model Hold Summary          ;
++----------+-------+---------------+
+; Clock    ; Slack ; End Point TNS ;
++----------+-------+---------------+
+; clock_27 ; 0.215 ; 0.000         ;
++----------+-------+---------------+
+
+
+-------------------------------
+; Fast Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Fast Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Fast Model Minimum Pulse Width Summary ;
++----------+--------+--------------------+
+; Clock    ; Slack  ; End Point TNS      ;
++----------+--------+--------------------+
+; clock_27 ; -1.380 ; -5.380             ;
++----------+--------+--------------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'clock_27'                                                                          ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node  ; To Node    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+; 0.503 ; jk:i1|temp ; jk:i3|temp ; clock_27     ; clock_27    ; 1.000        ; 0.000      ; 0.529      ;
+; 0.504 ; jk:i1|temp ; jk:i4|temp ; clock_27     ; clock_27    ; 1.000        ; 0.000      ; 0.528      ;
+; 0.506 ; jk:i3|temp ; jk:i2|temp ; clock_27     ; clock_27    ; 1.000        ; 0.000      ; 0.526      ;
+; 0.513 ; jk:i4|temp ; jk:i3|temp ; clock_27     ; clock_27    ; 1.000        ; 0.000      ; 0.519      ;
+; 0.514 ; jk:i2|temp ; jk:i4|temp ; clock_27     ; clock_27    ; 1.000        ; 0.000      ; 0.518      ;
+; 0.515 ; jk:i4|temp ; jk:i2|temp ; clock_27     ; clock_27    ; 1.000        ; 0.000      ; 0.517      ;
+; 0.557 ; jk:i1|temp ; jk:i2|temp ; clock_27     ; clock_27    ; 1.000        ; 0.000      ; 0.475      ;
+; 0.630 ; jk:i2|temp ; jk:i3|temp ; clock_27     ; clock_27    ; 1.000        ; 0.000      ; 0.402      ;
+; 0.636 ; jk:i3|temp ; jk:i4|temp ; clock_27     ; clock_27    ; 1.000        ; 0.000      ; 0.396      ;
+; 0.665 ; jk:i1|temp ; jk:i1|temp ; clock_27     ; clock_27    ; 1.000        ; 0.000      ; 0.367      ;
+; 0.665 ; jk:i3|temp ; jk:i3|temp ; clock_27     ; clock_27    ; 1.000        ; 0.000      ; 0.367      ;
+; 0.665 ; jk:i4|temp ; jk:i4|temp ; clock_27     ; clock_27    ; 1.000        ; 0.000      ; 0.367      ;
+; 0.665 ; jk:i2|temp ; jk:i2|temp ; clock_27     ; clock_27    ; 1.000        ; 0.000      ; 0.367      ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'clock_27'                                                                           ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node  ; To Node    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+; 0.215 ; jk:i1|temp ; jk:i1|temp ; clock_27     ; clock_27    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; jk:i4|temp ; jk:i4|temp ; clock_27     ; clock_27    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; jk:i2|temp ; jk:i2|temp ; clock_27     ; clock_27    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; jk:i3|temp ; jk:i3|temp ; clock_27     ; clock_27    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.244 ; jk:i3|temp ; jk:i4|temp ; clock_27     ; clock_27    ; 0.000        ; 0.000      ; 0.396      ;
+; 0.250 ; jk:i2|temp ; jk:i3|temp ; clock_27     ; clock_27    ; 0.000        ; 0.000      ; 0.402      ;
+; 0.323 ; jk:i1|temp ; jk:i2|temp ; clock_27     ; clock_27    ; 0.000        ; 0.000      ; 0.475      ;
+; 0.365 ; jk:i4|temp ; jk:i2|temp ; clock_27     ; clock_27    ; 0.000        ; 0.000      ; 0.517      ;
+; 0.366 ; jk:i2|temp ; jk:i4|temp ; clock_27     ; clock_27    ; 0.000        ; 0.000      ; 0.518      ;
+; 0.367 ; jk:i4|temp ; jk:i3|temp ; clock_27     ; clock_27    ; 0.000        ; 0.000      ; 0.519      ;
+; 0.374 ; jk:i3|temp ; jk:i2|temp ; clock_27     ; clock_27    ; 0.000        ; 0.000      ; 0.526      ;
+; 0.376 ; jk:i1|temp ; jk:i4|temp ; clock_27     ; clock_27    ; 0.000        ; 0.000      ; 0.528      ;
+; 0.377 ; jk:i1|temp ; jk:i3|temp ; clock_27     ; clock_27    ; 0.000        ; 0.000      ; 0.529      ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'clock_27'                                                                    ;
++--------+--------------+----------------+------------------+----------+------------+---------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock    ; Clock Edge ; Target                    ;
++--------+--------------+----------------+------------------+----------+------------+---------------------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; clock_27 ; Rise       ; clock_27                  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock_27 ; Rise       ; jk:i1|temp                ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock_27 ; Rise       ; jk:i1|temp                ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock_27 ; Rise       ; jk:i2|temp                ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock_27 ; Rise       ; jk:i2|temp                ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock_27 ; Rise       ; jk:i3|temp                ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock_27 ; Rise       ; jk:i3|temp                ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock_27 ; Rise       ; jk:i4|temp                ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock_27 ; Rise       ; jk:i4|temp                ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_27 ; Rise       ; clock_27|combout          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_27 ; Rise       ; clock_27|combout          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_27 ; Rise       ; clock_27~clkctrl|inclk[0] ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_27 ; Rise       ; clock_27~clkctrl|inclk[0] ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_27 ; Rise       ; clock_27~clkctrl|outclk   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_27 ; Rise       ; clock_27~clkctrl|outclk   ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_27 ; Rise       ; i1|temp|clk               ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_27 ; Rise       ; i1|temp|clk               ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_27 ; Rise       ; i2|temp|clk               ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_27 ; Rise       ; i2|temp|clk               ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_27 ; Rise       ; i3|temp|clk               ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_27 ; Rise       ; i3|temp|clk               ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_27 ; Rise       ; i4|temp|clk               ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_27 ; Rise       ; i4|temp|clk               ;
++--------+--------------+----------------+------------------+----------+------------+---------------------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; hex0[*]   ; clock_27   ; 4.290 ; 4.290 ; Rise       ; clock_27        ;
+;  hex0[0]  ; clock_27   ; 4.290 ; 4.290 ; Rise       ; clock_27        ;
+;  hex0[1]  ; clock_27   ; 4.259 ; 4.259 ; Rise       ; clock_27        ;
+;  hex0[2]  ; clock_27   ; 4.268 ; 4.268 ; Rise       ; clock_27        ;
+;  hex0[3]  ; clock_27   ; 4.172 ; 4.172 ; Rise       ; clock_27        ;
+;  hex0[4]  ; clock_27   ; 4.168 ; 4.168 ; Rise       ; clock_27        ;
+;  hex0[5]  ; clock_27   ; 4.158 ; 4.158 ; Rise       ; clock_27        ;
+;  hex0[6]  ; clock_27   ; 4.159 ; 4.159 ; Rise       ; clock_27        ;
+; ledg[*]   ; clock_27   ; 3.422 ; 3.422 ; Rise       ; clock_27        ;
+;  ledg[0]  ; clock_27   ; 3.422 ; 3.422 ; Rise       ; clock_27        ;
+; ledr[*]   ; clock_27   ; 5.015 ; 5.015 ; Rise       ; clock_27        ;
+;  ledr[0]  ; clock_27   ; 4.493 ; 4.493 ; Rise       ; clock_27        ;
+;  ledr[1]  ; clock_27   ; 4.970 ; 4.970 ; Rise       ; clock_27        ;
+;  ledr[2]  ; clock_27   ; 4.299 ; 4.299 ; Rise       ; clock_27        ;
+;  ledr[3]  ; clock_27   ; 5.015 ; 5.015 ; Rise       ; clock_27        ;
+; ledg[*]   ; clock_27   ; 3.422 ; 3.422 ; Fall       ; clock_27        ;
+;  ledg[0]  ; clock_27   ; 3.422 ; 3.422 ; Fall       ; clock_27        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; hex0[*]   ; clock_27   ; 4.018 ; 4.018 ; Rise       ; clock_27        ;
+;  hex0[0]  ; clock_27   ; 4.149 ; 4.149 ; Rise       ; clock_27        ;
+;  hex0[1]  ; clock_27   ; 4.125 ; 4.125 ; Rise       ; clock_27        ;
+;  hex0[2]  ; clock_27   ; 4.135 ; 4.135 ; Rise       ; clock_27        ;
+;  hex0[3]  ; clock_27   ; 4.036 ; 4.036 ; Rise       ; clock_27        ;
+;  hex0[4]  ; clock_27   ; 4.030 ; 4.030 ; Rise       ; clock_27        ;
+;  hex0[5]  ; clock_27   ; 4.018 ; 4.018 ; Rise       ; clock_27        ;
+;  hex0[6]  ; clock_27   ; 4.024 ; 4.024 ; Rise       ; clock_27        ;
+; ledg[*]   ; clock_27   ; 3.422 ; 3.422 ; Rise       ; clock_27        ;
+;  ledg[0]  ; clock_27   ; 3.422 ; 3.422 ; Rise       ; clock_27        ;
+; ledr[*]   ; clock_27   ; 4.299 ; 4.299 ; Rise       ; clock_27        ;
+;  ledr[0]  ; clock_27   ; 4.493 ; 4.493 ; Rise       ; clock_27        ;
+;  ledr[1]  ; clock_27   ; 4.970 ; 4.970 ; Rise       ; clock_27        ;
+;  ledr[2]  ; clock_27   ; 4.299 ; 4.299 ; Rise       ; clock_27        ;
+;  ledr[3]  ; clock_27   ; 5.015 ; 5.015 ; Rise       ; clock_27        ;
+; ledg[*]   ; clock_27   ; 3.422 ; 3.422 ; Fall       ; clock_27        ;
+;  ledg[0]  ; clock_27   ; 3.422 ; 3.422 ; Fall       ; clock_27        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------+
+; Propagation Delay                                  ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; key[1]     ; ledg[1]     ; 5.320 ;    ;    ; 5.320 ;
++------------+-------------+-------+----+----+-------+
+
+
++----------------------------------------------------+
+; Minimum Propagation Delay                          ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; key[1]     ; ledg[1]     ; 5.320 ;    ;    ; 5.320 ;
++------------+-------------+-------+----+----+-------+
+
+
++------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                          ;
++------------------+--------+-------+----------+---------+---------------------+
+; Clock            ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+--------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -0.079 ; 0.215 ; N/A      ; N/A     ; -1.380              ;
+;  clock_27        ; -0.079 ; 0.215 ; N/A      ; N/A     ; -1.380              ;
+; Design-wide TNS  ; -0.227 ; 0.0   ; 0.0      ; 0.0     ; -5.38               ;
+;  clock_27        ; -0.227 ; 0.000 ; N/A      ; N/A     ; -5.380              ;
++------------------+--------+-------+----------+---------+---------------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; hex0[*]   ; clock_27   ; 7.797 ; 7.797 ; Rise       ; clock_27        ;
+;  hex0[0]  ; clock_27   ; 7.797 ; 7.797 ; Rise       ; clock_27        ;
+;  hex0[1]  ; clock_27   ; 7.774 ; 7.774 ; Rise       ; clock_27        ;
+;  hex0[2]  ; clock_27   ; 7.755 ; 7.755 ; Rise       ; clock_27        ;
+;  hex0[3]  ; clock_27   ; 7.555 ; 7.555 ; Rise       ; clock_27        ;
+;  hex0[4]  ; clock_27   ; 7.546 ; 7.546 ; Rise       ; clock_27        ;
+;  hex0[5]  ; clock_27   ; 7.531 ; 7.531 ; Rise       ; clock_27        ;
+;  hex0[6]  ; clock_27   ; 7.540 ; 7.540 ; Rise       ; clock_27        ;
+; ledg[*]   ; clock_27   ; 6.231 ; 6.231 ; Rise       ; clock_27        ;
+;  ledg[0]  ; clock_27   ; 6.231 ; 6.231 ; Rise       ; clock_27        ;
+; ledr[*]   ; clock_27   ; 9.066 ; 9.066 ; Rise       ; clock_27        ;
+;  ledr[0]  ; clock_27   ; 8.182 ; 8.182 ; Rise       ; clock_27        ;
+;  ledr[1]  ; clock_27   ; 9.066 ; 9.066 ; Rise       ; clock_27        ;
+;  ledr[2]  ; clock_27   ; 7.739 ; 7.739 ; Rise       ; clock_27        ;
+;  ledr[3]  ; clock_27   ; 8.952 ; 8.952 ; Rise       ; clock_27        ;
+; ledg[*]   ; clock_27   ; 6.231 ; 6.231 ; Fall       ; clock_27        ;
+;  ledg[0]  ; clock_27   ; 6.231 ; 6.231 ; Fall       ; clock_27        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; hex0[*]   ; clock_27   ; 4.018 ; 4.018 ; Rise       ; clock_27        ;
+;  hex0[0]  ; clock_27   ; 4.149 ; 4.149 ; Rise       ; clock_27        ;
+;  hex0[1]  ; clock_27   ; 4.125 ; 4.125 ; Rise       ; clock_27        ;
+;  hex0[2]  ; clock_27   ; 4.135 ; 4.135 ; Rise       ; clock_27        ;
+;  hex0[3]  ; clock_27   ; 4.036 ; 4.036 ; Rise       ; clock_27        ;
+;  hex0[4]  ; clock_27   ; 4.030 ; 4.030 ; Rise       ; clock_27        ;
+;  hex0[5]  ; clock_27   ; 4.018 ; 4.018 ; Rise       ; clock_27        ;
+;  hex0[6]  ; clock_27   ; 4.024 ; 4.024 ; Rise       ; clock_27        ;
+; ledg[*]   ; clock_27   ; 3.422 ; 3.422 ; Rise       ; clock_27        ;
+;  ledg[0]  ; clock_27   ; 3.422 ; 3.422 ; Rise       ; clock_27        ;
+; ledr[*]   ; clock_27   ; 4.299 ; 4.299 ; Rise       ; clock_27        ;
+;  ledr[0]  ; clock_27   ; 4.493 ; 4.493 ; Rise       ; clock_27        ;
+;  ledr[1]  ; clock_27   ; 4.970 ; 4.970 ; Rise       ; clock_27        ;
+;  ledr[2]  ; clock_27   ; 4.299 ; 4.299 ; Rise       ; clock_27        ;
+;  ledr[3]  ; clock_27   ; 5.015 ; 5.015 ; Rise       ; clock_27        ;
+; ledg[*]   ; clock_27   ; 3.422 ; 3.422 ; Fall       ; clock_27        ;
+;  ledg[0]  ; clock_27   ; 3.422 ; 3.422 ; Fall       ; clock_27        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------+
+; Progagation Delay                                  ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; key[1]     ; ledg[1]     ; 9.216 ;    ;    ; 9.216 ;
++------------+-------------+-------+----+----+-------+
+
+
++----------------------------------------------------+
+; Minimum Progagation Delay                          ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; key[1]     ; ledg[1]     ; 5.320 ;    ;    ; 5.320 ;
++------------+-------------+-------+----+----+-------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clock_27   ; clock_27 ; 13       ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clock_27   ; clock_27 ; 13       ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 2     ; 2    ;
+; Unconstrained Input Port Paths  ; 6     ; 6    ;
+; Unconstrained Output Ports      ; 13    ; 13   ;
+; Unconstrained Output Port Paths ; 34    ; 34   ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Sun Nov 19 13:31:08 2017
+Info: Command: quartus_sta zad5dudi -c zad5dudi
+Info: qsta_default_script.tcl version: #1
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'zad5dudi.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clock_27 clock_27
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -0.079
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -0.079        -0.227 clock_27 
+Info (332146): Worst-case hold slack is 0.391
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.391         0.000 clock_27 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.380
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.380        -5.380 clock_27 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info: Analyzing Fast Model
+Info (332146): Worst-case setup slack is 0.503
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.503         0.000 clock_27 
+Info (332146): Worst-case hold slack is 0.215
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.215         0.000 clock_27 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case minimum pulse width slack is -1.380
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.380        -5.380 clock_27 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 431 megabytes
+    Info: Processing ended: Sun Nov 19 13:31:09 2017
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

@@ -1,0 +1,374 @@
+\documentclass[polish,polish,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[cp1250]{inputenc}
+\usepackage{babel}
+\usepackage{pslatex}
+\usepackage{pgfplots}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage[OT4]{fontenc}
+\usepackage{circuitikz} 
+\usepackage{pgfplots}
+
+
+\usepackage{anysize}
+\marginsize{2.5cm}{2.5cm}{3cm}{3cm}
+
+\newcommand{\PRzFieldDsc}[1]{\sffamily\bfseries\scriptsize #1}
+\newcommand{\PRzFieldCnt}[1]{\textit{#1}}
+\newcommand{\PRzHeading}[8]{
+%% #1 - nazwa laboratorium
+%% #2 - kierunek 
+%% #3 - specjalnoœæ 
+%% #4 - rok studiów 
+%% #5 - symbol grupy lab.
+%% #6 - temat 
+%% #7 - numer lab.
+%% #8 - sk³ad grupy æwiczeniowej
+
+\begin{center}
+\begin{tabular}{ p{0.32\textwidth} p{0.15\textwidth} p{0.15\textwidth} p{0.12\textwidth} p{0.12\textwidth} }
+
+  &   &   &   &   \\
+\hline
+\multicolumn{5}{|c|}{}\\[-1ex]
+\multicolumn{5}{|c|}{{\LARGE #1}}\\
+\multicolumn{5}{|c|}{}\\[-1ex]
+
+\hline
+\multicolumn{1}{|l|}{\PRzFieldDsc{Kierunek}}	& \multicolumn{1}{|l|}{\PRzFieldDsc{Specjalnoœæ}}	& \multicolumn{1}{|l|}{\PRzFieldDsc{Rok studiów}}	& \multicolumn{2}{|l|}{\PRzFieldDsc{Symbol grupy lab.}} \\
+\multicolumn{1}{|c|}{\PRzFieldCnt{#2}}		& \multicolumn{1}{|c|}{\PRzFieldCnt{#3}}		& \multicolumn{1}{|c|}{\PRzFieldCnt{#4}}		& \multicolumn{2}{|c|}{\PRzFieldCnt{#5}} \\
+
+\hline
+\multicolumn{4}{|l|}{\PRzFieldDsc{Temat Laboratorium}}		& \multicolumn{1}{|l|}{\PRzFieldDsc{Numer lab.}} \\
+\multicolumn{4}{|c|}{\PRzFieldCnt{#6}}				& \multicolumn{1}{|c|}{\PRzFieldCnt{#7}} \\
+
+\hline
+\multicolumn{5}{|l|}{\PRzFieldDsc{Sk³ad grupy æwiczeniowej oraz numery indeksów}}\\
+\multicolumn{5}{|c|}{\PRzFieldCnt{#8}}\\
+
+\hline
+\multicolumn{3}{|l|}{\PRzFieldDsc{Uwagi}}	& \multicolumn{2}{|l|}{\PRzFieldDsc{Ocena}} \\
+\multicolumn{3}{|c|}{\PRzFieldCnt{\ }}		& \multicolumn{2}{|c|}{\PRzFieldCnt{\ }} \\
+
+\hline
+\end{tabular}
+\end{center}
+}
+
+\begin{document}
+
+\PRzHeading{Laboratoria Podstawy Elektroniki}{Informatyka}{--}{I}{I1}{Rezonans w obwodach RLC}{3.1}{Stanis³aw Jasiewicz(116753), Krzysztof Michalak(132281), Wojciech Regulski(132312), Ewa Rudol(132314)}{}
+
+\section{Cel}
+Obserwacja obwodu RLC pobudzanego wartoœciami czêstotliwoœci od 1 do 15 kHz zasilanego napiêciem sinusoidalnym.
+
+\section{Pomiary}
+
+\begin{enumerate}[-]
+\item 
+Wartoœci parametrów:
+$$
+C_x=13,6 nF
+$$
+\\
+$$
+L_1=77 mH
+$$
+\\
+$$
+R_1=985,5 \Omega
+$$
+\\
+$$
+R_L=121\Omega
+$$
+
+\newpage
+\item 
+Schemat obwodu:\\
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages]
+	  \draw (-0.3,0.3)
+	  node[anchor=east] {1-15kHz};
+      \draw (0,0)
+      to[sI=$V_{pp}3V$] (0,2)
+      -- (0.5,2)
+      node[anchor=south] {czerw.}
+      -- (1,2)
+      -- (1,0)
+      -- (0.5,0)
+      node[anchor=north] {bia³y}
+      -- (0,0);
+      \draw (1,2)[thick,brown]
+      --(1,0)
+      --(1.5,0)
+      node[anchor=south] {BNC}
+      --(1.5,-2.5)
+      --(1.5,0)
+      --(2,0)
+      --(2,2);
+      \draw (1.5,-2)
+      -- (2.1,-2)
+      node[anchor=south] {czerw.}
+      -- (3,-2)
+      -- (3,-1.5)
+      -- (4,-1.5)
+      node[anchor=south] {kana³ X}
+      -- (5,-1.5)
+      -- (5,-3)
+      -- (3,-3)
+      -- (3,-2)
+      -- (3,-2.5)
+      -- (2.1,-2.5)
+      node[anchor=north] {bia³y}
+      -- (1.5,-2.5);
+      \draw (2,2)
+      to[short,-*] (2.5,2)
+      to[C,l_=$CX$,-*] (4.5,2)
+      to[L,l_=$L_1 66mH$,-*] (6.5,2)
+      to[short,-*] (7,2)
+      -- (8.5,2)
+      node[anchor=south] {czerw.}
+      -- (9,2)
+      -- (9,0)
+      -- (8.5,0)
+      node[anchor=south] {bia³y}
+      to[short,-*](7,0)
+      -- (2,0)
+      -- (7,0)
+      to[R,l_=$R_1 1k$] (7,2);
+      \draw (9,2)[thick,brown]
+      --(9,-0.7)
+      --(8,-0.7)
+      node[anchor=south] {BNC}
+      --(5.5,-0.7)
+      --(5.5,-2.5);
+      \draw (5.5,-2)
+      -- (6.1,-2)
+      node[anchor=south] {czerw.}
+      -- (7,-2)
+      -- (7,-1.5)
+      -- (8,-1.5)
+      node[anchor=south] {kana³ Y}
+      -- (9,-1.5)
+      -- (9,-3)
+      -- (7,-3)
+      -- (7,-2)
+      -- (7,-2.5)
+      -- (6.1,-2.5)
+      node[anchor=north] {bia³y}
+      -- (5.5,-2.5);
+      \draw (2.5,2)
+      --(2.5,3.5)
+      to[voltmeter,-*](4.5,3.5)
+      --(4.5,2)
+      --(4.5,3.5)
+      to[voltmeter](6.5,3.5)
+      to[short,-*](6.5,2);
+   \end{circuitikz}
+   \caption{Szeregowy obwód RLC}
+\end{center}
+\end{figure}
+
+
+\item 
+
+Tabela - pomiary
+\begin{table}[!h]
+\centering
+\begin{tabular}{ | p{3cm} | p{3cm} | p{3cm} | p{3cm} | p{3cm} |}
+\hline
+Czêstotliwoœæ pobudzenia [kHz] & Napiêcie na Ÿródle zasilania [V] & Napiêcie na kondensatorze [V] & Napiêcie na cewce [mV] & Napiêcie na rezystorze [V]\\ \hline
+1,223 &  3,03 & 3,21 & 0,19 & 0,33\\
+2,121 &  3,02 & 3,62 & 0,67 & 0,65\\
+2,983 &  3,05 & 4,47 & 1,62 & 1,12\\
+5,021 &  3,03 & 7,01 & 7,34 & 3,01\\
+6,973 &  2,99 & 2,52 & 5,11 & 1,51\\
+9,121 &  3,03 & 1,16 & 4,05 & 0,91\\
+12,231 &  3,01 & 0,553 & 3,52 & 0,58\\
+15,221 &  3,03 & 0,331 & 3,30 & 0,44\\
+\hline
+\end{tabular}
+\end{table}
+\newpage
+
+\item 
+Tabela - zagêszczenie pomiarów dla szczytowych wartoœci napiêcia
+\begin{table}[!h]
+\centering
+\begin{tabular}{ | p{3cm} | p{3cm} | p{3cm} | p{3cm} | p{3cm} |}
+\hline
+Czêstotliwoœæ pobudzenia [kHz] & Napiêcie na Ÿródle zasilania [V] & Napiêcie na kondensatorze [V] & Napiêcie na cewce [mV] & Napiêcie na rezystorze [V]\\ \hline
+4,512 &  3,02 & 7,24 & 6,12 & 2,80\\
+4,976 &  3,02 & 7,07 & 7,27 & 3,01\\
+5,239 &  3,02 & 6,43 & 7,32 & 2,88\\
+6,221 &  3,02 & 3,73 & 6,00 & 1,99\\
+\hline
+\end{tabular}
+\end{table}
+\\\\\\
+
+\begin{center}
+
+
+\begin{tikzpicture}[scale=1]
+\begin{axis}[
+title={Zale¿noœæ napiêcia na Ÿrodle napiêcia i elemntach RLC od czêstotliwoœci},
+title style={text width=32em},
+xlabel={Czêstotliwoœæ [kHz]},
+ylabel={Napiêcie [V]},
+xmin=1,xmax=17,
+ymin=0,ymax=10,
+legend pos=north west,
+ymajorgrids=true,grid style=dashed
+]
+
+\addplot[color=red]
+coordinates {
+(1.223, 0.33)
+(2.121, 0.65)
+(2.983 ,1.12)
+(4.512,2.80)
+(4.976,3.01)
+(5.239,2.88)
+(5.021, 3.01)
+(6.221,1.99)
+(6.973, 1.51)
+(9.121, 0.91)
+(12.231, 0.58)
+(15.221 ,0.448)
+};
+
+\addplot[color=blue]
+coordinates {
+(1.223, 0.20)
+(2.121, 0.67)
+(2.983 ,1.62)
+(4.512,6.12)
+(4.976,7.27)
+(5.239,7.32)
+(5.021, 7.34)
+(6.221,6.00)
+(6.973, 5.11)
+(9.121, 4.05)
+(12.231, 3.52)
+(15.221 ,3.30)
+};
+
+\addplot[color=green]
+coordinates {
+(1.223, 3.21)
+(2.121, 3.62)
+(2.983 ,4.47)
+(4.512,7.24)
+(4.976,7.07)
+(5.239,6.43)
+(5.021, 7.01)
+(6.221,3.73)
+(6.973, 2.52)
+(9.121, 1.16)
+(12.231, 0.55)
+(15.221 ,0.33)
+};
+
+
+\legend{UR,UL,UC}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+
+\item 
+Czêstotliwoœæ rezonansowa ($U_R$ najwiêksze - z pomiarów): 4976 Hz\\
+Z obliczeñ: 
+$$\displaystyle
+f=\frac{1}{2\pi\sqrt{LC}}
+$$
+$$
+f=4920 Hz
+$$
+\newpage
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.9\textwidth]{4,97.jpg}
+\caption{Zrzut oscyloskopowy przebiegów napiêcia zród³a i pr¹du w obwodzie dla czêstotliwoœci rezonansowej -- wartoœci w tabelce wy¿ej}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.9\textwidth]{5,24.jpg}
+\caption{Zrzut oscyloskopowy przebiegów napiêcia zród³a i pr¹du w obwodzie dla czêstotliwoœci niewiele wy¿szej ni¿ rezonansowa -- wartoœci w tabelce wy¿ej}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.9\textwidth]{4,51.jpg}
+\caption{Zrzut oscyloskopowy przebiegów napiêcia zród³a i pr¹du w obwodzie dla czêstotliwoœci niewiele ni¿szej ni¿ rezonansowa -- wartoœci w tabelce wy¿ej}
+\end{figure}
+
+\item
+W przypadku czêstotliwoœci wy¿szej ni¿ rezonansowa obwód ma charakter indukcyjny, k¹t przesuniêcia fazowego jest wiêkszy od zera, wiêc natê¿enie pr¹du spóŸnia siê w fazie w stosunku do napiêcia na zaciskach Ÿród³a. Przy ni¿szej czêstotliwoœci obwód ma charakter pojemnoœciowy, k¹t przesuniêcia fazowego jest mniejszy od zera, napiêcie na zaciskach Ÿród³a spóŸnia siê w fazie w stosunku do natê¿enia pr¹du. Przy czêstotliwoœci rezonansowej zachodzi rezonans napiêæ, k¹t przesuniêcia fazowego jest równy zero, napiêcie na zaciskach Ÿród³a jest zgodne w fazie z natê¿eniem pr¹du.
+
+\item 
+Dobroæ elementu indukcyjnego:
+$$\displaystyle
+Q_{L}=\frac{\omega_0L}{R_L} 
+$$\\
+$$\displaystyle
+Q_{L}=\frac{2\pi*4976Hz*77mH}{2406\Omega} 
+$$\\
+$$\displaystyle
+Q_{L}\approx1 
+$$
+
+
+\item 
+Wnioski:\\
+Celem doœwiadczenia by³a obserwacja obwodu RLC pobudzanego kolejnymi wartoœciami czêstotliwoœci od 1 do 15 kHz. Wynik tego badania stanowi natomiast czêstotliwoœæ charakterystyczna, któr¹ mo¿emy jednoczeœnie oznaczyæ jako czêstotliwoœæ rezonansow¹. To dla niej reaktancja pojemnoœciowa (kondensator) i reaktancja indukcyjna (cewka) s¹ sobie równe. G³ówn¹ problematyk¹ by³o zatem znalezienie czêstotliwoœci, dla której zachodzi takowa kompensacja. \\
+Po wykonaniu serii pomiarów, w doœæ prosty sposób da³o siê zauwa¿yæ, ¿e w danym zakresie nastêpuje zwiêkszenie siê wartoœci napiêcia na elementach RLC. Dla naszego zestawu elementów krzywe napiêæ osi¹gaj¹ wartoœci szczytowe w okolicach 5000 Hz. W tej okolicy zosta³y przeprowadzonego dodatkowe pomiary.
+\\
+Dla ugruntowania naszych pomiarów dokonaliœmy te¿ analizy wyników uzyskanych drog¹ teoretyczn¹. Dla danych czêstotliwoœci obliczyliœmy $R_L$ ( $R_L=\omega L $, $\omega = 2 \pi f$) oraz $R_C$ ($R_C = 1/ \omega C $) co pozwoli³o na uzyskanie wartoœci zawady (, co z kolei da³o nam wartoœci napiêcia skutecznego:
+$$I_s=\frac{U_s}{Zawada}$$
+W kolejnym kroku pozosta³o pomno¿yæ wartoœci napiêcia skutecznego z poszczególnymi oporami. Dla przyk³adu:
+\begin{center} dla czêstotliwoœci 2.983 kHz \end{center}
+$$R_L=1442 \Omega$$ 
+$$R_C=3925 \Omega$$ 
+$$Z=2670\Omega$$ 
+$$I_s=0,001123A$$
+$$ U_R=1,106V $$
+$$ U_L=1,62V$$
+$$ U_C=4,408V$$
+\begin{center}podczas, gdy odwo³uj¹c siê do pomiarów zgromadzonych w tabeli:
+\end{center}
+$$ U_R=1,12V $$
+$$ U_L=1,62V$$
+$$ U_C=4,47V$$
+Mo¿na zatem stwierdziæ, ¿e pomiary zosta³y przeprowadzone z wysoka dok³adnoœci¹, co mo¿e potwierdzaæ chocia¿by identyczny wynik dla napiêcia na cewce.
+ 
+ 
+
+\end{enumerate}
+
+\newpage
+\section{Literatura}
+\begin{enumerate}[{[1]}]
+\item
+Horowitz P. Hill W., ,,Sztuka elektroniki", tomy 1. i 2. WKi£, Warszawa 2003r.
+\item
+Resnick R.,Halliday D., Walker J., ,,Podstawy fizyki", tom 3. PWN, Warszawa 2003r.
+\item
+Watson J. ,,Elektronika", WKi£, Warszawa 1999r.
+\item
+Nosal Z., Baranowski J. ,,Uk³ady elektroniczne", WNT, Warszawa 2003r.
+\end{enumerate}
+
+\bibliography{IEEEabrv,refs}
+
+\end{document}
+

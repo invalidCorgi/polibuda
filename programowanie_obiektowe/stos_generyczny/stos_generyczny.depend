@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1512722212 source:d:\mega\polibuda\programowanie_obiektowe\stos_generyczny\main.cpp
+	<iostream>
+	<vector>
+

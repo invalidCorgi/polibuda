@@ -1,0 +1,513 @@
+\documentclass[polish,polish,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[cp1250]{inputenc}
+\usepackage{babel}
+\usepackage{pslatex}
+\usepackage{pgfplots}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage[OT4]{fontenc}
+\usepackage{circuitikz} 
+\usepackage{pgfplots}
+
+
+\usepackage{anysize}
+\marginsize{2.5cm}{2.5cm}{3cm}{3cm}
+
+\newcommand{\PRzFieldDsc}[1]{\sffamily\bfseries\scriptsize #1}
+\newcommand{\PRzFieldCnt}[1]{\textit{#1}}
+\newcommand{\PRzHeading}[8]{
+%% #1 - nazwa laboratorium
+%% #2 - kierunek 
+%% #3 - specjalnoœæ 
+%% #4 - rok studiów 
+%% #5 - symbol grupy lab.
+%% #6 - temat 
+%% #7 - numer lab.
+%% #8 - sk³ad grupy æwiczeniowej
+
+\begin{center}
+\begin{tabular}{ p{0.32\textwidth} p{0.15\textwidth} p{0.15\textwidth} p{0.12\textwidth} p{0.12\textwidth} }
+
+  &   &   &   &   \\
+\hline
+\multicolumn{5}{|c|}{}\\[-1ex]
+\multicolumn{5}{|c|}{{\LARGE #1}}\\
+\multicolumn{5}{|c|}{}\\[-1ex]
+
+\hline
+\multicolumn{1}{|l|}{\PRzFieldDsc{Kierunek}}	& \multicolumn{1}{|l|}{\PRzFieldDsc{Specjalnoœæ}}	& \multicolumn{1}{|l|}{\PRzFieldDsc{Rok studiów}}	& \multicolumn{2}{|l|}{\PRzFieldDsc{Symbol grupy lab.}} \\
+\multicolumn{1}{|c|}{\PRzFieldCnt{#2}}		& \multicolumn{1}{|c|}{\PRzFieldCnt{#3}}		& \multicolumn{1}{|c|}{\PRzFieldCnt{#4}}		& \multicolumn{2}{|c|}{\PRzFieldCnt{#5}} \\
+
+\hline
+\multicolumn{4}{|l|}{\PRzFieldDsc{Temat Laboratorium}}		& \multicolumn{1}{|l|}{\PRzFieldDsc{Numer lab.}} \\
+\multicolumn{4}{|c|}{\PRzFieldCnt{#6}}				& \multicolumn{1}{|c|}{\PRzFieldCnt{#7}} \\
+
+\hline
+\multicolumn{5}{|l|}{\PRzFieldDsc{Sk³ad grupy æwiczeniowej oraz numery indeksów}}\\
+\multicolumn{5}{|c|}{\PRzFieldCnt{#8}}\\
+
+\hline
+\multicolumn{3}{|l|}{\PRzFieldDsc{Uwagi}}	& \multicolumn{2}{|l|}{\PRzFieldDsc{Ocena}} \\
+\multicolumn{3}{|c|}{\PRzFieldCnt{\ }}		& \multicolumn{2}{|c|}{\PRzFieldCnt{\ }} \\
+
+\hline
+\end{tabular}
+\end{center}
+}
+
+\begin{document}
+
+\PRzHeading{Laboratoria Podstawy Elektroniki}{Informatyka}{--}{I}{I1}{Wzmacniacze operacyjne}{6}{ {\tiny Stanis³aw Jasiewicz(116753), Krzysztof Michalak(132281), Wojciech Regulski(132312), Ewa Rudol(132314), Bartosz Sobkowiak (125342)} }{}
+
+\section{Cel}
+Zbadanie prostych uk³adów analogowego przetwarzania sygna³ów, opartych o zastosowania wzmacniaczy operacyjnych, oraz zapoznanie siê ich zasad¹ dzia³ania
+\section{Pomiary}
+
+
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages, scale=1, transform shape]
+	  \draw (0,0)
+	  circle[radius = 10pt]--(2,0)
+	  circle[radius = 3pt]
+	  node[anchor=west]{2};
+	  \draw (0,0.5)
+	  node[anchor=south]{IN};
+	  \draw (0,-0.35)
+	  node[rground]{};
+	  \draw (2,0.5)
+	  circle[radius = 3pt]
+	  node[anchor=west]{1}
+	  --(1,0.5)--(1,1.5)--(1.5,1.5)
+	  node[anchor=west]{IN 1};
+	  \draw (2,-0.5)
+	  circle[radius = 3pt]
+	  node[anchor=west]{3}
+	  --(1,-0.5)--(1,-1.5)--(1.5,-1.5)
+	  node[anchor=west]{IN 2};
+	  \draw (1.5,1)--(2.5,1)--(2.5,0)
+	  node[anchor=west]{JP IN}
+	  --(2.5,-1)--(1.5,-1)--(1.5,1);
+	  
+	  
+	  \draw (10,0)
+	  circle[radius = 10pt]--(8,0)
+	  circle[radius = 3pt]
+	  node[anchor=east]{2};
+	  \draw (10,0.5)
+	  node[anchor=south]{OUT};
+	  \draw (10,-0.35)
+	  node[rground]{};
+	  \draw (8,0.5)
+	  circle[radius = 3pt]
+	  node[anchor=east]{1}
+	  --(9,0.5)--(9,1.5)--(8.5,1.5)
+	  node[anchor=east]{OUT 1};
+	  \draw (8,-0.5)
+	  circle[radius = 3pt]
+	  node[anchor=east]{3}
+	  --(9,-0.5)--(9,-1.5)--(8.5,-1.5)
+	  node[anchor=east]{OUT 2};
+	  \draw (8.5,1)--(7.5,1)--(7.5,0)
+	  node[anchor=east]{JP OUT}
+	  --(7.5,-1)--(8.5,-1)--(8.5,1);
+   \end{circuitikz}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages, scale=1, transform shape]
+	  \draw (-4,-0.5)
+	  node[anchor=east]{IN 1}--(0,-0.5);
+	  \draw (0,1)
+	  --(0,0.5)node[anchor=west]{--}
+	  --(0,-0.5)node[anchor=west]{+}
+	  --(0,-1)--(2,0)--(0,1);
+	  \draw (1,-0.5)--(1,-1)
+	  node[anchor=west]{--15V};
+	  \draw (1,0.5)--(1,1)
+	  node[anchor=west]{+15V};
+	  \draw (2,0)--(6,0)
+	  node[anchor=west]{OUT 1};
+	  \draw (0,0.5)
+	  to[short,-*](-1,0.5)
+	  to[R,l_=1k](-3,0.5)
+	  node[rground,rotate=270]{};
+	  \draw (-1,0.5)--(-1,2)
+	  to[R,l=1k](3,2)
+	  to[short,-*](3,0);
+   \end{circuitikz}
+\end{center}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages, scale=0.85, transform shape]
+	  \draw (-2.5,0)--(-2,0)
+	  to[switch,l=1](0,0)
+	  to[R,l=1k](2,0);
+	  
+	  \draw (-2.5,-1.5)--(-2,-1.5)
+	  to[switch,l=2](0,-1.5)
+	  to[C,l=100nF](2,-1.5);
+	  
+	  \draw (-2.5,-3)--(-2,-3)
+	  to[switch,l=3](0,-3)
+	  to[R,l=2k](2,-3);
+	  
+	  \draw (-2.5,-4)--(-2,-4)
+	  to[switch,l=4](0,-4)
+	  to[R,l=1k](2,-4);
+	  
+	  \draw (0,1)--(0,-4.5)--(-2,-4.5)--(-2,1)--(-1,1)
+	  node[anchor=south]{INPUT}--(0,1);
+	  
+	  \draw (-3,0)
+	  node[anchor=east]{IN 2}--(-2.5,0)
+	  to[short,*-*](-2.5,-1.5)--(-2.5,-3)
+	  to[short,*-*](-2.5,-4);
+	  
+	  \draw (2,-4)--(2,-3)
+	  to[short,*-*](2,-1.5)
+	  to[short,-*](2,0);
+	  
+	  \draw (2,0)--(4,0);
+	  
+	  \draw (4,1.5)
+	  --(4,1)node[anchor=west]{+}
+	  --(4,0)node[anchor=west]{--}
+	  --(4,-0.5)--(6,0.5)--(4,1.5);
+	  
+	  \draw (5,0)--(5,-0.5)
+	  node[anchor=west]{--15V};
+	  
+	  \draw (5,1)--(5,1.5)
+	  node[anchor=west]{+15V};
+	  
+	  \draw (4,1)--(3.5,1)
+	  node[rground,rotate=270]{};
+	  
+	  \draw (3,0)--(3,-2.5)
+	  to[short,*-*](3,-4)--(3,-5)
+	  to[short,*-*](3,-6);
+	  
+	  \draw (7.5,-2.5)--(7,-2.5)
+	  to[switch,l_=1](5,-2.5)
+	  to[C,l_=10nF](3,-2.5);
+	  
+	  \draw (7.5,-4)--(7,-4)
+	  to[switch,l_=2](5,-4)
+	  to[R,l_=5k1](3,-4);
+	  
+	  \draw (7.5,-5)--(7,-5)
+	  to[switch,l_=3](5,-5)
+	  to[R,l_=1k](3,-5);
+	  
+	  \draw (7.5,-6)--(7,-6)
+	  to[switch,l_=4](5,-6)
+	  to[R,l_=2k](3,-6);
+	  
+	  \draw (7,-1.5)--(7,-6.5)--(5,-6.5)--(5,-1.5)--(6,-1.5)
+	  node[anchor=south]{LOOPBACK}--(7,-1.5);
+	  
+	  \draw (6,0.5)--(9,0.5)
+	  node[anchor=west]{OUT 2};
+	  
+	  \draw (7.5,-6)--(7.5,-5)
+	  to[short,*-*](7.5,-4)--(7.5,-2.5)
+	  to[short,*-*](7.5,0.5);
+	  
+   \end{circuitikz}
+   \caption{Schemat ideowy p³yty æwiczeniowej}
+\end{center}
+\end{figure}
+
+\vspace{1,5 cm}
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages, scale=0.8, transform shape]
+	  \draw (1,0.5)
+	  to[short,*-](2,0.5);
+	  \draw (0,0.5)
+	  node[anchor=south]{a)};
+	  \draw (2,1)
+	  --(2,0.5)node[anchor=west]{+}
+	  --(2,-0.5)node[anchor=west]{--}
+	  --(2,-1)--(4,0)--(2,1);
+	  \draw (-0.5,-0.5)
+	  node[rground,rotate=270]{}
+	  to[R,l_=$Z_{in}$](1.5,-0.5)
+	  --(2,-0.5)--(1.5,-0.5)--(1.5,-1.5);
+	  \draw (1.5,-1.5)
+	  to[R,l_=$Z_f$](4.5,-1.5)
+	  --(4.5,0)--(4,0)
+	  to[short,-*](6,0);
+	  
+	  \draw (9,0.5)
+	  node[rground,rotate=270]{}
+	  to[short](10,0.5);
+	  \draw (8,0.5)
+	  node[anchor=south]{b)};
+	  \draw (10,1)
+	  --(10,0.5)node[anchor=west]{+}
+	  --(10,-0.5)node[anchor=west]{--}
+	  --(10,-1)--(12,0)--(10,1);
+	  \draw (7.5,-0.5)
+	  to[R,l_=$Z_{in}$,*-](9.5,-0.5)
+	  --(10,-0.5)--(9.5,-0.5)--(9.5,-1.5);
+	  \draw (9.5,-1.5)
+	  to[R,l_=$Z_f$](12.5,-1.5)
+	  --(12.5,0)--(12,0)
+	  to[short,-*](14,0);
+   \end{circuitikz}
+   \caption{Konfiguracje stopni wzmacniaj¹cych: \newline
+   a) nieodwracaj¹ca, b) odwracaj¹ca}
+\end{center}
+\end{figure}
+
+\vspace{1 cm}
+
+\begin{enumerate}
+\item  %% 1 **********************************************************
+Konfiguracja nieodwracaj¹ca
+
+\begin{itemize}
+
+\item
+Wartoœci elementów rezystancyjnych odpowiedzialnych za wyznaczanie stopnia wzmocnienia:
+$$
+R_1=R_2=1000 \Omega
+$$
+
+\item
+Czêstotliwoœæ przebiegu: 4 kHz
+
+\vspace{0,5 cm}
+
+\item
+Amplitudy przebiegów wejœciowych i wyjœciowych:
+$$
+V_{wej}=11,9 V
+$$
+$$
+V_{wyj}=23,4 V
+$$
+
+\begin{figure}
+\centering
+\includegraphics[width=10cm]{nieodwracajaca.jpg}
+\caption{Przebieg wejœciowy (¿ó³ty) i wyjœciowy (niebieski) dla wzmacniacza napiêciowego w konfiguracji nieodwracaj¹cej.}
+\end{figure}
+
+\vspace{0,5 cm}
+
+\item
+Wzmocnienie wzmacniacza: ($ k = \frac{U_{out}}{U_{in}}$ )
+$$ k = \frac{23,4}{11,9} = 1,97 [-] $$
+$$ k = 20 * \log{1,97} = 5,88 [dB] $$
+
+\vspace{0,5 cm}
+
+Wzmocnienie wzmacniacza teoretycznie ($ k = 1 + \frac{Z_f}{Z_{in}}$ )
+$$  k = 1 + \frac{1000 \Omega}{1000 \Omega} = 2 [-] $$
+
+
+\item
+Impedancja $Z_f$ w uk³adzie wtórnika wynosi 0 $\Omega$, a impedancja $Z_{in}$ zale¿y od napiêcia wejœciowego. Korzystaj¹c ze wzoru na wzmocnienie dla konfiguracji nieodwracaj¹cej (jest to ten sam uk³ad tylko bez impedancji $Z_f$) ³atwo zauwa¿yæ, ¿e wzmocnienie wyniesie 1 ($Z_f/Z_{in}=0)$. \\ Wtórnik napiêciowy cechuje siê bardzo du¿¹ rezystancj¹, dziêki czemu pobiera bardzo niewielki pr¹d, umo¿liwiaj¹c jednoczeœnie pobranie pr¹du o du¿ym natê¿eniu ze swojego wyjœcia.
+
+\newpage
+
+\end{itemize}
+ %%**********************************************************
+ 
+ 
+ \vspace{1 cm}
+ 
+ 
+  %% 2 **********************************************************
+\newpage
+
+\item 
+Konfiguracja odwracaj¹ca
+
+\begin{itemize}
+
+\item
+Wartoœci elementów rezystancyjnych i pojemnoœciowych mo¿liwych do za³¹czenia w roli impedancji:
+
+\vspace{0,5 cm}
+
+$Z_f$ : 
+
+-Rezystancja: 1k, 2k, 1k [$\Omega$]
+
+-Pojemnoœæ: 100 nF
+
+\vspace{0,5 cm}
+
+$Z_{in}$ : 
+
+-Rezystancja: 5k, 1k, 2k [$\Omega$]
+
+-Pojemnoœæ: 10 nF
+
+\vspace{0,7 cm}
+
+\item
+Czêstotliwoœæ przebiegu: 4 kHz
+
+\vspace{0,5 cm}
+
+\item
+Tablica 1: Zestawienie danych pomiarowych i obliczeniowych stopnia wzmacniaj¹cego \\($ k_u$ teoretyczne $= -\frac{Z_f}{Z_{in}}$, $ k_u = -\frac{U_{out}}{U_{in}}$ )
+\begin{table}[!h]
+\centering
+\begin{tabular}{ | p{1cm} | p{1cm} | p{1cm} | p{1cm} || p{1cm} |p{1cm} |p{1cm} |p{1cm} |p{1cm}| }
+\hline
+$Z_{in}$ & nr prze³¹cznika & $Z_f$  &  nr prze³¹cznika & $k_u$ teoretyczne & $u_{we}$ [V] & $u_{wyj}$ [V] & $k_u$ [V/V] & $k_u$ [dB]\\ \hline
+1 k $\Omega$ &  1 & 2 k $\Omega$ & 1 & -2,0 & 11,3 & 22,2 & -1,96 & 5,84 \\
+1 k $\Omega$ &  1 & 1 k $\Omega$  & 2 & -1,0 & 11,4 & 11,2 & -0,98 & -1,74 \\
+1 k $\Omega$ &  1 & 5 k $\Omega$  & 3 & -5,0 & 11,5 & 28,4 & -2,47 & 7,86 \\
+2 k $\Omega$ &  2 & 1 k $\Omega$ & 2 & -0,5 & 11,6 & 6,2 & -0,53 & -5,52 \\
+\hline
+\end{tabular}
+\end{table}
+
+\newpage
+
+\vspace{0,5 cm}
+\begin{figure}
+\centering
+\includegraphics[width=10cm]{odwracajaca.jpg}
+\caption{Przebieg wejœciowy (¿ó³ty) i wyjœciowy (niebieski) dla wzmacniacza napiêciowego w konfiguracji odwracaj¹cej.}
+\end{figure}
+
+\item 
+Mo¿emy wiêc zauwa¿yæ, ¿e wspó³czynniki wzmocnienia (teoretyczne i pomiarowe) wyliczone z dwóch podanych wczeœniej wzorów s¹ bardzo podobne. Zaobserwowana ró¿nica mo¿e byæ spowodowana niedoskona³oœci¹ rezystorów.
+
+
+\vspace{0,5 cm}
+
+\item 
+Przesuniêcie fazowe miêdzy przebiegami wynosi 180 stopni i jest spowodowane dzia³aniem wzmacniacza odwracaj¹cego.
+
+\end{itemize}
+
+
+ %%*********************************************************
+
+\vspace{2 cm}
+
+
+ %% 3 ******************************************************
+\item 
+Blok integratora
+\begin{itemize}
+
+\item
+Czêstotliwoœæ przebiegu: 4 kHz
+
+\vspace{0,5 cm}
+
+\item Tablica 2: Zestawienie danych pomiarowych i obliczeniowych stopnia wzmacniaj¹cego 
+(sta³a ca³kowania $T_i = RC$)
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{ | p{2cm} | p{2cm} | p{2cm} | p{2cm} || p{2cm} |p{2cm}| }
+\hline
+R & nr prze³¹cznika & C &  nr prze³¹cznika & $\frac{1}{T_i}$ pomierzone & $\frac{1}{T_i}$ teoretyczne\\ \hline
+1 k$\Omega$ &  1 & 10 nF & 4 & $\frac{1}{9 \mu s }$ & $\frac{1}{10 \mu s }$ \\
+2 k$\Omega$ &  2 & 10 nF & 4 & $\frac{1}{18 \mu s }$ & $\frac{1}{20 \mu s }$  \\
+\hline
+\end{tabular}
+\end{table}
+
+\newpage
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=10cm]{blok.jpg}
+\caption{Przebieg wejœciowy (¿ó³ty) i wyjœciowy (niebieski) dla wzmacniacza napiêciowego w roli integratora. (R=1k)}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=10cm]{blok2.jpg}
+\caption{Przebieg wejœciowy (¿ó³ty) i wyjœciowy (niebieski)  dla wzmacniacza napiêciowego w roli integratora. (R=2k)}
+\end{figure}
+
+
+\end{itemize}
+
+
+ %%*********************************************************
+
+
+
+
+
+ %% 4 ******************************************************
+\newpage
+\item 
+Blok ró¿niczkuj¹cy
+\begin{itemize}
+
+\item
+Czêstotliwoœæ przebiegu na wyjœciu: 1 kHz
+
+\item
+Zniekszta³cenia przebiegu wyjœciowego w pobli¿u prze³¹czeñ poziomów wejœciowego przebiegu prostok¹tnego nale¿y t³umaczyæ ograniczon¹ szybkoœci¹ narastania sygna³u przebiegu, które wynika z maksymalnej prêdkoœci narastania napiêcia wyjœciowego wzmacniacza operacyjnego. Ponadto nale¿y wzi¹æ pod uwagê, i¿ napiêcia maksymalne podczas pracy wzmacniacza w nasyceniu s¹ równe napiêciu zasilania wzmacniacza operacyjnego, co przyczynia siê do powstania dalszych zniekszta³ceñ.
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=9cm]{gorzej.jpg}
+\caption{Przebieg wejœciowy (¿ó³ty) i jego pochodna (niebieski). (gorzej)}
+\end{figure}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=9cm]{lepiej.jpg}
+\caption{Przebieg wejœciowy (¿ó³ty) i jego pochodna (niebieski). (lepiej - prze³¹cznik 1 : 1 i 4)}
+\end{figure}
+
+
+
+\end{itemize}
+ %%*********************************************************
+ 
+ 
+
+\end{enumerate}
+
+
+\newpage
+
+\section{Wnioski}
+Wartoœci napiêciowe wzmocnionych sygna³ów w wiêkszoœci przypadków odpowiada³y wartoœciom teoretycznym otrzymanym na drodze obliczeniowej. Znacz¹ca ró¿nica mia³a miejsce w przypadku trzeciego pomiaru wzmocnienia w konfiguracji odwracaj¹cej. Wartoœæ wzmocnienia powinna wynosiæ -5, zaœ wartoœæ zmierzona wynosi³a -2,47 . Ró¿nica ta mo¿e wynikaæ z b³êdnie wykonanego pomiaru. Mo¿na zwróciæ uwagê na fakt, ¿e wartoœci wzmocnienia dla konfiguracji odwracaj¹cej s¹ ujemne. Jest to spowodowane odwracaniem sygna³u, co oznacza, ¿e gdy w danym momencie napiêcie by³o dodatnie, wzmocniony sygna³ bêdzie cechowaæ siê napiêciem ujemnym i odwrotnie. Oznacza to równie¿, ¿e przebieg wyjœciowy jest przesuniêty w fazie o 180 stopni.
+
+\section{Literatura}
+\begin{enumerate}
+
+\item P. Horowitz, W. Hill - Sztuka elektroniki, WKi£, Warszawa 2003
+
+\item Materia³y ze strony prowadz¹cego : http://etacar.put.poznan.pl/mariusz.naumowicz/materialy.html
+
+\end{enumerate}
+
+
+
+
+\bibliography{IEEEabrv,refs}
+
+\end{document}
+

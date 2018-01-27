@@ -1,0 +1,33 @@
+|mod8counter
+LEDR[0] <= 7490:inst.QA
+LEDR[1] <= 7490:inst.QB
+LEDR[2] <= 7490:inst.QC
+LEDR[3] <= 7490:inst.QD
+KEY[2] => 7490:inst.CLKA
+KEY[3] => 7404:inst2.2
+
+
+|mod8counter|7490:inst
+QA <= 7.DB_MAX_OUTPUT_PORT_TYPE
+CLRA => 9.IN0
+CLRB => 9.IN1
+CLKA => 32.IN0
+SET9A => 8.IN0
+SET9B => 8.IN1
+QB <= 11.DB_MAX_OUTPUT_PORT_TYPE
+CLKB => 33.IN0
+QC <= 14.DB_MAX_OUTPUT_PORT_TYPE
+QD <= 19.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mod8counter|7432:inst1
+1 <= 4.DB_MAX_OUTPUT_PORT_TYPE
+2 => 4.IN0
+3 => 4.IN1
+
+
+|mod8counter|7404:inst2
+1 <= 4.DB_MAX_OUTPUT_PORT_TYPE
+2 => 4.IN0
+
+

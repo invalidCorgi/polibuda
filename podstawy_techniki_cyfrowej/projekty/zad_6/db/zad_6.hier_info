@@ -1,0 +1,466 @@
+|zad_6
+clock_28 => clock:i0.we
+key[1] => jk:i1.res
+key[1] => jk:i2.res
+key[1] => jk:i3.res
+key[1] => jk:i4.res
+key[1] => d:i9.res
+key[1] => d:i10.res
+key[1] => d:i11.res
+key[1] => d:i12.res
+key[1] => ledr[0]~reg0.CLK
+key[1] => ledg[0]~reg0.CLK
+key[1] => wykonuj.CLK
+sw[3] => process_0.IN1
+sw[3] => process_0.IN1
+sw[3] => jk:i4.res_val
+sw[2] => process_0.IN1
+sw[2] => process_0.IN1
+sw[2] => jk:i3.res_val
+sw[2] => process_0.IN1
+sw[1] => process_0.IN0
+sw[1] => jk:i2.res_val
+sw[1] => process_0.IN0
+sw[0] => process_0.IN1
+sw[0] => jk:i1.res_val
+sw[0] => process_0.IN1
+hex0[6] <= mux:dig06.wy
+hex0[5] <= mux:dig05.wy
+hex0[4] <= mux:dig04.wy
+hex0[3] <= mux:dig03.wy
+hex0[2] <= mux:dig02.wy
+hex0[1] <= mux:dig01.wy
+hex0[0] <= mux:dig00.wy
+hex1[6] <= <VCC>
+hex1[5] <= <VCC>
+hex1[4] <= <VCC>
+hex1[3] <= <VCC>
+hex1[2] <= mux:dig12.wy
+hex1[1] <= mux:dig11.wy
+hex1[0] <= <VCC>
+hex2[6] <= <VCC>
+hex2[5] <= <VCC>
+hex2[4] <= <VCC>
+hex2[3] <= <VCC>
+hex2[2] <= <VCC>
+hex2[1] <= <VCC>
+hex2[0] <= <VCC>
+hex3[6] <= <VCC>
+hex3[5] <= <VCC>
+hex3[4] <= <VCC>
+hex3[3] <= <VCC>
+hex3[2] <= <VCC>
+hex3[1] <= <VCC>
+hex3[0] <= <VCC>
+hex4[6] <= <VCC>
+hex4[5] <= <VCC>
+hex4[4] <= <VCC>
+hex4[3] <= <VCC>
+hex4[2] <= <VCC>
+hex4[1] <= <VCC>
+hex4[0] <= <VCC>
+hex5[6] <= <VCC>
+hex5[5] <= <VCC>
+hex5[4] <= <VCC>
+hex5[3] <= <VCC>
+hex5[2] <= <VCC>
+hex5[1] <= <VCC>
+hex5[0] <= <VCC>
+hex6[6] <= <VCC>
+hex6[5] <= <VCC>
+hex6[4] <= <VCC>
+hex6[3] <= <VCC>
+hex6[2] <= <VCC>
+hex6[1] <= <VCC>
+hex6[0] <= <VCC>
+hex7[6] <= <VCC>
+hex7[5] <= <VCC>
+hex7[4] <= <VCC>
+hex7[3] <= <VCC>
+hex7[2] <= <VCC>
+hex7[1] <= <VCC>
+hex7[0] <= <VCC>
+ledr[10] <= wykonuj.DB_MAX_OUTPUT_PORT_TYPE
+ledr[9] <= clock:i0.wy
+ledr[8] <= d:i12.wy
+ledr[7] <= d:i11.wy
+ledr[6] <= d:i10.wy
+ledr[5] <= d:i9.wy
+ledr[4] <= jk:i4.wy
+ledr[3] <= jk:i3.wy
+ledr[2] <= jk:i2.wy
+ledr[1] <= jk:i1.wy
+ledr[0] <= ledr[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ledg[0] <= ledg[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|zad_6|clock:i0
+we => wy.DATAA
+wyk => wy.OUTPUTSELECT
+i[0] <> <UNC>
+i[1] <> <UNC>
+i[2] <> <UNC>
+i[3] <> <UNC>
+i[4] <> <UNC>
+i[5] <> <UNC>
+i[6] <> <UNC>
+i[7] <> <UNC>
+i[8] <> <UNC>
+i[9] <> <UNC>
+i[10] <> <UNC>
+i[11] <> <UNC>
+i[12] <> <UNC>
+i[13] <> <UNC>
+i[14] <> <UNC>
+i[15] <> <UNC>
+i[16] <> <UNC>
+i[17] <> <UNC>
+i[18] <> <UNC>
+i[19] <> <UNC>
+i[20] <> <UNC>
+i[21] <> <UNC>
+i[22] <> <UNC>
+i[23] <> <UNC>
+i[24] <> <UNC>
+i[25] <> <UNC>
+i[26] <> <UNC>
+i[27] <> <UNC>
+i[28] <> <UNC>
+i[29] <> <UNC>
+i[30] <> <UNC>
+i[31] <> <UNC>
+wy <= wy.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|zad_6|jk:i1
+wej => process_0.IN0
+wej => process_0.IN0
+wej => process_0.IN0
+wej => process_0.IN0
+wek => process_0.IN1
+wek => process_0.IN1
+wek => process_0.IN1
+wek => process_0.IN1
+clk => temp.CLK
+res => temp.ALOAD
+res_val => temp.ADATA
+wy <= temp.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|zad_6|jk:i2
+wej => process_0.IN0
+wej => process_0.IN0
+wej => process_0.IN0
+wej => process_0.IN0
+wek => process_0.IN1
+wek => process_0.IN1
+wek => process_0.IN1
+wek => process_0.IN1
+clk => temp.CLK
+res => temp.ALOAD
+res_val => temp.ADATA
+wy <= temp.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|zad_6|jk:i3
+wej => process_0.IN0
+wej => process_0.IN0
+wej => process_0.IN0
+wej => process_0.IN0
+wek => process_0.IN1
+wek => process_0.IN1
+wek => process_0.IN1
+wek => process_0.IN1
+clk => temp.CLK
+res => temp.ALOAD
+res_val => temp.ADATA
+wy <= temp.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|zad_6|jk:i4
+wej => process_0.IN0
+wej => process_0.IN0
+wej => process_0.IN0
+wej => process_0.IN0
+wek => process_0.IN1
+wek => process_0.IN1
+wek => process_0.IN1
+wek => process_0.IN1
+clk => temp.CLK
+res => temp.ALOAD
+res_val => temp.ADATA
+wy <= temp.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|zad_6|mux:i5
+weI[7] => Mux0.IN7
+weI[6] => Mux0.IN6
+weI[5] => Mux0.IN5
+weI[4] => Mux0.IN4
+weI[3] => Mux0.IN3
+weI[2] => Mux0.IN2
+weI[1] => Mux0.IN1
+weI[0] => Mux0.IN0
+weA[2] => Mux0.IN10
+weA[1] => Mux0.IN9
+weA[0] => Mux0.IN8
+wy <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|zad_6|mux:i6
+weI[7] => Mux0.IN7
+weI[6] => Mux0.IN6
+weI[5] => Mux0.IN5
+weI[4] => Mux0.IN4
+weI[3] => Mux0.IN3
+weI[2] => Mux0.IN2
+weI[1] => Mux0.IN1
+weI[0] => Mux0.IN0
+weA[2] => Mux0.IN10
+weA[1] => Mux0.IN9
+weA[0] => Mux0.IN8
+wy <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|zad_6|mux:i7
+weI[7] => Mux0.IN7
+weI[6] => Mux0.IN6
+weI[5] => Mux0.IN5
+weI[4] => Mux0.IN4
+weI[3] => Mux0.IN3
+weI[2] => Mux0.IN2
+weI[1] => Mux0.IN1
+weI[0] => Mux0.IN0
+weA[2] => Mux0.IN10
+weA[1] => Mux0.IN9
+weA[0] => Mux0.IN8
+wy <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|zad_6|d:i9
+we => wy~reg0.DATAIN
+clk => wy~reg0.CLK
+res => wy~reg0.ALOAD
+res_val => wy~reg0.ADATA
+wy <= wy~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|zad_6|d:i10
+we => wy~reg0.DATAIN
+clk => wy~reg0.CLK
+res => wy~reg0.ALOAD
+res_val => wy~reg0.ADATA
+wy <= wy~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|zad_6|d:i11
+we => wy~reg0.DATAIN
+clk => wy~reg0.CLK
+res => wy~reg0.ALOAD
+res_val => wy~reg0.ADATA
+wy <= wy~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|zad_6|d:i12
+we => wy~reg0.DATAIN
+clk => wy~reg0.CLK
+res => wy~reg0.ALOAD
+res_val => wy~reg0.ADATA
+wy <= wy~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|zad_6|mux:i13
+weI[7] => Mux0.IN7
+weI[6] => Mux0.IN6
+weI[5] => Mux0.IN5
+weI[4] => Mux0.IN4
+weI[3] => Mux0.IN3
+weI[2] => Mux0.IN2
+weI[1] => Mux0.IN1
+weI[0] => Mux0.IN0
+weA[2] => Mux0.IN10
+weA[1] => Mux0.IN9
+weA[0] => Mux0.IN8
+wy <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|zad_6|mux:i14
+weI[7] => Mux0.IN7
+weI[6] => Mux0.IN6
+weI[5] => Mux0.IN5
+weI[4] => Mux0.IN4
+weI[3] => Mux0.IN3
+weI[2] => Mux0.IN2
+weI[1] => Mux0.IN1
+weI[0] => Mux0.IN0
+weA[2] => Mux0.IN10
+weA[1] => Mux0.IN9
+weA[0] => Mux0.IN8
+wy <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|zad_6|mux:i15
+weI[7] => Mux0.IN7
+weI[6] => Mux0.IN6
+weI[5] => Mux0.IN5
+weI[4] => Mux0.IN4
+weI[3] => Mux0.IN3
+weI[2] => Mux0.IN2
+weI[1] => Mux0.IN1
+weI[0] => Mux0.IN0
+weA[2] => Mux0.IN10
+weA[1] => Mux0.IN9
+weA[0] => Mux0.IN8
+wy <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|zad_6|mux:i16
+weI[7] => Mux0.IN7
+weI[6] => Mux0.IN6
+weI[5] => Mux0.IN5
+weI[4] => Mux0.IN4
+weI[3] => Mux0.IN3
+weI[2] => Mux0.IN2
+weI[1] => Mux0.IN1
+weI[0] => Mux0.IN0
+weA[2] => Mux0.IN10
+weA[1] => Mux0.IN9
+weA[0] => Mux0.IN8
+wy <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|zad_6|mux:dig00
+weI[7] => Mux0.IN7
+weI[6] => Mux0.IN6
+weI[5] => Mux0.IN5
+weI[4] => Mux0.IN4
+weI[3] => Mux0.IN3
+weI[2] => Mux0.IN2
+weI[1] => Mux0.IN1
+weI[0] => Mux0.IN0
+weA[2] => Mux0.IN10
+weA[1] => Mux0.IN9
+weA[0] => Mux0.IN8
+wy <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|zad_6|mux:dig01
+weI[7] => Mux0.IN7
+weI[6] => Mux0.IN6
+weI[5] => Mux0.IN5
+weI[4] => Mux0.IN4
+weI[3] => Mux0.IN3
+weI[2] => Mux0.IN2
+weI[1] => Mux0.IN1
+weI[0] => Mux0.IN0
+weA[2] => Mux0.IN10
+weA[1] => Mux0.IN9
+weA[0] => Mux0.IN8
+wy <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|zad_6|mux:dig02
+weI[7] => Mux0.IN7
+weI[6] => Mux0.IN6
+weI[5] => Mux0.IN5
+weI[4] => Mux0.IN4
+weI[3] => Mux0.IN3
+weI[2] => Mux0.IN2
+weI[1] => Mux0.IN1
+weI[0] => Mux0.IN0
+weA[2] => Mux0.IN10
+weA[1] => Mux0.IN9
+weA[0] => Mux0.IN8
+wy <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|zad_6|mux:dig03
+weI[7] => Mux0.IN7
+weI[6] => Mux0.IN6
+weI[5] => Mux0.IN5
+weI[4] => Mux0.IN4
+weI[3] => Mux0.IN3
+weI[2] => Mux0.IN2
+weI[1] => Mux0.IN1
+weI[0] => Mux0.IN0
+weA[2] => Mux0.IN10
+weA[1] => Mux0.IN9
+weA[0] => Mux0.IN8
+wy <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|zad_6|mux:dig04
+weI[7] => Mux0.IN7
+weI[6] => Mux0.IN6
+weI[5] => Mux0.IN5
+weI[4] => Mux0.IN4
+weI[3] => Mux0.IN3
+weI[2] => Mux0.IN2
+weI[1] => Mux0.IN1
+weI[0] => Mux0.IN0
+weA[2] => Mux0.IN10
+weA[1] => Mux0.IN9
+weA[0] => Mux0.IN8
+wy <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|zad_6|mux:dig05
+weI[7] => Mux0.IN7
+weI[6] => Mux0.IN6
+weI[5] => Mux0.IN5
+weI[4] => Mux0.IN4
+weI[3] => Mux0.IN3
+weI[2] => Mux0.IN2
+weI[1] => Mux0.IN1
+weI[0] => Mux0.IN0
+weA[2] => Mux0.IN10
+weA[1] => Mux0.IN9
+weA[0] => Mux0.IN8
+wy <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|zad_6|mux:dig06
+weI[7] => Mux0.IN7
+weI[6] => Mux0.IN6
+weI[5] => Mux0.IN5
+weI[4] => Mux0.IN4
+weI[3] => Mux0.IN3
+weI[2] => Mux0.IN2
+weI[1] => Mux0.IN1
+weI[0] => Mux0.IN0
+weA[2] => Mux0.IN10
+weA[1] => Mux0.IN9
+weA[0] => Mux0.IN8
+wy <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|zad_6|mux:dig11
+weI[7] => Mux0.IN7
+weI[6] => Mux0.IN6
+weI[5] => Mux0.IN5
+weI[4] => Mux0.IN4
+weI[3] => Mux0.IN3
+weI[2] => Mux0.IN2
+weI[1] => Mux0.IN1
+weI[0] => Mux0.IN0
+weA[2] => Mux0.IN10
+weA[1] => Mux0.IN9
+weA[0] => Mux0.IN8
+wy <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|zad_6|mux:dig12
+weI[7] => Mux0.IN7
+weI[6] => Mux0.IN6
+weI[5] => Mux0.IN5
+weI[4] => Mux0.IN4
+weI[3] => Mux0.IN3
+weI[2] => Mux0.IN2
+weI[1] => Mux0.IN1
+weI[0] => Mux0.IN0
+weA[2] => Mux0.IN10
+weA[1] => Mux0.IN9
+weA[0] => Mux0.IN8
+wy <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+

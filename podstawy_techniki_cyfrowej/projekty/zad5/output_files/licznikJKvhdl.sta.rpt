@@ -1,0 +1,980 @@
+TimeQuest Timing Analyzer report for licznikJKvhdl
+Sun Dec 03 11:19:55 2017
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow Model Fmax Summary
+  6. Slow Model Setup Summary
+  7. Slow Model Hold Summary
+  8. Slow Model Recovery Summary
+  9. Slow Model Removal Summary
+ 10. Slow Model Minimum Pulse Width Summary
+ 11. Slow Model Setup: 'jk:i1|temp'
+ 12. Slow Model Setup: 'jk:i3|temp'
+ 13. Slow Model Setup: 'clock_27'
+ 14. Slow Model Hold: 'jk:i1|temp'
+ 15. Slow Model Hold: 'clock_27'
+ 16. Slow Model Hold: 'jk:i3|temp'
+ 17. Slow Model Minimum Pulse Width: 'clock_27'
+ 18. Slow Model Minimum Pulse Width: 'jk:i1|temp'
+ 19. Slow Model Minimum Pulse Width: 'jk:i3|temp'
+ 20. Clock to Output Times
+ 21. Minimum Clock to Output Times
+ 22. Propagation Delay
+ 23. Minimum Propagation Delay
+ 24. Fast Model Setup Summary
+ 25. Fast Model Hold Summary
+ 26. Fast Model Recovery Summary
+ 27. Fast Model Removal Summary
+ 28. Fast Model Minimum Pulse Width Summary
+ 29. Fast Model Setup: 'jk:i1|temp'
+ 30. Fast Model Setup: 'jk:i3|temp'
+ 31. Fast Model Setup: 'clock_27'
+ 32. Fast Model Hold: 'jk:i1|temp'
+ 33. Fast Model Hold: 'clock_27'
+ 34. Fast Model Hold: 'jk:i3|temp'
+ 35. Fast Model Minimum Pulse Width: 'clock_27'
+ 36. Fast Model Minimum Pulse Width: 'jk:i1|temp'
+ 37. Fast Model Minimum Pulse Width: 'jk:i3|temp'
+ 38. Clock to Output Times
+ 39. Minimum Clock to Output Times
+ 40. Propagation Delay
+ 41. Minimum Propagation Delay
+ 42. Multicorner Timing Analysis Summary
+ 43. Clock to Output Times
+ 44. Minimum Clock to Output Times
+ 45. Progagation Delay
+ 46. Minimum Progagation Delay
+ 47. Setup Transfers
+ 48. Hold Transfers
+ 49. Report TCCS
+ 50. Report RSKM
+ 51. Unconstrained Paths
+ 52. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                      ;
++--------------------+-------------------------------------------------------------------+
+; Quartus II Version ; Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition ;
+; Revision Name      ; licznikJKvhdl                                                     ;
+; Device Family      ; Cyclone II                                                        ;
+; Device Name        ; EP2C35F672C6                                                      ;
+; Timing Models      ; Final                                                             ;
+; Delay Model        ; Combined                                                          ;
+; Rise/Fall Delays   ; Unavailable                                                       ;
++--------------------+-------------------------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                 ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets        ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------+
+; clock_27   ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clock_27 }   ;
+; jk:i1|temp ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { jk:i1|temp } ;
+; jk:i3|temp ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { jk:i3|temp } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Slow Model Fmax Summary                                                                           ;
++-------------+-----------------+------------+------------------------------------------------------+
+; Fmax        ; Restricted Fmax ; Clock Name ; Note                                                 ;
++-------------+-----------------+------------+------------------------------------------------------+
+; 1201.92 MHz ; 500.0 MHz       ; jk:i1|temp ; limit due to low minimum pulse width violation (tcl) ;
+; 1610.31 MHz ; 500.0 MHz       ; jk:i3|temp ; limit due to low minimum pulse width violation (tcl) ;
++-------------+-----------------+------------+------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------+
+; Slow Model Setup Summary           ;
++------------+-------+---------------+
+; Clock      ; Slack ; End Point TNS ;
++------------+-------+---------------+
+; jk:i1|temp ; 0.168 ; 0.000         ;
+; jk:i3|temp ; 0.379 ; 0.000         ;
+; clock_27   ; 2.259 ; 0.000         ;
++------------+-------+---------------+
+
+
++-------------------------------------+
+; Slow Model Hold Summary             ;
++------------+--------+---------------+
+; Clock      ; Slack  ; End Point TNS ;
++------------+--------+---------------+
+; jk:i1|temp ; -2.185 ; -3.836        ;
+; clock_27   ; -1.989 ; -1.989        ;
+; jk:i3|temp ; 0.391  ; 0.000         ;
++------------+--------+---------------+
+
+
+-------------------------------
+; Slow Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Slow Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Slow Model Minimum Pulse Width Summary ;
++------------+--------+------------------+
+; Clock      ; Slack  ; End Point TNS    ;
++------------+--------+------------------+
+; clock_27   ; -1.380 ; -2.380           ;
+; jk:i1|temp ; -0.500 ; -2.000           ;
+; jk:i3|temp ; -0.500 ; -1.000           ;
++------------+--------+------------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'jk:i1|temp'                                                                        ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node  ; To Node    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+; 0.168 ; jk:i2|temp ; jk:i3|temp ; jk:i1|temp   ; jk:i1|temp  ; 1.000        ; 0.000      ; 0.868      ;
+; 0.379 ; jk:i2|temp ; jk:i2|temp ; jk:i1|temp   ; jk:i1|temp  ; 1.000        ; 0.000      ; 0.657      ;
+; 1.277 ; jk:i4|temp ; jk:i3|temp ; jk:i3|temp   ; jk:i1|temp  ; 1.000        ; 1.401      ; 1.160      ;
+; 1.557 ; jk:i4|temp ; jk:i2|temp ; jk:i3|temp   ; jk:i1|temp  ; 1.000        ; 1.401      ; 0.880      ;
+; 1.921 ; jk:i3|temp ; jk:i2|temp ; jk:i3|temp   ; jk:i1|temp  ; 0.500        ; 2.326      ; 1.191      ;
+; 2.421 ; jk:i3|temp ; jk:i2|temp ; jk:i3|temp   ; jk:i1|temp  ; 1.000        ; 2.326      ; 1.191      ;
+; 2.455 ; jk:i3|temp ; jk:i3|temp ; jk:i3|temp   ; jk:i1|temp  ; 0.500        ; 2.326      ; 0.657      ;
+; 2.955 ; jk:i3|temp ; jk:i3|temp ; jk:i3|temp   ; jk:i1|temp  ; 1.000        ; 2.326      ; 0.657      ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'jk:i3|temp'                                                                        ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node  ; To Node    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+; 0.379 ; jk:i4|temp ; jk:i4|temp ; jk:i3|temp   ; jk:i3|temp  ; 1.000        ; 0.000      ; 0.657      ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'clock_27'                                                                          ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node  ; To Node    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+; 2.259 ; jk:i1|temp ; jk:i1|temp ; jk:i1|temp   ; clock_27    ; 0.500        ; 2.130      ; 0.657      ;
+; 2.759 ; jk:i1|temp ; jk:i1|temp ; jk:i1|temp   ; clock_27    ; 1.000        ; 2.130      ; 0.657      ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'jk:i1|temp'                                                                          ;
++--------+------------+------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node  ; To Node    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------+------------+--------------+-------------+--------------+------------+------------+
+; -2.185 ; jk:i3|temp ; jk:i3|temp ; jk:i3|temp   ; jk:i1|temp  ; 0.000        ; 2.326      ; 0.657      ;
+; -1.685 ; jk:i3|temp ; jk:i3|temp ; jk:i3|temp   ; jk:i1|temp  ; -0.500       ; 2.326      ; 0.657      ;
+; -1.651 ; jk:i3|temp ; jk:i2|temp ; jk:i3|temp   ; jk:i1|temp  ; 0.000        ; 2.326      ; 1.191      ;
+; -1.151 ; jk:i3|temp ; jk:i2|temp ; jk:i3|temp   ; jk:i1|temp  ; -0.500       ; 2.326      ; 1.191      ;
+; -0.787 ; jk:i4|temp ; jk:i2|temp ; jk:i3|temp   ; jk:i1|temp  ; 0.000        ; 1.401      ; 0.880      ;
+; -0.507 ; jk:i4|temp ; jk:i3|temp ; jk:i3|temp   ; jk:i1|temp  ; 0.000        ; 1.401      ; 1.160      ;
+; 0.391  ; jk:i2|temp ; jk:i2|temp ; jk:i1|temp   ; jk:i1|temp  ; 0.000        ; 0.000      ; 0.657      ;
+; 0.602  ; jk:i2|temp ; jk:i3|temp ; jk:i1|temp   ; jk:i1|temp  ; 0.000        ; 0.000      ; 0.868      ;
++--------+------------+------------+--------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'clock_27'                                                                            ;
++--------+------------+------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node  ; To Node    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------+------------+--------------+-------------+--------------+------------+------------+
+; -1.989 ; jk:i1|temp ; jk:i1|temp ; jk:i1|temp   ; clock_27    ; 0.000        ; 2.130      ; 0.657      ;
+; -1.489 ; jk:i1|temp ; jk:i1|temp ; jk:i1|temp   ; clock_27    ; -0.500       ; 2.130      ; 0.657      ;
++--------+------------+------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'jk:i3|temp'                                                                         ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node  ; To Node    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+; 0.391 ; jk:i4|temp ; jk:i4|temp ; jk:i3|temp   ; jk:i3|temp  ; 0.000        ; 0.000      ; 0.657      ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'clock_27'                                                           ;
++--------+--------------+----------------+------------------+----------+------------+------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock    ; Clock Edge ; Target           ;
++--------+--------------+----------------+------------------+----------+------------+------------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; clock_27 ; Rise       ; clock_27         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock_27 ; Rise       ; jk:i1|temp       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock_27 ; Rise       ; jk:i1|temp       ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_27 ; Rise       ; clock_27|combout ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_27 ; Rise       ; clock_27|combout ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_27 ; Rise       ; i1|temp|clk      ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_27 ; Rise       ; i1|temp|clk      ;
++--------+--------------+----------------+------------------+----------+------------+------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'jk:i1|temp'                                                                   ;
++--------+--------------+----------------+------------------+------------+------------+--------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock      ; Clock Edge ; Target                   ;
++--------+--------------+----------------+------------------+------------+------------+--------------------------+
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; jk:i1|temp ; Fall       ; jk:i2|temp               ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; jk:i1|temp ; Fall       ; jk:i2|temp               ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; jk:i1|temp ; Fall       ; jk:i3|temp               ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; jk:i1|temp ; Fall       ; jk:i3|temp               ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; jk:i1|temp ; Rise       ; i1|temp|regout           ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; jk:i1|temp ; Rise       ; i1|temp|regout           ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; jk:i1|temp ; Rise       ; i1|temp~clkctrl|inclk[0] ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; jk:i1|temp ; Rise       ; i1|temp~clkctrl|inclk[0] ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; jk:i1|temp ; Rise       ; i1|temp~clkctrl|outclk   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; jk:i1|temp ; Rise       ; i1|temp~clkctrl|outclk   ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; jk:i1|temp ; Rise       ; i2|temp|clk              ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; jk:i1|temp ; Rise       ; i2|temp|clk              ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; jk:i1|temp ; Rise       ; i3|temp|clk              ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; jk:i1|temp ; Rise       ; i3|temp|clk              ;
++--------+--------------+----------------+------------------+------------+------------+--------------------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'jk:i3|temp'                                                         ;
++--------+--------------+----------------+------------------+------------+------------+----------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock      ; Clock Edge ; Target         ;
++--------+--------------+----------------+------------------+------------+------------+----------------+
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; jk:i3|temp ; Fall       ; jk:i4|temp     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; jk:i3|temp ; Fall       ; jk:i4|temp     ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; jk:i3|temp ; Rise       ; i3|temp|regout ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; jk:i3|temp ; Rise       ; i3|temp|regout ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; jk:i3|temp ; Rise       ; i4|temp|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; jk:i3|temp ; Rise       ; i4|temp|clk    ;
++--------+--------------+----------------+------------------+------------+------------+----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; ledg[*]   ; clock_27   ; 6.231 ; 6.231 ; Rise       ; clock_27        ;
+;  ledg[0]  ; clock_27   ; 6.231 ; 6.231 ; Rise       ; clock_27        ;
+; ledg[*]   ; clock_27   ; 6.231 ; 6.231 ; Fall       ; clock_27        ;
+;  ledg[0]  ; clock_27   ; 6.231 ; 6.231 ; Fall       ; clock_27        ;
+; hex0[*]   ; jk:i1|temp ; 7.228 ; 7.228 ; Rise       ; jk:i1|temp      ;
+;  hex0[0]  ; jk:i1|temp ; 7.228 ; 7.228 ; Rise       ; jk:i1|temp      ;
+;  hex0[1]  ; jk:i1|temp ; 7.194 ; 7.194 ; Rise       ; jk:i1|temp      ;
+;  hex0[2]  ; jk:i1|temp ;       ; 7.170 ; Rise       ; jk:i1|temp      ;
+;  hex0[3]  ; jk:i1|temp ; 6.976 ; 6.976 ; Rise       ; jk:i1|temp      ;
+;  hex0[4]  ; jk:i1|temp ; 6.972 ;       ; Rise       ; jk:i1|temp      ;
+;  hex0[5]  ; jk:i1|temp ; 6.957 ;       ; Rise       ; jk:i1|temp      ;
+;  hex0[6]  ; jk:i1|temp ; 6.969 ; 6.969 ; Rise       ; jk:i1|temp      ;
+; ledr[*]   ; jk:i1|temp ; 6.035 ;       ; Rise       ; jk:i1|temp      ;
+;  ledr[0]  ; jk:i1|temp ; 6.035 ;       ; Rise       ; jk:i1|temp      ;
+; hex0[*]   ; jk:i1|temp ; 7.228 ; 7.228 ; Fall       ; jk:i1|temp      ;
+;  hex0[0]  ; jk:i1|temp ; 7.228 ; 7.228 ; Fall       ; jk:i1|temp      ;
+;  hex0[1]  ; jk:i1|temp ; 7.194 ; 7.194 ; Fall       ; jk:i1|temp      ;
+;  hex0[2]  ; jk:i1|temp ; 7.170 ; 7.144 ; Fall       ; jk:i1|temp      ;
+;  hex0[3]  ; jk:i1|temp ; 6.976 ; 6.976 ; Fall       ; jk:i1|temp      ;
+;  hex0[4]  ; jk:i1|temp ; 6.916 ; 6.972 ; Fall       ; jk:i1|temp      ;
+;  hex0[5]  ; jk:i1|temp ; 6.904 ; 6.957 ; Fall       ; jk:i1|temp      ;
+;  hex0[6]  ; jk:i1|temp ; 6.969 ; 6.969 ; Fall       ; jk:i1|temp      ;
+; ledr[*]   ; jk:i1|temp ; 7.825 ; 7.825 ; Fall       ; jk:i1|temp      ;
+;  ledr[0]  ; jk:i1|temp ;       ; 6.035 ; Fall       ; jk:i1|temp      ;
+;  ledr[1]  ; jk:i1|temp ; 7.825 ; 7.825 ; Fall       ; jk:i1|temp      ;
+; hex0[*]   ; jk:i3|temp ; 4.485 ; 4.485 ; Rise       ; jk:i3|temp      ;
+;  hex0[0]  ; jk:i3|temp ; 4.485 ; 4.485 ; Rise       ; jk:i3|temp      ;
+;  hex0[1]  ; jk:i3|temp ; 4.453 ;       ; Rise       ; jk:i3|temp      ;
+;  hex0[2]  ; jk:i3|temp ; 4.460 ; 4.460 ; Rise       ; jk:i3|temp      ;
+;  hex0[3]  ; jk:i3|temp ; 4.232 ; 4.232 ; Rise       ; jk:i3|temp      ;
+;  hex0[4]  ; jk:i3|temp ; 4.233 ; 4.233 ; Rise       ; jk:i3|temp      ;
+;  hex0[5]  ; jk:i3|temp ; 4.219 ; 4.219 ; Rise       ; jk:i3|temp      ;
+;  hex0[6]  ; jk:i3|temp ; 4.215 ; 4.215 ; Rise       ; jk:i3|temp      ;
+; ledr[*]   ; jk:i3|temp ; 4.814 ;       ; Rise       ; jk:i3|temp      ;
+;  ledr[2]  ; jk:i3|temp ; 4.814 ;       ; Rise       ; jk:i3|temp      ;
+; hex0[*]   ; jk:i3|temp ; 5.353 ; 5.353 ; Fall       ; jk:i3|temp      ;
+;  hex0[0]  ; jk:i3|temp ; 5.353 ; 5.353 ; Fall       ; jk:i3|temp      ;
+;  hex0[1]  ; jk:i3|temp ; 5.321 ; 5.321 ; Fall       ; jk:i3|temp      ;
+;  hex0[2]  ; jk:i3|temp ; 5.328 ; 5.328 ; Fall       ; jk:i3|temp      ;
+;  hex0[3]  ; jk:i3|temp ; 5.100 ; 5.100 ; Fall       ; jk:i3|temp      ;
+;  hex0[4]  ; jk:i3|temp ; 5.101 ; 5.101 ; Fall       ; jk:i3|temp      ;
+;  hex0[5]  ; jk:i3|temp ; 5.088 ; 5.088 ; Fall       ; jk:i3|temp      ;
+;  hex0[6]  ; jk:i3|temp ; 5.076 ; 5.076 ; Fall       ; jk:i3|temp      ;
+; ledr[*]   ; jk:i3|temp ; 5.865 ; 5.865 ; Fall       ; jk:i3|temp      ;
+;  ledr[2]  ; jk:i3|temp ;       ; 4.814 ; Fall       ; jk:i3|temp      ;
+;  ledr[3]  ; jk:i3|temp ; 5.865 ; 5.865 ; Fall       ; jk:i3|temp      ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; ledg[*]   ; clock_27   ; 6.231 ; 6.231 ; Rise       ; clock_27        ;
+;  ledg[0]  ; clock_27   ; 6.231 ; 6.231 ; Rise       ; clock_27        ;
+; ledg[*]   ; clock_27   ; 6.231 ; 6.231 ; Fall       ; clock_27        ;
+;  ledg[0]  ; clock_27   ; 6.231 ; 6.231 ; Fall       ; clock_27        ;
+; hex0[*]   ; jk:i1|temp ; 6.957 ; 6.969 ; Rise       ; jk:i1|temp      ;
+;  hex0[0]  ; jk:i1|temp ; 7.228 ; 7.228 ; Rise       ; jk:i1|temp      ;
+;  hex0[1]  ; jk:i1|temp ; 7.194 ; 7.194 ; Rise       ; jk:i1|temp      ;
+;  hex0[2]  ; jk:i1|temp ;       ; 7.170 ; Rise       ; jk:i1|temp      ;
+;  hex0[3]  ; jk:i1|temp ; 6.976 ; 6.976 ; Rise       ; jk:i1|temp      ;
+;  hex0[4]  ; jk:i1|temp ; 6.972 ;       ; Rise       ; jk:i1|temp      ;
+;  hex0[5]  ; jk:i1|temp ; 6.957 ;       ; Rise       ; jk:i1|temp      ;
+;  hex0[6]  ; jk:i1|temp ; 6.969 ; 6.969 ; Rise       ; jk:i1|temp      ;
+; ledr[*]   ; jk:i1|temp ; 6.035 ;       ; Rise       ; jk:i1|temp      ;
+;  ledr[0]  ; jk:i1|temp ; 6.035 ;       ; Rise       ; jk:i1|temp      ;
+; hex0[*]   ; jk:i1|temp ; 6.901 ; 6.901 ; Fall       ; jk:i1|temp      ;
+;  hex0[0]  ; jk:i1|temp ; 7.143 ; 7.143 ; Fall       ; jk:i1|temp      ;
+;  hex0[1]  ; jk:i1|temp ; 7.136 ; 7.136 ; Fall       ; jk:i1|temp      ;
+;  hex0[2]  ; jk:i1|temp ; 7.144 ; 7.144 ; Fall       ; jk:i1|temp      ;
+;  hex0[3]  ; jk:i1|temp ; 6.915 ; 6.915 ; Fall       ; jk:i1|temp      ;
+;  hex0[4]  ; jk:i1|temp ; 6.916 ; 6.916 ; Fall       ; jk:i1|temp      ;
+;  hex0[5]  ; jk:i1|temp ; 6.904 ; 6.904 ; Fall       ; jk:i1|temp      ;
+;  hex0[6]  ; jk:i1|temp ; 6.901 ; 6.901 ; Fall       ; jk:i1|temp      ;
+; ledr[*]   ; jk:i1|temp ; 7.825 ; 6.035 ; Fall       ; jk:i1|temp      ;
+;  ledr[0]  ; jk:i1|temp ;       ; 6.035 ; Fall       ; jk:i1|temp      ;
+;  ledr[1]  ; jk:i1|temp ; 7.825 ; 7.825 ; Fall       ; jk:i1|temp      ;
+; hex0[*]   ; jk:i3|temp ; 4.215 ; 4.215 ; Rise       ; jk:i3|temp      ;
+;  hex0[0]  ; jk:i3|temp ; 4.485 ; 4.485 ; Rise       ; jk:i3|temp      ;
+;  hex0[1]  ; jk:i3|temp ; 4.453 ;       ; Rise       ; jk:i3|temp      ;
+;  hex0[2]  ; jk:i3|temp ; 4.460 ; 4.460 ; Rise       ; jk:i3|temp      ;
+;  hex0[3]  ; jk:i3|temp ; 4.232 ; 4.232 ; Rise       ; jk:i3|temp      ;
+;  hex0[4]  ; jk:i3|temp ; 4.233 ; 4.233 ; Rise       ; jk:i3|temp      ;
+;  hex0[5]  ; jk:i3|temp ; 4.219 ; 4.219 ; Rise       ; jk:i3|temp      ;
+;  hex0[6]  ; jk:i3|temp ; 4.215 ; 4.215 ; Rise       ; jk:i3|temp      ;
+; ledr[*]   ; jk:i3|temp ; 4.814 ;       ; Rise       ; jk:i3|temp      ;
+;  ledr[2]  ; jk:i3|temp ; 4.814 ;       ; Rise       ; jk:i3|temp      ;
+; hex0[*]   ; jk:i3|temp ; 4.215 ; 4.215 ; Fall       ; jk:i3|temp      ;
+;  hex0[0]  ; jk:i3|temp ; 4.485 ; 4.485 ; Fall       ; jk:i3|temp      ;
+;  hex0[1]  ; jk:i3|temp ; 5.321 ; 4.453 ; Fall       ; jk:i3|temp      ;
+;  hex0[2]  ; jk:i3|temp ; 4.460 ; 4.460 ; Fall       ; jk:i3|temp      ;
+;  hex0[3]  ; jk:i3|temp ; 4.232 ; 4.232 ; Fall       ; jk:i3|temp      ;
+;  hex0[4]  ; jk:i3|temp ; 4.233 ; 4.233 ; Fall       ; jk:i3|temp      ;
+;  hex0[5]  ; jk:i3|temp ; 4.219 ; 4.219 ; Fall       ; jk:i3|temp      ;
+;  hex0[6]  ; jk:i3|temp ; 4.215 ; 4.215 ; Fall       ; jk:i3|temp      ;
+; ledr[*]   ; jk:i3|temp ; 5.865 ; 4.814 ; Fall       ; jk:i3|temp      ;
+;  ledr[2]  ; jk:i3|temp ;       ; 4.814 ; Fall       ; jk:i3|temp      ;
+;  ledr[3]  ; jk:i3|temp ; 5.865 ; 5.865 ; Fall       ; jk:i3|temp      ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------+
+; Propagation Delay                                  ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; key[1]     ; ledg[1]     ; 9.216 ;    ;    ; 9.216 ;
++------------+-------------+-------+----+----+-------+
+
+
++----------------------------------------------------+
+; Minimum Propagation Delay                          ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; key[1]     ; ledg[1]     ; 9.216 ;    ;    ; 9.216 ;
++------------+-------------+-------+----+----+-------+
+
+
++------------------------------------+
+; Fast Model Setup Summary           ;
++------------+-------+---------------+
+; Clock      ; Slack ; End Point TNS ;
++------------+-------+---------------+
+; jk:i1|temp ; 0.598 ; 0.000         ;
+; jk:i3|temp ; 0.665 ; 0.000         ;
+; clock_27   ; 1.458 ; 0.000         ;
++------------+-------+---------------+
+
+
++-------------------------------------+
+; Fast Model Hold Summary             ;
++------------+--------+---------------+
+; Clock      ; Slack  ; End Point TNS ;
++------------+--------+---------------+
+; jk:i1|temp ; -1.346 ; -2.486        ;
+; clock_27   ; -1.078 ; -1.078        ;
+; jk:i3|temp ; 0.215  ; 0.000         ;
++------------+--------+---------------+
+
+
+-------------------------------
+; Fast Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Fast Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Fast Model Minimum Pulse Width Summary ;
++------------+--------+------------------+
+; Clock      ; Slack  ; End Point TNS    ;
++------------+--------+------------------+
+; clock_27   ; -1.380 ; -2.380           ;
+; jk:i1|temp ; -0.500 ; -2.000           ;
+; jk:i3|temp ; -0.500 ; -1.000           ;
++------------+--------+------------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'jk:i1|temp'                                                                        ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node  ; To Node    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+; 0.598 ; jk:i2|temp ; jk:i3|temp ; jk:i1|temp   ; jk:i1|temp  ; 1.000        ; 0.000      ; 0.434      ;
+; 0.665 ; jk:i2|temp ; jk:i2|temp ; jk:i1|temp   ; jk:i1|temp  ; 1.000        ; 0.000      ; 0.367      ;
+; 1.354 ; jk:i4|temp ; jk:i3|temp ; jk:i3|temp   ; jk:i1|temp  ; 1.000        ; 0.897      ; 0.575      ;
+; 1.486 ; jk:i4|temp ; jk:i2|temp ; jk:i3|temp   ; jk:i1|temp  ; 1.000        ; 0.897      ; 0.443      ;
+; 1.520 ; jk:i3|temp ; jk:i2|temp ; jk:i3|temp   ; jk:i1|temp  ; 0.500        ; 1.420      ; 0.573      ;
+; 1.726 ; jk:i3|temp ; jk:i3|temp ; jk:i3|temp   ; jk:i1|temp  ; 0.500        ; 1.420      ; 0.367      ;
+; 2.020 ; jk:i3|temp ; jk:i2|temp ; jk:i3|temp   ; jk:i1|temp  ; 1.000        ; 1.420      ; 0.573      ;
+; 2.226 ; jk:i3|temp ; jk:i3|temp ; jk:i3|temp   ; jk:i1|temp  ; 1.000        ; 1.420      ; 0.367      ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'jk:i3|temp'                                                                        ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node  ; To Node    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+; 0.665 ; jk:i4|temp ; jk:i4|temp ; jk:i3|temp   ; jk:i3|temp  ; 1.000        ; 0.000      ; 0.367      ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'clock_27'                                                                          ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node  ; To Node    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+; 1.458 ; jk:i1|temp ; jk:i1|temp ; jk:i1|temp   ; clock_27    ; 0.500        ; 1.152      ; 0.367      ;
+; 1.958 ; jk:i1|temp ; jk:i1|temp ; jk:i1|temp   ; clock_27    ; 1.000        ; 1.152      ; 0.367      ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'jk:i1|temp'                                                                          ;
++--------+------------+------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node  ; To Node    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------+------------+--------------+-------------+--------------+------------+------------+
+; -1.346 ; jk:i3|temp ; jk:i3|temp ; jk:i3|temp   ; jk:i1|temp  ; 0.000        ; 1.420      ; 0.367      ;
+; -1.140 ; jk:i3|temp ; jk:i2|temp ; jk:i3|temp   ; jk:i1|temp  ; 0.000        ; 1.420      ; 0.573      ;
+; -0.846 ; jk:i3|temp ; jk:i3|temp ; jk:i3|temp   ; jk:i1|temp  ; -0.500       ; 1.420      ; 0.367      ;
+; -0.640 ; jk:i3|temp ; jk:i2|temp ; jk:i3|temp   ; jk:i1|temp  ; -0.500       ; 1.420      ; 0.573      ;
+; -0.606 ; jk:i4|temp ; jk:i2|temp ; jk:i3|temp   ; jk:i1|temp  ; 0.000        ; 0.897      ; 0.443      ;
+; -0.474 ; jk:i4|temp ; jk:i3|temp ; jk:i3|temp   ; jk:i1|temp  ; 0.000        ; 0.897      ; 0.575      ;
+; 0.215  ; jk:i2|temp ; jk:i2|temp ; jk:i1|temp   ; jk:i1|temp  ; 0.000        ; 0.000      ; 0.367      ;
+; 0.282  ; jk:i2|temp ; jk:i3|temp ; jk:i1|temp   ; jk:i1|temp  ; 0.000        ; 0.000      ; 0.434      ;
++--------+------------+------------+--------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'clock_27'                                                                            ;
++--------+------------+------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node  ; To Node    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------+------------+--------------+-------------+--------------+------------+------------+
+; -1.078 ; jk:i1|temp ; jk:i1|temp ; jk:i1|temp   ; clock_27    ; 0.000        ; 1.152      ; 0.367      ;
+; -0.578 ; jk:i1|temp ; jk:i1|temp ; jk:i1|temp   ; clock_27    ; -0.500       ; 1.152      ; 0.367      ;
++--------+------------+------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'jk:i3|temp'                                                                         ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node  ; To Node    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+; 0.215 ; jk:i4|temp ; jk:i4|temp ; jk:i3|temp   ; jk:i3|temp  ; 0.000        ; 0.000      ; 0.367      ;
++-------+------------+------------+--------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'clock_27'                                                           ;
++--------+--------------+----------------+------------------+----------+------------+------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock    ; Clock Edge ; Target           ;
++--------+--------------+----------------+------------------+----------+------------+------------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; clock_27 ; Rise       ; clock_27         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock_27 ; Rise       ; jk:i1|temp       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock_27 ; Rise       ; jk:i1|temp       ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_27 ; Rise       ; clock_27|combout ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_27 ; Rise       ; clock_27|combout ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_27 ; Rise       ; i1|temp|clk      ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_27 ; Rise       ; i1|temp|clk      ;
++--------+--------------+----------------+------------------+----------+------------+------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'jk:i1|temp'                                                                   ;
++--------+--------------+----------------+------------------+------------+------------+--------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock      ; Clock Edge ; Target                   ;
++--------+--------------+----------------+------------------+------------+------------+--------------------------+
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; jk:i1|temp ; Fall       ; jk:i2|temp               ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; jk:i1|temp ; Fall       ; jk:i2|temp               ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; jk:i1|temp ; Fall       ; jk:i3|temp               ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; jk:i1|temp ; Fall       ; jk:i3|temp               ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; jk:i1|temp ; Rise       ; i1|temp|regout           ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; jk:i1|temp ; Rise       ; i1|temp|regout           ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; jk:i1|temp ; Rise       ; i1|temp~clkctrl|inclk[0] ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; jk:i1|temp ; Rise       ; i1|temp~clkctrl|inclk[0] ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; jk:i1|temp ; Rise       ; i1|temp~clkctrl|outclk   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; jk:i1|temp ; Rise       ; i1|temp~clkctrl|outclk   ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; jk:i1|temp ; Rise       ; i2|temp|clk              ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; jk:i1|temp ; Rise       ; i2|temp|clk              ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; jk:i1|temp ; Rise       ; i3|temp|clk              ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; jk:i1|temp ; Rise       ; i3|temp|clk              ;
++--------+--------------+----------------+------------------+------------+------------+--------------------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'jk:i3|temp'                                                         ;
++--------+--------------+----------------+------------------+------------+------------+----------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock      ; Clock Edge ; Target         ;
++--------+--------------+----------------+------------------+------------+------------+----------------+
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; jk:i3|temp ; Fall       ; jk:i4|temp     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; jk:i3|temp ; Fall       ; jk:i4|temp     ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; jk:i3|temp ; Rise       ; i3|temp|regout ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; jk:i3|temp ; Rise       ; i3|temp|regout ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; jk:i3|temp ; Rise       ; i4|temp|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; jk:i3|temp ; Rise       ; i4|temp|clk    ;
++--------+--------------+----------------+------------------+------------+------------+----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; ledg[*]   ; clock_27   ; 3.422 ; 3.422 ; Rise       ; clock_27        ;
+;  ledg[0]  ; clock_27   ; 3.422 ; 3.422 ; Rise       ; clock_27        ;
+; ledg[*]   ; clock_27   ; 3.422 ; 3.422 ; Fall       ; clock_27        ;
+;  ledg[0]  ; clock_27   ; 3.422 ; 3.422 ; Fall       ; clock_27        ;
+; hex0[*]   ; jk:i1|temp ; 3.765 ; 3.765 ; Rise       ; jk:i1|temp      ;
+;  hex0[0]  ; jk:i1|temp ; 3.765 ; 3.765 ; Rise       ; jk:i1|temp      ;
+;  hex0[1]  ; jk:i1|temp ; 3.728 ; 3.728 ; Rise       ; jk:i1|temp      ;
+;  hex0[2]  ; jk:i1|temp ;       ; 3.737 ; Rise       ; jk:i1|temp      ;
+;  hex0[3]  ; jk:i1|temp ; 3.642 ; 3.642 ; Rise       ; jk:i1|temp      ;
+;  hex0[4]  ; jk:i1|temp ; 3.641 ;       ; Rise       ; jk:i1|temp      ;
+;  hex0[5]  ; jk:i1|temp ; 3.628 ;       ; Rise       ; jk:i1|temp      ;
+;  hex0[6]  ; jk:i1|temp ; 3.634 ; 3.634 ; Rise       ; jk:i1|temp      ;
+; ledr[*]   ; jk:i1|temp ; 3.244 ;       ; Rise       ; jk:i1|temp      ;
+;  ledr[0]  ; jk:i1|temp ; 3.244 ;       ; Rise       ; jk:i1|temp      ;
+; hex0[*]   ; jk:i1|temp ; 3.927 ; 3.927 ; Fall       ; jk:i1|temp      ;
+;  hex0[0]  ; jk:i1|temp ; 3.927 ; 3.927 ; Fall       ; jk:i1|temp      ;
+;  hex0[1]  ; jk:i1|temp ; 3.894 ; 3.894 ; Fall       ; jk:i1|temp      ;
+;  hex0[2]  ; jk:i1|temp ; 3.901 ; 3.901 ; Fall       ; jk:i1|temp      ;
+;  hex0[3]  ; jk:i1|temp ; 3.807 ; 3.807 ; Fall       ; jk:i1|temp      ;
+;  hex0[4]  ; jk:i1|temp ; 3.803 ; 3.803 ; Fall       ; jk:i1|temp      ;
+;  hex0[5]  ; jk:i1|temp ; 3.795 ; 3.795 ; Fall       ; jk:i1|temp      ;
+;  hex0[6]  ; jk:i1|temp ; 3.790 ; 3.790 ; Fall       ; jk:i1|temp      ;
+; ledr[*]   ; jk:i1|temp ; 4.258 ; 4.258 ; Fall       ; jk:i1|temp      ;
+;  ledr[0]  ; jk:i1|temp ;       ; 3.244 ; Fall       ; jk:i1|temp      ;
+;  ledr[1]  ; jk:i1|temp ; 4.258 ; 4.258 ; Fall       ; jk:i1|temp      ;
+; hex0[*]   ; jk:i3|temp ; 2.317 ; 2.317 ; Rise       ; jk:i3|temp      ;
+;  hex0[0]  ; jk:i3|temp ; 2.317 ; 2.317 ; Rise       ; jk:i3|temp      ;
+;  hex0[1]  ; jk:i3|temp ; 2.285 ;       ; Rise       ; jk:i3|temp      ;
+;  hex0[2]  ; jk:i3|temp ; 2.294 ; 2.294 ; Rise       ; jk:i3|temp      ;
+;  hex0[3]  ; jk:i3|temp ; 2.196 ; 2.196 ; Rise       ; jk:i3|temp      ;
+;  hex0[4]  ; jk:i3|temp ; 2.197 ; 2.197 ; Rise       ; jk:i3|temp      ;
+;  hex0[5]  ; jk:i3|temp ; 2.193 ; 2.193 ; Rise       ; jk:i3|temp      ;
+;  hex0[6]  ; jk:i3|temp ; 2.188 ; 2.188 ; Rise       ; jk:i3|temp      ;
+; ledr[*]   ; jk:i3|temp ; 2.503 ;       ; Rise       ; jk:i3|temp      ;
+;  ledr[2]  ; jk:i3|temp ; 2.503 ;       ; Rise       ; jk:i3|temp      ;
+; hex0[*]   ; jk:i3|temp ; 2.855 ; 2.855 ; Fall       ; jk:i3|temp      ;
+;  hex0[0]  ; jk:i3|temp ; 2.855 ; 2.855 ; Fall       ; jk:i3|temp      ;
+;  hex0[1]  ; jk:i3|temp ; 2.824 ; 2.824 ; Fall       ; jk:i3|temp      ;
+;  hex0[2]  ; jk:i3|temp ; 2.833 ; 2.833 ; Fall       ; jk:i3|temp      ;
+;  hex0[3]  ; jk:i3|temp ; 2.734 ; 2.734 ; Fall       ; jk:i3|temp      ;
+;  hex0[4]  ; jk:i3|temp ; 2.736 ; 2.736 ; Fall       ; jk:i3|temp      ;
+;  hex0[5]  ; jk:i3|temp ; 2.724 ; 2.724 ; Fall       ; jk:i3|temp      ;
+;  hex0[6]  ; jk:i3|temp ; 2.711 ; 2.711 ; Fall       ; jk:i3|temp      ;
+; ledr[*]   ; jk:i3|temp ; 3.122 ; 3.122 ; Fall       ; jk:i3|temp      ;
+;  ledr[2]  ; jk:i3|temp ;       ; 2.503 ; Fall       ; jk:i3|temp      ;
+;  ledr[3]  ; jk:i3|temp ; 3.122 ; 3.122 ; Fall       ; jk:i3|temp      ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; ledg[*]   ; clock_27   ; 3.422 ; 3.422 ; Rise       ; clock_27        ;
+;  ledg[0]  ; clock_27   ; 3.422 ; 3.422 ; Rise       ; clock_27        ;
+; ledg[*]   ; clock_27   ; 3.422 ; 3.422 ; Fall       ; clock_27        ;
+;  ledg[0]  ; clock_27   ; 3.422 ; 3.422 ; Fall       ; clock_27        ;
+; hex0[*]   ; jk:i1|temp ; 3.628 ; 3.634 ; Rise       ; jk:i1|temp      ;
+;  hex0[0]  ; jk:i1|temp ; 3.765 ; 3.765 ; Rise       ; jk:i1|temp      ;
+;  hex0[1]  ; jk:i1|temp ; 3.728 ; 3.728 ; Rise       ; jk:i1|temp      ;
+;  hex0[2]  ; jk:i1|temp ;       ; 3.737 ; Rise       ; jk:i1|temp      ;
+;  hex0[3]  ; jk:i1|temp ; 3.642 ; 3.642 ; Rise       ; jk:i1|temp      ;
+;  hex0[4]  ; jk:i1|temp ; 3.641 ;       ; Rise       ; jk:i1|temp      ;
+;  hex0[5]  ; jk:i1|temp ; 3.628 ;       ; Rise       ; jk:i1|temp      ;
+;  hex0[6]  ; jk:i1|temp ; 3.634 ; 3.634 ; Rise       ; jk:i1|temp      ;
+; ledr[*]   ; jk:i1|temp ; 3.244 ;       ; Rise       ; jk:i1|temp      ;
+;  ledr[0]  ; jk:i1|temp ; 3.244 ;       ; Rise       ; jk:i1|temp      ;
+; hex0[*]   ; jk:i1|temp ; 3.634 ; 3.628 ; Fall       ; jk:i1|temp      ;
+;  hex0[0]  ; jk:i1|temp ; 3.765 ; 3.765 ; Fall       ; jk:i1|temp      ;
+;  hex0[1]  ; jk:i1|temp ; 3.728 ; 3.728 ; Fall       ; jk:i1|temp      ;
+;  hex0[2]  ; jk:i1|temp ; 3.737 ; 3.901 ; Fall       ; jk:i1|temp      ;
+;  hex0[3]  ; jk:i1|temp ; 3.642 ; 3.642 ; Fall       ; jk:i1|temp      ;
+;  hex0[4]  ; jk:i1|temp ; 3.803 ; 3.641 ; Fall       ; jk:i1|temp      ;
+;  hex0[5]  ; jk:i1|temp ; 3.795 ; 3.628 ; Fall       ; jk:i1|temp      ;
+;  hex0[6]  ; jk:i1|temp ; 3.634 ; 3.634 ; Fall       ; jk:i1|temp      ;
+; ledr[*]   ; jk:i1|temp ; 4.258 ; 3.244 ; Fall       ; jk:i1|temp      ;
+;  ledr[0]  ; jk:i1|temp ;       ; 3.244 ; Fall       ; jk:i1|temp      ;
+;  ledr[1]  ; jk:i1|temp ; 4.258 ; 4.258 ; Fall       ; jk:i1|temp      ;
+; hex0[*]   ; jk:i3|temp ; 2.188 ; 2.188 ; Rise       ; jk:i3|temp      ;
+;  hex0[0]  ; jk:i3|temp ; 2.317 ; 2.317 ; Rise       ; jk:i3|temp      ;
+;  hex0[1]  ; jk:i3|temp ; 2.285 ;       ; Rise       ; jk:i3|temp      ;
+;  hex0[2]  ; jk:i3|temp ; 2.294 ; 2.294 ; Rise       ; jk:i3|temp      ;
+;  hex0[3]  ; jk:i3|temp ; 2.196 ; 2.196 ; Rise       ; jk:i3|temp      ;
+;  hex0[4]  ; jk:i3|temp ; 2.197 ; 2.197 ; Rise       ; jk:i3|temp      ;
+;  hex0[5]  ; jk:i3|temp ; 2.193 ; 2.193 ; Rise       ; jk:i3|temp      ;
+;  hex0[6]  ; jk:i3|temp ; 2.188 ; 2.188 ; Rise       ; jk:i3|temp      ;
+; ledr[*]   ; jk:i3|temp ; 2.503 ;       ; Rise       ; jk:i3|temp      ;
+;  ledr[2]  ; jk:i3|temp ; 2.503 ;       ; Rise       ; jk:i3|temp      ;
+; hex0[*]   ; jk:i3|temp ; 2.188 ; 2.188 ; Fall       ; jk:i3|temp      ;
+;  hex0[0]  ; jk:i3|temp ; 2.317 ; 2.317 ; Fall       ; jk:i3|temp      ;
+;  hex0[1]  ; jk:i3|temp ; 2.824 ; 2.285 ; Fall       ; jk:i3|temp      ;
+;  hex0[2]  ; jk:i3|temp ; 2.294 ; 2.294 ; Fall       ; jk:i3|temp      ;
+;  hex0[3]  ; jk:i3|temp ; 2.196 ; 2.196 ; Fall       ; jk:i3|temp      ;
+;  hex0[4]  ; jk:i3|temp ; 2.197 ; 2.197 ; Fall       ; jk:i3|temp      ;
+;  hex0[5]  ; jk:i3|temp ; 2.193 ; 2.193 ; Fall       ; jk:i3|temp      ;
+;  hex0[6]  ; jk:i3|temp ; 2.188 ; 2.188 ; Fall       ; jk:i3|temp      ;
+; ledr[*]   ; jk:i3|temp ; 3.122 ; 2.503 ; Fall       ; jk:i3|temp      ;
+;  ledr[2]  ; jk:i3|temp ;       ; 2.503 ; Fall       ; jk:i3|temp      ;
+;  ledr[3]  ; jk:i3|temp ; 3.122 ; 3.122 ; Fall       ; jk:i3|temp      ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------+
+; Propagation Delay                                  ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; key[1]     ; ledg[1]     ; 5.320 ;    ;    ; 5.320 ;
++------------+-------------+-------+----+----+-------+
+
+
++----------------------------------------------------+
+; Minimum Propagation Delay                          ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; key[1]     ; ledg[1]     ; 5.320 ;    ;    ; 5.320 ;
++------------+-------------+-------+----+----+-------+
+
+
++------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                          ;
++------------------+-------+--------+----------+---------+---------------------+
+; Clock            ; Setup ; Hold   ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+-------+--------+----------+---------+---------------------+
+; Worst-case Slack ; 0.168 ; -2.185 ; N/A      ; N/A     ; -1.380              ;
+;  clock_27        ; 1.458 ; -1.989 ; N/A      ; N/A     ; -1.380              ;
+;  jk:i1|temp      ; 0.168 ; -2.185 ; N/A      ; N/A     ; -0.500              ;
+;  jk:i3|temp      ; 0.379 ; 0.215  ; N/A      ; N/A     ; -0.500              ;
+; Design-wide TNS  ; 0.0   ; -5.825 ; 0.0      ; 0.0     ; -5.38               ;
+;  clock_27        ; 0.000 ; -1.989 ; N/A      ; N/A     ; -2.380              ;
+;  jk:i1|temp      ; 0.000 ; -3.836 ; N/A      ; N/A     ; -2.000              ;
+;  jk:i3|temp      ; 0.000 ; 0.000  ; N/A      ; N/A     ; -1.000              ;
++------------------+-------+--------+----------+---------+---------------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; ledg[*]   ; clock_27   ; 6.231 ; 6.231 ; Rise       ; clock_27        ;
+;  ledg[0]  ; clock_27   ; 6.231 ; 6.231 ; Rise       ; clock_27        ;
+; ledg[*]   ; clock_27   ; 6.231 ; 6.231 ; Fall       ; clock_27        ;
+;  ledg[0]  ; clock_27   ; 6.231 ; 6.231 ; Fall       ; clock_27        ;
+; hex0[*]   ; jk:i1|temp ; 7.228 ; 7.228 ; Rise       ; jk:i1|temp      ;
+;  hex0[0]  ; jk:i1|temp ; 7.228 ; 7.228 ; Rise       ; jk:i1|temp      ;
+;  hex0[1]  ; jk:i1|temp ; 7.194 ; 7.194 ; Rise       ; jk:i1|temp      ;
+;  hex0[2]  ; jk:i1|temp ;       ; 7.170 ; Rise       ; jk:i1|temp      ;
+;  hex0[3]  ; jk:i1|temp ; 6.976 ; 6.976 ; Rise       ; jk:i1|temp      ;
+;  hex0[4]  ; jk:i1|temp ; 6.972 ;       ; Rise       ; jk:i1|temp      ;
+;  hex0[5]  ; jk:i1|temp ; 6.957 ;       ; Rise       ; jk:i1|temp      ;
+;  hex0[6]  ; jk:i1|temp ; 6.969 ; 6.969 ; Rise       ; jk:i1|temp      ;
+; ledr[*]   ; jk:i1|temp ; 6.035 ;       ; Rise       ; jk:i1|temp      ;
+;  ledr[0]  ; jk:i1|temp ; 6.035 ;       ; Rise       ; jk:i1|temp      ;
+; hex0[*]   ; jk:i1|temp ; 7.228 ; 7.228 ; Fall       ; jk:i1|temp      ;
+;  hex0[0]  ; jk:i1|temp ; 7.228 ; 7.228 ; Fall       ; jk:i1|temp      ;
+;  hex0[1]  ; jk:i1|temp ; 7.194 ; 7.194 ; Fall       ; jk:i1|temp      ;
+;  hex0[2]  ; jk:i1|temp ; 7.170 ; 7.144 ; Fall       ; jk:i1|temp      ;
+;  hex0[3]  ; jk:i1|temp ; 6.976 ; 6.976 ; Fall       ; jk:i1|temp      ;
+;  hex0[4]  ; jk:i1|temp ; 6.916 ; 6.972 ; Fall       ; jk:i1|temp      ;
+;  hex0[5]  ; jk:i1|temp ; 6.904 ; 6.957 ; Fall       ; jk:i1|temp      ;
+;  hex0[6]  ; jk:i1|temp ; 6.969 ; 6.969 ; Fall       ; jk:i1|temp      ;
+; ledr[*]   ; jk:i1|temp ; 7.825 ; 7.825 ; Fall       ; jk:i1|temp      ;
+;  ledr[0]  ; jk:i1|temp ;       ; 6.035 ; Fall       ; jk:i1|temp      ;
+;  ledr[1]  ; jk:i1|temp ; 7.825 ; 7.825 ; Fall       ; jk:i1|temp      ;
+; hex0[*]   ; jk:i3|temp ; 4.485 ; 4.485 ; Rise       ; jk:i3|temp      ;
+;  hex0[0]  ; jk:i3|temp ; 4.485 ; 4.485 ; Rise       ; jk:i3|temp      ;
+;  hex0[1]  ; jk:i3|temp ; 4.453 ;       ; Rise       ; jk:i3|temp      ;
+;  hex0[2]  ; jk:i3|temp ; 4.460 ; 4.460 ; Rise       ; jk:i3|temp      ;
+;  hex0[3]  ; jk:i3|temp ; 4.232 ; 4.232 ; Rise       ; jk:i3|temp      ;
+;  hex0[4]  ; jk:i3|temp ; 4.233 ; 4.233 ; Rise       ; jk:i3|temp      ;
+;  hex0[5]  ; jk:i3|temp ; 4.219 ; 4.219 ; Rise       ; jk:i3|temp      ;
+;  hex0[6]  ; jk:i3|temp ; 4.215 ; 4.215 ; Rise       ; jk:i3|temp      ;
+; ledr[*]   ; jk:i3|temp ; 4.814 ;       ; Rise       ; jk:i3|temp      ;
+;  ledr[2]  ; jk:i3|temp ; 4.814 ;       ; Rise       ; jk:i3|temp      ;
+; hex0[*]   ; jk:i3|temp ; 5.353 ; 5.353 ; Fall       ; jk:i3|temp      ;
+;  hex0[0]  ; jk:i3|temp ; 5.353 ; 5.353 ; Fall       ; jk:i3|temp      ;
+;  hex0[1]  ; jk:i3|temp ; 5.321 ; 5.321 ; Fall       ; jk:i3|temp      ;
+;  hex0[2]  ; jk:i3|temp ; 5.328 ; 5.328 ; Fall       ; jk:i3|temp      ;
+;  hex0[3]  ; jk:i3|temp ; 5.100 ; 5.100 ; Fall       ; jk:i3|temp      ;
+;  hex0[4]  ; jk:i3|temp ; 5.101 ; 5.101 ; Fall       ; jk:i3|temp      ;
+;  hex0[5]  ; jk:i3|temp ; 5.088 ; 5.088 ; Fall       ; jk:i3|temp      ;
+;  hex0[6]  ; jk:i3|temp ; 5.076 ; 5.076 ; Fall       ; jk:i3|temp      ;
+; ledr[*]   ; jk:i3|temp ; 5.865 ; 5.865 ; Fall       ; jk:i3|temp      ;
+;  ledr[2]  ; jk:i3|temp ;       ; 4.814 ; Fall       ; jk:i3|temp      ;
+;  ledr[3]  ; jk:i3|temp ; 5.865 ; 5.865 ; Fall       ; jk:i3|temp      ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; ledg[*]   ; clock_27   ; 3.422 ; 3.422 ; Rise       ; clock_27        ;
+;  ledg[0]  ; clock_27   ; 3.422 ; 3.422 ; Rise       ; clock_27        ;
+; ledg[*]   ; clock_27   ; 3.422 ; 3.422 ; Fall       ; clock_27        ;
+;  ledg[0]  ; clock_27   ; 3.422 ; 3.422 ; Fall       ; clock_27        ;
+; hex0[*]   ; jk:i1|temp ; 3.628 ; 3.634 ; Rise       ; jk:i1|temp      ;
+;  hex0[0]  ; jk:i1|temp ; 3.765 ; 3.765 ; Rise       ; jk:i1|temp      ;
+;  hex0[1]  ; jk:i1|temp ; 3.728 ; 3.728 ; Rise       ; jk:i1|temp      ;
+;  hex0[2]  ; jk:i1|temp ;       ; 3.737 ; Rise       ; jk:i1|temp      ;
+;  hex0[3]  ; jk:i1|temp ; 3.642 ; 3.642 ; Rise       ; jk:i1|temp      ;
+;  hex0[4]  ; jk:i1|temp ; 3.641 ;       ; Rise       ; jk:i1|temp      ;
+;  hex0[5]  ; jk:i1|temp ; 3.628 ;       ; Rise       ; jk:i1|temp      ;
+;  hex0[6]  ; jk:i1|temp ; 3.634 ; 3.634 ; Rise       ; jk:i1|temp      ;
+; ledr[*]   ; jk:i1|temp ; 3.244 ;       ; Rise       ; jk:i1|temp      ;
+;  ledr[0]  ; jk:i1|temp ; 3.244 ;       ; Rise       ; jk:i1|temp      ;
+; hex0[*]   ; jk:i1|temp ; 3.634 ; 3.628 ; Fall       ; jk:i1|temp      ;
+;  hex0[0]  ; jk:i1|temp ; 3.765 ; 3.765 ; Fall       ; jk:i1|temp      ;
+;  hex0[1]  ; jk:i1|temp ; 3.728 ; 3.728 ; Fall       ; jk:i1|temp      ;
+;  hex0[2]  ; jk:i1|temp ; 3.737 ; 3.901 ; Fall       ; jk:i1|temp      ;
+;  hex0[3]  ; jk:i1|temp ; 3.642 ; 3.642 ; Fall       ; jk:i1|temp      ;
+;  hex0[4]  ; jk:i1|temp ; 3.803 ; 3.641 ; Fall       ; jk:i1|temp      ;
+;  hex0[5]  ; jk:i1|temp ; 3.795 ; 3.628 ; Fall       ; jk:i1|temp      ;
+;  hex0[6]  ; jk:i1|temp ; 3.634 ; 3.634 ; Fall       ; jk:i1|temp      ;
+; ledr[*]   ; jk:i1|temp ; 4.258 ; 3.244 ; Fall       ; jk:i1|temp      ;
+;  ledr[0]  ; jk:i1|temp ;       ; 3.244 ; Fall       ; jk:i1|temp      ;
+;  ledr[1]  ; jk:i1|temp ; 4.258 ; 4.258 ; Fall       ; jk:i1|temp      ;
+; hex0[*]   ; jk:i3|temp ; 2.188 ; 2.188 ; Rise       ; jk:i3|temp      ;
+;  hex0[0]  ; jk:i3|temp ; 2.317 ; 2.317 ; Rise       ; jk:i3|temp      ;
+;  hex0[1]  ; jk:i3|temp ; 2.285 ;       ; Rise       ; jk:i3|temp      ;
+;  hex0[2]  ; jk:i3|temp ; 2.294 ; 2.294 ; Rise       ; jk:i3|temp      ;
+;  hex0[3]  ; jk:i3|temp ; 2.196 ; 2.196 ; Rise       ; jk:i3|temp      ;
+;  hex0[4]  ; jk:i3|temp ; 2.197 ; 2.197 ; Rise       ; jk:i3|temp      ;
+;  hex0[5]  ; jk:i3|temp ; 2.193 ; 2.193 ; Rise       ; jk:i3|temp      ;
+;  hex0[6]  ; jk:i3|temp ; 2.188 ; 2.188 ; Rise       ; jk:i3|temp      ;
+; ledr[*]   ; jk:i3|temp ; 2.503 ;       ; Rise       ; jk:i3|temp      ;
+;  ledr[2]  ; jk:i3|temp ; 2.503 ;       ; Rise       ; jk:i3|temp      ;
+; hex0[*]   ; jk:i3|temp ; 2.188 ; 2.188 ; Fall       ; jk:i3|temp      ;
+;  hex0[0]  ; jk:i3|temp ; 2.317 ; 2.317 ; Fall       ; jk:i3|temp      ;
+;  hex0[1]  ; jk:i3|temp ; 2.824 ; 2.285 ; Fall       ; jk:i3|temp      ;
+;  hex0[2]  ; jk:i3|temp ; 2.294 ; 2.294 ; Fall       ; jk:i3|temp      ;
+;  hex0[3]  ; jk:i3|temp ; 2.196 ; 2.196 ; Fall       ; jk:i3|temp      ;
+;  hex0[4]  ; jk:i3|temp ; 2.197 ; 2.197 ; Fall       ; jk:i3|temp      ;
+;  hex0[5]  ; jk:i3|temp ; 2.193 ; 2.193 ; Fall       ; jk:i3|temp      ;
+;  hex0[6]  ; jk:i3|temp ; 2.188 ; 2.188 ; Fall       ; jk:i3|temp      ;
+; ledr[*]   ; jk:i3|temp ; 3.122 ; 2.503 ; Fall       ; jk:i3|temp      ;
+;  ledr[2]  ; jk:i3|temp ;       ; 2.503 ; Fall       ; jk:i3|temp      ;
+;  ledr[3]  ; jk:i3|temp ; 3.122 ; 3.122 ; Fall       ; jk:i3|temp      ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------+
+; Progagation Delay                                  ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; key[1]     ; ledg[1]     ; 9.216 ;    ;    ; 9.216 ;
++------------+-------------+-------+----+----+-------+
+
+
++----------------------------------------------------+
+; Minimum Progagation Delay                          ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; key[1]     ; ledg[1]     ; 5.320 ;    ;    ; 5.320 ;
++------------+-------------+-------+----+----+-------+
+
+
++---------------------------------------------------------------------+
+; Setup Transfers                                                     ;
++------------+------------+----------+----------+----------+----------+
+; From Clock ; To Clock   ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+------------+----------+----------+----------+----------+
+; jk:i1|temp ; clock_27   ; 1        ; 1        ; 0        ; 0        ;
+; jk:i1|temp ; jk:i1|temp ; 0        ; 0        ; 0        ; 2        ;
+; jk:i3|temp ; jk:i1|temp ; 0        ; 0        ; 2        ; 4        ;
+; jk:i3|temp ; jk:i3|temp ; 0        ; 0        ; 0        ; 1        ;
++------------+------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++---------------------------------------------------------------------+
+; Hold Transfers                                                      ;
++------------+------------+----------+----------+----------+----------+
+; From Clock ; To Clock   ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+------------+----------+----------+----------+----------+
+; jk:i1|temp ; clock_27   ; 1        ; 1        ; 0        ; 0        ;
+; jk:i1|temp ; jk:i1|temp ; 0        ; 0        ; 0        ; 2        ;
+; jk:i3|temp ; jk:i1|temp ; 0        ; 0        ; 2        ; 4        ;
+; jk:i3|temp ; jk:i3|temp ; 0        ; 0        ; 0        ; 1        ;
++------------+------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 2     ; 2    ;
+; Unconstrained Input Port Paths  ; 6     ; 6    ;
+; Unconstrained Output Ports      ; 13    ; 13   ;
+; Unconstrained Output Port Paths ; 34    ; 34   ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Sun Dec 03 11:19:53 2017
+Info: Command: quartus_sta licznikJKvhdl -c licznikJKvhdl
+Info: qsta_default_script.tcl version: #1
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'licznikJKvhdl.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name jk:i1|temp jk:i1|temp
+    Info (332105): create_clock -period 1.000 -name jk:i3|temp jk:i3|temp
+    Info (332105): create_clock -period 1.000 -name clock_27 clock_27
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow Model
+Info (332146): Worst-case setup slack is 0.168
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.168         0.000 jk:i1|temp 
+    Info (332119):     0.379         0.000 jk:i3|temp 
+    Info (332119):     2.259         0.000 clock_27 
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case hold slack is -2.185
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -2.185        -3.836 jk:i1|temp 
+    Info (332119):    -1.989        -1.989 clock_27 
+    Info (332119):     0.391         0.000 jk:i3|temp 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.380
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.380        -2.380 clock_27 
+    Info (332119):    -0.500        -2.000 jk:i1|temp 
+    Info (332119):    -0.500        -1.000 jk:i3|temp 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info: Analyzing Fast Model
+Info (332146): Worst-case setup slack is 0.598
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.598         0.000 jk:i1|temp 
+    Info (332119):     0.665         0.000 jk:i3|temp 
+    Info (332119):     1.458         0.000 clock_27 
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case hold slack is -1.346
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.346        -2.486 jk:i1|temp 
+    Info (332119):    -1.078        -1.078 clock_27 
+    Info (332119):     0.215         0.000 jk:i3|temp 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.380
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.380        -2.380 clock_27 
+    Info (332119):    -0.500        -2.000 jk:i1|temp 
+    Info (332119):    -0.500        -1.000 jk:i3|temp 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 431 megabytes
+    Info: Processing ended: Sun Dec 03 11:19:55 2017
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
+
+

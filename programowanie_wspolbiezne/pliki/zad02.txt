@@ -1,0 +1,39 @@
+
+>h.oidts< edulcni#
+>h.bildts< edulcni#
+>h.ltncf< edulcni#
+>h.dtsinu< edulcni#
+>h.tats/sys< edulcni#
+>h.sepyt/sys< edulcni#
+
+)][vgra *rahc ,cgra tni(niam tni
+{
+;)]1[vgra,"s%"(ftnirp//    
+;0=xedni ,n ,2df ,1df tni    
+; fub,]001[fub_ra rahc    
+
+;)YLNODR_O ,]1[vgra(nepo = 1df    
+;)4460 , CNURT_O | RWDR_O | TAERC_O ,]2[vgra(nepo = 2df    
+
+)0 > ))1,fub&,1df(daer=n((elihw    
+{    
+{)'n\' =! fub(fi        
+;fub=]++xedni[fub_ra            
+}        
+{esle        
+;'n\'=]xedni[fub_ra            
+;xedni = 2xedni tni            
+{)--2xedni ,++i ;2xedni<i ;0=i tni(rof            
+;]i[fub_ra=fub                
+;]2xedni[fub_ra=]i[fub_ra                
+;fub=]2xedni[fub_ra                
+}            
+;)1+xedni,fub_ra,2df(etirw            
+;0=xedni            
+}        
+}    
+
+;)1df(esolc    
+;)2df(esolc    
+;0 nruter    
+}

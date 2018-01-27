@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/wojtekreg/MEGAsync/polibuda/programowanie_wspolbiezne/Komunikator/Serwer/inf132312_funkcje.c
+inf132312_funkcje.h
+/home/wojtekreg/MEGAsync/polibuda/programowanie_wspolbiezne/Komunikator/Serwer/inf132312_funkcje.h
+
+/home/wojtekreg/MEGAsync/polibuda/programowanie_wspolbiezne/Komunikator/Serwer/inf132312_funkcje.h
+inf132312_struktury.h
+/home/wojtekreg/MEGAsync/polibuda/programowanie_wspolbiezne/Komunikator/Serwer/inf132312_struktury.h
+
+/home/wojtekreg/MEGAsync/polibuda/programowanie_wspolbiezne/Komunikator/Serwer/inf132312_s.c
+inf132312_struktury.h
+/home/wojtekreg/MEGAsync/polibuda/programowanie_wspolbiezne/Komunikator/Serwer/inf132312_struktury.h
+inf132312_funkcje.h
+/home/wojtekreg/MEGAsync/polibuda/programowanie_wspolbiezne/Komunikator/Serwer/inf132312_funkcje.h
+
+/home/wojtekreg/MEGAsync/polibuda/programowanie_wspolbiezne/Komunikator/Serwer/inf132312_struktury.h
+stdio.h
+-
+stdlib.h
+-
+fcntl.h
+-
+unistd.h
+-
+sys/types.h
+-
+sys/ipc.h
+-
+sys/msg.h
+-
+string.h
+-
+signal.h
+-
+

@@ -1,0 +1,70 @@
+%wstaw(X,[],[X]):-!.
+%wstaw(X,[H1|T1],[X,H1|T1]):-X=<H1,!.
+%wstaw(X,[H1|T1],[H1|T2]):-wstaw(X,T1,T2).
+
+%wstawSort([],[]):-!.
+%wstawSort([H1|T1],Res):-wstawSort(T1,Subres),wstaw(H1,Subres,Res).
+
+wstaw(X,_,[],[X]):-!.
+wstaw(X,Maska,[H1|T1],[X,H1|T1]):-klucz(X,Maska,W1),klucz(H1,Maska,W2),W1=<W2,!.
+wstaw(X,Maska,[H1|T1],[H1|T2]):-wstaw(X,Maska,T1,T2).
+
+solve([],_,[]):-!.
+solve([H1|T1],Maska,Res):-
+	solve(T1,Maska,Subres),
+	wstaw(H1,Maska,Subres,Res).
+
+
+dec2bin(0,[0]):-!.
+dec2bin(1,[1]):-!.
+dec2bin(X1,Lwy):-
+	X2 is X1 mod 2,
+	X3 is X1 div 2,
+	dec2bin(X3,X4),
+	append(X4,[X2],Lwy).
+
+dec2binLista([],[]):-!.
+dec2binLista([H1|T1],[H2|T2]):-dec2bin(H1,H2),dec2binLista(T1,T2).
+
+bin2dec([0],0):-!.
+bin2dec([1],1):-!.
+bin2dec([H1|T1],Dec):-
+	bin2dec(T1,Subdec),
+	length(T1,Dlug),
+	Dec is Subdec+H1*(2^Dlug).
+
+dodajZero(Lwe,0,Lwe):-!.
+dodajZero(Lwe,X1,Lwy):-X2 is X1-1,dodajZero([0|Lwe],X2,Lwy).
+
+wyrownaj(L1,L2,L1,L2):-
+	length(L1,D1),
+	length(L2,D2),
+	D1=:=D2,!.
+wyrownaj(L1,L2,L1,L3):-
+	length(L1,D1),
+	length(L2,D2),
+	D1>D2,!,
+	Dlug is D1-D2,
+	dodajZero(L2,Dlug,L3).
+wyrownaj(L1,L2,L3,L2):-
+	length(L1,D1),
+	length(L2,D2),
+	Dlug is D2-D1,
+	dodajZero(L1,Dlug,L3).
+
+xor(0,0,0):-!.
+xor(0,1,1):-!.
+xor(1,0,1):-!.
+xor(1,1,0):-!.
+
+xorLista([],[],[]):-!.
+xorLista([H1|T1],[H2|T2],[H3|T3]):-xor(H1,H2,H3),xorLista(T1,T2,T3).
+
+klucz(Liczba,Maska,Wynik):-
+	dec2bin(Liczba,Lbin),
+	dec2bin(Maska,Mbin),
+	wyrownaj(Lbin,Mbin,Lbin2,Mbin2),
+	xorLista(Lbin2,Mbin2,Wynikbin),
+	bin2dec(Wynikbin,Wynik).
+
+%solve(Lwe,Maska,Lwy):-

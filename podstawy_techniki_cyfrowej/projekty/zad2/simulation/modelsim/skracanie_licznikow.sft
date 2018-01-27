@@ -1,0 +1,5 @@
+set tool_name "ModelSim-Altera (Verilog)"
+set corner_file_list {
+	{{"Slow Model"} {skracanie_licznikow.vo skracanie_licznikow_v.sdo}}
+	{{"Fast Model"} {skracanie_licznikow_fast.vo skracanie_licznikow_v_fast.sdo}}
+}

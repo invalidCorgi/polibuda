@@ -1,0 +1,423 @@
+
+\documentclass[polish,polish,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[cp1250]{inputenc}
+\usepackage{babel}
+\usepackage{pslatex}
+\usepackage{pgfplots}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage[OT4]{fontenc}
+\usepackage{circuitikz} 
+
+
+\usepackage{anysize}
+\marginsize{2.5cm}{2.5cm}{3cm}{3cm}
+
+\newcommand{\PRzFieldDsc}[1]{\sffamily\bfseries\scriptsize #1}
+\newcommand{\PRzFieldCnt}[1]{\textit{#1}}
+\newcommand{\PRzHeading}[8]{
+%% #1 - nazwa laboratorium
+%% #2 - kierunek 
+%% #3 - specjalnoœæ 
+%% #4 - rok studiów 
+%% #5 - symbol grupy lab.
+%% #6 - temat 
+%% #7 - numer lab.
+%% #8 - sk³ad grupy æwiczeniowej
+
+\begin{center}
+\begin{tabular}{ p{0.32\textwidth} p{0.15\textwidth} p{0.15\textwidth} p{0.12\textwidth} p{0.12\textwidth} }
+
+  &   &   &   &   \\
+\hline
+\multicolumn{5}{|c|}{}\\[-1ex]
+\multicolumn{5}{|c|}{{\LARGE #1}}\\
+\multicolumn{5}{|c|}{}\\[-1ex]
+
+\hline
+\multicolumn{1}{|l|}{\PRzFieldDsc{Kierunek}}	& \multicolumn{1}{|l|}{\PRzFieldDsc{Specjalnoœæ}}	& \multicolumn{1}{|l|}{\PRzFieldDsc{Rok studiów}}	& \multicolumn{2}{|l|}{\PRzFieldDsc{Symbol grupy lab.}} \\
+\multicolumn{1}{|c|}{\PRzFieldCnt{#2}}		& \multicolumn{1}{|c|}{\PRzFieldCnt{#3}}		& \multicolumn{1}{|c|}{\PRzFieldCnt{#4}}		& \multicolumn{2}{|c|}{\PRzFieldCnt{#5}} \\
+
+\hline
+\multicolumn{4}{|l|}{\PRzFieldDsc{Temat Laboratorium}}		& \multicolumn{1}{|l|}{\PRzFieldDsc{Numer lab.}} \\
+\multicolumn{4}{|c|}{\PRzFieldCnt{#6}}				& \multicolumn{1}{|c|}{\PRzFieldCnt{#7}} \\
+
+\hline
+\multicolumn{5}{|l|}{\PRzFieldDsc{Sk³ad grupy æwiczeniowej oraz numery indeksów}}\\
+\multicolumn{5}{|c|}{\PRzFieldCnt{#8}}\\
+
+\hline
+\multicolumn{3}{|l|}{\PRzFieldDsc{Uwagi}}	& \multicolumn{2}{|l|}{\PRzFieldDsc{Ocena}} \\
+\multicolumn{3}{|c|}{\PRzFieldCnt{\ }}		& \multicolumn{2}{|c|}{\PRzFieldCnt{\ }} \\
+
+\hline
+\end{tabular}
+\end{center}
+}
+
+\begin{document}
+
+\PRzHeading{Laboratoria Podstawy Elektroniki}{Informatyka}{--}{I}{I1}{Uk³ady diodowe}{4}{Stanis³aw Jasiewicz(116753), Krzysztof Michalak(132281), Wojciech Regulski(132312), Ewa Rudol(132314)}{}
+
+\section{Cel}
+Praktyczna weryfikacja zasady dzia³ania pó³przewodnikowego z³¹cza PN, zbadanie uk³adu prostownika jednopo³ówkowego z filtracj¹ napiêcia, zbadanie diod œwiec¹cych i okreœlenie znaczenia ich koloru dla spadków napiêæ, wyœwietlenie zadanej cyfry na wyœwietlaczu LED
+
+
+\section{Pomiary}
+
+\begin{itemize}
+
+\item %1
+Dioda z³¹czowa
+\\
+$$R_1=983 \Omega$$
+$$R_2=2,989 M \Omega$$
+\\
+Tabela - uk³ad a)\\
+\begin{table}[!h]
+\centering
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+Lp. & $U_z$ [V] & $U_R$ [V] & $U_d$ [V] & $I_d$ [mA] \\ \hline
+1. & 0,5 & 0,155 & 0,345& 0,016  \\
+2. & 1 & 0,550 & 0,450 & 0,056 \\
+3. & 1,5 & 1,1 & 0,400 & 0,112 \\
+4. & 2 & 1,532 & 0,468 & 0,156 \\
+5. & 2,5 & 2,000 & 0,500 & 0,203 \\
+6. & 3 & 2,501 & 0,499 & 0,254 \\
+7. & 3,5 & 3,010 & 0,490 & 0,306 \\
+8. & 4 & 3,531 & 0,469 & 0,329 \\
+9. & 4,5 & 3,988 & 0,512 & 0,406 \\
+10. & 5 & 4,462 & 0,528 & 0,454 \\
+\hline
+\end{tabular}
+\end{table}
+\newpage
+
+Tabela - uk³ad b)\\
+\begin{table}[!h]
+\centering
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+Lp. & $U_z$ [V] & $U_R$ [mV] & $U_d$ [V] & $I_d$ [mA] \\ \hline
+1. & 6 & 0,9 &5,1 & 0 \\
+2. & 12 & 1,6 &10,4 & 0 \\
+3. & 18 & 2,16 &15,84 & 0 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\begin{axis}[
+title={Zale¿noœæ pr¹du na diodzie od napiêcia na zaciskach},
+title style={text width=200},
+xlabel={Napiêcie [V]},
+ylabel={Natê¿enie [mA]},
+xmin=0,xmax=5,
+ymin=0,ymax=4,
+legend pos=north west,
+ymajorgrids=true,grid style=dashed
+]
+
+\addplot[color=red]
+coordinates {
+(0.155, 0.33)
+(0.550, 0.65)
+(1.1 ,1.12)
+(1.532,2.80)
+(2,3.01)
+(2.501,2.88)
+(3.01, 3.01)
+(3.531,1.99)
+(3.988, 1.51)
+(4.462, 0.91)
+};
+
+\addplot[color=blue]
+coordinates {
+(0.0009, 0)
+(0.0016, 0)
+(0.0021 ,0)
+};
+
+
+\legend{$I_{d_a}$,$I_{d_b}$}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\newpage
+
+\item %2
+Prostownik jednopo³ówkowy
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages]
+	  \draw (0,0)
+	  to[sI,-*] (0,3)
+	  to[Do,l_=D,-*] (3,3)
+	  to[R,l=R 10k,-*] (3,0)
+	  node[rground]{}
+	  -- (3,-0.35)
+	  node[anchor=north] {GND}
+	  -- (3,0) -- (0,0);
+	  \draw (3,3)
+      -- (5,3)
+      -- (5,1.75)
+      -- (6,1.75)
+      -- (6,2.25)
+      -- (7,2.25)
+      node[anchor=south] {Channel B}
+      -- (8,2.25)
+      -- (8,0.75)
+      -- (6,0.75)
+      -- (6,1.75)
+      -- (6,1.25)
+      -- (5,1.25)
+      -- (5,0)
+      -- (3,0);
+      \draw (0,3)
+      -- (0,5.5)
+      -- (2,5.5)
+      -- (2,6)
+      -- (3,6)
+      node[anchor=south] {Channel A}
+      -- (4,6)
+      -- (4,4.5)
+      -- (2,4.5)
+      -- (2,5.5)
+      -- (2,5)
+      -- (1,5)
+      -- (1,5)
+      node[rground]{}
+	  -- (1,4.65)
+	  node[anchor=north] {GND};
+   \end{circuitikz}
+   \caption{Uk³ad pomiarowy dla badania w³asnoœci prostownika jednopo³ówkowego}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages]
+	  \draw (0,0)
+	  to[sI,-*] (0,3)
+	  to[Do,l_=D,-*] (2.5,3)
+	  to[R,l=R,-*] (2.5,0)
+	  node[rground]{}
+	  -- (2.5,-0.35)
+	  node[anchor=north] {GND}
+	  -- (2.5,0) -- (0,0);
+	  \draw (2.5,3)
+	  to[short,-*] (4.5,3)
+	  to[C,l=CF,-*] (4.5,0)
+	  -- (2.5,0);
+	  \draw (4.5,3)
+	  to[short,-*] (6.5,3)
+	  to[voltmeter,l=$V_{AC}$,-*] (6.5,0)
+	  -- (4.5,0);
+	  \draw (6.5,3)
+	  to[short,-*] (8.5,3)
+	  to[voltmeter,l=$V_{DC}$,-*] (8.5,0)
+	  -- (6.5,0);
+	  \draw (8.5,3)
+      -- (10,3)
+      -- (10,1.75)
+      -- (11,1.75)
+      -- (11,2.25)
+      -- (12,2.25)
+      node[anchor=south] {Channel B}
+      -- (13,2.25)
+      -- (13,0.75)
+      -- (11,0.75)
+      -- (11,1.75)
+      -- (11,1.25)
+      -- (10,1.25)
+      -- (10,0)
+      -- (8.5,0);
+      \draw (0,3)
+      -- (0,5.5)
+      -- (2,5.5)
+      -- (2,6)
+      -- (3,6)
+      node[anchor=south] {Channel A}
+      -- (4,6)
+      -- (4,4.5)
+      -- (2,4.5)
+      -- (2,5.5)
+      -- (2,5)
+      -- (1,5)
+      -- (1,5)
+      node[rground]{}
+	  -- (1,4.65)
+	  node[anchor=north] {GND};
+   \end{circuitikz}
+   \caption{Uk³ad prostownika jednopo³ówkowego z filtracj¹}
+\end{center}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.9\textwidth]{osc}
+\caption{Przedstawienie przebiegu wejœciowego oraz wyjœciowego napiêcia na oscyloskopie}
+\end{figure}
+
+$$V_{peak1} = \sqrt{2} * V_{RMS1}$$
+$$V_{peak2} = 2 * \sqrt{2} * V_{RMS2}$$
+
+$$\Delta_A = |V_{peak1} - V_{peak2}|$$
+$$\Delta_A  = |5,1 - 4,92|$$
+$$\Delta_A  = 0,18V$$\\\\
+
+
+Tabela - Parametry pracy prostownika 1-po³ówkowego
+\begin{table}[!h]
+\centering
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+R [$\Omega$] & $C_f$ [$\mu F$] & $U_{R(DC)}$ [V] & $U_{R(AC)}$ [V] & $U_{R(pp)}$ [V] \\ \hline
+220 & 20 & 1,03 & 1,33 & 9,80\\
+220 & 2,2 & 1,03 & 1,33 & 9,80\\
+2,2k & 20 & 3,42 & 0,37 & 10,2\\
+2,2k & 2,2 & 2,27 &1,63 & 10,2\\
+\hline
+\end{tabular}
+\end{table}
+
+\newpage
+
+\item %3
+Diody œwiec¹ce
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages]
+	  \draw (0,-1)
+	  to[V=$max 15V$,-*] (0,2)
+	  to[Do,l_=LED1 green,-*] (4,2)
+	  to[short,-*] (5,2)
+	  to[Do,l_=LED1 green,-*] (9,2)
+	  -- (10,2)
+	  to[R=R1 1k] (10,-1)
+	  -- (5,-1)
+	  node[rground]{}
+	  -- (5,-1.35)
+	  node[anchor=north] {GND}
+	  -- (5,-1) -- (0,-1);
+	  \draw (0,2)
+	  --(0,4)
+	  to[voltmeter] (4,4)
+	  --(4,2)--(5,2)--(5,4)
+	  to[voltmeter] (9,4)
+	  --(9,2);
+   \end{circuitikz}
+   \caption{Schemat uk³adu pomiarowego do badania diod œwiec¹cych}
+\end{center}
+\end{figure}
+
+$$U_{czerwona}=1,49V$$
+\\
+$$U_{zielona}=1,69V$$
+
+\newpage
+\item %3
+Wyœwietlacz LED
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{circuitikz}[american voltages]
+	  \draw (0,0)
+	  --(8,0)--(8,12)--(0,12)--(0,0);
+	  \draw (0,12)
+	  to[Do,l_=g](0,13)--(0,14);
+	  \draw (2,12)
+	  to[Do,l_=f](2,13)--(2,14);
+	  \draw (6,12)
+	  to[Do,l_=a](6,13);
+	  \draw (8,12)
+	  to[Do,l_=b](8,13)--(8,14);
+	  \draw (0,0)
+	  to[Do,l=e](0,-1);
+	  \draw (2,0)
+	  to[Do,l=d](2,-1);
+	  \draw (6,0)
+	  to[Do,l=c](6,-1)--(6,-2);
+	  \draw (8,0)
+	  to[Do,l=dp](8,-1);
+	  \draw (0,14)
+	  --(10,14)--(10,-2)--(6,-2)--(6,-4)--(4,-4)
+	  to[V] (4,-2)
+	  to[R] (4,0);
+	  \draw [densely dashed] (6,2)
+	  --(4,2)
+	  node[anchor=north] {d}
+	  --(2,2)--(2,4)
+	  node[anchor=east] {e}
+	  --(2,6);
+	  \draw [densely dashed] (2,10)
+	  --(4,10)
+	  node[anchor=south] {a}
+	  --(6,10);
+	  \draw (6,2)[thick,brown]
+	  --(6,4)
+	  node[anchor=west] {c}
+	  --(6,8)
+	  node[anchor=west] {b}
+	  --(6,10)--(6,6)--(4,6)
+	  node[anchor=north] {g}
+	  --(2,6)--(2,8)
+	  node[anchor=east] {f}
+	  --(2,10);
+	  \draw (7,1)
+	  circle[radius = 4pt]
+	  node[anchor=east] {dp};
+   \end{circuitikz}
+   \caption{Schemat po³¹czeñ wyœwietlacza generuj¹cego cyfrê 4}
+\end{center}
+\end{figure}
+
+\newpage
+\item 
+Wnioski:
+\\
+
+
+Pierwsze wykonane æwiczenie mia³o na celu praktyczn¹ weryfikacjê zasady dzia³ania pó³przewodnikowego z³¹cza PN. Zbadane zosta³y dwa przypadki - pod³¹czenie diody do obwodu w sposób umo¿liwiaj¹cy przep³yw pr¹du oraz pod³¹czenie diody w sposób odwrotny, celem uniemo¿liwienia przewodzenia. Na podstawie pomiarów wykonanych w pierwszym przypadku mo¿na stwierdziæ, ¿e spadki napiêcia na rezystorze wzrasta³y liniowo wraz z liniowym wzrostem napiêcia zasilaj¹cego. Ró¿nica miêdzy napiêciem zasilaj¹cym, a spadkiem napiêcia na rezystorze, by³a sta³a i wynosi³a oko³o 0,5 V. Dla drugiego obwodu, czyli w przypadku polaryzacji zaporowej, dla wy¿szych napiêæ zasilaj¹cych napiêcie na rezystorze by³y bliskie zeru. Cel æwiczenia zosta³ spe³niony, poniewa¿ dla drugiego badanego obwodu (polaryzacja zaporowa) pr¹d przep³ywaj¹cy przez diodê by³ zerowy, zaœ przy odwrotnym pod³¹czeniu diody (w kierunku przewodzenia) przep³ywa³ przez ni¹ niezerowy pr¹d.
+	\\
+	
+Drug¹ czêœci¹ zajêæ by³o przeprowadzenie æwiczenia maj¹cego na celu zbadanie uk³adu prostownika jednopo³ówkowego z filtracj¹ napiêcia. Kszta³t przebiegu wejœciowego by³ sinusoidalny, zaœ kszta³t przebiegu wyjœciowego przypomina³ oddzielone od siebie wzgórza. W rzeczywistoœci kszta³t ten zosta³ otrzymany dziêki temu, ¿e uk³ad prostownikowy przepuszcza³ pr¹d jedynie w jednym kierunku, przez co przez po³owê okresu, w którym pr¹d powinien mieæ kierunek ujemny, nie p³yn¹³ on wcale. Mo¿na stwierdziæ, ¿e wartoœci skuteczne obu przebiegów napiêciowych, a wiêc równie¿ amplitudy, s¹ ró¿ne - przebieg wyjœciowy cechuje siê ni¿szym napiêciem. Napiêcie wyjœciowe jest oko³o dwukrotnie mniejsze od wejœciowego, ró¿nica ta wynika przede wszystkim z polaryzacji zaporowej, za spraw¹ której pr¹d p³ynie jedynie przez po³owê czasu. Pozosta³a ró¿nica wynika z nieuwzglêdnionego spadku napiêcia na diodzie prostownikowej. Na podstawie sporz¹dzonych pomiarów mo¿na jednoznacznie stwierdziæ, ¿e wartoœæ napiêcia miêdzyszczytowego têtnieñ nie jest zale¿na od wartoœci zastosowanej pojemnoœci filtruj¹cej, wp³ywa na ni¹ natomiast wartoœæ rezystancji obci¹¿enia. Nale¿y jednak zaznaczyæ, ¿e po zmianie rezystancji o wartoœci 220 V na rezystancjê 2,2 kV napiêcie miêdzyszczytowe têtnieñ wzros³o jedynie o 0,4 V. Wp³yw rezystancji nie jest wiêc du¿y.
+	\\
+	
+	Trzecia czêœæ zajêæ poœwiêcona by³a zbadaniu diód œwiec¹cych i okreœleniu znaczenia koloru œwiecenia diody dla spadków napiêæ. Podczas eksperymentu odnotowano wzrost intensywnoœci œwiecenia diod wraz ze zwiêkszeniem wartoœci napiêcia zasilania. Nie dysponowano podczas æwiczenia metodami pomiaru owej intensywnoœci, dlatego niemo¿liwe jest porównanie konkretnych wartoœci. Diody œwiec¹ce emituj¹ œwiat³o przez emisjê czêœci energii ³adunków przechodz¹cych przez obszar z³¹cza w postaci fotonów. Zwiêkszenie napiêcia zasilania wi¹¿e siê ze zwiêkszeniem mocy. Przy wysokim napiêciu emitowane zostaje wiêc wiêcej fotonów. Kolor diody ma znaczenie, gdy¿ w ten sposób odró¿nia siê diody o ró¿nym napiêciu przewodzenia. Nie s¹ one wyznaczone, ale dla dwóch pochodz¹cych z tego samego Ÿród³a diod mo¿na za³o¿yæ, ¿e zielona ma ow¹ wartoœæ napiêcia przewodzenia wy¿sz¹.
+	\\
+	
+	Ostatnim zrealizowanym æwiczeniem by³o wyœwietlenie zadanej cyfry, tj. 4, na wyœwietlaczu LED. Cel ten zosta³ zrealizowany przez doprowadzenie sta³ego napiêcia zasilaj¹cego do odpowiednich diod œwiec¹cych spoœród siedmiu formuj¹cych cyfrê 8.
+
+
+\end{itemize}
+
+\newpage
+\section{Literatura}
+\begin{enumerate}[{[1]}]
+\item
+K. Lewiñski, A. Lewiñska ,,Prostowniki.", WKi£, Warszawa 1971r.
+\item
+Watson J. ,,Elektronika", WKi£, Warszawa 1999r.
+\item
+U. Tietze, Ch. Schenk ,,Uk³ady pó³przewodnikowe", WNT, Warszawa 2009r.
+\item
+Nosal Z., Baranowski J. ,,Uk³ady elektroniczne", WNT, Warszawa 2003r.
+\end{enumerate}
+
+
+\bibliography{IEEEabrv,refs}
+
+\end{document}
+

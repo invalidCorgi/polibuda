@@ -1,0 +1,32 @@
+|skracanie_licznikow
+LEDR[0] <= 7493:inst.QA
+LEDR[1] <= 7493:inst.QB
+LEDR[2] <= 7493:inst.QC
+LEDR[3] <= 7493:inst.QD
+LEDR[4] <= 7493:inst4.QA
+KEY[2] => inst8.IN0
+KEY[3] => inst5.IN0
+
+
+|skracanie_licznikow|7493:inst
+QD <= 13.DB_MAX_OUTPUT_PORT_TYPE
+RO1 => 1.IN0
+RO2 => 1.IN1
+CLKB => 44.IN0
+QC <= 14.DB_MAX_OUTPUT_PORT_TYPE
+QB <= 15.DB_MAX_OUTPUT_PORT_TYPE
+QA <= 16.DB_MAX_OUTPUT_PORT_TYPE
+CLKA => 43.IN0
+
+
+|skracanie_licznikow|7493:inst4
+QD <= 13.DB_MAX_OUTPUT_PORT_TYPE
+RO1 => 1.IN0
+RO2 => 1.IN1
+CLKB => 44.IN0
+QC <= 14.DB_MAX_OUTPUT_PORT_TYPE
+QB <= 15.DB_MAX_OUTPUT_PORT_TYPE
+QA <= 16.DB_MAX_OUTPUT_PORT_TYPE
+CLKA => 43.IN0
+
+

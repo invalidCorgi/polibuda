@@ -1,0 +1,144 @@
+-- W programie zaimplementowany jest licznik synchroniczny mod 4
+-- zrealizowany na dwoch przerzutnikach D. Sygnal zegarowy podawany
+-- jest z generatora o czestotliwosci 27MHz odpowiednio spowolnionego, 
+-- reset za pomoca klawisza key(1). Przerzutniki reaguja na zbocze 
+-- narastajace zegara i na reset=0. Stan zegara wyswietlany jest na 
+-- diodzie zielonej ledg(0), stan klawisza reset na ledg(1).
+-- Stan licznika wyswietlany jest na wyswietlaczu 7-segmentowym hex0.
+
+library IEEE;                  -- dolaczenie standardowej biblioteki IEEE
+use IEEE.STD_LOGIC_1164.all;
+
+entity licznikJKvhdl is                 -- glowny element projektu
+   port ( 
+      clock_27: in std_logic;
+      key: in std_logic_vector(1 to 1);
+      ledg: out std_logic_vector(0 to 1);
+      hex0: out std_logic_vector(0 to 6);
+      hex1: out std_logic_vector(0 to 6);
+      hex2: out std_logic_vector(0 to 6);
+      hex3: out std_logic_vector(0 to 6);
+      hex4: out std_logic_vector(0 to 6);
+      hex5: out std_logic_vector(0 to 6);
+      hex6: out std_logic_vector(0 to 6);
+      hex7: out std_logic_vector(0 to 6)
+   );
+end licznikJKvhdl;
+
+architecture ar_clk of licznikJKvhdl is
+
+   signal s: std_logic_vector(0 to 1);
+   signal clk: std_logic := '0';
+   signal i: integer := 0;
+
+   component clock
+      port(
+         we: in std_logic;
+         i: inout integer;
+         wy: out std_logic
+      );
+   end component;
+
+   component digit
+      port( 
+         we: in std_logic_vector(0 to 1);
+         wy: out std_logic_vector(0 to 6)
+      );
+   end component;
+
+   component d
+      port( 
+         we: in std_logic;
+         clk: in std_logic;
+         res: in std_logic;
+         wy: out std_logic
+      );
+   end component;
+
+begin
+   hex1 <= "1111111";
+   hex2 <= "1111111";
+   hex3 <= "1111111";
+   hex4 <= "1111111";
+   hex5 <= "1111111";
+   hex6 <= "1111111";
+   hex7 <= "1111111";
+   ledg(0) <= clk;
+   ledg(1) <= key(1);
+   i0: clock port map (clock_27, i, clk);
+   i1: d port map (not s(0), clk, key(1), s(0));
+   i2: d port map ((s(0) and not s(1)) or (not s(0) and s(1)), clk, key(1), s(1));
+   i3: digit port map (s, hex0);
+end ar_clk;
+
+library IEEE;                  
+use IEEE.STD_LOGIC_1164.all; 
+entity clock is                -- zmniejszenie czestotliwosci zegara systemowego
+   port ( 
+      we: in std_logic;
+      i: inout integer;
+      wy: out std_logic
+   );
+end clock;
+
+architecture ar_cl of clock is
+begin
+   process (we)
+   begin
+      if rising_edge(we) then 
+         i <= i+1;
+         if i = 13500000 then
+            wy <= '1';
+         end if; 
+         if i = 27000000 then
+            i <= 0;
+            wy <= '0';
+         end if;
+      end if;
+   end process;
+end ar_cl;
+
+library IEEE;                  
+use IEEE.STD_LOGIC_1164.all; 
+entity digit is                -- translacja wektora binarnego na cyfre dziesietna
+   port ( 
+      we: in std_logic_vector(0 to 1);
+      wy: out std_logic_vector(0 to 6)
+   );
+end digit;
+
+architecture ar_di of digit is
+begin
+   wy(0) <= we(0) and not we(1);
+   wy(1) <= '0';
+   wy(2) <= not we(0) and we(1);
+   wy(3) <= we(0) and not we(1);
+   wy(4) <= we(0);
+   wy(5) <= we(0) or we(1);
+   wy(6) <= not we(1);
+end ar_di;
+
+library IEEE;                  
+use IEEE.STD_LOGIC_1164.all; 
+entity d is                    -- przerzutnik D
+   port ( 
+      we: in std_logic;
+      clk: in std_logic;
+      res: in std_logic;
+      wy: out std_logic
+   );
+end d;
+
+architecture ar_d of d is
+begin
+   process (clk,res)
+   begin
+      if res='0' then 
+         wy <= '0';
+      else
+         if rising_edge(clk) then
+            wy <= we;
+         end if;
+      end if;
+   end process;
+end ar_d;

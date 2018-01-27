@@ -1,0 +1,36 @@
+# depslib dependency file v1.0
+1512324227 source:d:\mega\polibuda\programowanie_obiektowe\kolejkadopubu\main.cpp
+	<iostream>
+	<string>
+	<time.h>
+	<cstdlib>
+
+1512150983 source:d:\mega\programming\17-07-17\czlowiek.cpp
+	"czlowiek.hpp"
+	<iostream>
+
+1512151558 d:\mega\programming\17-07-17\czlowiek.hpp
+	<string>
+
+1512151056 source:d:\mega\programming\17-07-17\pracownik.cpp
+	<iostream>
+	"pracownik.hpp"
+
+1512151013 d:\mega\programming\17-07-17\pracownik.hpp
+	"czlowiek.hpp"
+
+1512151109 source:d:\mega\programming\17-07-17\student.cpp
+	<iostream>
+	"student.hpp"
+
+1512150726 d:\mega\programming\17-07-17\student.hpp
+	"czlowiek.hpp"
+
+1512150983 d:\mega\programming\17-07-17\czlowiek.cpp
+	"czlowiek.hpp"
+	<iostream>
+
+1512152591 source:d:\mega\polibuda\programowanie_obiektowe\kolejkadopubu\czlowiek.cpp
+	<string>
+	<iostream>
+

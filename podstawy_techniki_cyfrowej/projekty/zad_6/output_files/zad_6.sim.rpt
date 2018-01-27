@@ -1,0 +1,341 @@
+Simulator report for zad_6
+Mon Nov 20 20:31:56 2017
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Simulator Summary
+  3. Simulator Settings
+  4. Simulation Waveforms
+  5. Coverage Summary
+  6. Complete 1/0-Value Coverage
+  7. Missing 1-Value Coverage
+  8. Missing 0-Value Coverage
+  9. Simulator INI Usage
+ 10. Simulator Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------+
+; Simulator Summary                          ;
++-----------------------------+--------------+
+; Type                        ; Value        ;
++-----------------------------+--------------+
+; Simulation Start Time       ; 0 ps         ;
+; Simulation End Time         ; 1.0 us       ;
+; Simulation Netlist Size     ; 121 nodes    ;
+; Simulation Coverage         ;      50.41 % ;
+; Total Number of Transitions ; 409          ;
+; Simulation Breakpoints      ; 0            ;
+; Family                      ; Cyclone II   ;
+; Device                      ; EP2C70F896C6 ;
++-----------------------------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Simulator Settings                                                                                                                                                                   ;
++--------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+---------------+
+; Option                                                                                     ; Setting                                                                 ; Default Value ;
++--------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+---------------+
+; Simulation mode                                                                            ; Timing                                                                  ; Timing        ;
+; Start time                                                                                 ; 0 ns                                                                    ; 0 ns          ;
+; Simulation results format                                                                  ; VWF                                                                     ;               ;
+; Vector input source                                                                        ; D:/Mega/polibuda/podstawy_techniki_cyfrowej/projekty/zad_6/Waveform.vwf ;               ;
+; Add pins automatically to simulation output waveforms                                      ; On                                                                      ; On            ;
+; Check outputs                                                                              ; Off                                                                     ; Off           ;
+; Report simulation coverage                                                                 ; On                                                                      ; On            ;
+; Display complete 1/0 value coverage report                                                 ; On                                                                      ; On            ;
+; Display missing 1-value coverage report                                                    ; On                                                                      ; On            ;
+; Display missing 0-value coverage report                                                    ; On                                                                      ; On            ;
+; Detect setup and hold time violations                                                      ; Off                                                                     ; Off           ;
+; Detect glitches                                                                            ; Off                                                                     ; Off           ;
+; Disable timing delays in Timing Simulation                                                 ; Off                                                                     ; Off           ;
+; Generate Signal Activity File                                                              ; Off                                                                     ; Off           ;
+; Generate VCD File for PowerPlay Power Analyzer                                             ; Off                                                                     ; Off           ;
+; Group bus channels in simulation results                                                   ; Off                                                                     ; Off           ;
+; Preserve fewer signal transitions to reduce memory requirements                            ; On                                                                      ; On            ;
+; Trigger vector comparison with the specified mode                                          ; INPUT_EDGE                                                              ; INPUT_EDGE    ;
+; Disable setup and hold time violations detection in input registers of bi-directional pins ; Off                                                                     ; Off           ;
+; Overwrite Waveform Inputs With Simulation Outputs                                          ; Off                                                                     ;               ;
+; Perform Glitch Filtering in Timing Simulation                                              ; Auto                                                                    ; Auto          ;
++--------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+---------------+
+
+
++----------------------+
+; Simulation Waveforms ;
++----------------------+
+Waveform report data cannot be output to ASCII.
+Please use Quartus II 64-Bit to view the waveform report data.
+
+
++--------------------------------------------------------------------+
+; Coverage Summary                                                   ;
++-----------------------------------------------------+--------------+
+; Type                                                ; Value        ;
++-----------------------------------------------------+--------------+
+; Total coverage as a percentage                      ;      50.41 % ;
+; Total nodes checked                                 ; 121          ;
+; Total output ports checked                          ; 121          ;
+; Total output ports with complete 1/0-value coverage ; 61           ;
+; Total output ports with no 1/0-value coverage       ; 54           ;
+; Total output ports with no 1-value coverage         ; 57           ;
+; Total output ports with no 0-value coverage         ; 57           ;
++-----------------------------------------------------+--------------+
+
+
+The following table displays output ports that toggle between 1 and 0 during simulation.
++------------------------------------------------------------------------------+
+; Complete 1/0-Value Coverage                                                  ;
++-----------------------------+-----------------------------+------------------+
+; Node Name                   ; Output Port Name            ; Output Port Type ;
++-----------------------------+-----------------------------+------------------+
+; |zad_6|d:i11|wy             ; |zad_6|d:i11|wy             ; regout           ;
+; |zad_6|d:i10|wy             ; |zad_6|d:i10|wy             ; regout           ;
+; |zad_6|d:i12|wy             ; |zad_6|d:i12|wy             ; regout           ;
+; |zad_6|d:i9|wy              ; |zad_6|d:i9|wy              ; regout           ;
+; |zad_6|mux:dig06|Mux0~0     ; |zad_6|mux:dig06|Mux0~0     ; combout          ;
+; |zad_6|mux:dig05|Mux0~0     ; |zad_6|mux:dig05|Mux0~0     ; combout          ;
+; |zad_6|mux:dig04|Mux0~0     ; |zad_6|mux:dig04|Mux0~0     ; combout          ;
+; |zad_6|mux:dig03|Mux0~0     ; |zad_6|mux:dig03|Mux0~0     ; combout          ;
+; |zad_6|mux:dig01|Mux0~0     ; |zad_6|mux:dig01|Mux0~0     ; combout          ;
+; |zad_6|mux:dig00|Mux0~0     ; |zad_6|mux:dig00|Mux0~0     ; combout          ;
+; |zad_6|mux:dig12|Mux0~0     ; |zad_6|mux:dig12|Mux0~0     ; combout          ;
+; |zad_6|wykonuj              ; |zad_6|wykonuj              ; regout           ;
+; |zad_6|ledg[0]~reg0         ; |zad_6|ledg[0]~reg0         ; regout           ;
+; |zad_6|mux:i14|Mux0~0       ; |zad_6|mux:i14|Mux0~0       ; combout          ;
+; |zad_6|mux:i15|Mux0~0       ; |zad_6|mux:i15|Mux0~0       ; combout          ;
+; |zad_6|mux:i13|Mux0~0       ; |zad_6|mux:i13|Mux0~0       ; combout          ;
+; |zad_6|mux:i16|Mux0~0       ; |zad_6|mux:i16|Mux0~0       ; combout          ;
+; |zad_6|Equal0~0             ; |zad_6|Equal0~0             ; combout          ;
+; |zad_6|clock:i0|wy          ; |zad_6|clock:i0|wy          ; combout          ;
+; |zad_6|jk:i4|temp~2         ; |zad_6|jk:i4|temp~2         ; combout          ;
+; |zad_6|jk:i3|temp~_emulated ; |zad_6|jk:i3|temp~_emulated ; regout           ;
+; |zad_6|jk:i3|temp~2         ; |zad_6|jk:i3|temp~2         ; combout          ;
+; |zad_6|jk:i2|temp~_emulated ; |zad_6|jk:i2|temp~_emulated ; regout           ;
+; |zad_6|jk:i2|temp~2         ; |zad_6|jk:i2|temp~2         ; combout          ;
+; |zad_6|jk:i1|temp~_emulated ; |zad_6|jk:i1|temp~_emulated ; regout           ;
+; |zad_6|jk:i1|temp~2         ; |zad_6|jk:i1|temp~2         ; combout          ;
+; |zad_6|jk:i4|temp~5         ; |zad_6|jk:i4|temp~5         ; combout          ;
+; |zad_6|jk:i4|temp~3         ; |zad_6|jk:i4|temp~3         ; combout          ;
+; |zad_6|mux:i5|Mux0~0        ; |zad_6|mux:i5|Mux0~0        ; combout          ;
+; |zad_6|comb~0               ; |zad_6|comb~0               ; combout          ;
+; |zad_6|jk:i3|temp~3         ; |zad_6|jk:i3|temp~3         ; combout          ;
+; |zad_6|jk:i2|temp~3         ; |zad_6|jk:i2|temp~3         ; combout          ;
+; |zad_6|jk:i1|temp~5         ; |zad_6|jk:i1|temp~5         ; combout          ;
+; |zad_6|jk:i1|temp~3         ; |zad_6|jk:i1|temp~3         ; combout          ;
+; |zad_6|jk:i4|temp~1         ; |zad_6|jk:i4|temp~1         ; combout          ;
+; |zad_6|jk:i3|temp~1         ; |zad_6|jk:i3|temp~1         ; combout          ;
+; |zad_6|jk:i2|temp~1         ; |zad_6|jk:i2|temp~1         ; combout          ;
+; |zad_6|hex0[6]              ; |zad_6|hex0[6]              ; padio            ;
+; |zad_6|hex0[5]              ; |zad_6|hex0[5]              ; padio            ;
+; |zad_6|hex0[4]              ; |zad_6|hex0[4]              ; padio            ;
+; |zad_6|hex0[3]              ; |zad_6|hex0[3]              ; padio            ;
+; |zad_6|hex0[1]              ; |zad_6|hex0[1]              ; padio            ;
+; |zad_6|hex0[0]              ; |zad_6|hex0[0]              ; padio            ;
+; |zad_6|hex1[2]              ; |zad_6|hex1[2]              ; padio            ;
+; |zad_6|hex1[1]              ; |zad_6|hex1[1]              ; padio            ;
+; |zad_6|ledr[10]             ; |zad_6|ledr[10]             ; padio            ;
+; |zad_6|ledr[9]              ; |zad_6|ledr[9]              ; padio            ;
+; |zad_6|ledr[8]              ; |zad_6|ledr[8]              ; padio            ;
+; |zad_6|ledr[7]              ; |zad_6|ledr[7]              ; padio            ;
+; |zad_6|ledr[6]              ; |zad_6|ledr[6]              ; padio            ;
+; |zad_6|ledr[5]              ; |zad_6|ledr[5]              ; padio            ;
+; |zad_6|ledr[4]              ; |zad_6|ledr[4]              ; padio            ;
+; |zad_6|ledr[3]              ; |zad_6|ledr[3]              ; padio            ;
+; |zad_6|ledr[2]              ; |zad_6|ledr[2]              ; padio            ;
+; |zad_6|ledr[1]              ; |zad_6|ledr[1]              ; padio            ;
+; |zad_6|ledg[0]              ; |zad_6|ledg[0]              ; padio            ;
+; |zad_6|key[1]               ; |zad_6|key[1]~corein        ; combout          ;
+; |zad_6|sw[3]                ; |zad_6|sw[3]~corein         ; combout          ;
+; |zad_6|clock_28             ; |zad_6|clock_28~corein      ; combout          ;
+; |zad_6|key[1]~clkctrl       ; |zad_6|key[1]~clkctrl       ; outclk           ;
+; |zad_6|clock:i0|wy~clkctrl  ; |zad_6|clock:i0|wy~clkctrl  ; outclk           ;
++-----------------------------+-----------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 1 during simulation.
++--------------------------------------------------------------------------+
+; Missing 1-Value Coverage                                                 ;
++---------------------------+---------------------------+------------------+
+; Node Name                 ; Output Port Name          ; Output Port Type ;
++---------------------------+---------------------------+------------------+
+; |zad_6|ledr[0]~reg0       ; |zad_6|ledr[0]~reg0       ; regout           ;
+; |zad_6|process_0~0        ; |zad_6|process_0~0        ; combout          ;
+; |zad_6|wykonuj~0          ; |zad_6|wykonuj~0          ; combout          ;
+; |zad_6|ledg[0]~0          ; |zad_6|ledg[0]~0          ; combout          ;
+; |zad_6|hex0[2]            ; |zad_6|hex0[2]            ; padio            ;
+; |zad_6|hex1[6]            ; |zad_6|hex1[6]            ; padio            ;
+; |zad_6|hex1[5]            ; |zad_6|hex1[5]            ; padio            ;
+; |zad_6|hex1[4]            ; |zad_6|hex1[4]            ; padio            ;
+; |zad_6|hex1[3]            ; |zad_6|hex1[3]            ; padio            ;
+; |zad_6|hex1[0]            ; |zad_6|hex1[0]            ; padio            ;
+; |zad_6|hex2[6]            ; |zad_6|hex2[6]            ; padio            ;
+; |zad_6|hex2[5]            ; |zad_6|hex2[5]            ; padio            ;
+; |zad_6|hex2[4]            ; |zad_6|hex2[4]            ; padio            ;
+; |zad_6|hex2[3]            ; |zad_6|hex2[3]            ; padio            ;
+; |zad_6|hex2[2]            ; |zad_6|hex2[2]            ; padio            ;
+; |zad_6|hex2[1]            ; |zad_6|hex2[1]            ; padio            ;
+; |zad_6|hex2[0]            ; |zad_6|hex2[0]            ; padio            ;
+; |zad_6|hex3[6]            ; |zad_6|hex3[6]            ; padio            ;
+; |zad_6|hex3[5]            ; |zad_6|hex3[5]            ; padio            ;
+; |zad_6|hex3[4]            ; |zad_6|hex3[4]            ; padio            ;
+; |zad_6|hex3[3]            ; |zad_6|hex3[3]            ; padio            ;
+; |zad_6|hex3[2]            ; |zad_6|hex3[2]            ; padio            ;
+; |zad_6|hex3[1]            ; |zad_6|hex3[1]            ; padio            ;
+; |zad_6|hex3[0]            ; |zad_6|hex3[0]            ; padio            ;
+; |zad_6|hex4[6]            ; |zad_6|hex4[6]            ; padio            ;
+; |zad_6|hex4[5]            ; |zad_6|hex4[5]            ; padio            ;
+; |zad_6|hex4[4]            ; |zad_6|hex4[4]            ; padio            ;
+; |zad_6|hex4[3]            ; |zad_6|hex4[3]            ; padio            ;
+; |zad_6|hex4[2]            ; |zad_6|hex4[2]            ; padio            ;
+; |zad_6|hex4[1]            ; |zad_6|hex4[1]            ; padio            ;
+; |zad_6|hex4[0]            ; |zad_6|hex4[0]            ; padio            ;
+; |zad_6|hex5[6]            ; |zad_6|hex5[6]            ; padio            ;
+; |zad_6|hex5[5]            ; |zad_6|hex5[5]            ; padio            ;
+; |zad_6|hex5[4]            ; |zad_6|hex5[4]            ; padio            ;
+; |zad_6|hex5[3]            ; |zad_6|hex5[3]            ; padio            ;
+; |zad_6|hex5[2]            ; |zad_6|hex5[2]            ; padio            ;
+; |zad_6|hex5[1]            ; |zad_6|hex5[1]            ; padio            ;
+; |zad_6|hex5[0]            ; |zad_6|hex5[0]            ; padio            ;
+; |zad_6|hex6[6]            ; |zad_6|hex6[6]            ; padio            ;
+; |zad_6|hex6[5]            ; |zad_6|hex6[5]            ; padio            ;
+; |zad_6|hex6[4]            ; |zad_6|hex6[4]            ; padio            ;
+; |zad_6|hex6[3]            ; |zad_6|hex6[3]            ; padio            ;
+; |zad_6|hex6[2]            ; |zad_6|hex6[2]            ; padio            ;
+; |zad_6|hex6[1]            ; |zad_6|hex6[1]            ; padio            ;
+; |zad_6|hex6[0]            ; |zad_6|hex6[0]            ; padio            ;
+; |zad_6|hex7[6]            ; |zad_6|hex7[6]            ; padio            ;
+; |zad_6|hex7[5]            ; |zad_6|hex7[5]            ; padio            ;
+; |zad_6|hex7[4]            ; |zad_6|hex7[4]            ; padio            ;
+; |zad_6|hex7[3]            ; |zad_6|hex7[3]            ; padio            ;
+; |zad_6|hex7[2]            ; |zad_6|hex7[2]            ; padio            ;
+; |zad_6|hex7[1]            ; |zad_6|hex7[1]            ; padio            ;
+; |zad_6|hex7[0]            ; |zad_6|hex7[0]            ; padio            ;
+; |zad_6|ledr[0]            ; |zad_6|ledr[0]            ; padio            ;
+; |zad_6|sw[1]              ; |zad_6|sw[1]~corein       ; combout          ;
+; |zad_6|sw[0]              ; |zad_6|sw[0]~corein       ; combout          ;
+; |zad_6|sw[2]              ; |zad_6|sw[2]~corein       ; combout          ;
+; |zad_6|ledr[0]~reg0feeder ; |zad_6|ledr[0]~reg0feeder ; combout          ;
++---------------------------+---------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 0 during simulation.
++------------------------------------------------------------------------------+
+; Missing 0-Value Coverage                                                     ;
++-----------------------------+-----------------------------+------------------+
+; Node Name                   ; Output Port Name            ; Output Port Type ;
++-----------------------------+-----------------------------+------------------+
+; |zad_6|mux:dig02|Mux0~0     ; |zad_6|mux:dig02|Mux0~0     ; combout          ;
+; |zad_6|ledr[0]~reg0         ; |zad_6|ledr[0]~reg0         ; regout           ;
+; |zad_6|process_0~0          ; |zad_6|process_0~0          ; combout          ;
+; |zad_6|jk:i4|temp~_emulated ; |zad_6|jk:i4|temp~_emulated ; regout           ;
+; |zad_6|wykonuj~0            ; |zad_6|wykonuj~0            ; combout          ;
+; |zad_6|ledg[0]~0            ; |zad_6|ledg[0]~0            ; combout          ;
+; |zad_6|jk:i1|temp~1         ; |zad_6|jk:i1|temp~1         ; combout          ;
+; |zad_6|hex1[6]              ; |zad_6|hex1[6]              ; padio            ;
+; |zad_6|hex1[5]              ; |zad_6|hex1[5]              ; padio            ;
+; |zad_6|hex1[4]              ; |zad_6|hex1[4]              ; padio            ;
+; |zad_6|hex1[3]              ; |zad_6|hex1[3]              ; padio            ;
+; |zad_6|hex1[0]              ; |zad_6|hex1[0]              ; padio            ;
+; |zad_6|hex2[6]              ; |zad_6|hex2[6]              ; padio            ;
+; |zad_6|hex2[5]              ; |zad_6|hex2[5]              ; padio            ;
+; |zad_6|hex2[4]              ; |zad_6|hex2[4]              ; padio            ;
+; |zad_6|hex2[3]              ; |zad_6|hex2[3]              ; padio            ;
+; |zad_6|hex2[2]              ; |zad_6|hex2[2]              ; padio            ;
+; |zad_6|hex2[1]              ; |zad_6|hex2[1]              ; padio            ;
+; |zad_6|hex2[0]              ; |zad_6|hex2[0]              ; padio            ;
+; |zad_6|hex3[6]              ; |zad_6|hex3[6]              ; padio            ;
+; |zad_6|hex3[5]              ; |zad_6|hex3[5]              ; padio            ;
+; |zad_6|hex3[4]              ; |zad_6|hex3[4]              ; padio            ;
+; |zad_6|hex3[3]              ; |zad_6|hex3[3]              ; padio            ;
+; |zad_6|hex3[2]              ; |zad_6|hex3[2]              ; padio            ;
+; |zad_6|hex3[1]              ; |zad_6|hex3[1]              ; padio            ;
+; |zad_6|hex3[0]              ; |zad_6|hex3[0]              ; padio            ;
+; |zad_6|hex4[6]              ; |zad_6|hex4[6]              ; padio            ;
+; |zad_6|hex4[5]              ; |zad_6|hex4[5]              ; padio            ;
+; |zad_6|hex4[4]              ; |zad_6|hex4[4]              ; padio            ;
+; |zad_6|hex4[3]              ; |zad_6|hex4[3]              ; padio            ;
+; |zad_6|hex4[2]              ; |zad_6|hex4[2]              ; padio            ;
+; |zad_6|hex4[1]              ; |zad_6|hex4[1]              ; padio            ;
+; |zad_6|hex4[0]              ; |zad_6|hex4[0]              ; padio            ;
+; |zad_6|hex5[6]              ; |zad_6|hex5[6]              ; padio            ;
+; |zad_6|hex5[5]              ; |zad_6|hex5[5]              ; padio            ;
+; |zad_6|hex5[4]              ; |zad_6|hex5[4]              ; padio            ;
+; |zad_6|hex5[3]              ; |zad_6|hex5[3]              ; padio            ;
+; |zad_6|hex5[2]              ; |zad_6|hex5[2]              ; padio            ;
+; |zad_6|hex5[1]              ; |zad_6|hex5[1]              ; padio            ;
+; |zad_6|hex5[0]              ; |zad_6|hex5[0]              ; padio            ;
+; |zad_6|hex6[6]              ; |zad_6|hex6[6]              ; padio            ;
+; |zad_6|hex6[5]              ; |zad_6|hex6[5]              ; padio            ;
+; |zad_6|hex6[4]              ; |zad_6|hex6[4]              ; padio            ;
+; |zad_6|hex6[3]              ; |zad_6|hex6[3]              ; padio            ;
+; |zad_6|hex6[2]              ; |zad_6|hex6[2]              ; padio            ;
+; |zad_6|hex6[1]              ; |zad_6|hex6[1]              ; padio            ;
+; |zad_6|hex6[0]              ; |zad_6|hex6[0]              ; padio            ;
+; |zad_6|hex7[6]              ; |zad_6|hex7[6]              ; padio            ;
+; |zad_6|hex7[5]              ; |zad_6|hex7[5]              ; padio            ;
+; |zad_6|hex7[4]              ; |zad_6|hex7[4]              ; padio            ;
+; |zad_6|hex7[3]              ; |zad_6|hex7[3]              ; padio            ;
+; |zad_6|hex7[2]              ; |zad_6|hex7[2]              ; padio            ;
+; |zad_6|hex7[1]              ; |zad_6|hex7[1]              ; padio            ;
+; |zad_6|hex7[0]              ; |zad_6|hex7[0]              ; padio            ;
+; |zad_6|ledr[0]              ; |zad_6|ledr[0]              ; padio            ;
+; |zad_6|sw[0]                ; |zad_6|sw[0]~corein         ; combout          ;
+; |zad_6|ledr[0]~reg0feeder   ; |zad_6|ledr[0]~reg0feeder   ; combout          ;
++-----------------------------+-----------------------------+------------------+
+
+
++---------------------+
+; Simulator INI Usage ;
++--------+------------+
+; Option ; Usage      ;
++--------+------------+
+
+
++--------------------+
+; Simulator Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Simulator
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Mon Nov 20 20:31:53 2017
+Info: Command: quartus_sim --simulation_results_format=VWF zad_6 -c zad_6
+Info (324025): Using vector source file "D:/Mega/polibuda/podstawy_techniki_cyfrowej/projekty/zad_6/Waveform.vwf"
+Info (328054): Inverted registers were found during simulation
+    Info (328055): Register: |zad_6|d:i10|wy
+    Info (328055): Register: |zad_6|ledg[0]~reg0
+Info (310003): Option to preserve fewer signal transitions to reduce memory requirements is enabled
+    Info (310004): Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
+Info (310002): Simulation partitioned into 1 sub-simulations
+Info (328053): Simulation coverage is      50.41 %
+Info (328052): Number of transitions in simulation is 409
+Info (324045): Vector file zad_6.sim.vwf is saved in VWF text format. You can compress it into CVWF format in order to reduce file size. For more details please refer to the Quartus II Help.
+Info: Quartus II 64-Bit Simulator was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 365 megabytes
+    Info: Processing ended: Mon Nov 20 20:31:56 2017
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:00
+
+
