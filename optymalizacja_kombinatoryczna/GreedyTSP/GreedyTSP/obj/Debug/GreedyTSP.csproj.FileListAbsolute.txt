@@ -1,0 +1,7 @@
+D:\Mega\polibuda\optymalizacja_kombinatoryczna\GreedyTSP\GreedyTSP\bin\Debug\GreedyTSP.exe.config
+D:\Mega\polibuda\optymalizacja_kombinatoryczna\GreedyTSP\GreedyTSP\bin\Debug\GreedyTSP.exe
+D:\Mega\polibuda\optymalizacja_kombinatoryczna\GreedyTSP\GreedyTSP\bin\Debug\GreedyTSP.pdb
+D:\Mega\polibuda\optymalizacja_kombinatoryczna\GreedyTSP\GreedyTSP\obj\Debug\GreedyTSP.csproj.CoreCompileInputs.cache
+D:\Mega\polibuda\optymalizacja_kombinatoryczna\GreedyTSP\GreedyTSP\obj\Debug\GreedyTSP.exe
+D:\Mega\polibuda\optymalizacja_kombinatoryczna\GreedyTSP\GreedyTSP\obj\Debug\GreedyTSP.pdb
+D:\Mega\polibuda\optymalizacja_kombinatoryczna\GreedyTSP\GreedyTSP\obj\Debug\GreedyTSP.csprojResolveAssemblyReference.cache

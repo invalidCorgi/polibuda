@@ -1,0 +1,9 @@
+D:\Mega\polibuda\optymalizacja_kombinatoryczna\Tsp\bin\Release\tsp.exe
+D:\Mega\polibuda\optymalizacja_kombinatoryczna\Tsp\bin\Release\tsp.pdb
+D:\Mega\polibuda\optymalizacja_kombinatoryczna\Tsp\obj\Release\Tsp.Properties.Resources.resources
+D:\Mega\polibuda\optymalizacja_kombinatoryczna\Tsp\obj\Release\Tsp.TspForm.resources
+D:\Mega\polibuda\optymalizacja_kombinatoryczna\Tsp\obj\Release\Tsp.csproj.GenerateResource.Cache
+D:\Mega\polibuda\optymalizacja_kombinatoryczna\Tsp\obj\Release\Tsp.csproj.CoreCompileInputs.cache
+D:\Mega\polibuda\optymalizacja_kombinatoryczna\Tsp\obj\Release\tsp.exe
+D:\Mega\polibuda\optymalizacja_kombinatoryczna\Tsp\obj\Release\tsp.pdb
+D:\Mega\polibuda\optymalizacja_kombinatoryczna\Tsp\obj\Release\Tsp.csprojResolveAssemblyReference.cache
