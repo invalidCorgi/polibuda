@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.411,D:\Mega\polibuda\elementy_analizy_numerycznej\Unit1.pas=D:\Mega\polibuda\elementy_analizy_numerycznej\NewtonCo.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.557,=D:\Mega\polibuda\elementy_analizy_numerycznej\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.603,=D:\Mega\polibuda\elementy_analizy_numerycznej\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.170,D:\Mega\polibuda\elementy_analizy_numerycznej\MainUnit.dfm=D:\Mega\polibuda\elementy_analizy_numerycznej\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.335,D:\Mega\polibuda\elementy_analizy_numerycznej\DataInput.dfm=D:\Mega\polibuda\elementy_analizy_numerycznej\Unit2.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.072,=D:\Mega\polibuda\elementy_analizy_numerycznej\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.512,=D:\Mega\polibuda\elementy_analizy_numerycznej\IntervalArithmetic.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.333,D:\Mega\polibuda\elementy_analizy_numerycznej\Project1.dproj=D:\Mega\polibuda\elementy_analizy_numerycznej\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.170,D:\Mega\polibuda\elementy_analizy_numerycznej\MainUnit.pas=D:\Mega\polibuda\elementy_analizy_numerycznej\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.335,D:\Mega\polibuda\elementy_analizy_numerycznej\DataInput.pas=D:\Mega\polibuda\elementy_analizy_numerycznej\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.845,D:\Mega\polibuda\elementy_analizy_numerycznej\NewtonCo.pas=D:\Mega\polibuda\elementy_analizy_numerycznej\NewtonCoefficients.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.450,D:\Mega\polibuda\elementy_analizy_numerycznej\NewtonCoefficients.pas=D:\Mega\polibuda\elementy_analizy_numerycznej\NewtonCoefficientsAndValues.pas</Transaction>
+  </Transactions>
+</BorlandProject>

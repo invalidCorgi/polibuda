@@ -1,0 +1,92 @@
+﻿unit MainUnit;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, IntervalArithmetic, DataInput,
+  NewtonCoefficientsAndValues;
+
+type
+  TMainFrame = class(TForm)
+    RadioGroup1: TRadioGroup;
+    Edit1: TEdit;
+    Label1: TLabel;
+    RadioGroup2: TRadioGroup;
+    Button1: TButton;
+    Button2: TButton;
+    Memo1: TMemo;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    procedure UpdateMemo();
+    { Public declarations }
+  end;
+
+var
+  MainFrame: TMainFrame;
+  n : Integer;
+  tabE : Array[0..1] of TArray<Extended>;
+  tabI : Array[0..1] of TArray<interval>;
+  dataReady : Boolean = False;
+
+implementation
+
+{$R *.dfm}
+
+var i : Extended;
+    outCoefficientsExtended : TArray<Extended>;
+    outValueExtended : Extended;
+    point : Extended;
+
+procedure TMainFrame.Button1Click(Sender: TObject);
+begin
+  n2 := 0;
+  n3 := 0;
+  numberType := RadioGroup2.ItemIndex;
+  dataReady := False;
+  DataInput.Form2.Label2.Caption := '0';
+  DataInput.Form2.Label3.Caption := '0';
+  DataInput.Form2.ShowModal;
+end;
+
+procedure TMainFrame.Button2Click(Sender: TObject);
+begin
+  {if dataReady = False then
+  begin
+    ShowMessage('Nie zostały wprowadzone dane');
+  end;}
+  if RadioGroup1.ItemIndex = 0 then
+  begin
+    SetLength(outCoefficientsExtended, Length(tabE[1]));
+    outCoefficientsExtended := NewtonCoefficientsExtended(n, tabE[0], tabE[1]);
+    Memo1.Text := 'Współczynniki wielomianu od największego wykładnika:' + sLineBreak;
+    for i in outCoefficientsExtended do
+    begin
+      Memo1.Text := Memo1.Text + FloatToStrF(i, ffExponent, 17, 4) + sLineBreak;
+    end;
+  end else
+  begin
+    point := StrToFloat(Edit1.Text);
+    outValueExtended := NewtonValueExtended(n, tabE[0], tabE[1], point);
+    Memo1.Text := 'Wartość dla x='+ FloatToStrF(point, ffExponent, 17, 4)+ ':' + sLineBreak + FloatToStrF(outValueExtended, ffExponent, 17, 4);
+  end;
+end;
+
+procedure TMainFrame.UpdateMemo();
+begin
+  Memo1.Text := IntToStr(n) +  sLineBreak;
+  Memo1.Text := Memo1.Text + IntToStr(n2) + sLineBreak;
+  for i in tabE[0] do
+  begin
+    Memo1.Text := Memo1.Text + FloatToStr(i) + sLineBreak;
+  end;
+  for i in tabE[1] do
+  begin
+    Memo1.Text := Memo1.Text + FloatToStr(i) + sLineBreak;
+  end;
+end;
+
+end.

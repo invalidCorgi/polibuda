@@ -1,0 +1,16 @@
+There is a high trend in smartphones to eliminate everything except the screen from the front of phone.
+There are several problems associated with this and one of them is the location of popular fingerprint scanners.
+One of the best places for it is the bottom of the front of the phone.
+Actual scanners need to have a direct contact with finger, so they need a dedicated place, which we don't have.
+Here are two new technologies, mainly developed by vivo and synaptics to solve this problem.
+Both of them enable smartphones producers to place the scanner below the screen.
+So how it works?
+Technology developed by synaptics uses an optical sensor.
+The screen digitizer detects the finger, the OLED display lights up the finger, the sensor scans the highlighted finger, 
+and the “matcher” verifies the image and confirms the imprint is yours, granting you access to phone.
+As I said it needs not very popular OLED display. 
+Its the main bad side of this technology. 
+One of the reasons of this is that only OLED displays have the ability to light only a part of itself.
+Another technology developed by vivo uses ultrasonic sensor.
+It works by emitting ultrasonic sound waves which penetrate the skin of your finger and capture a 3D image of your fingerprint.
+The problem with this technology is the range in which it works precisely and speed of scanning, but its getting better and better and the latest presented prototype works fine.

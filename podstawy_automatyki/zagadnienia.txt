@@ -1,0 +1,17 @@
+﻿1 kolokwium:
+definicje transmiatcji, charakterystyki impulsowej, skokowej, amplitudowo-fazowej
+cz³ony - wykresy na dirca oraz skok jednostkowy, symbole, wzór na transmitancjê op. , zastosowania
+- wzmacniaj¹cy
+- inercyjny 1 i 2 rzêdu
+- ca³kuj¹cy idealny, rzeczyw.
+- ró¿niczkuj¹cy idealny, rzeczyw.
+- opóŸniaj¹cy
+- oscylacyjny
+- uk³ad regulacji, schemat, podzia³ : ekstremalne adaptacyjne itd
+
+2 kolokwium:
+badanie stabilnosci: kryterium pierwiastkowe, kryterium Hurwitza, kryterium Nyquista [str. 85-95]
+regulatory P/I/D/PI/PD/PID: opisy, wykresy charakterystyk skokowych, wzory na transmitancjê, dobór nastaw regulatora [str. 131-141]
+przetworniki pomiarowe: tensometryczne, magnetyczne, pojemnoœciowe, fotoelektryczne [str. 142-146]
+czujniki: poziomu cieczy/p³aszczyzny, ciœnienia, natê¿enia przep³ywu, przep³ywu metod¹ ultradŸwiêkow¹ [http://automatykab2b.pl/tematmiesiaca/3030-jak-skutecznie-mierzy-przepywy?start=2#.VsU9TvIrK00] [str. 147-160]
+termometry: optyczne (pirometry), termoelektryczne (termopary), oporowe (termistory) [str. 150-153]

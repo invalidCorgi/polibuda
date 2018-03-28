@@ -1,0 +1,73 @@
+﻿unit MainUnit;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, IntervalArithmetic, DataInput;
+
+type
+  TMainFrame = class(TForm)
+    RadioGroup1: TRadioGroup;
+    Edit1: TEdit;
+    Label1: TLabel;
+    RadioGroup2: TRadioGroup;
+    Button1: TButton;
+    Button2: TButton;
+    Memo1: TMemo;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    procedure UpdateMemo();
+    { Public declarations }
+  end;
+
+var
+  MainFrame: TMainFrame;
+  n : Integer;
+  tabE : Array[0..1] of Array of Extended;
+  tabI : Array[0..1] of Array of interval;
+  dataReady : Boolean = False;
+  i : Extended;
+
+implementation
+
+{$R *.dfm}
+
+procedure TMainFrame.Button1Click(Sender: TObject);
+begin
+  n2 := 0;
+  n3 := 0;
+  numberType := RadioGroup2.ItemIndex;
+  dataReady := False;
+  DataInput.Form2.Label2.Caption := '0';
+  DataInput.Form2.Label3.Caption := '0';
+  DataInput.Form2.ShowModal;
+end;
+
+procedure TMainFrame.Button2Click(Sender: TObject);
+begin
+  if dataReady = False then
+  begin
+    ShowMessage('Nie zostały wprowadzone dane');
+  end;
+
+end;
+
+procedure TMainFrame.UpdateMemo();
+begin
+  Memo1.Text := IntToStr(n) +  sLineBreak;
+  Memo1.Text := Memo1.Text + IntToStr(n2) + sLineBreak;
+  for i in tabE[0] do
+  begin
+    Memo1.Text := Memo1.Text + FloatToStr(i) + sLineBreak;
+  end;
+  for i in tabE[1] do
+  begin
+    Memo1.Text := Memo1.Text + FloatToStr(i) + sLineBreak;
+  end;
+end;
+
+end.
