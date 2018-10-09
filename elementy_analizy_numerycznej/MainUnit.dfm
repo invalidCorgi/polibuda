@@ -20,6 +20,19 @@ object MainFrame: TMainFrame
     Height = 13
     Caption = 'x = '
   end
+  object Label2: TLabel
+    Left = 8
+    Top = 87
+    Width = 57
+    Height = 18
+    Caption = 'Wyniki:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
   object RadioGroup1: TRadioGroup
     Left = 344
     Top = 8
@@ -38,7 +51,7 @@ object MainFrame: TMainFrame
     Width = 144
     Height = 21
     TabOrder = 1
-    Text = '0.0'
+    Text = '0'
   end
   object RadioGroup2: TRadioGroup
     Left = 8
@@ -73,12 +86,11 @@ object MainFrame: TMainFrame
     OnClick = Button2Click
   end
   object Memo1: TMemo
-    Left = 56
+    Left = 8
     Top = 104
-    Width = 521
+    Width = 714
     Height = 224
-    Lines.Strings = (
-      'Memo1')
+    ScrollBars = ssVertical
     TabOrder = 5
   end
 end

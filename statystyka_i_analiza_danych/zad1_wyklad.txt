@@ -1,0 +1,34 @@
+wybrano 100 firm i sprawdzono czy osiagaly one zysk lub strate oraz czy naleza do sektora uslug lub nie
+dane przedstawiono w postaci tablicy dwudzielczej
+zbadaj czy zmienne, czy_firma_przynosi_zysk, czy_firma_jest_w_sektorze_uslug sa zalezne lub niezalezne
+
+zadanie z chi^2 pearsona na kolosie test niezaleznosci, H0-sa niezalezne, h1-zalezne
+
+gdy mamy dane:
+-tworzymy rozklady brzegowe(suma kulumn, suma wierszy, suma sum)
+-tworzymy odpowiadajaca tablice z wartosciami oczekiwanymi
+
++------------+-----------------+-------------------+---------+
+|zysk/strata +usluga           +inne               +suma     |
++------------+-----------------+-------------------+---------+
+|zysk        +42               +18                 +60       |
++------------+-----------------+-------------------+---------+
+|strata      +6                +34                 +40       |
++------------+-----------------+-------------------+---------+
+|suma        +48               +52                 +100      |
++------------+-----------------+-------------------+----------
+
+oczekiwane
++----+----+---+
+|28,8+31,2+60 |
++----+----+---+
+|19,2|20,8|40 |
++----+----+---+
+|48  |52  |100|
++----+----+---+
+
+chi^2=...+(18-31,2)^2/31,2+...=29,09
+
+dla tablic 2x2 jest prostszy wzor ktory trzeba korygowac gdy n<40 i ktoras licznosc oczekiwanych<5
+
+cramera i cos sa takie same jak jest 2x2

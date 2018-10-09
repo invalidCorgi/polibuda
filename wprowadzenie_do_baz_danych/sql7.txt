@@ -1,0 +1,68 @@
+select nazwisko, placa_pod
+from pracownicy
+order by placa_pod desc fetch FIRST 3 ROWS ONLY;
+
+select * from
+(select nazwisko, placa_pod
+from pracownicy
+order by placa_pod desc)
+where rownum<=3;
+
+select nazwisko, placa_pod
+from pracownicy
+order by placa_pod desc
+offset 5 rows fetch next 5 ROWS ONLY;
+
+with
+asystenci as
+(select nazwisko,etat,id_zesp
+from pracownicy
+where etat='ASYSTENT'),
+piotrowo as
+(select id_zesp, nazwa, adres
+from zespoly
+where adres like 'PIOTROWO%')
+select
+asystenci.nazwisko,
+asystenci.etat,
+piotrowo.nazwa,
+piotrowo.adres
+from asystenci natural join piotrowo;
+
+with
+podwladni(nazwisko,id_prac,pozycja_w_hierarchii) as
+(select nazwisko,id_prac,1
+from pracownicy
+where nazwisko='BRZEZINSKI'
+union all
+select p2.nazwisko,p2.id_prac,s1.pozycja_w_hierarchii+1
+from podwladni s1 join pracownicy p2 on p2.id_szefa=s1.id_prac)
+search depth first by nazwisko set porzadek
+select nazwisko, pozycja_w_hierarchii
+from podwladni
+order by porzadek;
+
+select nazwisko, level as pozycja_w_hierarchii
+from pracownicy
+connect by id_szefa=prior id_prac
+start with nazwisko='BRZEZINSKI'
+order siblings by nazwisko;
+
+select lpad(nazwisko,level+length(nazwisko)), level as pozycja_w_hierarchii
+from pracownicy
+connect by id_szefa=prior id_prac
+start with nazwisko='BRZEZINSKI'
+order siblings by nazwisko;
+
+with
+podwladni(nazwisko,id_prac,pozycja_w_hierarchii) as
+(select nazwisko,id_prac,1
+from pracownicy
+where nazwisko='BRZEZINSKI'
+union all
+select lpad(p2.nazwisko,level),p2.id_prac,s1.pozycja_w_hierarchii+1
+from podwladni s1 join pracownicy p2 on p2.id_szefa=s1.id_prac)
+search depth first by nazwisko set porzadek
+select nazwisko, pozycja_w_hierarchii
+from podwladni
+order by porzadek;

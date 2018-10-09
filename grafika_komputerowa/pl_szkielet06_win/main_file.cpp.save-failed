@@ -1,0 +1,413 @@
+#define GLM_FORCE_RADIANS
+
+#include <GL/glew.h>
+#include <time.h>
+#include <GLFW/glfw3.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/type_ptr.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <stdlib.h>
+#include <stdio.h>
+#include "constants.h"
+#include "allmodels.h"
+#include "lodepng.h"
+#include "shaderprogram.h"
+#include "loadOBJ.h"
+#include "include/GraphicalObject.h"
+
+using namespace glm;
+
+float speed_x = 0; // [radiany/s]
+float speed_y = 0; // [radiany/s]
+
+float aspect=16/9; //Stosunek szerokości do wysokości okna
+
+///GENERACJA GALEZI **********************************
+float** galezie;
+int poziomy;
+///**********************************************
+
+//Uchwyty na shadery
+ShaderProgram *shaderProgram; //Wskaźnik na obiekt reprezentujący program cieniujący.
+
+
+///DANE KONARA **********************************
+float konar_size=0;
+
+GraphicalObject konar;
+
+//Uchwyty na VAO i bufory wierzchołków
+/*GLuint vao;
+GLuint bufVertices; //Uchwyt na bufor VBO przechowujący tablicę współrzędnych wierzchołków
+GLuint bufNormals; //Uchwyt na bufor VBO przechowujący tablicę wektorów normalnych
+GLuint bufTexCoords; //Uchwyt na bufor VBO przechowujący tablicę współrzędnych teksturowania
+
+GLuint tex0;
+
+std::vector< glm::vec4 > verticesKonar;
+std::vector< glm::vec2 > uvsKonar;
+std::vector< glm::vec4 > normalsKonar;
+
+///**********************************************
+
+
+///DANE WYSPY  ********************************
+//Uchwyty na VAO i bufory wierzchołków
+GLuint vao2;
+GLuint bufVertices2; //Uchwyt na bufor VBO przechowujący tablicę współrzędnych wierzchołków
+GLuint bufNormals2; //Uchwyt na bufor VBO przechowujący tablicę wektorów normalnych
+GLuint bufTexCoords2; //Uchwyt na bufor VBO przechowujący tablicę współrzędnych teksturowania
+
+std::vector< glm::vec4 > verticesWyspa;
+std::vector< glm::vec2 > uvsWyspa;
+std::vector< glm::vec4 > normalsWyspa;
+///**********************************************
+
+GLuint tex1;*/
+
+void wybierz_galezie(int gestosc)
+{
+    srand(time(NULL));
+
+    poziomy = 5 + rand()%5;
+    int sloty = 40;
+
+    galezie = new float*[poziomy];
+    for(int i = 0; i < poziomy; i++)
+    galezie[i] = new float[sloty];
+
+    for(int i = 0; i < poziomy; i++)
+        for(int j = 0; j < sloty; j++)
+        {
+            if (rand()%100 <= gestosc) //gestosc to procentowa szansa na to, ze indywidualny slot urodzi galaz xD
+            {
+                //dlugosc zalezy od wysokosci na pniu (0 to najnizej, "poziomy" najwyzej) +- 0-10%
+                galezie[i][j] = ((poziomy - i)*9/10 + (poziomy-i)*(rand()%21)/100)/((poziomy-i)*1.1f);
+            }
+            else galezie[i][j] = 0.0f;
+        }
+}
+
+//Procedura obsługi błędów
+void error_callback(int error, const char* description) {
+	fputs(description, stderr);
+}
+
+//Procedura obsługi klawiatury
+void key_callback(GLFWwindow* window, int key,
+	int scancode, int action, int mods) {
+	if (action == GLFW_PRESS) {
+		if (key == GLFW_KEY_LEFT) speed_y = -3.14;
+		if (key == GLFW_KEY_RIGHT) speed_y = 3.14;
+		if (key == GLFW_KEY_UP) speed_x = -3.14;
+		if (key == GLFW_KEY_DOWN) speed_x = 3.14;
+	}
+
+
+	if (action == GLFW_RELEASE) {
+		if (key == GLFW_KEY_LEFT) speed_y = 0;
+		if (key == GLFW_KEY_RIGHT) speed_y = 0;
+		if (key == GLFW_KEY_UP) speed_x = 0;
+		if (key == GLFW_KEY_DOWN) speed_x = 0;
+	}
+}
+
+//Procedura obługi zmiany rozmiaru bufora ramki
+void windowResize(GLFWwindow* window, int width, int height) {
+    glViewport(0, 0, width, height); //Obraz ma być generowany w oknie o tej rozdzielczości
+    if (height!=0) {
+        aspect=(float)width/(float)height; //Stosunek szerokości do wysokości okna
+    } else {
+        aspect=1;
+    }
+}
+
+//Tworzy bufor VBO z tablicy
+GLuint makeBuffer(void *data, int vertexCount, int vertexSize) {
+	GLuint handle;
+
+	glGenBuffers(1,&handle);//Wygeneruj uchwyt na Vertex Buffer Object (VBO), który będzie zawierał tablicę danych
+	glBindBuffer(GL_ARRAY_BUFFER,handle);  //Uaktywnij wygenerowany uchwyt VBO
+	glBufferData(GL_ARRAY_BUFFER, vertexCount*vertexSize, data, GL_STATIC_DRAW);//Wgraj tablicę do VBO
+
+	return handle;
+}
+
+//Przypisuje bufor VBO do atrybutu
+void assignVBOtoAttribute(ShaderProgram *shaderProgram,const char* attributeName, GLuint bufVBO, int vertexSize) {
+	GLuint location=shaderProgram->getAttribLocation(attributeName); //Pobierz numer slotu dla atrybutu
+	glBindBuffer(GL_ARRAY_BUFFER,bufVBO);  //Uaktywnij uchwyt VBO
+	glEnableVertexAttribArray(location); //Włącz używanie atrybutu o numerze slotu zapisanym w zmiennej location
+	glVertexAttribPointer(location,vertexSize,GL_FLOAT, GL_FALSE, 0, NULL); //Dane do slotu location mają być brane z aktywnego VBO
+}
+
+//Przygotowanie do rysowania pojedynczego obiektu
+void prepareObject(ShaderProgram *shaderProgram, GraphicalObject &object) {
+	//Zbuduj VBO z danymi obiektu do narysowania
+	object.bufVertices=makeBuffer(&object.vertices[0], object.vertices.size(), sizeof(float)*4); //VBO ze współrzędnymi wierzchołków
+	object.bufNormals=makeBuffer(&object.vertices[0], object.vertices.size(), sizeof(float)*4);//VBO z wektorami normalnymi wierzchołków
+	object.bufTexCoords=makeBuffer(&object.uvs[0], object.vertices.size(), sizeof(float)*2);//VBO ze współrzędnymi teksturowania
+
+	//Zbuduj VAO wiążący atrybuty z konkretnymi VBO
+	glGenVertexArrays(1,&object.vao); //Wygeneruj uchwyt na VAO i zapisz go do zmiennej globalnej
+	glBindVertexArray(object.vao); //Uaktywnij nowo utworzony VAO
+
+	assignVBOtoAttribute(shaderProgram,"vertex",object.bufVertices,4); //"vertex" odnosi się do deklaracji "in vec4 vertex;" w vertex shaderze
+	assignVBOtoAttribute(shaderProgram,"normal",object.bufNormals,4); //"normal" odnosi się do deklaracji "in vec4 normal;" w vertex shaderze
+	assignVBOtoAttribute(shaderProgram,"texCoord0",object.bufTexCoords,2); //"texCoord0" odnosi się do deklaracji "in vec2 texCoord0;" w vertex shaderze
+
+	glBindVertexArray(0); //Dezaktywuj VAO
+}
+
+GLuint readTexture(char* filename) {
+  GLuint tex;
+  glActiveTexture(GL_TEXTURE0);
+
+  //Wczytanie do pamięci komputera
+  std::vector<unsigned char> image;   //Alokuj wektor do wczytania obrazka
+  unsigned width, height;   //Zmienne do których wczytamy wymiary obrazka
+  //Wczytaj obrazek
+  unsigned error = lodepng::decode(image, width, height, filename);
+
+  //Import do pamięci karty graficznej
+  glGenTextures(1,&tex); //Zainicjuj jeden uchwyt
+  glBindTexture(GL_TEXTURE_2D, tex); //Uaktywnij uchwyt
+  //Wczytaj obrazek do pamięci KG skojarzonej z uchwytem
+  glTexImage2D(GL_TEXTURE_2D, 0, 4, width, height, 0,
+    GL_RGBA, GL_UNSIGNED_BYTE, (unsigned char*) image.data());
+
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER,GL_LINEAR);
+
+  return tex;
+}
+
+//Procedura inicjująca
+void initOpenGLProgram(GLFWwindow* window) {
+	//************Tutaj umieszczaj kod, który należy wykonać raz, na początku programu************
+	glClearColor(157.0f/255, 196.0f/255, 203.0f/255, 1); //Czyść ekran na czarno
+	glEnable(GL_DEPTH_TEST); //Włącz używanie Z-Bufora
+	glfwSetKeyCallback(window, key_callback); //Zarejestruj procedurę obsługi klawiatury
+    glfwSetFramebufferSizeCallback(window,windowResize); //Zarejestruj procedurę obsługi zmiany rozmiaru bufora ramki
+
+	shaderProgram=new ShaderProgram("vshader.vert",NULL,"fshader.frag"); //Wczytaj program cieniujący
+
+	//tex0=readTexture("bark2.png");
+	//tex1=readTexture("metal_spec.png");
+    konar.texture = readTexture("bark2.png");
+
+	bool res = loadOBJ("konar.obj", konar.vertices, konar.uvs, konar.normals);
+	if(!res){
+        printf("jeblo");
+	}else{
+        printf("nie jeblo");
+	}
+
+	///WYSPA?
+	/*res = loadOBJ("wyspa.obj", verticesWyspa, uvsWyspa, normalsWyspa);
+
+	if(!res){
+        printf("jeblo!!!!!!!!");
+	}else{
+        printf("nie jeblo");
+	}*/
+    ///****
+
+    prepareObject(shaderProgram, konar);
+}
+
+//Zwolnienie zasobów zajętych przez program
+void freeOpenGLProgram() {
+	delete shaderProgram; //Usunięcie programu cieniującego
+
+	/*glDeleteVertexArrays(1,&vao); //Usunięcie vao
+	glDeleteBuffers(1,&bufVertices); //Usunięcie VBO z wierzchołkami
+	glDeleteBuffers(1,&bufNormals); //Usunięcie VBO z wektorami normalnymi
+	glDeleteBuffers(1,&bufTexCoords); //Usunięcie VBO ze współrzednymi teksturowania
+	glDeleteTextures(1,&tex0); //Usunięcie tekstury z tex0
+	glDeleteTextures(1,&tex1); //Usunięcie tekstury z tex1*/
+}
+
+void drawObject(GLuint vao, ShaderProgram *shaderProgram, mat4 mP, mat4 mV, mat4 mM, float angle_x, float angle_y) {
+	//Włączenie programu cieniującego, który ma zostać użyty do rysowania
+	//W tym programie wystarczyłoby wywołać to raz, w setupShaders, ale chodzi o pokazanie,
+	//że mozna zmieniać program cieniujący podczas rysowania jednej sceny
+	shaderProgram->use();
+
+	//Przekaż do shadera macierze P,V i M.
+	//W linijkach poniżej, polecenie:
+	//  shaderProgram->getUniformLocation("P")
+	//pobiera numer slotu odpowiadającego zmiennej jednorodnej o podanej nazwie
+	//UWAGA! "P" w powyższym poleceniu odpowiada deklaracji "uniform mat4 P;" w vertex shaderze,
+	//a mP w glm::value_ptr(mP) odpowiada argumentowi  "mat4 mP;" TYM pliku.
+	//Cała poniższa linijka przekazuje do zmiennej jednorodnej P w vertex shaderze dane z argumentu mP niniejszej funkcji
+	//Pozostałe polecenia działają podobnie.
+	glUniformMatrix4fv(shaderProgram->getUniformLocation("P"),1, false, glm::value_ptr(mP));
+	glUniformMatrix4fv(shaderProgram->getUniformLocation("V"),1, false, glm::value_ptr(mV));
+	glUniformMatrix4fv(shaderProgram->getUniformLocation("M"),1, false, glm::value_ptr(mM));
+	glUniform4fv(shaderProgram->getUniformLocation("light0"),1,glm::value_ptr(vec4(0,cos(angle_x)*0,cos(angle_y)*-1000,1)));
+	//glUniform4fv(shaderProgram->getUniformLocation("light1"),1,glm::value_ptr(vec4(100,1000,1000,1)));
+	glUniform1i(shaderProgram->getUniformLocation("textureMap0"),0); //Powiązanie textureMap0 we fragment shaderze z jednostką teksturowania nr 0
+	//glUniform1i(shaderProgram->getUniformLocation("textureMap1"),1); //Powiązanie textureMap1 we fragment shaderze z jednostką teksturowania nr 1
+
+	//Powiąż teksturę z uchwytem w tex0 z zerową jednostką teksturującą
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D,konar.texture);
+	//Powiąż teksturę z uchwytem w tex1 z zerową jednostką teksturującą
+	//glActiveTexture(GL_TEXTURE1);
+	//glBindTexture(GL_TEXTURE_2D,tex1);
+
+	//Uaktywnienie VAO i tym samym uaktywnienie predefiniowanych w tym VAO powiązań slotów atrybutów z tablicami z danymi
+	glBindVertexArray(vao);
+
+	//Narysowanie obiektu
+	glDrawArrays(GL_TRIANGLES,0,konar.vertices.size());
+
+	//Posprzątanie po sobie (niekonieczne w sumie jeżeli korzystamy z VAO dla każdego rysowanego obiektu)
+	glBindVertexArray(0);
+}
+
+//Procedura rysująca zawartość sceny
+void drawScene(GLFWwindow* window, float angle_x, float angle_y) {
+	//************Tutaj umieszczaj kod rysujący obraz******************l
+
+	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT); //Wykonaj czyszczenie bufora kolorów
+
+	///MACIERZ PERSPEKTYWY ***********************
+	glm::mat4 P = glm::perspective(50 * PI / 180, aspect, 1.0f, 50.0f); //Wylicz macierz rzutowania
+
+	///MACIERZ SWIATA ****************************
+        glm::mat4 V = glm::lookAt(
+            glm::vec3(0.0f, 10.0f, -10.0f), //"eye" vector - skad patrzymy
+            glm::vec3(0.0f, 0.0f, 0.0f), //"center" vector
+            glm::vec3(0.0f, 1.0f, 0.0f)); //"up" vector - gdzie jest gora xD
+        //V=rotate(V,angle_y,vec3(0.0f,1.0f,0.0f)); //obracanie klawiszami
+        //V=rotate(V,angle_x,vec3(1.0f,0.0f,0.0f));
+
+    ///KONAR *************************************
+        glm::mat4 M = glm::mat4(1.0f);
+        M = scale(M,vec3(konar_size,konar_size,konar_size));
+
+        drawObject(konar.vao,shaderProgram,P,V,M,angle_x,angle_y);
+
+
+    ///POZIOMY ***********************************
+    for (int i=0; i < poziomy; i++)
+        for (int j=0; j < 40; j++)
+        {
+            if (galezie[i][j] == 0.0f) continue;
+            float skala = konar_size * galezie[i][j] / 3;
+            float height = (100 + 70 * (i+1)) / galezie[i][j];
+            M = glm::mat4(1.0f);
+            M = scale(M,vec3(skala,skala,skala));
+            M = glm::rotate(M, radians(j*9.0f), glm::vec3(0, 1, 0));
+            M = glm::rotate(M, radians(90.0f), glm::vec3(0, 0, 1));
+            M = translate(M,vec3(height,0,0));
+
+            drawObject(konar.vao,shaderProgram,P,V,M,angle_x,angle_y);
+        }
+    /*for(int i=0;i<10;i++){
+        M = glm::mat4(1.0f);
+        //M = scale(M,vec3(konar_size/3,konar_size/3,konar_size/3));
+        M = scale(M,vec3(konar_size, konar_size, konar_size));
+        M = glm::rotate(M, radians(i*36.0f), glm::vec3(0, 1, 0));
+        M = glm::rotate(M, radians(90.0f), glm::vec3(0, 0, 1));
+        M = translate(M,vec3(height/3,0,0));
+
+        drawObject(vao,shaderProgram,P,V,M);
+    }
+
+    for(int i=0;i<10;i++){
+        M = glm::mat4(1.0f);
+        M = scale(M,vec3(konar_size/6,konar_size/6,konar_size/6));
+        M = glm::rotate(M, radians(i*36.0f), glm::vec3(0, 1, 0));
+        M = glm::rotate(M, radians(90.0f), glm::vec3(0, 0, 1));
+        M = translate(M,vec3(800,0,0));
+
+        drawObject(vao,shaderProgram,P,V,M);
+    }
+
+    for(int i=0;i<10;i++){
+        M = glm::mat4(1.0f);
+        M = scale(M,vec3(konar_size/12,konar_size/12,konar_size/12));
+        M = glm::rotate(M, radians(i*36.0f), glm::vec3(0, 1, 0));
+        M = glm::rotate(M, radians(90.0f), glm::vec3(0, 0, 1));
+        M = translate(M,vec3(2500,0,0));
+
+        drawObject(vao,shaderProgram,P,V,M);
+    }*/
+
+	//Przerzuć tylny bufor na przedni
+	glfwSwapBuffers(window);
+
+}
+
+int dodaj()
+{
+    return 9;
+}
+
+int main(void)
+{
+    ///INIT ***********************************************************
+    /// ***************************************************************
+
+    //glfwWindowHint(GLFW_SAMPLES, 16);
+	GLFWwindow* window; //Wskaźnik na obiekt reprezentujący okno
+
+	glfwSetErrorCallback(error_callback);//Zarejestruj procedurę obsługi błędów
+
+	if (!glfwInit()) { //Zainicjuj bibliotekę GLFW
+		fprintf(stderr, "Nie można zainicjować GLFW.\n");
+		exit(EXIT_FAILURE);
+	}
+
+	window = glfwCreateWindow(1280, 720, "Drzewo", NULL, NULL);  //Utwórz okno 500x500 o tytule "OpenGL" i kontekst OpenGL.
+
+	if (!window) //Jeżeli okna nie udało się utworzyć, to zamknij program
+	{
+		fprintf(stderr, "Nie można utworzyć okna.\n");
+		glfwTerminate();
+		exit(EXIT_FAILURE);
+	}
+
+	glfwMakeContextCurrent(window); //Od tego momentu kontekst okna staje się aktywny i polecenia OpenGL będą dotyczyć właśnie jego.
+	glfwSwapInterval(1); //Czekaj na 1 powrót plamki przed pokazaniem ukrytego bufora
+
+	if (glewInit() != GLEW_OK) { //Zainicjuj bibliotekę GLEW
+		fprintf(stderr, "Nie można zainicjować GLEW.\n");
+		exit(EXIT_FAILURE);
+	}
+
+	initOpenGLProgram(window); //Operacje inicjujące
+
+	/// ***************************************************************
+	/// ***************************************************************
+
+	float angle_x = 0; //Kąt obrotu obiektu
+	float angle_y = 0; //Kąt obrotu obiektu
+
+	glfwSetTime(0); //Wyzeruj licznik czasu
+
+	//Losuj galezie
+	wybierz_galezie(15);
+
+	//Główna pętla
+	while (!glfwWindowShouldClose(window)) //Tak długo jak okno nie powinno zostać zamknięte
+	{
+	    konar_size += glfwGetTime()/1000;
+		angle_x += speed_x*glfwGetTime(); //Zwiększ kąt o prędkość kątową razy czas jaki upłynął od poprzedniej klatki
+		angle_y += speed_y*glfwGetTime(); //Zwiększ kąt o prędkość kątową razy czas jaki upłynął od poprzedniej klatki
+		glfwSetTime(0); //Wyzeruj licznik czasu
+
+		drawScene(window,angle_x,angle_y); //Wykonaj procedurę rysującą
+
+		glfwPollEvents(); //Wykonaj procedury callback w zalezności od zdarzeń jakie zaszły.
+	}
+
+	freeOpenGLProgram();
+
+	glfwDestroyWindow(window); //Usuń kontekst OpenGL i okno
+	glfwTerminate(); //Zwolnij zasoby zajęte przez GLFW
+	exit(EXIT_SUCCESS);
+}

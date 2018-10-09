@@ -1,0 +1,143 @@
+﻿select etat
+from PRACOWNICY
+where extract(year from ZATRUDNIONY)='1992'
+intersect
+select etat
+from PRACOWNICY
+where extract(year from ZATRUDNIONY)='1993';
+
+select id_zesp
+from zespoly
+minus
+select unique ID_ZESP
+from pracownicy p join zespoly z using(id_zesp);
+
+select nazwisko, placa_pod, 'Poniżej 480 zlotych' as prog
+from PRACOWNICY
+where placa_pod<480
+union
+select nazwisko, placa_pod, 'Dokladnie 480 zlotych' as prog
+from PRACOWNICY
+where placa_pod=480
+union
+select nazwisko, placa_pod, 'Powyżej 480 zlotych' as prog
+from PRACOWNICY
+where placa_pod>480;
+
+//----------------------------------------------------------------------//
+
+select NAZWISKO, etat, ID_ZESP
+from pracownicy
+where ID_ZESP=
+(select ID_ZESP from pracownicy where NAZWISKO='BRZEZINSKI');
+
+select NAZWISKO, etat, ZATRUDNIONY
+from pracownicy
+where zatrudniony=
+(select min(ZATRUDNIONY) from PRACOWNICY where etat='PROFESOR')
+and etat='PROFESOR';
+
+select NAZWISKO, ZATRUDNIONY, ID_ZESP
+from pracownicy where (id_zesp,ZATRUDNIONY) in
+(select ID_ZESP, max(zatrudniony) from pracownicy
+group by ID_ZESP)
+order by ZATRUDNIONY;
+
+select id_zesp, nazwa, adres
+from ZESPOLY
+where id_zesp not in
+(select unique id_zesp from pracownicy);
+
+select id_zesp, nazwa, adres
+from zespoly z
+where not exists
+(select 1 from pracownicy p
+where p.id_zesp=z.ID_ZESP);
+
+select nazwisko, placa_pod, etat
+from PRACOWNICY p
+where placa_pod >
+(select avg(placa_pod)
+from pracownicy p2
+where p2.etat=p.etat);
+
+select nazwisko, placa_pod
+from pracownicy p2
+where p2.placa_pod >
+(select placa_pod*0.75
+from pracownicy p1
+where p1.id_prac=p2.id_szefa);
+
+select nazwisko
+from pracownicy p1
+where not exists
+(select 1
+from pracownicy p2
+where p1.id_prac=p2.id_szefa
+and p2.etat = 'STAZYSTA')
+and p1.etat='PROFESOR';
+
+select id_zesp, sum(placa_pod)
+from pracownicy p1
+group by id_zesp
+having sum(placa_pod)=
+(select max(sum(placa_pod))
+from pracownicy p2
+group by id_zesp);
+
+select nazwisko, placa_pod
+from pracownicy p1
+where
+(select count(*)
+from pracownicy p2
+where p1.placa_pod<p2.placa_pod)
+<3;
+
+select unique extract(year from zatrudniony), count(*)
+from pracownicy
+group by extract(year from zatrudniony)
+order by count(*) desc;
+
+select *
+from
+(select unique extract(year from zatrudniony), count(*)
+from pracownicy
+group by extract(year from zatrudniony)
+order by count(*) desc)
+where rownum<=1;
+
+select nazwisko, etat, placa_pod, 
+(select avg(placa_pod)
+from PRACOWNICY p3
+group by etat
+having p3.etat=p1.etat) as "avg(x.placa_pod)"
+from pracownicy p1 join ZESPOLY using(id_zesp)
+where placa_pod<
+(select avg(placa_pod)
+from PRACOWNICY p2
+group by etat
+having p2.etat=p1.etat)
+order by placa_pod desc;
+
+select nazwisko,
+(select count(*)
+from pracownicy p2
+where p2.id_szefa=p1.id_prac) as "podwladni"
+from pracownicy p1 join zespoly using(id_zesp)
+where etat='PROFESOR' and adres like 'PIOTROWO%';
+
+select nazwisko,
+(select avg(placa_pod)
+from pracownicy p2
+group by id_zesp
+having p2.id_zesp=p1.id_zesp) as srednia,
+(select max(placa_pod)
+from pracownicy p3) as maksymalna
+from pracownicy p1
+where etat='PROFESOR';
+
+select nazwisko,
+(select nazwa
+from zespoly z1
+where z1.id_zesp=p1.id_zesp) as zespol
+from pracownicy p1;

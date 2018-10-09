@@ -1,0 +1,79 @@
+create view asystenci (id,nazwisko,placa,staz_pracy) as
+select ID_PRAC,NAZWISKO,PLACA_POD,
+'lat: ' || extract(year from (current_date-ZATRUDNIONY) year to month) ||
+', miesięcy: ' || extract(month from (current_date-ZATRUDNIONY) year to month)
+from PRACOWNICY
+where nazwisko in ('HAPKE','JEZIERSKI','KONOPKA');
+
+select *
+from asystenci order by
+  nazwisko asc ;
+
+create view place(id_zesp,srednia,minimum,maximum,fundusz,l_pensji,l_dodatkow) as
+  select id_zesp,avg(PLACA_POD+coalesce(PLACA_DOD,0)),
+    min(PLACA_POD+coalesce(PLACA_DOD,0)),
+    max(PLACA_POD+coalesce(PLACA_DOD,0)),
+    sum(PLACA_POD+coalesce(PLACA_DOD,0)),
+    count(PLACA_POD), count(PLACA_DOD)
+  from PRACOWNICY
+group by id_zesp;
+
+select *
+from place order by id_zesp asc;
+
+select NAZWISKO, PLACA_POD
+from PRACOWNICY p1
+where PLACA_POD<(select srednia from place p2 where p2.id_zesp=p1.ID_ZESP);
+
+create view place_minimalne as
+select ID_PRAC,NAZWISKO,etat,PLACA_POD from PRACOWNICY
+  where PLACA_POD<700
+  with check option constraint za_wysoka_placa;
+
+select *
+from place_minimalne
+order by NAZWISKO;
+
+update place_minimalne
+set PLACA_POD=800
+where NAZWISKO='HAPKE';
+
+create view prac_szef as
+select p1.ID_PRAC, p1.ID_SZEFA, p1.NAZWISKO as pracownik, p1.ETAT, p2.NAZWISKO as szef
+from PRACOWNICY p1 left join PRACOWNICY p2 on p1.ID_SZEFA = p2.ID_PRAC;
+
+drop view prac_szef;
+
+select *
+from prac_szef order by pracownik;
+
+INSERT INTO PRAC_SZEF (ID_PRAC, ID_SZEFA, PRACOWNIK, ETAT)
+     VALUES (280,150, 'MORZY','ASYSTENT');
+
+UPDATE PRAC_SZEF SET ID_SZEFA = 130 WHERE ID_PRAC = 280;
+
+delete from prac_szef where ID_PRAC=280;
+
+--gorsze rozwiazanie: placa_pod jest kolumna wirtualna przez warunek polaczeniowy
+--create view zarobki as
+--select p1.ID_PRAC, p1.NAZWISKO, p1.ETAT, p1.PLACA_POD
+--from PRACOWNICY p1 left join PRACOWNICY p2 on p1.ID_SZEFA = p2.ID_PRAC
+--where p1.PLACA_POD<p2.PLACA_POD
+--with check option constraint zarobki_wyzsze_od_szefa;
+
+create view zarobki as
+select ID_PRAC, NAZWISKO, ETAT, PLACA_POD from PRACOWNICY p1
+where PLACA_POD<
+(select PLACA_POD from PRACOWNICY p2
+where p1.ID_SZEFA=p2.ID_PRAC)
+with check option constraint zarobki_wyzsze_od_szefa;
+
+select *
+from zarobki order by NAZWISKO;
+
+UPDATE ZAROBKI SET PLACA_POD = 2000
+     WHERE NAZWISKO = 'BIALY';
+
+select *
+from user_updatable_columns
+where table_name='PRAC_SZEF';

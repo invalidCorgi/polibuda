@@ -16,9 +16,9 @@ object Form2: TForm2
   object Label1: TLabel
     Left = 24
     Top = 24
-    Width = 44
+    Width = 88
     Height = 13
-    Caption = 'Nodes-1:'
+    Caption = 'Liczba w'#281'z'#322#243'w - 1:'
   end
   object Label2: TLabel
     Left = 24

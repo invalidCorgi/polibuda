@@ -1,0 +1,1337 @@
+# depslib dependency file v1.0
+1523269921 source:c:\users\temp.csput.001\desktop\pl_szkielet04_win\cube.cpp
+	"cube.h"
+
+1523269921 
+
+1523269921 c:\users\temp.csput.001\desktop\pl_szkielet04_win\cube.h
+	"model.h"
+
+1523269921 c:\users\temp.csput.001\desktop\pl_szkielet04_win\model.h
+	<vector>
+	<glm/glm.hpp>
+	<GLFW/glfw3.h>
+	"constants.h"
+
+1523269926 .h"
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\glm.hpp
+	"detail/_fixes.hpp"
+	"detail/setup.hpp"
+	<cmath>
+	<climits>
+	<cfloat>
+	<limits>
+	<cassert>
+	"fwd.hpp"
+	"vec2.hpp"
+	"vec3.hpp"
+	"vec4.hpp"
+	"mat2x2.hpp"
+	"mat2x3.hpp"
+	"mat2x4.hpp"
+	"mat3x2.hpp"
+	"mat3x3.hpp"
+	"mat3x4.hpp"
+	"mat4x2.hpp"
+	"mat4x3.hpp"
+	"mat4x4.hpp"
+	"trigonometric.hpp"
+	"exponential.hpp"
+	"common.hpp"
+	"packing.hpp"
+	"geometric.hpp"
+	"matrix.hpp"
+	"vector_relational.hpp"
+	"integer.hpp"
+
+1523269922 pp"
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\_fixes.hpp
+	<cmath>
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\setup.hpp
+	<cassert>
+	<cstddef>
+	"../simd/platform.h"
+
+1523269922 latform.h"
+
+1523269926 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\simd\platform.h
+	<cuda.h>
+	<intrin.h>
+	<immintrin.h>
+	<immintrin.h>
+	<popcntintrin.h>
+	<nmmintrin.h>
+	<smmintrin.h>
+	<tmmintrin.h>
+	<pmmintrin.h>
+	<emmintrin.h>
+
+1523269922 .h>
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\fwd.hpp
+	"detail/setup.hpp"
+	"detail/type_int.hpp"
+	"detail/type_float.hpp"
+	"detail/type_vec.hpp"
+	"detail/type_mat.hpp"
+
+1523269922 pe_mat.hpp"
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_int.hpp
+	"setup.hpp"
+	<type_traits>
+	<cstdint>
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_float.hpp
+	"setup.hpp"
+
+1523269921 "
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_vec.hpp
+	"qualifier.hpp"
+	"type_int.hpp"
+	"compute_vector_relational.hpp"
+
+1523269923 ector_relational.hpp"
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\qualifier.hpp
+	"setup.hpp"
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\compute_vector_relational.hpp
+	"setup.hpp"
+	<cstring>
+	<limits>
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_mat.hpp
+	"qualifier.hpp"
+
+1523269923 .hpp"
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\vec2.hpp
+	"detail/setup.hpp"
+	"detail/type_vec2.hpp"
+
+1523269922 pe_vec2.hpp"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_vec2.hpp
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec2.inl"
+
+1523269923 .inl"
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\_swizzle.hpp
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\_swizzle_func.hpp
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_vec2.inl
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\vec3.hpp
+	"detail/setup.hpp"
+	"detail/type_vec3.hpp"
+
+1523269922 pe_vec3.hpp"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_vec3.hpp
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec3.inl"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_vec3.inl
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\vec4.hpp
+	"detail/setup.hpp"
+	"detail/type_vec4.hpp"
+
+1523269922 pe_vec4.hpp"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_vec4.hpp
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec4.inl"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_vec4.inl
+	"type_vec4_simd.inl"
+
+1523269923 _simd.inl"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_vec4_simd.inl
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\mat2x2.hpp
+	"detail/setup.hpp"
+	"detail/type_mat2x2.hpp"
+
+1523269922 pe_mat2x2.hpp"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_mat2x2.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x2.inl"
+
+1523269923 x2.inl"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_mat2x2.inl
+	"../matrix.hpp"
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\matrix.hpp
+	"detail/qualifier.hpp"
+	"detail/setup.hpp"
+	"detail/type_mat.hpp"
+	"vec2.hpp"
+	"vec3.hpp"
+	"vec4.hpp"
+	"mat2x2.hpp"
+	"mat2x3.hpp"
+	"mat2x4.hpp"
+	"mat3x2.hpp"
+	"mat3x3.hpp"
+	"mat3x4.hpp"
+	"mat4x2.hpp"
+	"mat4x3.hpp"
+	"mat4x4.hpp"
+	"detail/func_matrix.inl"
+
+1523269922 nc_matrix.inl"
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\mat2x3.hpp
+	"detail/setup.hpp"
+	"detail/type_mat2x3.hpp"
+
+1523269922 pe_mat2x3.hpp"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_mat2x3.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x3.inl"
+
+1523269923 x3.inl"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_mat2x3.inl
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\mat2x4.hpp
+	"detail/setup.hpp"
+	"detail/type_mat2x4.hpp"
+
+1523269922 pe_mat2x4.hpp"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_mat2x4.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x4.inl"
+
+1523269923 x4.inl"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_mat2x4.inl
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\mat3x2.hpp
+	"detail/setup.hpp"
+	"detail/type_mat3x2.hpp"
+
+1523269922 pe_mat3x2.hpp"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_mat3x2.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x2.inl"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_mat3x2.inl
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\mat3x3.hpp
+	"detail/setup.hpp"
+	"detail/type_mat3x3.hpp"
+
+1523269922 pe_mat3x3.hpp"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_mat3x3.hpp
+	"../fwd.hpp"
+	"type_vec3.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x3.inl"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_mat3x3.inl
+	"../matrix.hpp"
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\mat3x4.hpp
+	"detail/setup.hpp"
+	"detail/type_mat3x4.hpp"
+
+1523269922 pe_mat3x4.hpp"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_mat3x4.hpp
+	"../fwd.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x4.inl"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_mat3x4.inl
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\mat4x2.hpp
+	"detail/setup.hpp"
+	"detail/type_mat4x2.hpp"
+
+1523269922 pe_mat4x2.hpp"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_mat4x2.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x2.inl"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_mat4x2.inl
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\mat4x3.hpp
+	"detail/setup.hpp"
+	"detail/type_mat4x3.hpp"
+
+1523269922 pe_mat4x3.hpp"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_mat4x3.hpp
+	"../fwd.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x3.inl"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_mat4x3.inl
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\mat4x4.hpp
+	"detail/setup.hpp"
+	"detail/type_mat4x4.hpp"
+
+1523269922 pe_mat4x4.hpp"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_mat4x4.hpp
+	"../fwd.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x4.inl"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_mat4x4.inl
+	"../matrix.hpp"
+	"type_mat4x4_simd.inl"
+
+1523269923 x4_simd.inl"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_mat4x4_simd.inl
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\func_matrix.inl
+	"../geometric.hpp"
+	<limits>
+	"func_matrix_simd.inl"
+
+1523269922 ix_simd.inl"
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\geometric.hpp
+	"detail/type_vec3.hpp"
+	"detail/func_geometric.inl"
+
+1523269922 nc_geometric.inl"
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\func_geometric.inl
+	"../exponential.hpp"
+	"../common.hpp"
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"type_float.hpp"
+	"func_geometric_simd.inl"
+
+1523269922 etric_simd.inl"
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\exponential.hpp
+	"detail/type_vec1.hpp"
+	"detail/type_vec2.hpp"
+	"detail/type_vec3.hpp"
+	"detail/type_vec4.hpp"
+	<cmath>
+	"detail/func_exponential.inl"
+
+1523269922 nc_exponential.inl"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_vec1.hpp
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\func_exponential.inl
+	"../vector_relational.hpp"
+	"_vectorize.hpp"
+	<limits>
+	<cmath>
+	<cassert>
+	"func_exponential_simd.inl"
+
+1523269922 nential_simd.inl"
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\vector_relational.hpp
+	"detail/qualifier.hpp"
+	"detail/setup.hpp"
+	"detail/func_vector_relational.inl"
+
+1523269922 nc_vector_relational.inl"
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\func_vector_relational.inl
+	"compute_vector_relational.hpp"
+	"func_vector_relational_simd.inl"
+
+1523269922 or_relational_simd.inl"
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\func_vector_relational_simd.inl
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\_vectorize.hpp
+	"type_vec1.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\func_exponential_simd.inl
+	"../simd/exponential.h"
+
+1523269922 xponential.h"
+
+1523269926 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\simd\exponential.h
+	"platform.h"
+
+1523269926 h"
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\common.hpp
+	"detail/setup.hpp"
+	"detail/qualifier.hpp"
+	"detail/type_int.hpp"
+	"detail/_fixes.hpp"
+	"detail/func_common.inl"
+
+1523269922 nc_common.inl"
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\func_common.inl
+	"../vector_relational.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"_vectorize.hpp"
+	<limits>
+	"func_common_simd.inl"
+
+1523269922 on_simd.inl"
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\func_common_simd.inl
+	"../simd/common.h"
+	<immintrin.h>
+
+1523269926 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\simd\common.h
+	"platform.h"
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\func_geometric_simd.inl
+	"../simd/geometric.h"
+
+1523269922 eometric.h"
+
+1523269926 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\simd\geometric.h
+	"common.h"
+
+1523269921 
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\func_matrix_simd.inl
+	"type_mat4x4.hpp"
+	"../geometric.hpp"
+	"../simd/matrix.h"
+	<cstring>
+
+1523269926 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\simd\matrix.h
+	"geometric.h"
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\trigonometric.hpp
+	"detail/setup.hpp"
+	"detail/qualifier.hpp"
+	"detail/func_trigonometric.inl"
+
+1523269922 nc_trigonometric.inl"
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\func_trigonometric.inl
+	"_vectorize.hpp"
+	<cmath>
+	<limits>
+	"func_trigonometric_simd.inl"
+
+1523269922 onometric_simd.inl"
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\func_trigonometric_simd.inl
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\packing.hpp
+	"detail/type_vec2.hpp"
+	"detail/type_vec4.hpp"
+	"detail/func_packing.inl"
+
+1523269922 nc_packing.inl"
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\func_packing.inl
+	"../common.hpp"
+	"type_half.hpp"
+	"../fwd.hpp"
+	"func_packing_simd.inl"
+
+1523269922 ing_simd.inl"
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_half.hpp
+	"setup.hpp"
+	"type_half.inl"
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_half.inl
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\func_packing_simd.inl
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\integer.hpp
+	"detail/setup.hpp"
+	"detail/qualifier.hpp"
+	"common.hpp"
+	"vector_relational.hpp"
+	"detail/func_integer.inl"
+
+1523269922 nc_integer.inl"
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\func_integer.inl
+	"../ext/vec1.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"type_int.hpp"
+	"_vectorize.hpp"
+	<intrin.h>
+	<limits>
+	"func_integer_simd.inl"
+
+1523269922 ger_simd.inl"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\ext\vec1.hpp
+	"../fwd.hpp"
+	"../detail/type_vec.hpp"
+	"../detail/_swizzle.hpp"
+	"../detail/_swizzle_func.hpp"
+	<cstddef>
+	"../detail/type_vec1.inl"
+
+1523269923 /type_vec1.inl"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\type_vec1.inl
+
+1523269922 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\detail\func_integer_simd.inl
+	"../simd/integer.h"
+
+1523269922 nteger.h"
+
+1523269926 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\simd\integer.h
+
+1523269921 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glfw\include\glfw\glfw3.h
+	<stddef.h>
+	<stdint.h>
+	<OpenGL/gl3.h>
+	<OpenGL/gl3ext.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/glcorearb.h>
+	<GLES/gl.h>
+	<GLES/glext.h>
+	<GLES2/gl2.h>
+	<GLES2/gl2ext.h>
+	<GLES3/gl3.h>
+	<GLES2/gl2ext.h>
+	<GLES3/gl31.h>
+	<GLES2/gl2ext.h>
+	<vulkan/vulkan.h>
+	<GL/gl.h>
+	<GL/glext.h>
+	<GL/glu.h>
+
+1523269921 c:\users\temp.csput.001\desktop\pl_szkielet04_win\constants.h
+
+1523269921 source:c:\users\temp.csput.001\desktop\pl_szkielet04_win\lodepng.cpp
+	"lodepng.h"
+	<stdio.h>
+	<stdlib.h>
+	<fstream>
+
+1523269921 c:\users\temp.csput.001\desktop\pl_szkielet04_win\lodepng.h
+	<string.h>
+	<vector>
+	<string>
+	"lodepng.h"
+	<iostream>
+	"lodepng.h"
+
+1523272831 source:c:\users\temp.csput.001\desktop\pl_szkielet04_win\main_file.cpp
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<stdlib.h>
+	<stdio.h>
+	"constants.h"
+	"allmodels.h"
+	"lodepng.h"
+	"shaderprogram.h"
+
+1523269921 gram.h"
+
+1523269921 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glew\include\gl\glew.h
+	<stddef.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<Availability.h>
+	<OpenGL/glu.h>
+	<GL/glu.h>
+
+1523269924 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\gtc\type_ptr.hpp
+	"../gtc/quaternion.hpp"
+	"../gtc/vec1.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../mat2x2.hpp"
+	"../mat2x3.hpp"
+	"../mat2x4.hpp"
+	"../mat3x2.hpp"
+	"../mat3x3.hpp"
+	"../mat3x4.hpp"
+	"../mat4x2.hpp"
+	"../mat4x3.hpp"
+	"../mat4x4.hpp"
+	<cstring>
+	"type_ptr.inl"
+
+1523269924 inl"
+
+1523269924 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\gtc\quaternion.hpp
+	"../mat3x3.hpp"
+	"../mat4x4.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../gtc/constants.hpp"
+	"quaternion.inl"
+
+1523269924 n.inl"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\gtc\constants.hpp
+	"../detail/setup.hpp"
+	"constants.inl"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\gtc\constants.inl
+	<limits>
+
+1523269924 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\gtc\quaternion.inl
+	"../trigonometric.hpp"
+	"../geometric.hpp"
+	"../exponential.hpp"
+	"../detail/compute_vector_relational.hpp"
+	"epsilon.hpp"
+	<limits>
+	"quaternion_simd.inl"
+
+1523269924 n_simd.inl"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\gtc\epsilon.hpp
+	"../detail/setup.hpp"
+	"../detail/qualifier.hpp"
+	"epsilon.inl"
+
+1523269923 nl"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\gtc\epsilon.inl
+	"quaternion.hpp"
+	"../vector_relational.hpp"
+	"../common.hpp"
+	"../detail/type_vec.hpp"
+
+1523269923 /type_vec.hpp"
+
+1523269924 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\gtc\quaternion_simd.inl
+
+1523269924 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\gtc\vec1.hpp
+	"../ext/vec1.hpp"
+	"vec1.inl"
+
+1523269924 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\gtc\vec1.inl
+
+1523269924 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\gtc\type_ptr.inl
+	<cstring>
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\gtc\matrix_transform.hpp
+	"../mat4x4.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../gtc/constants.hpp"
+	"matrix_transform.inl"
+
+1523269923 ansform.inl"
+
+1523269923 c:\users\temp.csput.001\desktop\pl_szkielet04_win\glm\gtc\matrix_transform.inl
+	"../geometric.hpp"
+	"../trigonometric.hpp"
+	"../matrix.hpp"
+
+1523269921 c:\users\temp.csput.001\desktop\pl_szkielet04_win\allmodels.h
+	"cube.h"
+	"teapot.h"
+
+1523269921 c:\users\temp.csput.001\desktop\pl_szkielet04_win\teapot.h
+	"model.h"
+
+1523269921 c:\users\temp.csput.001\desktop\pl_szkielet04_win\shaderprogram.h
+	"GL/glew.h"
+	"stdio.h"
+
+1523269921 source:c:\users\temp.csput.001\desktop\pl_szkielet04_win\model.cpp
+	"model.h"
+
+1523269921 source:c:\users\temp.csput.001\desktop\pl_szkielet04_win\shaderprogram.cpp
+	"shaderprogram.h"
+
+1523269921 source:c:\users\temp.csput.001\desktop\pl_szkielet04_win\teapot.cpp
+	"teapot.h"
+
+1523466205 source:/home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/cube.cpp
+	"cube.h"
+
+1523466160 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/cube.h
+	"model.h"
+
+1523466199 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/model.h
+	<vector>
+	<glm/glm.hpp>
+	<GLFW/glfw3.h>
+	"constants.h"
+
+1523466270 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/glm.hpp
+	"detail/_fixes.hpp"
+	"detail/setup.hpp"
+	<cmath>
+	<climits>
+	<cfloat>
+	<limits>
+	<cassert>
+	"fwd.hpp"
+	"vec2.hpp"
+	"vec3.hpp"
+	"vec4.hpp"
+	"mat2x2.hpp"
+	"mat2x3.hpp"
+	"mat2x4.hpp"
+	"mat3x2.hpp"
+	"mat3x3.hpp"
+	"mat3x4.hpp"
+	"mat4x2.hpp"
+	"mat4x3.hpp"
+	"mat4x4.hpp"
+	"trigonometric.hpp"
+	"exponential.hpp"
+	"common.hpp"
+	"packing.hpp"
+	"geometric.hpp"
+	"matrix.hpp"
+	"vector_relational.hpp"
+	"integer.hpp"
+
+1523466302 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/_fixes.hpp
+	<cmath>
+
+1523466303 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/setup.hpp
+	<cassert>
+	<cstddef>
+	"../simd/platform.h"
+
+1523466286 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/simd/platform.h
+	<cuda.h>
+	<intrin.h>
+	<immintrin.h>
+	<immintrin.h>
+	<popcntintrin.h>
+	<nmmintrin.h>
+	<smmintrin.h>
+	<tmmintrin.h>
+	<pmmintrin.h>
+	<emmintrin.h>
+
+1523466271 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/fwd.hpp
+	"detail/setup.hpp"
+	"detail/type_int.hpp"
+	"detail/type_float.hpp"
+	"detail/type_vec.hpp"
+	"detail/type_mat.hpp"
+
+1523466294 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_int.hpp
+	"setup.hpp"
+	<type_traits>
+	<cstdint>
+
+1523466302 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_float.hpp
+	"setup.hpp"
+
+1523466292 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_vec.hpp
+	"qualifier.hpp"
+	"type_int.hpp"
+	"compute_vector_relational.hpp"
+
+1523466301 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/qualifier.hpp
+	"setup.hpp"
+
+1523466294 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/compute_vector_relational.hpp
+	"setup.hpp"
+	<cstring>
+	<limits>
+
+1523466305 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_mat.hpp
+	"qualifier.hpp"
+
+1523466285 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/vec2.hpp
+	"detail/setup.hpp"
+	"detail/type_vec2.hpp"
+
+1523466287 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_vec2.hpp
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec2.inl"
+
+1523466304 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/_swizzle.hpp
+
+1523466293 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/_swizzle_func.hpp
+
+1523466300 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_vec2.inl
+
+1523466279 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/vec3.hpp
+	"detail/setup.hpp"
+	"detail/type_vec3.hpp"
+
+1523466289 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_vec3.hpp
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec3.inl"
+
+1523466300 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_vec3.inl
+
+1523466283 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/vec4.hpp
+	"detail/setup.hpp"
+	"detail/type_vec4.hpp"
+
+1523466305 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_vec4.hpp
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec4.inl"
+
+1523466302 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_vec4.inl
+	"type_vec4_simd.inl"
+
+1523466299 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_vec4_simd.inl
+
+1523466273 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/mat2x2.hpp
+	"detail/setup.hpp"
+	"detail/type_mat2x2.hpp"
+
+1523466300 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_mat2x2.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x2.inl"
+
+1523466305 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_mat2x2.inl
+	"../matrix.hpp"
+
+1523466267 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/matrix.hpp
+	"detail/qualifier.hpp"
+	"detail/setup.hpp"
+	"detail/type_mat.hpp"
+	"vec2.hpp"
+	"vec3.hpp"
+	"vec4.hpp"
+	"mat2x2.hpp"
+	"mat2x3.hpp"
+	"mat2x4.hpp"
+	"mat3x2.hpp"
+	"mat3x3.hpp"
+	"mat3x4.hpp"
+	"mat4x2.hpp"
+	"mat4x3.hpp"
+	"mat4x4.hpp"
+	"detail/func_matrix.inl"
+
+1523466284 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/mat2x3.hpp
+	"detail/setup.hpp"
+	"detail/type_mat2x3.hpp"
+
+1523466301 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_mat2x3.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x3.inl"
+
+1523466306 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_mat2x3.inl
+
+1523466279 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/mat2x4.hpp
+	"detail/setup.hpp"
+	"detail/type_mat2x4.hpp"
+
+1523466303 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_mat2x4.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x4.inl"
+
+1523466301 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_mat2x4.inl
+
+1523466281 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/mat3x2.hpp
+	"detail/setup.hpp"
+	"detail/type_mat3x2.hpp"
+
+1523466297 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_mat3x2.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x2.inl"
+
+1523466299 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_mat3x2.inl
+
+1523466285 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/mat3x3.hpp
+	"detail/setup.hpp"
+	"detail/type_mat3x3.hpp"
+
+1523466304 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_mat3x3.hpp
+	"../fwd.hpp"
+	"type_vec3.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x3.inl"
+
+1523466290 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_mat3x3.inl
+	"../matrix.hpp"
+
+1523466261 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/mat3x4.hpp
+	"detail/setup.hpp"
+	"detail/type_mat3x4.hpp"
+
+1523466302 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_mat3x4.hpp
+	"../fwd.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x4.inl"
+
+1523466290 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_mat3x4.inl
+
+1523466254 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/mat4x2.hpp
+	"detail/setup.hpp"
+	"detail/type_mat4x2.hpp"
+
+1523466305 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_mat4x2.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x2.inl"
+
+1523466304 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_mat4x2.inl
+
+1523466283 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/mat4x3.hpp
+	"detail/setup.hpp"
+	"detail/type_mat4x3.hpp"
+
+1523466301 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_mat4x3.hpp
+	"../fwd.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x3.inl"
+
+1523466299 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_mat4x3.inl
+
+1523466284 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/mat4x4.hpp
+	"detail/setup.hpp"
+	"detail/type_mat4x4.hpp"
+
+1523466288 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_mat4x4.hpp
+	"../fwd.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x4.inl"
+
+1523466287 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_mat4x4.inl
+	"../matrix.hpp"
+	"type_mat4x4_simd.inl"
+
+1523466301 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_mat4x4_simd.inl
+
+1523466295 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/func_matrix.inl
+	"../geometric.hpp"
+	<limits>
+	"func_matrix_simd.inl"
+
+1523466284 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/geometric.hpp
+	"detail/type_vec3.hpp"
+	"detail/func_geometric.inl"
+
+1523466303 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/func_geometric.inl
+	"../exponential.hpp"
+	"../common.hpp"
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"type_float.hpp"
+	"func_geometric_simd.inl"
+
+1523466275 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/exponential.hpp
+	"detail/type_vec1.hpp"
+	"detail/type_vec2.hpp"
+	"detail/type_vec3.hpp"
+	"detail/type_vec4.hpp"
+	<cmath>
+	"detail/func_exponential.inl"
+
+1523466296 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_vec1.hpp
+
+1523466300 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/func_exponential.inl
+	"../vector_relational.hpp"
+	"_vectorize.hpp"
+	<limits>
+	<cmath>
+	<cassert>
+	"func_exponential_simd.inl"
+
+1523466284 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/vector_relational.hpp
+	"detail/qualifier.hpp"
+	"detail/setup.hpp"
+	"detail/func_vector_relational.inl"
+
+1523466301 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/func_vector_relational.inl
+	"compute_vector_relational.hpp"
+	"func_vector_relational_simd.inl"
+
+1523466294 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/func_vector_relational_simd.inl
+
+1523466303 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/_vectorize.hpp
+	"type_vec1.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+
+1523466304 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/func_exponential_simd.inl
+	"../simd/exponential.h"
+
+1523466286 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/simd/exponential.h
+	"platform.h"
+
+1523466266 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/common.hpp
+	"detail/setup.hpp"
+	"detail/qualifier.hpp"
+	"detail/type_int.hpp"
+	"detail/_fixes.hpp"
+	"detail/func_common.inl"
+
+1523466302 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/func_common.inl
+	"../vector_relational.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"_vectorize.hpp"
+	<limits>
+	"func_common_simd.inl"
+
+1523466292 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/func_common_simd.inl
+	"../simd/common.h"
+	<immintrin.h>
+
+1523466286 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/simd/common.h
+	"platform.h"
+
+1523466300 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/func_geometric_simd.inl
+	"../simd/geometric.h"
+
+1523466285 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/simd/geometric.h
+	"common.h"
+
+1523466303 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/func_matrix_simd.inl
+	"type_mat4x4.hpp"
+	"../geometric.hpp"
+	"../simd/matrix.h"
+	<cstring>
+
+1523466285 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/simd/matrix.h
+	"geometric.h"
+
+1523466246 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/trigonometric.hpp
+	"detail/setup.hpp"
+	"detail/qualifier.hpp"
+	"detail/func_trigonometric.inl"
+
+1523466305 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/func_trigonometric.inl
+	"_vectorize.hpp"
+	<cmath>
+	<limits>
+	"func_trigonometric_simd.inl"
+
+1523466304 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/func_trigonometric_simd.inl
+
+1523466275 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/packing.hpp
+	"detail/type_vec2.hpp"
+	"detail/type_vec4.hpp"
+	"detail/func_packing.inl"
+
+1523466299 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/func_packing.inl
+	"../common.hpp"
+	"type_half.hpp"
+	"../fwd.hpp"
+	"func_packing_simd.inl"
+
+1523466298 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_half.hpp
+	"setup.hpp"
+	"type_half.inl"
+
+1523466295 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_half.inl
+
+1523466288 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/func_packing_simd.inl
+
+1523466284 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/integer.hpp
+	"detail/setup.hpp"
+	"detail/qualifier.hpp"
+	"common.hpp"
+	"vector_relational.hpp"
+	"detail/func_integer.inl"
+
+1523466306 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/func_integer.inl
+	"../ext/vec1.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"type_int.hpp"
+	"_vectorize.hpp"
+	<intrin.h>
+	<limits>
+	"func_integer_simd.inl"
+
+1523466345 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/ext/vec1.hpp
+	"../fwd.hpp"
+	"../detail/type_vec.hpp"
+	"../detail/_swizzle.hpp"
+	"../detail/_swizzle_func.hpp"
+	<cstddef>
+	"../detail/type_vec1.inl"
+
+1523466288 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/type_vec1.inl
+
+1523466304 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/detail/func_integer_simd.inl
+	"../simd/integer.h"
+
+1523466287 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/simd/integer.h
+
+1523466346 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glfw/include/GLFW/glfw3.h
+	<stddef.h>
+	<stdint.h>
+	<OpenGL/gl3.h>
+	<OpenGL/gl3ext.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/glcorearb.h>
+	<GLES/gl.h>
+	<GLES/glext.h>
+	<GLES2/gl2.h>
+	<GLES2/gl2ext.h>
+	<GLES3/gl3.h>
+	<GLES2/gl2ext.h>
+	<GLES3/gl31.h>
+	<GLES2/gl2ext.h>
+	<vulkan/vulkan.h>
+	<GL/gl.h>
+	<GL/glext.h>
+	<GL/glu.h>
+
+1523466165 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/constants.h
+
+1523466196 source:/home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/lodepng.cpp
+	"lodepng.h"
+	<stdio.h>
+	<stdlib.h>
+	<fstream>
+
+1523466172 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/lodepng.h
+	<string.h>
+	<vector>
+	<string>
+	"lodepng.h"
+	<iostream>
+	"lodepng.h"
+
+1523466162 source:/home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/main_file.cpp
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<stdlib.h>
+	<stdio.h>
+	"constants.h"
+	"allmodels.h"
+	"lodepng.h"
+	"shaderprogram.h"
+
+1523466232 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glew/include/GL/glew.h
+	<stddef.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<Availability.h>
+	<OpenGL/glu.h>
+	<GL/glu.h>
+
+1523466306 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/gtc/type_ptr.hpp
+	"../gtc/quaternion.hpp"
+	"../gtc/vec1.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../mat2x2.hpp"
+	"../mat2x3.hpp"
+	"../mat2x4.hpp"
+	"../mat3x2.hpp"
+	"../mat3x3.hpp"
+	"../mat3x4.hpp"
+	"../mat4x2.hpp"
+	"../mat4x3.hpp"
+	"../mat4x4.hpp"
+	<cstring>
+	"type_ptr.inl"
+
+1523466315 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/gtc/quaternion.hpp
+	"../mat3x3.hpp"
+	"../mat4x4.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../gtc/constants.hpp"
+	"quaternion.inl"
+
+1523466317 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/gtc/constants.hpp
+	"../detail/setup.hpp"
+	"constants.inl"
+
+1523466308 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/gtc/constants.inl
+	<limits>
+
+1523466315 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/gtc/quaternion.inl
+	"../trigonometric.hpp"
+	"../geometric.hpp"
+	"../exponential.hpp"
+	"../detail/compute_vector_relational.hpp"
+	"epsilon.hpp"
+	<limits>
+	"quaternion_simd.inl"
+
+1523466315 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/gtc/epsilon.hpp
+	"../detail/setup.hpp"
+	"../detail/qualifier.hpp"
+	"epsilon.inl"
+
+1523466308 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/gtc/epsilon.inl
+	"quaternion.hpp"
+	"../vector_relational.hpp"
+	"../common.hpp"
+	"../detail/type_vec.hpp"
+
+1523466314 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/gtc/quaternion_simd.inl
+
+1523466310 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/gtc/vec1.hpp
+	"../ext/vec1.hpp"
+	"vec1.inl"
+
+1523466313 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/gtc/vec1.inl
+
+1523466312 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/gtc/type_ptr.inl
+	<cstring>
+
+1523466318 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/gtc/matrix_transform.hpp
+	"../mat4x4.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../gtc/constants.hpp"
+	"matrix_transform.inl"
+
+1523466317 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/glm/gtc/matrix_transform.inl
+	"../geometric.hpp"
+	"../trigonometric.hpp"
+	"../matrix.hpp"
+
+1523466202 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/allmodels.h
+	"cube.h"
+	"teapot.h"
+
+1523466194 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/teapot.h
+	"model.h"
+
+1523466164 /home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/shaderprogram.h
+	"GL/glew.h"
+	"stdio.h"
+
+1523466162 source:/home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/model.cpp
+	"model.h"
+
+1523466160 source:/home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/shaderprogram.cpp
+	"shaderprogram.h"
+
+1523466216 source:/home/invalidcorgi/MEGAsync/polibuda/grafika_komputerowa/pl_szkielet04_win/teapot.cpp
+	"teapot.h"
+

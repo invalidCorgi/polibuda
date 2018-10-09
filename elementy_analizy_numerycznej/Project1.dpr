@@ -5,7 +5,8 @@ uses
   MainUnit in 'MainUnit.pas' {MainFrame},
   DataInput in 'DataInput.pas' {Form2},
   IntervalArithmetic in 'IntervalArithmetic.pas',
-  NewtonCoefficientsAndValues in 'NewtonCoefficientsAndValues.pas';
+  NewtonCoefficientsAndValues in 'NewtonCoefficientsAndValues.pas',
+  NewtonCoefficientsAndValuesInterval in 'NewtonCoefficientsAndValuesInterval.pas';
 
 {$R *.res}
 

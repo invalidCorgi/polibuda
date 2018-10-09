@@ -1,0 +1,148 @@
+create table projekty
+(id_projektu NUMBER(4) GENERATED ALWAYS AS IDENTITY,
+opis_projektu varchar(20),
+data_rozpoczecia date default sysdate,
+data_zakonczenia date,
+fundusz number(7,2));
+
+create table projekty3
+(id_projektu NUMBER(4) GENERATED ALWAYS AS IDENTITY,
+opis_projektu varchar(20),
+data_rozpoczecia date default sysdate,
+data_zakonczenia date,
+fundusz number(7,2));
+
+drop table projekty3;
+
+select * from user_tab_identity_cols;
+
+insert into projekty(opis_projektu,data_rozpoczecia,data_zakonczenia,fundusz)
+values ('Indeksy bitmapowe',TO_DATE('1999-04-02','YYYY-MM-DD'),TO_DATE('2001-08-31','YYYY-MM-DD'),25000);
+
+insert into projekty(opis_projektu,fundusz)
+values ('Sieci kręgosłupowe',19000);
+
+select * from projekty;
+
+insert into projekty(opis_projektu,data_rozpoczecia,data_zakonczenia,fundusz)
+values ('Indeksy drzewiaste',TO_DATE('2013-12-24','YYYY-MM-DD'),TO_DATE('2014-01-01','YYYY-MM-DD'),1200);
+
+update projekty set id_projektu=10 where opis_projektu='Indeksy drzewiaste';
+
+create table projekty_kopia as select * from projekty;
+
+insert into projekty_kopia(id_projektu,opis_projektu,data_rozpoczecia,data_zakonczenia,fundusz)
+values (10,'Sieci lokalne',sysdate,sysdate+365,24500);
+
+select * from projekty_kopia;
+
+delete from projekty where opis_projektu='Indeksy drzewiaste';
+
+select table_name from tabs;
+
+---------------------------
+
+alter table projekty add constraint pk_projekty primary key(id_projektu);
+
+alter table projekty add constraint uk_projekty unique(opis_projektu);
+
+alter table projekty modify opis_projektu not null;
+
+alter table projekty add constraint chk_daty check(data_zakonczenia > data_rozpoczecia);
+
+alter table projekty add constraint chk_fundusz check(fundusz>0);
+
+alter table projekty modify fundusz not null;
+
+select * from user_constraints;
+
+insert into projekty(opis_projektu,data_rozpoczecia,data_zakonczenia,fundusz)
+    values ('Indeksy bitmapowe',to_date('2015-04-12','YYYY-MM-DD'),to_date('2016-09-30','YYYY-MM-DD'),40000);
+
+create table przydzialy(
+  id_projektu NUMBER(4) not null constraint fk_przydzialy_01 references projekty(id_projektu),
+  nr_pracownika number(6) not null constraint fk_przydzialy_02 references PRACOWNICY(ID_PRAC),
+  od date default sysdate,
+  do date,
+  stawka number(7,2) constraint chk_przydzialy_stawka check(stawka>0),
+  rola varchar(20) constraint chk_przydzialy_rola check (rola in ('KIERUJĄCY','ANALITYK','PROGRAMISTA')),
+  constraint chk_przydzialy_daty check (do>od),
+  constraint pk_przydzialy primary key(id_projektu,nr_pracownika));
+
+insert into przydzialy (id_projektu, nr_pracownika, od, do, stawka, rola)
+values ((select projekty.id_projektu from projekty where opis_projektu='Indeksy bitmapowe'),
+170,to_date('1999-04-10','YYYY-MM-DD'),to_date('1999-05-10','YYYY-MM-DD'),1000,'KIERUJĄCY');
+
+insert into przydzialy (id_projektu, nr_pracownika, od, stawka, rola)
+values ((select projekty.id_projektu from projekty where opis_projektu='Indeksy bitmapowe'),
+140,to_date('2000-12-01','YYYY-MM-DD'),1500,'ANALITYK');
+
+insert into przydzialy (id_projektu, nr_pracownika, od, stawka, rola)
+values ((select projekty.id_projektu from projekty where opis_projektu='Sieci kręgosłupowe'),
+140,to_date('2015-09-14','YYYY-MM-DD'),2500,'KIERUJĄCY');
+
+select * from przydzialy;
+
+alter table przydzialy
+add godziny number not null constraint chk_przydzialy_godziny check (godziny<=9999);
+
+
+alter table przydzialy
+add godziny number;
+
+update przydzialy set godziny=8;
+
+alter table przydzialy
+modify godziny not null;
+
+alter table przydzialy
+add constraint chk_przydzialy_godziny check (godziny<=9999);
+
+alter table projekty disable unique(opis_projektu);
+
+select constraint_name, status from user_constraints
+where constraint_name='UK_PROJEKTY';
+
+insert into projekty(opis_projektu,data_rozpoczecia,data_zakonczenia,fundusz)
+    values ('Indeksy bitmapowe',to_date('2015-04-12','YYYY-MM-DD'),
+    to_date('2016-09-30','YYYY-MM-DD'),40000);
+
+select * from projekty;
+
+alter table projekty enable unique(opis_projektu);
+
+update projekty
+set opis_projektu='Inne indeksy'
+where id_projektu=41;
+
+alter table projekty
+modify opis_projektu varchar(10);
+
+delete from projekty
+where opis_projektu='Sieci kręgosłupowe';
+
+alter table przydzialy drop constraint fk_przydzialy_01;
+
+alter table przydzialy
+add constraint fk_przydzialy_01
+foreign key (id_projektu)
+references projekty(id_projektu) on delete cascade;
+
+select *
+from projekty;
+
+select *
+from przydzialy;
+
+drop table projekty cascade constraints;
+
+select *
+from user_constraints
+where table_name='PRZYDZIALY';
+
+drop table przydzialy;
+
+drop table projekty_kopia;
+
+select *
+from tabs;

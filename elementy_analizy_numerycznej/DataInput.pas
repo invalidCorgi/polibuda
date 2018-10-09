@@ -1,4 +1,4 @@
-unit DataInput;
+﻿unit DataInput;
 
 interface
 
@@ -50,28 +50,33 @@ begin
   if Key = 13 then
   begin
     n := StrToInt(Edit1.Text);
-    if numberType = 0 then
+    if n >= 0 then
     begin
-      SetLength(tabE[0], n+1);
-      SetLength(tabE[1], n+1);
+      if numberType = 0 then
+      begin
+        SetLength(tabE[0], n+1);
+        SetLength(tabE[1], n+1);
+      end else
+      begin
+        SetLength(tabI[0], n+1);
+        SetLength(tabI[1], n+1);
+      end;
+      Edit1.Text := '';
+      if numberType = 2 then
+      begin
+        Label2.Caption := 'x[0].lewy=';
+        Label3.Caption := 'f[0].prawy=';
+      end else
+      begin
+        Label2.Caption := 'x[0]=';
+        Label3.Caption := 'f[0]=';
+      end;
+      nEntered := True;
+      SelectNext(ActiveControl, True, True);
     end else
     begin
-      SetLength(tabI[0], n+1);
-      SetLength(tabI[1], n+1);
+      ShowMessage('Podaj całkowitą liczbę nieujemną');
     end;
-    MainFrame.Edit1.Text := IntToStr(n);
-    Edit1.Text := '';
-    if numberType = 2 then
-    begin
-      Label2.Caption := 'x[0].lewy=';
-      Label3.Caption := 'f[0].prawy=';
-    end else
-    begin
-      Label2.Caption := 'x[0]=';
-      Label3.Caption := 'f[0]=';
-    end;
-    nEntered := True;
-    SelectNext(ActiveControl, True, True);
   end;
 end;
 
@@ -106,7 +111,6 @@ begin
       end;
     end;
     Edit2.Text := '';
-    MainUnit.MainFrame.UpdateMemo();
     if n2 = n+1 then
     begin
       SelectNext(ActiveControl, True, True);
@@ -150,7 +154,7 @@ begin
       end;
     end;
     Edit3.Text := '';
-    MainUnit.MainFrame.UpdateMemo();
+    {MainUnit.MainFrame.UpdateMemo();}
     if n3 = n+1 then
     begin
       SelectNext(ActiveControl, True, True);

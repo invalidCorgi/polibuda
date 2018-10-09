@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, IntervalArithmetic, DataInput,
-  NewtonCoefficientsAndValues;
+  NewtonCoefficientsAndValues, NewtonCoefficientsAndValuesInterval;
 
 type
   TMainFrame = class(TForm)
@@ -16,13 +16,13 @@ type
     Button1: TButton;
     Button2: TButton;
     Memo1: TMemo;
+    Label2: TLabel;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure RadioGroup2Click(Sender: TObject);
   private
     { Private declarations }
   public
-    procedure UpdateMemo();
     { Public declarations }
   end;
 
@@ -44,6 +44,7 @@ var outCoefficientsExtended : TArray<Extended>;
     outCoefficientsInterval : TArray<Interval>;
     outValueInterval : Interval;
     pointInterval : interval;
+    st : Integer;
 
 procedure TMainFrame.Button1Click(Sender: TObject);
 begin
@@ -53,8 +54,15 @@ begin
   n5 := 0;
   numberType := RadioGroup2.ItemIndex;
   dataReady := False;
-  DataInput.Form2.Label2.Caption := 'x[i]';
-  DataInput.Form2.Label3.Caption := 'f[i]';
+  if numberType <> 2 then
+  begin
+    DataInput.Form2.Label2.Caption := 'x[0]=';
+    DataInput.Form2.Label3.Caption := 'f[0]=';
+  end else
+  begin
+    DataInput.Form2.Label2.Caption := 'x[0].lewy=';
+    DataInput.Form2.Label3.Caption := 'f[0].lewy=';
+  end;
   DataInput.Form2.ShowModal;
 end;
 
@@ -72,45 +80,67 @@ begin
       if RadioGroup1.ItemIndex = 0 then
       begin
         SetLength(outCoefficientsExtended, Length(tabE[1]));
-        outCoefficientsExtended := NewtonCoefficientsExtended(n, tabE[0], tabE[1]);
-        Memo1.Text := 'Współczynniki wielomianu od największego wykładnika:' + sLineBreak;
-        for i:=Low(outCoefficientsExtended) to High(outCoefficientsExtended) do
-        begin
-          Memo1.Text := Memo1.Text + 'a['+IntToStr(i)+']=' + FloatToStrF(outCoefficientsExtended[i], ffExponent, 17, 4) + sLineBreak;
+        outCoefficientsExtended := NewtonCoefficientsExtended(n, tabE[0], tabE[1], st);
+        case st of
+          0:begin
+              Memo1.Text := 'Współczynniki wielomianu od największego wykładnika:' + sLineBreak;
+              for i:=Low(outCoefficientsExtended) to High(outCoefficientsExtended) do
+              begin
+                Memo1.Text := Memo1.Text + 'a['+IntToStr(i)+']=' + StringReplace(FloatToStrF(outCoefficientsExtended[i], ffExponent, 17, 4),',','.',[rfReplaceAll]) + sLineBreak;
+              end;
+            end;
+          1:Memo1.Text := 'liczba węzłow nie jest dodatnia';
+          2:Memo1.Text := 'istnieją dwa takie same x';
         end;
       end else
       begin
         pointExtended := StrToFloat(Edit1.Text);
-        outValueExtended := NewtonValueExtended(n, tabE[0], tabE[1], pointExtended);
-        Memo1.Text := 'Wartość dla x=' + FloatToStrF(pointExtended, ffExponent, 17, 4)+ ':' + sLineBreak + FloatToStrF(outValueExtended, ffExponent, 17, 4);
+        outValueExtended := NewtonValueExtended(n, tabE[0], tabE[1], pointExtended, st);
+        case st of
+          0:Memo1.Text := 'Wartość dla x=' + StringReplace(FloatToStrF(pointExtended, ffExponent, 17, 4)+ ':' + sLineBreak + FloatToStrF(outValueExtended, ffExponent, 17, 4),',','.',[rfReplaceAll]);
+          1:Memo1.Text := 'liczba węzłow nie jest dodatnia';
+          2:Memo1.Text := 'istnieją dwa takie same x';
+        end;
       end;
     end else
     begin
       if RadioGroup1.ItemIndex = 0 then
       begin
         SetLength(outCoefficientsInterval, Length(tabI[1]));
-        outCoefficientsInterval := NewtonCoefficientsInterval(n, tabI[0], tabI[1]);
-        Memo1.Text := 'Współczynniki wielomianu od największego wykładnika:' + sLineBreak;
-        for i:=Low(outCoefficientsInterval) to High(outCoefficientsInterval) do
-        begin
-          iends_to_strings(outCoefficientsInterval[i],left, right);
-          Memo1.Text := Memo1.Text + 'a['+IntToStr(i)+']=[' + left;
-          Memo1.Text := Memo1.Text + ', ' + right + ']' + sLineBreak;
-          Memo1.Text := Memo1.Text + 'szerokość przedziału a['+IntToStr(i)+']=' + FloatToStrF(int_width(outCoefficientsInterval[i]), ffExponent, 4, 4) + sLineBreak;
+        outCoefficientsInterval := NewtonCoefficientsInterval(n, tabI[0], tabI[1], st);
+        case st of
+          0:begin
+            Memo1.Text := 'Współczynniki wielomianu od największego wykładnika:' + sLineBreak;
+            for i:=Low(outCoefficientsInterval) to High(outCoefficientsInterval) do
+            begin
+              iends_to_strings(outCoefficientsInterval[i],left, right);
+              Memo1.Text := Memo1.Text + 'a['+IntToStr(i)+']=[' + left;
+              Memo1.Text := Memo1.Text + ', ' + right + ']' + sLineBreak;
+              Memo1.Text := Memo1.Text + 'szerokość przedziału a['+IntToStr(i)+']=' + StringReplace(FloatToStrF(int_width(outCoefficientsInterval[i]), ffExponent, 4, 4),',','.',[rfReplaceAll]) + sLineBreak;
+            end;
+          end;
+          1:Memo1.Text := 'liczba węzłow nie jest dodatnia';
+          2:Memo1.Text := 'istnieją dwa takie same x';
         end;
       end else
       begin
         pointInterval := int_read(Edit1.Text);
-        outValueInterval := NewtonValueInterval(n, tabI[0], tabI[1], pointInterval);
-        iends_to_strings(pointInterval,left,right);
-        Memo1.Text := 'Wartość dla x:' + sLineBreak + '[' + left;
-        Memo1.Text := Memo1.Text + ', ' + right + ']' + sLineBreak;
-        Memo1.Text := Memo1.Text + 'szerokość przedziału x=' + FloatToStrF(int_width(pointInterval), ffExponent, 4, 4) + sLineBreak + sLineBreak;
+        outValueInterval := NewtonValueInterval(n, tabI[0], tabI[1], pointInterval, st);
+        case st of
+          0:begin
+            iends_to_strings(pointInterval,left,right);
+            Memo1.Text := 'Wartość dla x:' + sLineBreak + '[' + left;
+            Memo1.Text := Memo1.Text + ', ' + right + ']' + sLineBreak;
+            Memo1.Text := Memo1.Text + 'szerokość przedziału x=' + StringReplace(FloatToStrF(int_width(pointInterval), ffExponent, 4, 4),',','.',[rfReplaceAll]) + sLineBreak + sLineBreak;
 
-        iends_to_strings(outValueInterval,left,right);
-        Memo1.Text := Memo1.Text + 'Wynosi:' + sLineBreak + '[' + left;
-        Memo1.Text := Memo1.Text + ', ' + right + ']' + sLineBreak;
-        Memo1.Text := Memo1.Text + 'szerokość przedziału x=' + FloatToStrF(int_width(outValueInterval), ffExponent, 4, 4);
+            iends_to_strings(outValueInterval,left,right);
+            Memo1.Text := Memo1.Text + 'Wynosi:' + sLineBreak + '[' + left;
+            Memo1.Text := Memo1.Text + ', ' + right + ']' + sLineBreak;
+            Memo1.Text := Memo1.Text + 'szerokość przedziału x=' + StringReplace(FloatToStrF(int_width(outValueInterval), ffExponent, 4, 4),',','.',[rfReplaceAll]);
+          end;
+          1:Memo1.Text := 'liczba węzłow nie jest dodatnia';
+          2:Memo1.Text := 'istnieją dwa takie same x';
+        end;
       end;
     end;
   end;
@@ -122,38 +152,6 @@ begin
   numberType := RadioGroup2.ItemIndex;
   dataReady := false;
 
-end;
-
-procedure TMainFrame.UpdateMemo();
-var i : Integer;
-    e : Extended;
-begin
-  Memo1.Text := IntToStr(n) +  sLineBreak;
-  Memo1.Text := Memo1.Text + IntToStr(n2) + sLineBreak;
-  if numberType = 0 then
-    begin
-    for e in tabE[0] do
-    begin
-      Memo1.Text := Memo1.Text + FloatToStr(e) + sLineBreak;
-    end;
-    for e in tabE[1] do
-    begin
-      Memo1.Text := Memo1.Text + FloatToStr(e) + sLineBreak;
-    end;
-  end;
-  if numberType = 1 then
-  begin
-    for i:=Low(tabI[0]) to High(tabI[0]) do
-    begin
-      Memo1.Text := Memo1.Text + 'lewy: ' + FloatToStrF(tabI[0][i].a, ffExponent, 17, 4) + sLineBreak;
-      Memo1.Text := Memo1.Text + 'prawy: ' + FloatToStrF(tabI[0][i].b, ffExponent, 17, 4) + sLineBreak;
-      Memo1.Text := Memo1.Text + 'szerokość: ' + FloatToStrF(int_width(tabI[0][i]), ffExponent, 17, 4) + sLineBreak;
-    end;
-    {for i in tabE[1] do
-    begin
-      Memo1.Text := Memo1.Text + FloatToStr(i) + sLineBreak;
-    end;}
-  end;
 end;
 
 end.

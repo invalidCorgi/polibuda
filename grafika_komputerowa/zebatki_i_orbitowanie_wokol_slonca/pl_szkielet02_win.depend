@@ -1704,7 +1704,7 @@
 1487675316 d:\mega\polibuda\grafika_komputerowa\zebatki_i_orbitowanie_wokol_slonca\detailed_cube.h
 	"model.h"
 
-1521657490 source:d:\mega\polibuda\grafika_komputerowa\zebatki_i_orbitowanie_wokol_slonca\main_file.cpp
+1522060584 source:d:\mega\polibuda\grafika_komputerowa\zebatki_i_orbitowanie_wokol_slonca\main_file.cpp
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	<glm/glm.hpp>
